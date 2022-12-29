@@ -25,7 +25,7 @@ $ iwctl
 # pacman -S neovim python git sudo networkmanager
 ```
 #### Config
-``
+```
 # EDITOR=/usr/bin/nvim
 ```
 #### User Management
@@ -39,7 +39,7 @@ $ iwctl
 ```
 # systemctl enable NetworkManager.service
 ```
-*Connect to wifi with nmcli*
+**Connect to wifi with nmcli**
 ```
 $ nmcli device wifi list
 $ nmcli device wifi connect <wifi_name> password <wifi_passwd>
@@ -72,7 +72,7 @@ $ xdg-user-dirs-update
 
 * Add Persian keyboard layout
 ```
-/etc/X11/xorg.conf.d/00-keyboard.conf
+$ sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf
 
 Section "InputClass"
         Identifier "system-keyboard"
@@ -88,10 +88,14 @@ font config will come here ...
 ```
 * Qtile useful commands
 ```
-qtile cmd-obj -o cmd -f restart
-qtile cmd-obj -o cmd -f reload_config
+$ qtile cmd-obj -o cmd -f restart
+$ qtile cmd-obj -o cmd -f reload_config
 ```
-
+* Zsh: Custom dir for the dots & use it in tty
+```
+$ sudo nvim /etc/zsh/zprofile
+$ export ZDOTDIR=/home/saeed/.config/zsh
+```
 ### Install Apps
 ```
 $ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3 
@@ -114,6 +118,7 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Window Manager: Qtile
 * Terminal: Kitty
 * Shell: Zsh
+* Term Multiplexer: Tmux
 * App Launcher: rofi
 * Editor: Neovim
 * Editor2: VS Code
