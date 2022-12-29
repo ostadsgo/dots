@@ -22,7 +22,7 @@ $ iwctl
 ### Arch Post Install
 #### Apps
 ```
-# pacman -S neovim git sudo networkmanager
+# pacman -S neovim python git sudo networkmanager
 ```
 #### Config
 ``
@@ -45,21 +45,65 @@ $ nmcli device wifi list
 $ nmcli device wifi connect <wifi_name> password <wifi_passwd>
 ```
 
-## Setup Xorg
-### Xorg
+## Setup Xorg and WM
+### Xorg + WM
 ```
-$ sudo pacman -S xorg-server xorg-xinit
+$ sudo pacman -S xorg-server xorg-xinit xorg-xinput
+
+# sound system
+$ sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
+
+# Graphic card use built-in!!!
+
+# Window Manager
+$ sudo pacman -S qtile noto-fonts
 ```
 
+### Config
+* qtile: `$ sudo pacman -S qtile`
+* xinitrc: `$ echo "qtile start" >> .xinitrc`
+* run: `$ startx`
+* disable touch pad: `$ xinput disable "AlpsPS/2 ALPS GlidePoint"`
+
+* Add Persian keyboard layout
+```
+/etc/X11/xorg.conf.d/00-keyboard.conf
+
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us,ir"
+        Option "XkbModel" "pc104"
+        Option "XkbOptions" "grp:alt_shift_toggle"
+EndSection
+```
+* Font config
+```
+font config will come here ...
+```
+### Install Apps
+```
+$ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3
+``
+
+## Manage Dotfiles
+```
+$ git init --bare $HOME/.dotfiles.git
+$ echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
+$ source ~/.zshrc
+$ dotfiles config --local status.showUntrackedFiles no
+```
+[Link to full article](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html)
 
 
-
-## Applications
-
-### Zsh
-
-### Neovim
-
-### Qtile
-
+## Apps
+* Window Manager: Qtile
+* Terminal: Kitty
+* Shell: Zsh
+* Editor: Neovim
+* Editor2: VS Code
+* Browser: Firefox
+* File Manager: PcmanFM
+* Background: Feh
+* 
 
