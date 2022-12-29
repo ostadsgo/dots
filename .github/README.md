@@ -64,6 +64,11 @@ $ sudo pacman -S qtile noto-fonts
 * xinitrc: `$ echo "qtile start" >> .xinitrc`
 * run: `$ startx`
 * disable touch pad: `$ xinput disable "AlpsPS/2 ALPS GlidePoint"`
+* Home folder
+```
+$ sudo pacman -S xdg-user-dirs
+$ xdg-user-dirs-update
+```
 
 * Add Persian keyboard layout
 ```
