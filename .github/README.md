@@ -83,7 +83,8 @@ font config will come here ...
 ```
 ### Install Apps
 ```
-$ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3
+$ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3 
+$ sudo pacman -S rofi openssh picom
 ``
 
 ## Manage Dotfiles
@@ -100,10 +101,11 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Window Manager: Qtile
 * Terminal: Kitty
 * Shell: Zsh
+* App Launcher: rofi
 * Editor: Neovim
 * Editor2: VS Code
 * Browser: Firefox
 * File Manager: PcmanFM
 * Background: Feh
-* 
+* Compositor: picom
 
