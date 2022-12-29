@@ -81,11 +81,18 @@ EndSection
 ```
 font config will come here ...
 ```
+* Qtile useful commands
+```
+qtile cmd-obj -o cmd -f restart
+qtile cmd-obj -o cmd -f reload_config
+```
+
 ### Install Apps
 ```
 $ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3 
 $ sudo pacman -S rofi openssh picom zip unzip xarchiver
-$ sudo pacman -S python-pip tk
+$ sudo pacman -S python-pip tk reflector tmux
+$ sudo pacman -S noto-fonts-emoji ttf-font-awesome
 ```
 
 ## Manage Dotfiles
