@@ -84,8 +84,9 @@ font config will come here ...
 ### Install Apps
 ```
 $ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3 
-$ sudo pacman -S rofi openssh picom
-``
+$ sudo pacman -S rofi openssh picom zip unzip xarchiver
+$ sudo pacman -S python-pip tk
+```
 
 ## Manage Dotfiles
 ```
