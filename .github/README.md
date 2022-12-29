@@ -1,7 +1,6 @@
 ## Arch
----------
 
-#### Connect to Wifi
+### Connect to Wifi
 ```
 $ iwctl
 #[iwd] device list
@@ -12,30 +11,31 @@ $ iwctl
 *Check connection*
 `ping -c 5 archlinux.org`
 
-#### Arch Pre Install
+### Arch Pre Install
 ```
 # reflector --country Iran,Denmark,Germany --sort rate --save /etc/pacman.d/mirrorlist
 # pacman -Sy archlinux-keyring
 ```
+### Install Arch
 [Arch installation guid](https://wiki.archlinux.org/title/installation_guide)
 
-#### Arch Post Install
-##### Apps
+### Arch Post Install
+#### Apps
 ```
 # pacman -S neovim git sudo networkmanager
 ```
-##### Config
-```
+#### Config
+``
 # EDITOR=/usr/bin/nvim
 ```
-##### User Management
+#### User Management
 ```
 # useradd -m saeed
 # usermod -aG wheel,audio,video,storage,optical saeed
 # passwd 
 # visduo    # uncomment `Wheel ALL(ALL=ALL)` 
 ```
-##### Network Management
+#### Network Management
 ```
 # systemctl enable NetworkManager.service
 ```
@@ -45,7 +45,11 @@ $ nmcli device wifi list
 $ nmcli device wifi connect <wifi_name> password <wifi_passwd>
 ```
 
-
+## Setup Xorg
+### Xorg
+```
+$ sudo pacman -S xorg-server xorg-xinit
+```
 
 
 
