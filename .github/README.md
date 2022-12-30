@@ -102,6 +102,7 @@ $ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3
 $ sudo pacman -S rofi openssh picom zip unzip xarchiver
 $ sudo pacman -S python-pip tk reflector tmux
 $ sudo pacman -S noto-fonts-emoji ttf-font-awesome
+$ sudo pacman -S starship
 ```
 
 ## Manage Dotfiles
