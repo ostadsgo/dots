@@ -44,7 +44,7 @@ telescope.setup {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-      },
+     },
 
       n = {
         ["<esc>"] = actions.close,
@@ -78,7 +78,7 @@ telescope.setup {
         ["?"] = actions.which_key,
       },
     },
-  },
+},
   pickers = {
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {

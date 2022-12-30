@@ -46,6 +46,7 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "numToStr/Comment.nvim" -- Easily comment stuff
+    use "lukas-reineke/indent-blankline.nvim" -- Indentation guide 
 
     -- colorschemes
     use "folke/tokyonight.nvim" -- Tokyo night theme.
@@ -61,7 +62,6 @@ return packer.startup(function(use)
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
-
 
  if PACKER_BOOTSTRAP then
         require("packer").sync()
