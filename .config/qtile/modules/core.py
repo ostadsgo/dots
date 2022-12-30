@@ -12,8 +12,8 @@ c = color(gruvbox)
 #     GROUP
 # ------------------
 groups = [
-    Group(name="1", label=""),
-    Group(name="2", label="", layout="max", matches=[Match(wm_class="firefox")]),
+    Group(name="1", label=""),
+    Group(name="2", label="", layout="max", matches=[Match(wm_class="firefox")]),
     Group(name="3", label=""),
     Group(name="9", label=""),
     Group(name="0", label=""),
@@ -101,14 +101,14 @@ bar_widgets = [
     # Worksapces
     # --------------
     widget.GroupBox(
-        active=c["green1"],
+        active=c["green0"],
         inactive=c["black1"],
         other_current_screen_border=c["green1"],
         other_screen_border=c["black1"],
         highlight_method="text",
         this_current_screen_border=c["green1"],
         this_screen_border=c["black0"],
-        fontsize=16,
+        fontsize=18,
     ),
     widget.Spacer(),
     right_arrow(c["black0"], c["magenta0"]),
@@ -127,5 +127,5 @@ bar1 = bar.Bar(bar_widgets1, background=c["black0"], size=20)
 bar2 = bar.Bar(bar_widgets2, background=c["black0"], size=24)
 
 # Screens
-screen1 = Screen(top=bar1)
+screen1 = Screen(bottom=bar1)
 screen2 = Screen(bottom=bar2)

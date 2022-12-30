@@ -30,3 +30,5 @@ zsh_add_plugin "agkozak/zsh-z"
 zsh_add_file "aliases.zsh"
 zsh_add_file "exports.zsh"
 zsh_add_file "vi-mode.zsh"
+#zsh_add_file "prompts/default.zsh-theme"
+
