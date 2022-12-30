@@ -22,7 +22,7 @@ keymap("n", "<Leader>a", "gg<S-v>G", opts) -- select entire file
 
 keymap("n", "<leader>o", "o<ESC>", opts) -- Empty line blow
 keymap("n", "<leader>O", "O<ESC>", opts) -- Empty line above
-keymap("n", ",<Leader>", ":nohlsearch<CR>", opts) -- No highlight
+keymap("n", "<Leader>,", ":nohl<CR>", opts) -- No highlight
 keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- open explorer
 
 
