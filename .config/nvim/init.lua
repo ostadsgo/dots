@@ -2,4 +2,6 @@ require("modules/options")
 require("modules/keymaps")
 require("modules/plugins")
 require("modules/colorscheme")
-
+require("modules/comment")
+require("modules/treesitter")
+require("modules/telescope")

@@ -1,9 +1,8 @@
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
-
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+local keyset = vim.keymap.set
+local telescope = require('telescope.builtin')
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -25,14 +24,6 @@ keymap("n", "<leader>O", "O<ESC>", opts) -- Empty line above
 keymap("n", "<Leader>,", ":nohl<CR>", opts) -- No highlight
 keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- open explorer
 
-
--- Telescope
-keymap("n", "<Leader>t", "<cmd>Telescope live_grep<cr>", opts) -- search for word
-keymap("n", "<Leader>=", "<cmd>Format<CR>", opts) -- format document
-keymap("n", "<leader>f",
-    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>"
-    , opts)
-
 -- CTRL
 keymap("n", "<C-Up>", ":resize +2<CR>", opts) -- resize split
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -43,8 +34,11 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts) -- next buffer
 keymap("n", "<S-h>", ":bprevious<CR>", opts) -- previous buffer
 
-
-
+-- Telescope
+keyset('n', '<leader>ff', telescope.find_files, {})
+keyset('n', '<leader>fg', telescope.live_grep, {})
+keyset('n', '<leader>fb', telescope.buffers, {})
+keyset('n', '<leader>fh', telescope.help_tags, {})
 ----------------------
 -- INSERT      
 ----------------------

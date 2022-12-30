@@ -98,11 +98,12 @@ $ export ZDOTDIR=/home/saeed/.config/zsh
 ```
 ### Install Apps
 ```
-$ sudo pacman -S kitty zsh firefox feh pcmanfm-gtk3 
+$ sudo pacman -S base-devl kitty zsh firefox feh pcmanfm-gtk3 
 $ sudo pacman -S rofi openssh picom zip unzip xarchiver
 $ sudo pacman -S python-pip tk reflector tmux
 $ sudo pacman -S noto-fonts-emoji ttf-font-awesome
 $ sudo pacman -S starship ttf-nerd-fonts-symbols-common
+$ sudo pacman -S ripgrep fd
 ```
 
 ## Manage Dotfiles

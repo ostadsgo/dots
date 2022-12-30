@@ -52,6 +52,17 @@ return packer.startup(function(use)
     use "LunarVim/onedarker"
     use "morhetz/gruvbox"
 
+    -- Treesitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    }
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+
  if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
