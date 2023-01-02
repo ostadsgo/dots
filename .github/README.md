@@ -8,7 +8,7 @@ $ iwctl
 #[iwd] station <device_name> connect <network_name>
 # network-password:
 ```
-*Check connection*
+** Check connection **
 `ping -c 5 archlinux.org`
 
 ### Arch Pre Install
@@ -24,12 +24,9 @@ $ iwctl
 ```
 # pacman -S neovim python git sudo networkmanager
 ```
-#### Config
-```
-# EDITOR=/usr/bin/nvim
-```
 #### User Management
 ```
+# EDITOR=/usr/bin/nvim
 # useradd -m saeed
 # usermod -aG wheel,audio,video,storage,optical saeed
 # passwd 
@@ -39,10 +36,12 @@ $ iwctl
 ```
 # systemctl enable NetworkManager.service
 ```
-**Connect to wifi with nmcli**
+**Connect/disconnect to wifi with nmcli**
 ```
+$ nmcli device status
 $ nmcli device wifi list
 $ nmcli device wifi connect <wifi_name> password <wifi_passwd>
+# nmcli device discconect <divce_name>
 ```
 
 ## Setup Xorg and WM
@@ -56,10 +55,18 @@ $ sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
 # Graphic card use built-in!!!
 
 # Window Manager
-$ sudo pacman -S qtile noto-fonts
+$ sudo pacman -S qtile noto-fonts tamsyn-font
 ```
 
 ### Config
+* tty font config
+```
+$ showconsolefont            # display avilable fonts
+$ setfont <bitmap_font_name.postfix>
+# Perment font setting font console.
+$ nvim /etc/vconsole.conf
+FONT=<bitmap-font-name>
+```
 * qtile: `$ sudo pacman -S qtile`
 * xinitrc: `$ echo "qtile start" >> .xinitrc`
 * run: `$ startx`
@@ -69,7 +76,6 @@ $ sudo pacman -S qtile noto-fonts
 $ sudo pacman -S xdg-user-dirs
 $ xdg-user-dirs-update
 ```
-
 * Add Persian keyboard layout
 ```
 $ sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf
@@ -91,10 +97,15 @@ font config will come here ...
 $ qtile cmd-obj -o cmd -f restart
 $ qtile cmd-obj -o cmd -f reload_config
 ```
-* Zsh: Custom dir for the dots & use it in tty
+* Zsh: custom config path
 ```
+$ chsh -s /usr/bin/zsh
 $ sudo nvim /etc/zsh/zprofile
 $ export ZDOTDIR=/home/saeed/.config/zsh
+```
+* Scrot: Take screenshot
+```
+$ scrot -d 3 ~/Screenshots/%Y-%m-%d-%T-screenshot.png
 ```
 ### Install Apps
 ```
@@ -103,7 +114,7 @@ $ sudo pacman -S rofi openssh picom zip unzip xarchiver
 $ sudo pacman -S python-pip tk reflector tmux
 $ sudo pacman -S noto-fonts-emoji ttf-font-awesome
 $ sudo pacman -S starship ttf-nerd-fonts-symbols-common
-$ sudo pacman -S ripgrep fd
+$ sudo pacman -S ripgrep fd sqlite node npm tk tree scrot
 ```
 
 ## Manage Dotfiles

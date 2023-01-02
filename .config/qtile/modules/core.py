@@ -12,26 +12,26 @@ c = color(gruvbox)
 #     GROUP
 # ------------------
 groups = [
-    Group(name="1", label=" "),
+    Group(name="1", label=" "),
     Group(name="2", label=" ", layout="max", matches=[Match(wm_class="firefox")]),
-    Group(name="3", label=" "),
-    Group(name="9", label=" "),
-    Group(name="0", label=" "),
+    Group(name="3", label=" "),
+    Group(name="9", label="  "),
+    Group(name="0", label=" "),
 ]
 
 # ------------------
-#     LAYOUT
+#     LAYOUTS
 # ------------------
 layouts = [
-    # Column Layout
     layout.Columns(
         border_focus=c["green0"],
-        border_normal=c["black0"],
+        border_normal=c["white0"],
         border_width=3,
-        border_focus_stack=c["green1"],
+        border_focus_stack=c["green0"],
+        border_normal_stack=c["cyan0"],
         margin=5,
     ),
-    # Max Layout
+
     layout.Max(),
 ]
 
@@ -42,6 +42,7 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
+        Match(wm_class="tk"),  # tkinter
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
@@ -50,7 +51,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ],
     border_focus=c["white0"],
-    border_normal="#000000ff",
+    border_normal=c["black0"],
     border_width=3,
 )
 
@@ -104,7 +105,7 @@ bar_widgets = [
         highlight_method="text",
         fontsize=18,
         active=c["white1"],    # Not empty WS
-        inactive=c["black1"],  # Empty WS
+        inactive=c["white0"],  # Empty WS
         this_current_screen_border=c["green1"], # Current working ws
         urgent_border=c["black0"],
         urget_text=c["red1"]
