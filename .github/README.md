@@ -140,3 +140,9 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Background: Feh
 * Compositor: picom
 
+## Note
+*What is the difference between creating autostart file on wm rather than
+put .xinitrc*
+With autostart when wm got reload all application will be reseted but in 
+.xinitrc we must reset X11 to reset all applications. Autostart method are useful
+on reloading picom and dunst when we config them.

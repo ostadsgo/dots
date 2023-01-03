@@ -13,10 +13,10 @@ c = color(gruvbox)
 # ------------------
 groups = [
     Group(name="1", label=" "),
-    Group(name="2", label=" ", layout="max", matches=[Match(wm_class="firefox")]),
-    Group(name="3", label=" "),
-    Group(name="9", label="  "),
-    Group(name="0", label=" "),
+Group(name="2", label=" ", layout="max", matches=[Match(wm_class="firefox")]),
+Group(name="3", label=" ", layout="monadtall"),
+Group(name="9", label="  "),
+Group(name="0", label=" "),
 ]
 
 # ------------------
@@ -25,14 +25,23 @@ groups = [
 layouts = [
     layout.Columns(
         border_focus=c["green0"],
-        border_normal=c["white0"],
-        border_width=3,
+        border_normal=c["black0"],
+        border_width=2,
         border_focus_stack=c["green0"],
         border_normal_stack=c["cyan0"],
         margin=5,
     ),
 
-    layout.Max(),
+    layout.MonadTall(
+        border_focus=c["green0"],
+        border_normal=c["black0"],
+        max_ratio=.65,
+        single_border_width=0,
+        border_width=2,
+        margin=5,
+    ),
+
+        layout.Max(),
 ]
 
 # ---------------------
@@ -52,7 +61,7 @@ floating_layout = layout.Floating(
     ],
     border_focus=c["white0"],
     border_normal=c["black0"],
-    border_width=3,
+    border_width=2,
 )
 
 # ---------------------

@@ -1,6 +1,5 @@
 from modules import binding
 from modules import core
-from modules import hooks
 
 # ---------------
 #   Bindings
@@ -33,4 +32,3 @@ auto_minimize = True
 wl_input_rules = None
 wmname = "Qtile"
 
-hooks.autostart()

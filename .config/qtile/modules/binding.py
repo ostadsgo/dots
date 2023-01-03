@@ -18,18 +18,23 @@ keys = [
     Key(WIN, "j", lazy.layout.down()),
     Key(WIN, "k", lazy.layout.up()),
     Key(WIN, "space", lazy.layout.next()),
+    Key(WIN_SHT, "space", lazy.layout.flip()),
     # Move window position
     Key(WIN_SHT, "h", lazy.layout.shuffle_left()),
     Key(WIN_SHT, "l", lazy.layout.shuffle_right()),
     Key(WIN_SHT, "k", lazy.layout.shuffle_up()),
     Key(WIN_SHT, "j", lazy.layout.shuffle_down()),
+    Key(WIN_SHT, "Return", lazy.layout.toggle_split()),
     # Grow window
     Key(WIN_CTRL, "h", lazy.layout.grow_left()),
     Key(WIN_CTRL, "l", lazy.layout.grow_right()),
     Key(WIN_CTRL, "j", lazy.layout.grow_down()),
     Key(WIN_CTRL, "k", lazy.layout.grow_up()),
     Key(WIN, "n", lazy.layout.normalize()),
-    Key(WIN_SHT, "Return", lazy.layout.toggle_split()),
+    Key(WIN, "m", lazy.layout.maximize()),
+    Key(WIN, "o", lazy.layout.grow()),
+    Key(WIN, "i", lazy.layout.shrink()),
+
     # Qtile specific
     Key(WIN_CTRL, "r", lazy.reload_config()),
     Key(WIN_CTRL, "q", lazy.shutdown()),
@@ -48,16 +53,16 @@ keys = [
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
     Key(WIN, "Tab", lazy.screen.toggle_group()),
-    Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN, "1", lazy.group["1"].toscreen()),
     Key(WIN, "2", lazy.group["2"].toscreen()),
     Key(WIN, "3", lazy.group["3"].toscreen()),
     Key(WIN, "9", lazy.group["9"].toscreen()),
-    Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=True)),
+    Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=True)),
     Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=True)),
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=True)),
     Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=True)),
+    Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=True)),
 ]
 
 # Mouse bindings
