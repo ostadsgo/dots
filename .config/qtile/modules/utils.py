@@ -2,10 +2,11 @@ import os
 
 # Modifiers
 SUPER = "mod4"
-ALT = "mod1"
+MOD1 = "mod1"
 
 # shortcut set
 WIN = ["mod4"]
+ALT = ["mod1"]
 WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 

@@ -7,7 +7,7 @@ from libqtile.config import Key, Drag, Click
 from libqtile.lazy import lazy
 
 # user modules
-from .utils import WIN, WIN_CTRL, WIN_SHT, TERMINAL
+from .utils import WIN, ALT, WIN_CTRL, TERMINAL
 
 
 # Keyboard bindings
@@ -34,13 +34,12 @@ keys = [
     Key(WIN, "m", lazy.layout.maximize()),
     Key(WIN, "o", lazy.layout.grow()),
     Key(WIN, "i", lazy.layout.shrink()),
-
     # Qtile specific
     Key(WIN_CTRL, "r", lazy.reload_config()),
     Key(WIN_CTRL, "q", lazy.shutdown()),
     # Run specific program
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
-    Key(WIN, "p", lazy.spawn("rofi -show")),
+    Key(ALT, "shift_l", lazy.spawn("kblayout")),
     # Window commands
     Key(WIN, "w", lazy.window.kill()),
     Key(WIN, "f", lazy.window.toggle_floating()),
