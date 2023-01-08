@@ -114,7 +114,7 @@ $ sudo pacman -S rofi openssh picom zip unzip xarchiver
 $ sudo pacman -S python-pip tk reflector tmux
 $ sudo pacman -S noto-fonts-emoji ttf-font-awesome
 $ sudo pacman -S starship ttf-nerd-fonts-symbols-common
-$ sudo pacman -S ripgrep fd sqlite node npm tk tree scrot
+$ sudo pacman -S ripgrep fd sqlite node npm tk tree scrot xsel
 ```
 
 ## Manage Dotfiles
@@ -146,3 +146,14 @@ put .xinitrc*
 With autostart when wm got reload all application will be reseted but in 
 .xinitrc we must reset X11 to reset all applications. Autostart method are useful
 on reloading picom and dunst when we config them.
+
+Use package manager of each language to install linter and formater for nvim
+Which used by the null-ls and lsp to fromat and lint the file.
+For example 
+```
+pip install black pylint
+cargo install stylua
+sudo npm isntall -g eslint pritter
+```
+
+

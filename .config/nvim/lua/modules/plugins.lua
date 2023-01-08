@@ -46,18 +46,41 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "numToStr/Comment.nvim" -- Easily comment stuff
-    use "lukas-reineke/indent-blankline.nvim" -- Indentation guide 
 
     -- colorschemes
     use "folke/tokyonight.nvim" -- Tokyo night theme.
     use "LunarVim/onedarker"
     use "morhetz/gruvbox"
 
+    -- cmp plugins
+    use "hrsh7th/nvim-cmp" 
+    use "hrsh7th/cmp-buffer" 
+    use "hrsh7th/cmp-path" 
+    use "hrsh7th/cmp-cmdline" 
+    use "saadparwaiz1/cmp_luasnip" 
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lua"
+
+    -- snippets
+    use "L3MON4D3/LuaSnip" 
+    use "rafamadriz/friendly-snippets" 
+
+    -- LSP
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+    use 'neovim/nvim-lspconfig'
+
+    -- formatting & linting
+  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+
+    -- Telescope
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }

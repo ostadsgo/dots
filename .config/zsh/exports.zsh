@@ -14,3 +14,4 @@ export STARSHIP_CONFIG=$ZDOTDIR/prompts/starship.toml
 # Extend path
 path+=$HOME/.local/bin
 path+=$HOME/.local/bin/scripts
+path+=$HOME/.cargo/bin
