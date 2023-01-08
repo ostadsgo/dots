@@ -51,6 +51,7 @@ return packer.startup(function(use)
     use "folke/tokyonight.nvim" -- Tokyo night theme.
     use "LunarVim/onedarker"
     use "morhetz/gruvbox"
+    use { 'bluz71/vim-moonfly-colors', branch = 'cterm-compat' }
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" 

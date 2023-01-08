@@ -1,0 +1,3 @@
+#! /usr/bin/sh
+
+fm6000 -f ~/.local/bin/scripts/logo.txt -c green -d Qtile -nd

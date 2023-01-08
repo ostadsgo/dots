@@ -118,3 +118,31 @@ tokyonight = {
     "color7": "#c0caf5",
     "color15": "#c0caf5",
 }
+
+# 3024dark
+t_3024dark = {
+    # black
+    "color0": "#090200",
+    "color8": "#5b5754",
+    # Red
+    "color1": "#da2c20",
+    "color9": "#e8bacf",
+    # Green
+    "color2": "#00a152",
+    "color10": "#3a3332",
+    # Yellow
+    "color3": "#fcec02",
+    "color11": "#494542",
+    # Blue
+    "color4": "#00a0e4",
+    "color12": "#7f7c7b",
+    # Magenta
+    "color5": "#a06994",
+    "color13": "#d6d4d3",
+    # Cyan
+    "color6": "#b5e4f4",
+    "color14": "#ccab53",
+    # White
+    "color7": "#a4a1a1",
+    "color15": "#f7f7f7",
+}

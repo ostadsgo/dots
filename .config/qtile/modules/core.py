@@ -2,21 +2,21 @@ from libqtile import layout, bar, widget
 from libqtile.config import Screen, Group, Match
 
 
-from .colors import color, gruvbox
+from .colors import color, t_3024dark
 
 
 # color for layout and screen widgets
-c = color(gruvbox)
+c = color(t_3024dark)
 
 # ------------------
 #     GROUP
 # ------------------
 groups = [
     Group(name="1", label=" "),
-Group(name="2", label=" ", layout="max", matches=[Match(wm_class="firefox")]),
-Group(name="3", label=" ", layout="monadtall"),
-Group(name="9", label="  "),
-Group(name="0", label=" "),
+    Group(name="2", label=" ", layout="max", matches=[Match(wm_class="firefox")]),
+    Group(name="3", label=" ", layout="monadtall"),
+    Group(name="9", label="  "),
+    Group(name="0", label=" "),
 ]
 
 # ------------------
@@ -31,17 +31,15 @@ layouts = [
         border_normal_stack=c["cyan0"],
         margin=5,
     ),
-
     layout.MonadTall(
         border_focus=c["green0"],
         border_normal=c["black0"],
-        max_ratio=.65,
+        max_ratio=0.65,
         single_border_width=0,
         border_width=2,
         margin=5,
     ),
-
-        layout.Max(),
+    layout.Max(),
 ]
 
 # ---------------------
@@ -69,12 +67,6 @@ floating_layout = layout.Floating(
 # ---------------------
 def sep(bg):
     return widget.Sep(background=bg, padding=10, linewidth=0)
-
-
-def python_icon(bg_color, fg_color):
-    return widget.TextBox(
-        text="\ue235", padding=0, fontsize=24, background=bg_color, foreground=fg_color
-    )
 
 
 def left_arrow(bg_color, fg_color):
@@ -113,11 +105,11 @@ bar_widgets = [
     widget.GroupBox(
         highlight_method="text",
         fontsize=18,
-        active=c["white1"],    # Not empty WS
+        active=c["white1"],  # Not empty WS
         inactive=c["white0"],  # Empty WS
-        this_current_screen_border=c["green1"], # Current working ws
+        this_current_screen_border=c["green0"],  # Current working ws
         urgent_border=c["black0"],
-        urget_text=c["red1"]
+        urget_text=c["red1"],
     ),
     widget.Spacer(),
     right_arrow(c["black0"], c["magenta0"]),

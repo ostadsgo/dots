@@ -1,7 +1,7 @@
 
 HISTFILE=$HOME/.config/zsh/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 
 # beeping is annoying
@@ -9,7 +9,6 @@ unsetopt BEEP
 setopt HIST_IGNORE_ALL_DUPS 
 setopt HIST_IGNORE_SPACE
 setopt autocd		# Automatically cd into typed directory.
-stty stop undef		# Disable ctrl-s to freeze terminal.
 
 autoload -U colors && colors	    # Load colors
 autoload -U compinit && compinit    # auto complete
