@@ -22,13 +22,22 @@ keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- open explorer
 keymap("n", "<leader>l", ":bnext<CR>", opts) -- next buffer
 keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
 
+-- copy to system clipboard
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("n", "<leader>Y", '"+Y', opts)
+
+-- delete without saving at clipboard
+keymap("n", "<leader>d", '"_d', opts)
+keymap("v", "<leader>d", '"_d', opts)
+
 -- CTRL
 keymap("n", "<C-h>", "<C-w>h", opts) -- focus left split
 keymap("n", "<C-j>", "<C-w>j", opts) -- focus bottom split
 keymap("n", "<C-k>", "<C-w>k", opts) -- focus top split
 keymap("n", "<C-l>", "<C-w>l", opts) -- focus right split
-
-keymap("n", "<C-Up>", ":resize +2<CR>", opts) -- resize split
+-- resize split
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)

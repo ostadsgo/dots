@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Code
+GenericName=Visual Studio Code
+TryExec=code
+Exec=code %F
+Type=Application
+Keywords=Text;editor;
+Icon=/opt/VSCode-linux-x64/resources/app/resources/linux/code.png
+Categories=Utility;TextEditor;
+StartupNotify=false

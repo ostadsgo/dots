@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=IDLE
+GenericName=Python default editor
+TryExec=idle
+Exec=idle %F
+Type=Application
+Keywords=Text;editor;
+Icon=/usr/lib/python3.10/idlelib/Icons/idle_48.png
+Categories=Utility;TextEditor;
+StartupNotify=false

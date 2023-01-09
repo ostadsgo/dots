@@ -5,6 +5,8 @@ local options = {
 	-- clipboard = {"unnamedplus"},
 	-- more space in the neovim command line for displaying messages
 	cmdheight = 1,
+	-- don't change cursor shape in insert mode
+	guicursor = "",
 	-- mostly just for cmp
 	completeopt = { "menuone", "noselect" },
 	-- so that `` is visible in markdown files
@@ -42,7 +44,7 @@ local options = {
 	-- more colors
 	termguicolors = true,
 	-- faster completion (4000ms default)
-	updatetime = 300,
+	updatetime = 50,
 	-- if a file is being edited by another program
 	writebackup = false,
 	-- convert tabs to spaces
@@ -62,7 +64,7 @@ local options = {
 	-- set number column width to 2 {default 4}
 	numberwidth = 4,
 	-- always show the sign column, otherwise it would shift the text each time
-	--signcolumn = "yes",
+	-- signcolumn = "yes",
 	-- display lines as one long line
 	wrap = false,
 	-- is one of my fav
@@ -77,6 +79,8 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+-- transparent background
+vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
