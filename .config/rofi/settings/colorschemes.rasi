@@ -15,4 +15,4 @@
 
 /* Import color-scheme from `colors` directory */
 
-@import "~/.config/rofi/colorschemes/gruvbox.rasi"
+@import "~/.config/rofi/colorschemes/3024.rasi"
