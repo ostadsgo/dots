@@ -21,7 +21,7 @@ alias ip='ip --color'
 
 
 # Python aliases
-alias py=python $1
+alias py=python
 alias venv='python -m venv .venv'
 alias vact='source .venv/bin/activate'
 alias dact=deactivate

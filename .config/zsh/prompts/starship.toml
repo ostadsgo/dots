@@ -1,109 +1,47 @@
-[aws]
-symbol = "  "
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
 
-[buf]
-symbol = " "
+# Inserts a blank line between shell prompts
+add_newline = true
 
-[c]
-symbol = " "
+# # Prompt
+format = '''
+[┌─╼](bold green)[\[](bold green) $directory$rust$nodejs$c$python$lua$golang[\]](bold green)$git_branch $cmd_duration
+$character'''
 
-[conda]
-symbol = " "
+# ~/.config/starship.toml
 
-[dart]
-symbol = " "
+[character]
+success_symbol = '[└─────╼](bold green)'
+error_symbol = '[└─────╼](bold red)'
+vimcmd_symbol = '[└─────](bold green)'
 
 [directory]
 read_only = " "
+truncation_length = 3
+truncation_symbol = '…/'
+style="bold blue"
+
+
+[git_branch]
+format = '[──────\( ](bold green)on [$symbol$branch(:$remote_branch)]($style)[ \)](bold green)'
 
 [docker_context]
 symbol = " "
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[git_branch]
-symbol = " "
 
 [golang]
 symbol = " "
 
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = "⌘ "
-
 [hg_branch]
 symbol = " "
 
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
 [lua]
 symbol = " "
-
-[memory_usage]
-symbol = " "
-
-[meson]
-symbol = "喝 "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
+format = 'via [$symbol(${version})]($style) '
 
 [nodejs]
 symbol = " "
-
-[os.symbols]
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "﯑ "
-Gentoo = " "
-HardenedBSD = "ﲊ "
-Illumos = " "
-Linux = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = " "
-openSUSE = " "
-OracleLinux = " "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = " "
-Solus = "ﴱ "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = " "
 
 [package]
 symbol = " "
@@ -111,17 +49,6 @@ symbol = " "
 [python]
 symbol = " "
 
-[rlang]
-symbol = "ﳒ "
-
-[ruby]
-symbol = " "
-
 [rust]
 symbol = " "
 
-[scala]
-symbol = " "
-
-[spack]
-symbol = "🅢 "
