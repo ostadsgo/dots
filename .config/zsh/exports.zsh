@@ -17,3 +17,4 @@ export GOPATH=$XDG_DATA_HOME/go
 path+=$HOME/.local/bin
 path+=$HOME/.local/bin/scripts
 path+=$HOME/.cargo/bin
+fpath+=$ZDOTDIR/plugins/zsh-completions/src

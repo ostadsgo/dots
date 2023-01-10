@@ -63,7 +63,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias g=git
 alias gst='g status'
 alias gad='g add'
+alias gaa='g add -A'
 alias gcm='g commit -m'
+alias gbr='g branch'
 alias gpu='g push'
 alias gsw='g switch'
 

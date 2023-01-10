@@ -1,0 +1,46 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+# Inserts a blank line between shell prompts
+add_newline = false
+
+right_format='$cmd_duration'
+# Prompt
+format = '$directory$python$golang$rust$node$luagit_branch$character'
+
+[character]
+success_symbol = '[ ](green)'
+error_symbol = '[ ](red)'
+vimcmd_symbol = '[ ](yellow)' 
+
+[directory]
+read_only = " "
+truncation_length = 3
+truncation_symbol = '…/'
+style="bold blue"
+
+[docker_context]
+symbol = " "
+
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[lua]
+symbol = " "
+format = 'via [$symbol(${version})]($style) '
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "
+
