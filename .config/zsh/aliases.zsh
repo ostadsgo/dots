@@ -3,8 +3,8 @@
 # General aliases
 alias sx=startx
 alias ls='ls --color'
-alias la='ls -A --color'
-alias ll='ls -alth --color'
+alias la='ls -A'
+alias ll='ls -alth'
 alias vim=nvim
 alias ka=killall
 alias reboot='sudo reboot now'
@@ -17,7 +17,12 @@ alias ping="ping -c 5"
 alias pingarch="ping archlinux.org"
 alias pingnet="ping 8.8.8.8"
 alias ip='ip --color'
+# Apps
+alias open=pcmanfm
 
+# record screen
+alias record='ffmpeg -framerate 25 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
+alias recordt='ffmpeg -framerate 25 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 ~/videos/records/%Y-%m-%d-%T.mkv'
 
 
 # Python aliases

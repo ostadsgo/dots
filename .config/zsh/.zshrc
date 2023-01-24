@@ -1,11 +1,13 @@
 
-HISTFILE=$HOME/.config/zsh/.histfile
+HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
 
 # beeping is annoying
 unsetopt BEEP
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_ALL_DUPS 
 setopt HIST_IGNORE_SPACE
 setopt autocd		# Automatically cd into typed directory.
