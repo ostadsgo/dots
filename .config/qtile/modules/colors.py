@@ -146,3 +146,36 @@ t_3024dark = {
     "color7": "#a4a1a1",
     "color15": "#f7f7f7",
 }
+
+tomorrow = {
+    # black
+    "color0": "#000000",
+    "color8": "#424242",
+    # red
+    "color1": "#d44d53",
+    "color9": "#d44d53",
+
+    # green
+    "color2": "#b9c949",
+    "color10": "#b9c949",
+
+    # yellow
+    "color3": "#e6c446",
+    "color11": "#e6c446",
+
+    # blue
+    "color4": "#79a6da",
+    "color12": "#79a6da",
+
+    # magenta
+    "color5": "#c396d7",
+    "color13": "#c396d7",
+
+    # cyan
+    "color6": "#70c0b1",
+    "color14": "#70c0b1",
+
+    # white
+    "color7": "#fffefe",
+    "color15": "#fffefe",
+}

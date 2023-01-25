@@ -40,8 +40,13 @@ keys = [
     # Run specific program
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
     Key(WIN, "p", lazy.spawn("rofi -show")),
-    Key(ALT, "shift_l", lazy.spawn("kblayout")),
-    # Window commands
+    Key(
+        ALT,
+        "shift_l",
+        lazy.widget["keyboardlayout"].next_keyboard(),
+        lazy.spawn("kblayout"),
+    ),
+    # Window command
     Key(WIN, "w", lazy.window.kill()),
     Key(WIN, "f", lazy.window.toggle_floating()),
     # Screen specific

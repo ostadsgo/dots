@@ -2,11 +2,11 @@ from libqtile import layout, bar, widget
 from libqtile.config import Screen, Group, Match
 
 
-from .colors import color, t_3024dark
+from .colors import color, tomorrow
 
 
 # color for layout and screen widgets
-c = color(t_3024dark)
+c = color(tomorrow)
 
 # ------------------
 #     GROUP
@@ -25,11 +25,11 @@ groups = [
 layouts = [
     layout.Columns(
         border_focus=c["green0"],
-        border_normal=c["black0"],
-        border_width=2,
+        border_normal=c["black0"] + "00",
+        border_width=3,
         border_focus_stack=c["green0"],
         border_normal_stack=c["cyan0"],
-        margin=5,
+        margin=3,
     ),
     layout.MonadTall(
         border_focus=c["green0"],
@@ -37,7 +37,7 @@ layouts = [
         max_ratio=0.65,
         single_border_width=0,
         border_width=2,
-        margin=5,
+        margin=3,
     ),
     layout.Max(),
 ]
@@ -71,13 +71,13 @@ def sep(bg):
 
 def left_arrow(bg_color, fg_color):
     return widget.TextBox(
-        text="\ue0b8", padding=0, fontsize=24, background=bg_color, foreground=fg_color
+        text="\ue0b8", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
     )
 
 
 def right_arrow(bg_color, fg_color):
     return widget.TextBox(
-        text="\uE0Ba", padding=0, fontsize=24, background=bg_color, foreground=fg_color
+        text="\uE0Ba", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
     )
 
 
@@ -92,7 +92,9 @@ bar_widgets = [
     # Date
     # --------------
     widget.Clock(
-        foreground=c["white1"], background=c["blue0"], format="%d %b | %A", padding=5
+        background=c["blue0"],
+        format="%d %b %A | %H:%M",
+        padding=5,
     ),
     left_arrow(c["magenta0"], c["blue0"]),
     # Current Layout
@@ -112,19 +114,26 @@ bar_widgets = [
         urget_text=c["red1"],
     ),
     widget.Spacer(),
-    right_arrow(c["black0"], c["magenta0"]),
-    widget.Volume(background=c["magenta0"], padding=10),
+    right_arrow(c["black0"], c["cyan1"]),
+    widget.KeyboardLayout(configured_keyboards=["us", "ir"], background=c["cyan1"]),
+    right_arrow(c["cyan1"], c["magenta0"]),
+    widget.Volume(background=c["magenta0"], padding=5),
     right_arrow(c["magenta0"], c["blue0"]),
-    widget.Clock(background=c["blue0"], padding=10),
-    right_arrow(c["blue0"], c["red1"]),
-    widget.QuickExit(background=c["red1"], fmt="OFF", padding=5),
-    sep(c["red1"]),
+    widget.Net(
+        prefix="k",
+        background=c["blue0"],
+        padding=0,
+        format="{interface} |{down:.2}KB ↓↑{up:.2}KB"
+    ),
+    right_arrow(c["blue0"], c["red0"]),
+    widget.QuickExit(background=c["red0"], fmt="OFF", padding=5),
+    sep(c["red0"]),
 ]
 
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c["black0"], size=20)
+bar1 = bar.Bar(bar_widgets1, background=c["black0"], size=20, opacity=0.95)
 bar2 = bar.Bar(bar_widgets2, background=c["black0"], size=24)
 
 # Screens
