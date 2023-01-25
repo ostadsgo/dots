@@ -3,8 +3,10 @@
 # General aliases
 alias sx=startx
 alias ls='ls --color'
-alias la='ls -A'
-alias ll='ls -alth'
+alias ls='exa'
+alias la='ls -a'
+alias ll='ls -l'
+alias tree='exa -T'
 alias vim=nvim
 alias ka=killall
 alias reboot='sudo reboot now'
@@ -21,8 +23,7 @@ alias ip='ip --color'
 alias open=pcmanfm
 
 # record screen
-alias record='ffmpeg -framerate 25 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
-alias recordt='ffmpeg -framerate 25 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 ~/videos/records/%Y-%m-%d-%T.mkv'
+alias record='ffmpeg -framerate 30 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
 
 
 # Python aliases
@@ -66,12 +67,14 @@ alias arch-fix-key='sudo pacman-key --init && sudo pacman-key --populate archlin
 # Git bare: manage dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias g=git
-alias gst='g status'
-alias gad='g add'
+alias gs='g status'
+alias ga='g add'
 alias gaa='g add -A'
+alias gam='g add -am'
+alias gc='g commit'
 alias gcm='g commit -m'
-alias gbr='g branch'
-alias gpu='g push'
-alias gsw='g switch'
+alias gb='g branch'
+alias gp='g push'
+alias gs='g switch'
 
 

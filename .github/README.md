@@ -107,6 +107,27 @@ $ export ZDOTDIR=/home/saeed/.config/zsh
 ```
 $ scrot -d 3 ~/Screenshots/%Y-%m-%d-%T-screenshot.png
 ```
+* Chnage default file manager to pcmanfm
+```
+xdg-mime query filetype folder
+xdg-mime default pcmanfm.desktop inode/directory
+```
+* Net speed widget
+```
+pip install psutil
+```
+* picom
+```
+# use picom -b rather than picom &
+# picom & will eats swape drive and system will freeze.
+picom -b
+```
+
+### Tips
+Get code of key to use in key defining for zsh
+Press ctl + v after that press the key;
+
+
 ### Install Apps
 ```
 $ sudo pacman -S base-devl kitty zsh firefox feh pcmanfm-gtk3 

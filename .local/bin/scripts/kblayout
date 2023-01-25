@@ -1,11 +1,15 @@
 #! /usr/bin/sh
 
-if [ "$(xset -q | grep -A 0 'LED' | cut -c59-67)" = '00000000' ] 
-  then
-  notify-send ' ' 'US (English)'
+kblayout=$(setxkbmap -query | grep layout)
+language=${kblayout:0-2}
+if [ $language == "us" ] 
+then
+    notify-send ' ' 'US (English)'
+    setxkbmap us
 fi
-if [ "$(xset -q | grep -A 0 'LED' | cut -c59-67)" = '00001000' ]
-  then
-  notify-send ' ' 'IR (Persian)'
+if [ $language == "ir" ]
+then
+    notify-send ' ' 'IR (Persian)'
+    setxkbmap ir
 fi
 
