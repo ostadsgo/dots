@@ -50,13 +50,10 @@ return packer.startup(function(use)
 	use("folke/tokyonight.nvim") -- Tokyo night theme.
 	use("LunarVim/onedarker")
 	use("morhetz/gruvbox")
-	use({ "bluz71/vim-moonfly-colors", branch = "cterm-compat" })
+    use("chriskempson/vim-tomorrow-theme")
 
 	-- lualine
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+	use("nvim-lualine/lualine.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp")

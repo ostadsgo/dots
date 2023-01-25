@@ -36,6 +36,8 @@ keymap("n", "<C-h>", "<C-w>h", opts) -- focus left split
 keymap("n", "<C-j>", "<C-w>j", opts) -- focus bottom split
 keymap("n", "<C-k>", "<C-w>k", opts) -- focus top split
 keymap("n", "<C-l>", "<C-w>l", opts) -- focus right split
+keymap("n", "<C-d>", "<C-d>zz", opts) -- focus right split
+keymap("n", "<C-u>", "<C-u>zz", opts) -- focus right split
 -- resize split
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -44,7 +46,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 
 -- Telescope
 keyset("n", "<leader>ff", telescope.find_files, {})
-keyset("n", "<leader>fg", telescope.live_grep, {})
+keyset("n", "<leader>fg", telescope.git_files, {})
+keyset("n", "<leader>ft", telescope.tags, {})
+keyset("n", "<leader>fc", telescope.grep_string, {})
+keyset("n", "<leader>fl", telescope.live_grep, {})
 keyset("n", "<leader>fb", telescope.buffers, {})
 keyset("n", "<leader>fh", telescope.help_tags, {})
 
