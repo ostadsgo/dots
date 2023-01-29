@@ -162,3 +162,4 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Background: Xwallpaper
 * Compositor: picom
 
+![screenshot](https://github.com/ostadsgo/dotfiles/blob/main/.github/screenshots/2023-01-29-04:45:51-screenshot.png)
