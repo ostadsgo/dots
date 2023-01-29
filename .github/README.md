@@ -124,8 +124,9 @@ picom -b
 ```
 
 ### Tips
-Get code of key to use in key defining for zsh
-Press ctl + v after that press the key;
+* Get code of key to use in key defining for zsh
+Press `ctl + v` after that press the key
+* Create `.desktop` file for any script to be regonziable by rofi
 
 
 ### Install Apps
@@ -158,23 +159,6 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Editor2: VS Code
 * Browser: Firefox
 * File Manager: PcmanFM
-* Background: Feh
+* Background: Xwallpaper
 * Compositor: picom
-
-## Note
-*What is the difference between creating autostart file on wm rather than
-put .xinitrc*
-With autostart when wm got reload all application will be reseted but in 
-.xinitrc we must reset X11 to reset all applications. Autostart method are useful
-on reloading picom and dunst when we config them.
-
-Use package manager of each language to install linter and formater for nvim
-Which used by the null-ls and lsp to fromat and lint the file.
-For example 
-```
-pip install black pylint
-cargo install stylua
-sudo npm isntall -g eslint pritter
-```
-
 
