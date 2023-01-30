@@ -68,6 +68,10 @@ keys = [
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=True)),
     Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=True)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=True)),
+    # Volume keys
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
+    Key([], "XF86AudioMute", lazy.spawn("volume mute")),
 ]
 
 # Mouse bindings

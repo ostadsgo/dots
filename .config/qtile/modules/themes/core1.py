@@ -34,7 +34,7 @@ layouts = [
     layout.MonadTall(
         border_focus=c["green0"],
         border_normal=c["black0"],
-        max_ratio=.65,
+        max_ratio=.7,
         single_border_width=0,
         border_width=1,
         margin=3,
@@ -80,10 +80,6 @@ def right_arrow(bg_color, fg_color):
         text="\uE0Ba", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
     )
 
-def slash(bg_color, fg_color):
-    return widget.TextBox(
-        text="ﭳ", padding=-1, fontsize=50, background=bg_color, foreground=fg_color
-    )
 widget_defaults = dict(
     font="IBM Plex Mono Medm",
     fontsize=13,
@@ -91,19 +87,18 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
-    sep(c["red0"]),
+    sep(c["blue0"]),
     # Date
     # --------------
-    widget.CurrentLayout(background=c["red0"], padding=10),
-    left_arrow(c["cyan0"], c["red0"]),
     widget.Clock(
         background=c["blue0"],
         format="%d %b %A | %H:%M",
         padding=5,
     ),
+    left_arrow(c["magenta0"], c["blue0"]),
     # Current Layout
     # --------------
-    left_arrow(c["black0"], c["blue0"]),
+    widget.CurrentLayout(background=c["magenta0"], padding=10),
     widget.Spacer(),
     # Worksapces
     # --------------
@@ -117,8 +112,8 @@ bar_widgets = [
         urget_text=c["red0"],
     ),
     widget.Spacer(),
-    right_arrow(c["black0"], c["green0"]),
     widget.KeyboardLayout(configured_keyboards=["us", "ir"], background=c["cyan0"]),
+    right_arrow(c["cyan0"], c["magenta0"]),
 
     widget.Volume(background=c["magenta0"], padding=5),
     right_arrow(c["magenta0"], c["blue0"]),

@@ -119,34 +119,6 @@ tokyonight = {
     "color15": "#c0caf5",
 }
 
-# 3024dark
-t_3024dark = {
-    # black
-    "color0": "#090200",
-    "color8": "#5b5754",
-    # Red
-    "color1": "#da2c20",
-    "color9": "#e8bacf",
-    # Green
-    "color2": "#00a152",
-    "color10": "#3a3332",
-    # Yellow
-    "color3": "#fcec02",
-    "color11": "#494542",
-    # Blue
-    "color4": "#00a0e4",
-    "color12": "#7f7c7b",
-    # Magenta
-    "color5": "#a06994",
-    "color13": "#d6d4d3",
-    # Cyan
-    "color6": "#b5e4f4",
-    "color14": "#ccab53",
-    # White
-    "color7": "#a4a1a1",
-    "color15": "#f7f7f7",
-}
-
 tomorrow = {
     # black
     "color0": "#000000",
@@ -178,4 +150,38 @@ tomorrow = {
     # white
     "color7": "#fffefe",
     "color15": "#fffefe",
+}
+
+minimal_green = {
+    # black
+    "color0": "#000000",
+    "color8": "#5b5b5b",
+
+    # red
+    "color1": "#80874c",
+    "color9": "#a9b364",
+
+    # green
+    "color2": "#89a479",
+    "color10": "#afd19a",
+
+    # yellow
+    "color3": "#80874c",
+    "color11": "#a9b364",
+
+    # blue
+    "color4": "#89a479",
+    "color12": "#afd19a",
+
+    # magenta
+    "color5": "#89a479",
+    "color13": "#afd19a",
+
+    # cyan
+    "color6": "#89a479",
+    "color14": "#afd19a",
+
+    # white
+    "color7": "#dfd4cc",
+    "color15": "#fafafa",
 }
