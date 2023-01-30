@@ -1,3 +1,5 @@
 #! /usr/bin/sh
-feh --randomize --bg-scale  ~/pics/wallpapers/* &
+walls_path="$HOME/pics/wallpapers"
+wallpaper=${walls_path}/$(ls $walls_path | shuf -n 1)
+xwallpaper --stretch $wallpaper
 

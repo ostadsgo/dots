@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+function get_volume {
+    amixer get Master | grep '%' | head -n 1 | cut -d '[' -f 2 | cut -d '%' -f 1
+}
+
+if [ $1 == 'inc' ]
+then
+    amixer sset Master 5%+
+    volume=`get_volume`
+    dunstify  -r 2593 -u normal "$volume"% $bar
+elif [ $1 == 'dec' ]
+then
+    amixer sset Master 5%-
+    volume=`get_volume`
+    dunstify  -r 2593 -u normal "$volume"%
+fi
