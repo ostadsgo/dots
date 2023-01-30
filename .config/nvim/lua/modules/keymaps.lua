@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 -- LEADER
 keymap("n", "<Leader>a", "gg<S-v>G", opts) -- select entire file
 keymap("n", "<Leader>,", ":nohl<CR>", opts) -- No highlight
-keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- open explorer
+keymap("n", "<leader>e", ":Exp<cr>", opts) -- open explorer
 keymap("n", "<leader>l", ":bnext<CR>", opts) -- next buffer
 keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
 

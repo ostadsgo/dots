@@ -1,4 +1,3 @@
-
 ## System
 # General aliases
 alias sx=startx
@@ -6,6 +5,7 @@ alias ls='ls --color'
 alias ls='exa'
 alias la='ls -a'
 alias ll='ls -l'
+alias lt='ls -la'
 alias tree='exa -T'
 alias vim=nvim
 alias ka=killall
@@ -15,16 +15,15 @@ alias ...='cd ../..'
 alias grep='grep --color'
 alias hist=history
 alias path='echo -e ${PATH//:/\\n}'
-alias ping="ping -c 5"
-alias pingarch="ping archlinux.org"
-alias pingnet="ping 8.8.8.8"
+alias pingarch="ping -c 5 archlinux.org"
+alias pingnet="ping -c 5  8.8.8.8"
 alias ip='ip --color'
 # Apps
 alias open=pcmanfm
 
 # record screen
 alias record='ffmpeg -framerate 30 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
-
+alias play='ffplay'
 
 # Python aliases
 alias py=python
@@ -34,10 +33,10 @@ alias dact=deactivate
 
 
 # Django aliases
-alias djapp='python manage.py startapp' $1
+alias djapp='python manage.py startapp'
 alias djrun='python manage.py runserver'
-alias djmkm='python manage.py makemigrations' $1
-alias djmig='python manage.py migrate' $1
+alias djmkm='python manage.py makemigrations'
+alias djmig='python manage.py migrate'
 alias djcsu='python manage.py createsuperuser --username admin --email ad@min.com'
 
 
@@ -74,7 +73,12 @@ alias gam='g add -am'
 alias gc='g commit'
 alias gcm='g commit -m'
 alias gb='g branch'
+alias gbc='gb $1'
+alias gbl='gb -a'
 alias gp='g push'
-alias gs='g switch'
+alias gpo='g push -u origin main'
+alias gu='g pull'
+alias guo='g pull origin main'
+alias gw='g switch'
 
 

@@ -1,5 +1,5 @@
 # X keymap and setting
-xmap & 
+xsettings & 
 
 # Notfication manager
 dunst &
