@@ -1,13 +1,22 @@
 """
-Bindings for keyboard and mouse
+Bindings for keyboards
 """
 
-# qtile modules
+import os
 from libqtile.config import Key, Drag, Click
 from libqtile.lazy import lazy
 
-# user modules
-from .utils import WIN, ALT, WIN_SHT, WIN_CTRL, TERMINAL
+# Modifiers
+SUPER = "mod4"
+MOD1 = "mod1"
+
+# shortcut set
+WIN = ["mod4"]
+ALT = ["mod1"]
+WIN_SHT = ["mod4", "shift"]
+WIN_CTRL = ["mod4", "control"]
+
+TERMINAL = os.environ.get("TERMINAL") or "kitty"
 
 
 # Keyboard bindings

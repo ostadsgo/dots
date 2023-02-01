@@ -1,21 +1,25 @@
-from modules import binding
-from modules import core
+from modules.bindings import keymap
+from modules.bindings import mousemap
+from modules.core import group, layout
+from modules.screen import screen
+
+
 
 # ---------------
 #   Bindings
 # ---------------
-keys = binding.keys
-mouse = binding.mouse
+keys = keymap.keys
+mouse = mousemap.mouse
 
 # ---------------
 #   Core
 # ---------------
-groups = core.groups
-layouts = core.layouts
-floating_layout = core.floating_layout
-widget_defaults = core.widget_defaults
-extension_defaults = core.extension_defaults
-screens = [core.screen1, core.screen2]
+groups = group.groups
+layouts = layout.layouts
+floating_layout = layout.floating_layout
+widget_defaults = screen.widget_defaults
+extension_defaults = screen.extension_defaults
+screens = [screen.screen1, screen.screen2]
 
 # ---------------
 # Defult settings
