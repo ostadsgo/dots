@@ -1,0 +1,16 @@
+/**
+ *
+ * Author : Saeed Gholami (ostadsgo)
+ * Github : @ostadsgo
+ * 
+ * Colors
+ **/
+
+* {
+    background:     #000000;
+    background-alt: #212121;
+    foreground:     #ebebeb;
+    selected:       #89a479;
+    active:         #89a479;
+    urgent:         #80874c;
+}

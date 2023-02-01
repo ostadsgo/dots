@@ -1,10 +1,8 @@
 #! /usr/bin/bash
-#
+
 
 WALL_PATH=~/pics/wallpapers
 WALLPAPERS=`ls $WALL_PATH`
-choice=$(printf "$WALLPAPERS" | rofi -dmenu -p "Wallpaper Picker")
-WALLPAPER="$WALL_PATH/$choice"
-
+WALLPAPER="$(sxiv -t -o "${WALL_PATH}")"
 xwallpaper --stretch  $WALLPAPER
-notify-send "Background changed to $choice"
+notify-send "Background changed to $WALLPAPER"

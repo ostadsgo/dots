@@ -16,16 +16,22 @@ vim.g.maplocalleader = " "
 --      NORMAL
 -- -------------------
 -- LEADER
-keymap("n", "<Leader>a", "gg<S-v>G", opts) -- select entire file
-keymap("n", "<Leader>,", ":nohl<CR>", opts) -- No highlight
+keymap("n", "<leader>a", "gg<S-v>G", opts) -- select entire file
+keymap("n", "<leader>;", "<S-V>", opts)
+keymap("x", "<leader>;", "<S-V>", opts)
+ -- highlight line under cursor
+keymap("n", "<leader>,", ":nohl<CR>", opts) -- No highlight
 keymap("n", "<leader>e", ":Exp<cr>", opts) -- open explorer
 keymap("n", "<leader>l", ":bnext<CR>", opts) -- next buffer
 keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
 
--- copy to system clipboard
+-- copy/past to/from system clipboard
 keymap("n", "<leader>y", '"+y', opts)
-keymap("v", "<leader>y", '"+y', opts)
 keymap("n", "<leader>Y", '"+Y', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("n", "<leader>p", '"+p', opts)
+keymap("n", "<leader>P", '"+P', opts)
+keymap("v", "<leader>p", '"+p', opts)
 
 -- delete without saving at clipboard
 keymap("n", "<leader>d", '"_d', opts)
@@ -49,7 +55,7 @@ keyset("n", "<leader>ff", telescope.find_files, {})
 keyset("n", "<leader>fg", telescope.git_files, {})
 keyset("n", "<leader>ft", telescope.tags, {})
 keyset("n", "<leader>fc", telescope.grep_string, {})
-keyset("n", "<leader>fl", telescope.live_grep, {})
+keyset("n", "<leader>fs", telescope.live_grep, {})
 keyset("n", "<leader>fb", telescope.buffers, {})
 keyset("n", "<leader>fh", telescope.help_tags, {})
 
