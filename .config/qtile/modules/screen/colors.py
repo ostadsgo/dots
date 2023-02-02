@@ -1,23 +1,23 @@
 
 
 class Minimal:
-    bg = "#000000"
+    black = "#000000"
     dark = "#212121"
-    error = "#575757"
-    warning = "#999999"
-    fg = "#ebebeb"
-    light = "#fafafa"
+    gray = "#575757"
+    silver = "#999999"
+    light = "#ebebeb"
+    white = "#fafafa"
     primary = "#89a479"
     secondary = "#80874c"
 
 
 
 class OneDark:
-    bg = "#282c34"
+    black = "#282c34"
     dark = "#343a45"
-    error = "#e60c75"
-    warning = "e5c07b"
-    fg = "#abb2bf"
-    light = "#c1c9d9"
+    gray = "#e60c75"
+    silver = "e5c07b"
+    light = "#abb2bf"
+    white = "#c1c9d9"
     primary = "61afef"
     secondary = "98c379"

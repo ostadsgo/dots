@@ -1,4 +1,4 @@
-from libqtile import  bar, widget
+from libqtile import bar, widget
 from libqtile.config import Screen
 
 from . import colors
@@ -11,16 +11,17 @@ def sep(bg):
     return widget.Sep(background=bg, padding=10, linewidth=0)
 
 
-def left_arrow(bg_color, fg_color):
+def left_arrow(bg, fg):
     return widget.TextBox(
-        text="", padding=0, fontsize=27, background=bg_color, foreground=fg_color
+        text="", padding=0, fontsize=27, background=bg, foreground=fg
     )
 
 
-def right_arrow(bg_color, fg_color):
+def right_arrow(bg, fg):
     return widget.TextBox(
-        text="", padding=0, fontsize=27, background=bg_color, foreground=fg_color
+        text="", padding=0, fontsize=27, background=bg, foreground=fg
     )
+
 
 widget_defaults = dict(
     font="IBM Plex Mono Medm",
@@ -42,28 +43,28 @@ bar_widgets = [
     ),
     # Current Layout
     # --------------
-    right_arrow(c.bg, c.primary),
+    right_arrow(c.black, c.primary),
     widget.Spacer(),
     # Worksapces
     # --------------
     widget.GroupBox(
         highlight_method="text",
         fontsize=18,
-        active=c.warning,
-        inactive=c.error,
+        active=c.silver,
+        inactive=c.gray,
         this_current_screen_border=c.primary,
         urgent_border=c.secondary,
         urget_text=c.light,
     ),
     widget.Spacer(),
-    left_arrow(c.bg, c.primary),
+    left_arrow(c.black, c.primary),
     widget.KeyboardLayout(configured_keyboards=["us", "ir"], background=c.primary),
     widget.Volume(background=c.primary, padding=10),
     widget.Net(
         prefix="k",
         background=c.primary,
         padding=10,
-        format="{interface} |{down:.2}KB ↓↑{up:.2}KB"
+        format="{interface} |{down:.2}KB ↓↑{up:.2}KB",
     ),
     left_arrow(c.primary, c.dark),
     left_arrow(c.dark, c.secondary),
@@ -74,8 +75,8 @@ bar_widgets = [
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=.9)
-bar2 = bar.Bar(bar_widgets2, background=c.bg, size=24)
+bar1 = bar.Bar(bar_widgets1, background=c.black, size=20, opacity=0.9)
+bar2 = bar.Bar(bar_widgets2, background=c.black, size=24)
 
 # Screens
 screen1 = Screen(bottom=bar1)
