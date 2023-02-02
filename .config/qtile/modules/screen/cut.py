@@ -41,21 +41,21 @@ bar_widgets = [
     ),
     # Current Layout
     # --------------
-    left_arrow(c.bg, c.primary),
+    left_arrow(c.black, c.primary),
     widget.Spacer(),
     # Worksapces
     # --------------
     widget.GroupBox(
         highlight_method="text",
         fontsize=18,
-        active=c.warning,
-        inactive=c.error,
+        active=c.silver,
+        inactive=c.gray,
         this_current_screen_border=c.primary,
         urgent_border=c.secondary,
         urget_text=c.light,
     ),
     widget.Spacer(),
-    right_arrow(c.bg, c.primary),
+    right_arrow(c.black, c.primary),
     widget.KeyboardLayout(configured_keyboards=["us", "ir"], background=c.primary),
     widget.Volume(background=c.primary, padding=10),
     widget.Net(
@@ -72,8 +72,8 @@ bar_widgets = [
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=.9)
-bar2 = bar.Bar(bar_widgets2, background=c.bg, size=24)
+bar1 = bar.Bar(bar_widgets1, background=c.black, size=20, opacity=.9)
+bar2 = bar.Bar(bar_widgets2, background=c.black, size=24)
 
 # Screens
 screen1 = Screen(bottom=bar1)

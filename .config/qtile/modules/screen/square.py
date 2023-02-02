@@ -13,13 +13,13 @@ def sep(bg):
 
 def left_arrow(bg_color, fg_color):
     return widget.TextBox(
-        text="", padding=0, fontsize=26, background=bg_color, foreground=fg_color
+        text="\ue0b8", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
     )
 
 
 def right_arrow(bg_color, fg_color):
     return widget.TextBox(
-        text="", padding=0, fontsize=26, background=bg_color, foreground=fg_color
+        text="\uE0Ba", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
     )
 
 widget_defaults = dict(
@@ -33,7 +33,7 @@ bar_widgets = [
     # Date
     # --------------
     widget.CurrentLayout(background=c.secondary, padding=10),
-    right_arrow(c.primary, c.secondary),
+    sep(bg=c.black),
     widget.Clock(
         background=c.primary,
         format="%d %b %A | %H:%M",
@@ -41,7 +41,7 @@ bar_widgets = [
     ),
     # Current Layout
     # --------------
-    right_arrow(c.black, c.primary),
+    sep(bg=c.black),
     widget.Spacer(),
     # Worksapces
     # --------------
@@ -55,16 +55,15 @@ bar_widgets = [
         urget_text=c.light,
     ),
     widget.Spacer(),
-    left_arrow(c.black, c.primary),
     widget.KeyboardLayout(configured_keyboards=["us", "ir"], background=c.primary),
     widget.Volume(background=c.primary, padding=10),
     widget.Net(
         prefix="k",
         background=c.primary,
-        padding=10,
+        padding=0,
         format="{interface} |{down:.2}KB ↓↑{up:.2}KB"
     ),
-    left_arrow(c.primary, c.secondary),
+    sep(bg=c.black),
     widget.QuickExit(background=c.secondary, fmt="OFF", padding=5),
     sep(c.secondary),
 ]
