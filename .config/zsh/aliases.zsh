@@ -67,6 +67,7 @@ alias arch-fix-key='sudo pacman-key --init && sudo pacman-key --populate archlin
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias g=git
 alias gs='g status'
+alias gss='g status -s'
 alias ga='g add'
 alias gaa='g add -A'
 alias gam='g add -am'
@@ -80,5 +81,7 @@ alias gpo='g push -u origin main'
 alias gu='g pull'
 alias guo='g pull origin main'
 alias gw='g switch'
+alias gl='g log'
+alias gcl='g clone'
 
 

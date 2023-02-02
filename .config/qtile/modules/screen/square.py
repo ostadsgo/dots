@@ -1,4 +1,4 @@
-from libqtile import  bar, widget
+from libqtile import bar, widget
 from libqtile.config import Screen
 
 from . import colors
@@ -22,6 +22,7 @@ def right_arrow(bg_color, fg_color):
         text="\uE0Ba", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
     )
 
+
 widget_defaults = dict(
     font="IBM Plex Mono Medm",
     fontsize=13,
@@ -29,7 +30,6 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
-    sep(c.secondary),
     # Date
     # --------------
     widget.CurrentLayout(background=c.secondary, padding=10),
@@ -37,7 +37,7 @@ bar_widgets = [
     widget.Clock(
         background=c.primary,
         format="%d %b %A | %H:%M",
-        padding=5,
+        padding=10,
     ),
     # Current Layout
     # --------------
@@ -55,23 +55,24 @@ bar_widgets = [
         urget_text=c.light,
     ),
     widget.Spacer(),
-    widget.KeyboardLayout(configured_keyboards=["us", "ir"], background=c.primary),
+    widget.KeyboardLayout(
+        configured_keyboards=["us", "ir"], background=c.primary, padding=10
+    ),
     widget.Volume(background=c.primary, padding=10),
     widget.Net(
         prefix="k",
         background=c.primary,
-        padding=0,
-        format="{interface} |{down:.2}KB ↓↑{up:.2}KB"
+        padding=10,
+        format="{interface} |{down:.2}KB ↓↑{up:.2}KB",
     ),
     sep(bg=c.black),
-    widget.QuickExit(background=c.secondary, fmt="OFF", padding=5),
-    sep(c.secondary),
+    widget.QuickExit(background=c.secondary, fmt="OFF", padding=10),
 ]
 
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c.black, size=20, opacity=.9)
+bar1 = bar.Bar(bar_widgets1, background=c.black, size=20, opacity=0.9)
 bar2 = bar.Bar(bar_widgets2, background=c.black, size=24)
 
 # Screens

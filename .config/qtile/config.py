@@ -1,5 +1,4 @@
-from modules.bindings import keymap
-from modules.bindings import mousemap
+from modules.binding import keymap, mousemap
 from modules.core import group, layout
 from modules.screen import screen
 
