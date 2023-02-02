@@ -48,7 +48,7 @@ keys = [
     Key(WIN_CTRL, "q", lazy.shutdown()),
     # Run specific program
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
-    Key(WIN, "p", lazy.spawn("rofi -show")),
+    Key(WIN, "p", lazy.spawn("launcher")),
     Key(
         ALT,
         "shift_l",

@@ -17,13 +17,12 @@ vim.g.maplocalleader = " "
 -- -------------------
 -- LEADER
 keymap("n", "<leader>a", "gg<S-v>G", opts) -- select entire file
-keymap("n", "<leader>;", "<S-V>", opts)
-keymap("x", "<leader>;", "<S-V>", opts)
- -- highlight line under cursor
-keymap("n", "<leader>,", ":nohl<CR>", opts) -- No highlight
+keymap("n", "<leader>;", "<S-V>", opts) -- visual line activate
+keymap("x", "<leader>;", "<S-V>", opts) -- visual line deactive
 keymap("n", "<leader>e", ":Exp<cr>", opts) -- open explorer
 keymap("n", "<leader>l", ":bnext<CR>", opts) -- next buffer
 keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
+keymap("n", "<leader>q", ":bd<CR>", opts) -- delete buffer
 
 -- copy/past to/from system clipboard
 keymap("n", "<leader>y", '"+y', opts)
