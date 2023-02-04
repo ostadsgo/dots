@@ -1,8 +1,7 @@
 ## System
 # General aliases
 alias sx=startx
-alias ls='ls --color'
-alias ls='exa'
+alias ls='exa --icons --color=always' 
 alias la='ls -a'
 alias ll='ls -l'
 alias lt='ls -la'
@@ -67,21 +66,28 @@ alias arch-fix-key='sudo pacman-key --init && sudo pacman-key --populate archlin
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias g=git
 alias gs='g status'
+alias gst='g status'
 alias gss='g status -s'
 alias ga='g add'
+alias gad='g add'
 alias gaa='g add -A'
 alias gam='g add -am'
 alias gc='g commit'
 alias gcm='g commit -m'
 alias gb='g branch'
-alias gbc='gb $1'
+alias gbr='g branch'
 alias gbl='gb -a'
 alias gp='g push'
+alias gpu='g push'
 alias gpo='g push -u origin main'
 alias gu='g pull'
+alias gpl='g pull'
 alias guo='g pull origin main'
 alias gw='g switch'
+alias gsw='g switch'
 alias gl='g log'
+alias glg='g log'
+alias glo='g log'
 alias gcl='g clone'
 
 
