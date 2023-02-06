@@ -11,15 +11,15 @@ def sep(bg):
     return widget.Sep(background=bg, padding=10, linewidth=0)
 
 
-def left_arrow(bg_color, fg_color):
+def left_arrow(bg, fg):
     return widget.TextBox(
-        text="\ue0b8", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
+        text="\ue0b8", padding=-1, fontsize=24, background=bg, foreground=fg
     )
 
 
-def right_arrow(bg_color, fg_color):
+def right_arrow(bg, fg):
     return widget.TextBox(
-        text="\uE0Ba", padding=-1, fontsize=24, background=bg_color, foreground=fg_color
+        text="\uE0Ba", padding=-1, fontsize=24, background=bg, foreground=fg
     )
 
 
