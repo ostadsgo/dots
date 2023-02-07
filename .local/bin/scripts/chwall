@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+WALL_PATH=~/pics/wallpapers
+WALLPAPERS=`ls $WALL_PATH`
+WALLPAPER="$(sxiv -t -o "${WALL_PATH}")"
+xwallpaper --stretch $WALLPAPER
+notify-send "Background changed to $WALLPAPER"

@@ -2,14 +2,15 @@
 
 kblayout=$(setxkbmap -query | grep layout)
 language=${kblayout:0-2}
+title='  Keyboard Layout' 
 if [ $language == "us" ] 
 then
-    notify-send ' ' 'US (English)'
+    notify-send -r 2310 "$title" 'US (English)'
     setxkbmap us
 fi
 if [ $language == "ir" ]
 then
-    notify-send ' ' 'IR (Persian)'
+    notify-send -r 2310 "$title" 'IR (Persian)'
     setxkbmap ir
 fi
 

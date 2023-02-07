@@ -1,9 +1,8 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from . import colors
+from . import color as c
 
-c = colors.Minimal
 # ---------------------
 #    SCREEN WIDGETS
 # ---------------------

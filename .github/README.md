@@ -40,7 +40,7 @@ $ iwctl
 ```
 $ nmcli device status
 $ nmcli device wifi list
-$ nmcli device wifi connect <wifi_name> password <wifi_passwd>
+$ sudo nmcli device wifi connect <wifi_name> password <wifi_passwd>
 # nmcli device discconect <divce_name>
 ```
 
