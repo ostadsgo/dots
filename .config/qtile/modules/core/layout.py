@@ -6,8 +6,8 @@ from libqtile.config import Match
 # ------------------
 layouts = [
     layout.Columns(
-        border_width=0,
         margin=3,
+        border_width=0,
     ),
     layout.MonadTall(
         max_ratio=0.65,

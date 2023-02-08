@@ -1,27 +1,10 @@
-#!/usr/bin/sh
+#!/usr/bin/python
 
-themes=(
-    "minimal"
-    "tomorrow"
-    "onedark"
-    "tokyonight"
-)
-options=(
-    "Minmal"
-    "Tomorrow Birght"
-    "One Dark"
-    "Tokyo Night"
-    "Quit"
-)
 
-choice=`printf '%s\n' ${themes[@]} | rofi  -dmenu -theme "$HOME/.config/rofi/config.rasi" -p 'Select a themes:'`
+from os import system, environ
 
-# kitty
-ln -sf "/home/saeed/.config/kitty/themes/$choice.conf" "/home/saeed/.config/kitty/kitty.conf"
-# qtile
-ln -sf "/home/saeed/.config/qtile/modules/screen/colorschemes/$choice.py" "/home/saeed/.config/qtile/modules/screen/color.py"
-qtile cmd-obj -o cmd -f reload_config
-# dunst
-ln -sf "/home/saeed/.config/dunst/$choice" "/home/saeed/.config/dunstrc"
 
-notify-send -u normal "Look and Feel" "Theme changed to $choice" 
+cfg = environ["XDG_CONFIG_HOME"]
+
+themes = ()
+    

@@ -1,12 +1,15 @@
-from libqtile import  bar, widget
+from libqtile import bar, widget
 from libqtile.config import Screen
 
 from . import color as c
+
 # ---------------------
 #    SCREEN WIDGETS
 # ---------------------
-def sep(bg):
-    return widget.Sep(background=bg, padding=10, linewidth=0)
+def sep(bg, fg):
+    return widget.TextBox(
+        text="", padding=-5, fontsize=26, background=bg, foreground=fg
+    )
 
 
 def left_arrow(bg_color, fg_color):
@@ -15,10 +18,11 @@ def left_arrow(bg_color, fg_color):
     )
 
 
-def right_arrow(bg_color, fg_color):
+def right_arrow(bg, fg):
     return widget.TextBox(
-        text="", padding=0, fontsize=26, background=bg_color, foreground=fg_color
+        text="", padding=0, fontsize=26, background=bg, foreground=fg
     )
+
 
 widget_defaults = dict(
     font="IBM Plex Mono Medm",
@@ -27,11 +31,11 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
-    sep(c.secondary),
     # Date
     # --------------
     widget.CurrentLayout(background=c.secondary, padding=10),
-    right_arrow(c.primary, c.secondary),
+    right_arrow(c.dark, c.secondary),
+    right_arrow(fg=c.dark, bg=c.primary),
     widget.Clock(
         background=c.primary,
         format="%d %b %A | %H:%M",
@@ -60,17 +64,18 @@ bar_widgets = [
         prefix="k",
         background=c.primary,
         padding=10,
-        format="{interface} |{down:.2}KB ↓↑{up:.2}KB"
+        format="{interface} |{down:.2}KB ↓↑{up:.2}KB",
     ),
-    left_arrow(c.primary, c.secondary),
+    left_arrow(c.primary, c.primary),
+    left_arrow(c.primary, c.dark),
+    left_arrow(c.dark, c.secondary),
     widget.QuickExit(background=c.secondary, fmt="OFF", padding=5),
-    sep(c.secondary),
 ]
 
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c.black, size=20, opacity=.9)
+bar1 = bar.Bar(bar_widgets1, background=c.black, size=20, opacity=1)
 bar2 = bar.Bar(bar_widgets2, background=c.black, size=24)
 
 # Screens
