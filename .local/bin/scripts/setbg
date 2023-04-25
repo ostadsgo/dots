@@ -1,7 +1,8 @@
 #! /usr/bin/sh
 wpath="$HOME/pics/wallpapers"
 wallpapers=($(ls $wpath))
-index=$(cat ./.wall)
+index=$(cat ~/.local/bin/scripts/.wall)
+echo $index
 if [ $index -lt ${#wallpapers[@]} ]
 then
     index=$(($index + 1))
@@ -10,5 +11,5 @@ else
 fi
 wallpaper=${wpath}/${wallpapers[index]}
 xwallpaper --stretch $wallpaper
-echo $index > .wall
+echo $index > ~/.local/bin/scripts/.wall
 

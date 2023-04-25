@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use("LunarVim/onedarker")
 	use("morhetz/gruvbox")
     use("chriskempson/vim-tomorrow-theme")
+    use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- lualine
 	use("nvim-lualine/lualine.nvim")

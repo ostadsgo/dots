@@ -1,12 +1,8 @@
 local options = {
 	-- creates a backup file
 	backup = false,
-	-- allows neovim to access the system clipboard
-	-- clipboard = {"unnamedplus"},
 	-- more space in the neovim command line for displaying messages
 	cmdheight = 1,
-	-- don't change cursor shape in insert mode
-	guicursor = "",
 	-- mostly just for cmp
 	completeopt = { "menuone", "noselect" },
 	-- so that `` is visible in markdown files

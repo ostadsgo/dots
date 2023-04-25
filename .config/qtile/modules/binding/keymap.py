@@ -63,6 +63,8 @@ keys = [
     # Layout specific
     Key(WIN, "grave", lazy.next_layout()),
     Key(WIN_SHT, "grave", lazy.prev_layout()),
+    Key(WIN, "m", lazy.group.setlayout('max')),
+    Key(WIN, "c", lazy.group.setlayout('columns')),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -77,10 +79,9 @@ keys = [
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=True)),
     Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=True)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=True)),
-    Key([], 'F11', lazy.group['scratchpad'].dropdown_toggle('python')),
+    Key([], "F11", lazy.group["scratchpad"].dropdown_toggle("python")),
     # Volume keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
 ]
-
