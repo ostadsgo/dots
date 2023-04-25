@@ -21,7 +21,7 @@ def right_arrow(bg_color, fg_color):
     )
 
 widget_defaults = dict(
-    font="IBM Plex Mono Medm",
+    font="Noto Sans Mono",
     fontsize=13,
 )
 extension_defaults = widget_defaults.copy()
@@ -48,7 +48,7 @@ bar_widgets = [
         fontsize=18,
         active=c.silver,
         inactive=c.gray,
-        this_current_screen_border=c.primary,
+        this_current_screen_border=c.light,
         urgent_border=c.secondary,
         urget_text=c.light,
     ),
