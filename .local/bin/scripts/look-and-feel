@@ -1,10 +1,44 @@
 #!/usr/bin/python
 
 
-from os import system, environ
+import os
+
+# -----------
+# code for change kitty theme
+# ----------
+HOME = "/home/saeed"
+cfg = f"{HOME}/.config"
+KITTY_PATH = f"{cfg}/kitty"
+KITTY_THEMES_PATH = f"{cfg}/kitty/themes"
+
+kitty_themes = os.listdir(KITTY_THEMES_PATH)
+themes = []
 
 
-cfg = environ["XDG_CONFIG_HOME"]
+for index, theme_file in enumerate(kitty_themes, 1):
+    theme_dict = {
+        "id": str(index),
+        "theme_file": theme_file,
+        "name": theme_file.split(".")[0].title(),
+    }
+    themes.append(theme_dict)
 
-themes = ()
-    
+for theme in themes:
+    print(theme.get("id") + ")", theme.get("name"))
+
+selected_theme = input("Choose theme: ")
+
+# extract user selected theme from themes list
+for theme in themes:
+    if theme.get("id") == selected_theme:
+        theme_file = theme.get("theme_file")
+        cmd = f"ln -sf {KITTY_PATH}/themes/{theme_file} {KITTY_PATH}/kitty.conf"
+        os.system(cmd)
+        print("Theme changed successfully.")
+        break
+else:
+    print("theme not found")
+
+# -------
+# 
+# -------

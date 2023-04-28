@@ -3,7 +3,7 @@ Bindings for keyboards
 """
 
 import os
-from libqtile.config import Key, Drag, Click
+from libqtile.config import Key
 from libqtile.lazy import lazy
 
 # Modifiers
@@ -58,13 +58,15 @@ keys = [
     # Window command
     Key(WIN, "w", lazy.window.kill()),
     Key(WIN, "f", lazy.window.toggle_floating()),
+    Key(WIN_SHT, "f", lazy.window.toggle_fullscreen()),
     # Screen specific
     Key(WIN, "b", lazy.hide_show_bar()),
     # Layout specific
     Key(WIN, "grave", lazy.next_layout()),
     Key(WIN_SHT, "grave", lazy.prev_layout()),
-    Key(WIN, "m", lazy.group.setlayout('max')),
+    Key(WIN, "x", lazy.group.setlayout('max')),
     Key(WIN, "c", lazy.group.setlayout('columns')),
+    Key(WIN, "t", lazy.group.setlayout('monadtall')),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),

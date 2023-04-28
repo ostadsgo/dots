@@ -2,7 +2,7 @@ local options = {
 	-- creates a backup file
 	backup = false,
 	-- more space in the neovim command line for displaying messages
-	cmdheight = 1,
+	cmdheight = 0,
 	-- mostly just for cmp
 	completeopt = { "menuone", "noselect" },
 	-- so that `` is visible in markdown files
@@ -69,13 +69,15 @@ local options = {
 	sidescrolloff = 8,
 }
 
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append "F"
+-- vim.o.shortmess = vim.o.shortmess .. "F"
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
 -- transparent background
+vim.cmd("set shortmess+=F")
 vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])

@@ -15,4 +15,4 @@
 
 /* Import color-scheme from `colors` directory */
 
-@import "~/.config/rofi/colorschemes/mocha.rasi"
+@import "~/.config/rofi/colorschemes/moonfly.rasi"

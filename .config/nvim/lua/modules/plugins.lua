@@ -49,10 +49,10 @@ return packer.startup(function(use)
 	-- colorschemes
 	use("folke/tokyonight.nvim") -- Tokyo night theme.
 	use("LunarVim/onedarker")
-	use("morhetz/gruvbox")
-    use("chriskempson/vim-tomorrow-theme")
-    use { "catppuccin/nvim", as = "catppuccin" }
-
+	use({ "ellisonleao/gruvbox.nvim" })
+	use("chriskempson/vim-tomorrow-theme")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "bluz71/vim-moonfly-colors", as = "moonfly" })
 	-- lualine
 	use("nvim-lualine/lualine.nvim")
 

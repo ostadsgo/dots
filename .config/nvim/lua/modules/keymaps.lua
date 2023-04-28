@@ -19,7 +19,7 @@ vim.g.maplocalleader = " "
 keymap("n", "<leader>a", "gg<S-v>G", opts) -- select entire file
 keymap("n", "<leader>;", "<S-V>", opts) -- visual line activate
 keymap("x", "<leader>;", "<S-V>", opts) -- visual line deactive
-keymap("n", "<leader>e", ":Exp<cr>", opts) -- open explorer
+keymap("n", "<leader>e", ":Exp<CR>", opts) -- open explorer
 keymap("n", "<leader>l", ":bnext<CR>", opts) -- next buffer
 keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
 keymap("n", "<leader>q", ":bd<CR>", opts) -- delete buffer
@@ -62,6 +62,7 @@ keyset("n", "<leader>fh", telescope.help_tags, {})
 -- INSERT
 ----------------------
 keymap("i", "jk", "<ESC>", opts) -- switch mode
+keymap("i", "<C-BACKSPACE>", "<C-O>ciw", opts) -- switch mode
 
 -------------------
 -- VISUAL
