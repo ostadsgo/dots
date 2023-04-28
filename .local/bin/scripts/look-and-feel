@@ -11,109 +11,165 @@ CONFIG_PATH = f"{HOME}/.config"
 KITTY_PATH = f"{CONFIG_PATH}/kitty"
 KITTY_THEMES_PATH = f"{CONFIG_PATH}/kitty/themes"
 
-# kitty_themes = os.listdir(KITTY_THEMES_PATH)
-# themes = []
-#
-#
-# for index, theme_file in enumerate(kitty_themes, 1):
-#     theme_dict = {
-#         "id": str(index),
-#         "theme_file": theme_file,
-#         "name": theme_file.split(".")[0].title(),
-#     }
-#     themes.append(theme_dict)
-#
-# for theme in themes:
-#     print(theme.get("id") + ")", theme.get("name"))
-#
-# selected_theme = input("Choose theme: ")
-#
-# # extract user selected theme from themes list and apply theme
-# for theme in themes:
-#     if theme.get("id") == selected_theme:
-#         theme_file = theme.get("theme_file")
-#         cmd = f"ln -sf {KITTY_PATH}/themes/{theme_file} {KITTY_PATH}/kitty.conf"
-#         os.system(cmd)
-#         print("Theme changed successfully.")
-#         break
-# else:
-#     print("theme not found")
+kitty_themes = os.listdir(KITTY_THEMES_PATH)
+themes = []
+
+for index, theme_file in enumerate(kitty_themes, 1):
+    theme_dict = {
+        "id": str(index),
+        "theme_file": theme_file,
+        "name": theme_file.split(".")[0].title(),
+    }
+    themes.append(theme_dict)
+
+for theme in themes:
+    print(theme.get("id") + ")", theme.get("name"))
+
+selected_theme = input("Choose kitty theme: ")
+
+# extract user selected theme from themes list and apply theme
+for theme in themes:
+    if theme.get("id") == selected_theme:
+        theme_file = theme.get("theme_file")
+        cmd = f"ln -sf {KITTY_PATH}/themes/{theme_file} {KITTY_PATH}/kitty.conf"
+        os.system(cmd)
+        print("Theme changed successfully.")
+        break
+else:
+    print("theme not found")
 
 # -------
 # Rofi
 # -------
-# ROFI_PATH = f"{CONFIG_PATH}/rofi"
-# ROFI_THEMES_PATH = f"{CONFIG_PATH}/rofi/themes"
-#
-# rofi_theme_files = os.listdir(ROFI_THEMES_PATH)
-#
-# themes = []
-#
-#
-# for index, theme_file in enumerate(rofi_theme_files, 1):
-#     theme_dict = {
-#         "id": str(index),
-#         "theme_file": theme_file,
-#         "name": theme_file.split(".")[0].title(),
-#     }
-#     themes.append(theme_dict)
-#
-# for theme in themes:
-#     print(theme.get("id") + ")", theme.get("name"))
-#
-# selected_theme = input("Choose theme: ")
-#
-# # extract user selected theme from themes list and apply theme
-# for theme in themes:
-#     if theme.get("id") == selected_theme:
-#         theme_file = theme.get("theme_file")
-#         cmd = f"ln -sf {ROFI_THEMES_PATH}/{theme_file} {ROFI_PATH}/config.rasi"
-#         print(cmd)
-#         os.system(cmd)
-#         print("Theme changed successfully.")
-#         break
-# else:
-#     print("theme not found")
+ROFI_PATH = f"{CONFIG_PATH}/rofi"
+ROFI_THEMES_PATH = f"{CONFIG_PATH}/rofi/themes"
+
+rofi_theme_files = os.listdir(ROFI_THEMES_PATH)
+
+themes = []
+
+
+for index, theme_file in enumerate(rofi_theme_files, 1):
+    theme_dict = {
+        "id": str(index),
+        "theme_file": theme_file,
+        "name": theme_file.split(".")[0].title(),
+    }
+    themes.append(theme_dict)
+
+for theme in themes:
+    print(theme.get("id") + ")", theme.get("name"))
+
+selected_theme = input("Choose rofi theme: ")
+
+# extract user selected theme from themes list and apply theme
+for theme in themes:
+    if theme.get("id") == selected_theme:
+        theme_file = theme.get("theme_file")
+        cmd = f"ln -sf {ROFI_THEMES_PATH}/{theme_file} {ROFI_PATH}/config.rasi"
+        os.system(cmd)
+        print("Theme changed successfully.")
+        break
+else:
+    print("theme not found")
 
 
 # -----
 # dunst
 # ---
-# DUNST_PATH = f"{CONFIG_PATH}/dunst"
-# DUNST_THEMES_PATH = f"{CONFIG_PATH}/dunst/themes"
-#
-# dunst_theme_files = os.listdir(DUNST_THEMES_PATH)
-#
-# themes = []
-#
-#
-# for index, theme_file in enumerate(dunst_theme_files, 1):
-#     theme_dict = {
-#         "id": str(index),
-#         "theme_file": theme_file,
-#         "name": theme_file.split(".")[0].title(),
-#     }
-#     themes.append(theme_dict)
-#
-# for theme in themes:
-#     print(theme.get("id") + ")", theme.get("name"))
-#
-# selected_theme = input("Choose theme: ")
-#
-# # extract user selected theme from themes list and apply theme
-# for theme in themes:
-#     if theme.get("id") == selected_theme:
-#         theme_file = theme.get("theme_file")
-#         cmd = f"ln -sf {DUNST_THEMES_PATH}/{theme_file} {DUNST_PATH}/dunstrc"
-#         os.system(cmd)
-#         print("Theme changed successfully.")
-#         break
-# else:
-#     print("theme not found")
+DUNST_PATH = f"{CONFIG_PATH}/dunst"
+DUNST_THEMES_PATH = f"{CONFIG_PATH}/dunst/themes"
+
+dunst_theme_files = os.listdir(DUNST_THEMES_PATH)
+
+themes = []
 
 
+for index, theme_file in enumerate(dunst_theme_files, 1):
+    theme_dict = {
+        "id": str(index),
+        "theme_file": theme_file,
+        "name": theme_file.split(".")[0].title(),
+    }
+    themes.append(theme_dict)
+
+for theme in themes:
+    print(theme.get("id") + ")", theme.get("name"))
+
+selected_theme = input("Choose dunst theme: ")
+
+# extract user selected theme from themes list and apply theme
+for theme in themes:
+    if theme.get("id") == selected_theme:
+        theme_file = theme.get("theme_file")
+        cmd = f"ln -sf {DUNST_THEMES_PATH}/{theme_file} {DUNST_PATH}/dunstrc"
+        os.system(cmd)
+        print("Theme changed successfully.")
+        break
+else:
+    print("theme not found")
 
 
+# -------
+# Neovim
+# -------
+NEOVIM_PATH = f"{CONFIG_PATH}/nvim"
+colorscheme_file_path = f"{NEOVIM_PATH}/lua/modules/colorscheme.lua"
+themes = {"1": "catppuccin-mocha", "2": "tokyonight", "3": "moonfly", "4": "gruvbox"}
+for k, v in themes.items():
+    print(k + ")", v)
+
+selected_theme = input("Choose your Neovim theme: ")
+if themes.get(selected_theme) is not None:
+    theme_name = themes.get(selected_theme)
+
+    with open(colorscheme_file_path) as colorscheme_file:
+        lines = colorscheme_file.readlines()
+        for index, line in enumerate(lines[:]):
+            if "local colorscheme = " in line:
+                lines[index] = f'local colorscheme = "{theme_name}"\n'
+                break
+
+    # write file
+    with open(colorscheme_file_path, "w") as colorscheme_file:
+        for line in lines:
+            colorscheme_file.write(line)
+
+else:
+    print("Theme not found!")
 
 
+# -------
+# Qtile
+# -------
+QTILE_PATH = f"{CONFIG_PATH}/qtile"
+SCREEN_PATH = f"{QTILE_PATH}/modules/screen"
+COLORSCHEMES_PATH = f"{QTILE_PATH}/modules/screen/colorschemes"
+colorschemes_files = os.listdir(COLORSCHEMES_PATH)
+colorschemes = []
 
+for index, colorscheme_file in enumerate(colorschemes_files, 1):
+    theme_dict = {
+        "id": str(index),
+        "colorscheme_file": colorscheme_file,
+        "name": colorscheme_file.split(".")[0].title(),
+    }
+    colorschemes.append(theme_dict)
+
+for colorscheme in colorschemes:
+    print(colorscheme.get("id") + ")", colorscheme.get("name"))
+
+selected_colorscheme = input("Choose qtile colorscheme: ")
+
+# extract user selected theme from themes list and apply theme
+for colorscheme in colorschemes:
+    if colorscheme.get("id") == selected_colorscheme:
+        colorscheme_file = colorscheme.get("colorscheme_file")
+        cmd = f"ln -sf {COLORSCHEMES_PATH}/{colorscheme_file} {SCREEN_PATH}/color.py"
+        qtile_reload_cmd = "qtile cmd-obj -o cmd -f reload_config"
+        os.system(cmd)
+        os.system(qtile_reload_cmd)
+        print("Theme changed successfully.")
+        break
+else:
+    print("theme not found")
