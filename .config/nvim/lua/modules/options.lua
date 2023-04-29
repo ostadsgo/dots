@@ -2,7 +2,7 @@ local options = {
 	-- creates a backup file
 	backup = false,
 	-- more space in the neovim command line for displaying messages
-	cmdheight = 0,
+	-- cmdheight = 0,
 	-- mostly just for cmp
 	completeopt = { "menuone", "noselect" },
 	-- so that `` is visible in markdown files

@@ -62,7 +62,7 @@ keyset("n", "<leader>fh", telescope.help_tags, {})
 -- INSERT
 ----------------------
 keymap("i", "jk", "<ESC>", opts) -- switch mode
-keymap("i", "<C-BACKSPACE>", "<C-O>ciw", opts) -- switch mode
+keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word 
 
 -------------------
 -- VISUAL
