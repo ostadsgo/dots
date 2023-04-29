@@ -1,0 +1,29 @@
+#!/usr/bin/python
+
+from urllib import request
+import json
+import os
+
+base_url = "http://www.bing.com/"
+req = f"{base_url}/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
+path = "/home/saeed/pics/bing/"
+filename = "wallpaper.jpg"
+
+# make url 
+res = request.urlopen(req)
+res_str = res.read().decode()
+res_json = json.loads(res_str)
+img_value = res_json.get("images")[0] 
+img_url = img_value.get("url")
+img_title = img_value.get("title")
+
+# save img
+url = base_url + img_url
+request.urlretrieve(url, f"{path}/{filename}")
+
+# set the wallpaper
+cmd = f"xwallpaper --stretch {path}/{filename}"
+os.system(cmd)
+
+# notify after set the wallpaper
+os.system(f"notify-send -u normal 'Image of The Day' '{img_title}'")
