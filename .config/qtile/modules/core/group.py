@@ -4,7 +4,7 @@ from libqtile.config import Group, Match, ScratchPad, DropDown
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad 
-spad_kw = dict(x=.16, y=.1, width=.7, height=.7, opacity=0.8)
+spad_kw = dict(x=.16, y=.1, width=.7, height=.7, opacity=0.7)
 groups = [
     Group(name="1", label=" "),
     Group(name="2", label=" ", layout="max", matches=[Match(wm_class="firefox")]),

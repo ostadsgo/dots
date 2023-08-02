@@ -16,7 +16,9 @@ layouts = [
         border_width=0,
         margin=3,
     ),
-    layout.Max(),
+    layout.Max(
+        name="max",
+    ),
 ]
 
 # ---------------------

@@ -7,8 +7,8 @@ dunst &
 # Compositor: make shadow and transparenty
 picom &
  
-# set background
-setbg &
+# get bg from bing and set to bg
+getbg &
 
 # Run qtile 
 qtile start

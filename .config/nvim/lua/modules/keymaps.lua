@@ -63,6 +63,7 @@ keyset("n", "<leader>fh", telescope.help_tags, {})
 ----------------------
 keymap("i", "jk", "<ESC>", opts) -- switch mode
 keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word 
+keymap("i", "<C-Enter>", "<C-o>o", opts) -- delete word 
 
 -------------------
 -- VISUAL
