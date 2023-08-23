@@ -27,6 +27,7 @@ keys = [
     Key(WIN, "j", lazy.layout.down()),
     Key(WIN, "k", lazy.layout.up()),
     Key(WIN, "space", lazy.layout.next()),
+    Key(ALT, "tab", lazy.layout.next()),
     Key(WIN_SHT, "space", lazy.layout.flip()),
     # Move window position
     Key(WIN_SHT, "h", lazy.layout.shuffle_left()),
@@ -57,8 +58,8 @@ keys = [
     ),
     # Window command
     Key(WIN, "w", lazy.window.kill()),
-    Key(WIN, "f", lazy.window.toggle_floating()),
-    Key(WIN_SHT, "f", lazy.window.toggle_fullscreen()),
+    Key(WIN, "f", lazy.window.toggle_fullscreen()),
+    Key(WIN_SHT, "f", lazy.window.toggle_floating()),
     # Screen specific
     Key(WIN, "b", lazy.hide_show_bar()),
     # Layout specific
@@ -76,11 +77,11 @@ keys = [
     Key(WIN, "3", lazy.group["3"].toscreen()),
     Key(WIN, "9", lazy.group["9"].toscreen()),
     Key(WIN, "0", lazy.group["0"].toscreen()),
-    Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=True)),
-    Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=True)),
-    Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=True)),
-    Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=True)),
-    Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=True)),
+    Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=False)),
+    Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=False)),
+    Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
+    Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
+    Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key([], "F11", lazy.group["scratchpad"].dropdown_toggle("python")),
     # Volume keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),

@@ -55,6 +55,9 @@ return packer.startup(function(use)
 	-- lualine
 	use("nvim-lualine/lualine.nvim")
 
+    -- Python
+    -- use({"petobens/poet-v"})
+
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")

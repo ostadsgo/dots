@@ -10,7 +10,7 @@ format = '[ ](bold blue) $directory$python$golang$rust$node$lua$git_branch$ch
 [character]
 success_symbol = '[ ](green)'
 error_symbol = '[ ](red)'
-vimcmd_symbol = '[  ](yellow)' 
+vimcmd_symbol = '[ ](yellow)' 
 
 [directory]
 read_only = " "
