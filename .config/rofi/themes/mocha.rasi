@@ -1,0 +1,74 @@
+
+configuration {
+  modi: "drun,run,window,filebrowser";
+  font: "Noto Sans Mono 11";
+
+  drun {
+    display-name: "[^.^]";
+  }
+
+  run {
+    display-name: "[°.°]";
+  }
+
+  window {
+    display-name: "[*.*]";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+}
+
+@import "colorschemes/mocha.rasi"
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  bg: var(background);
+  bg-alt: var(background);
+  fg: var(selected);
+  fg-alt: var(active);
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+  transparency: "real";
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+entry {
+  padding: 12px 0;
+}
+
+prompt {
+  padding: 12px;
+}
+
+listview {
+  lines: 8;
+}
+
+element {
+  children: [element-text];
+}
+
+element-text {
+  padding: 12px;
+  text-color: @fg-alt;
+}
+
+element-text selected {
+  text-color: @fg;
+}

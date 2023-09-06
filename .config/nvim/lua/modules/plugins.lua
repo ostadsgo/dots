@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use({ "bluz71/vim-moonfly-colors", as = "moonfly" })
     use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use({"rebelot/kanagawa.nvim"})
 	-- lualine
 	use("nvim-lualine/lualine.nvim")
 

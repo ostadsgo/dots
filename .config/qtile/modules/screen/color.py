@@ -1,0 +1,1 @@
+/home/saeed/.config/qtile/modules/screen/colorschemes/kanagawa-dragon.py

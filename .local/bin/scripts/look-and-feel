@@ -43,8 +43,6 @@ def get_theme_by_id(theme_id: str):
 
 
 def apply_theme_neovim(theme_name):
-    if theme_name == "mocha":
-        theme_name = "catppuccin-mocha"
     colorscheme_file_path = f"{NEOVIM_PATH}/lua/modules/colorscheme.lua"
     with open(colorscheme_file_path) as colorscheme_file:
         lines = colorscheme_file.readlines()
@@ -86,7 +84,7 @@ def choose_theme():
     theme = get_theme_by_id(user_response)
     print(theme)
     if theme:
-        print("we are going to apply your theme.")
+        print("Applying theme ....")
         apply_theme(theme)
     else:
         print("Invalid choice.")
