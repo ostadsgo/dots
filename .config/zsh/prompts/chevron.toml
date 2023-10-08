@@ -8,9 +8,9 @@ right_format='$cmd_duration'
 format = '[ ](bold blue) $directory$python$golang$rust$node$lua$git_branch$character'
 
 [character]
-success_symbol = '[ ](green)'
-error_symbol = '[ ](red)'
-vimcmd_symbol = '[ ](yellow)' 
+success_symbol = '[](green)'
+error_symbol = '[](red)'
+vimcmd_symbol = '[](yellow)' 
 
 [directory]
 read_only = " "
