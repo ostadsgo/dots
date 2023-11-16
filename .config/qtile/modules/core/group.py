@@ -13,7 +13,7 @@ groups = [
         layout="max",
         matches=[
             Match(wm_class="firefox"),
-            Match(wm_class="firefox"),
+            Match(wm_class="microsoft-edge"),
         ],
     ),
     Group(name="3", label=" ", layout="monadtall"),

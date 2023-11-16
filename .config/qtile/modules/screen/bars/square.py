@@ -62,7 +62,7 @@ bar_widgets = [
         prefix="k",
         background=c.bg,
         padding=10,
-        format="{interface} |{down:.2}KB ↓↑{up:.2}KB",
+        format="{down:.2}KB ↓↑{up:.2}KB",
     ),
     sep(bg=c.bg),
     widget.QuickExit(background=c.primary, fmt="OFF", padding=10),
