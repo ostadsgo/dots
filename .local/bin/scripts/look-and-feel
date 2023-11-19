@@ -43,7 +43,7 @@ def get_theme_by_id(theme_id: str):
 
 
 def apply_theme_neovim(theme_name):
-    colorscheme_file_path = f"{NEOVIM_PATH}/lua/modules/colorscheme.lua"
+    colorscheme_file_path = f"{NEOVIM_PATH}/lua/plugins/colors.lua"
     with open(colorscheme_file_path) as colorscheme_file:
         lines = colorscheme_file.readlines()
         for index, line in enumerate(lines[:]):

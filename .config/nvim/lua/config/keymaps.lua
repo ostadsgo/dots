@@ -19,7 +19,7 @@ keymap("n", "<leader>l", ":bnext<CR>", opts)     -- next buffer
 keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
 keymap("n", "<leader>q", ":bd<CR>", opts)        -- delete buffer
 keymap("n", "<leader>w", ":w<CR>", opts)         -- save file
-keymap("n", "<leader>r", "<cmd>source ~/.config/nvim/init.lua<CR>", opts)
+keymap("n", "<leader>s", "<cmd>source ~/.config/nvim/init.lua<CR>", opts)
 
 -- copy/past to/from system clipboard
 keymap("n", "<leader>y", '"+y', opts)
@@ -69,13 +69,6 @@ keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word
 keymap("i", "<C-Enter>", "<C-o>o", opts)    -- delete word
 keymap("i", "<C-/>", "<C-o>gcc", { noremap = false })
 
--- Automatically close brackets, parethesis, and quotes
-keymap("i", "'", "''<left>", opts)
-keymap("i", '"', '""<left>', opts)
-keymap("i", "(", "()<left>", opts)
-keymap("i", "[", "[]<left>", opts)
-keymap("i", "{", "{}<left>", opts)
-keymap("i", "/*", "/**/<left><left>", opts)
 
 -------------------
 -- VISUAL

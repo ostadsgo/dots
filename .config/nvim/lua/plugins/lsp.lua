@@ -9,6 +9,8 @@ local on_attach = function(client, bufnr)
     keymap.set("n", "gr", vim.lsp.buf.references, opts)
     keymap.set("n", "K", vim.lsp.buf.hover, opts)
     keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+    keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+    keymap.set({ 'n', 'v' }, '<Leader>ca', vim.lsp.buf.code_action, opts)
 end
 -- Lua
 lspconfig.lua_ls.setup({
@@ -22,12 +24,10 @@ lspconfig.lua_ls.setup({
     },
 })
 
-local servers = { 'ruff_lsp', 'pyright', 'gopls', 'rust_analyzer' }
+local servers = { 'ruff_lsp', 'pyright', 'gopls', 'rust_analyzer', 'taplo' }
 
 for _, server in ipairs(servers) do
-    lspconfig[server].setup({
-        on_attach = on_attach,
-    })
+    lspconfig[server].setup {}
 end
 
 -- Mason

@@ -1,1 +1,1 @@
-/home/saeed/.config/qtile/modules/screen/colorschemes/kanagawa-dragon.py
+/home/saeed/.config/qtile/modules/screen/colorschemes/tokyonight.py

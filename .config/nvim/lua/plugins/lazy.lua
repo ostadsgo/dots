@@ -13,15 +13,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugin list
-opts = {}
-plugins = {
+local opts = {}
+local plugins = {
     -- common plugins
     { 'nvim-lua/plenary.nvim' },
 
     -- theming
     { "rebelot/kanagawa.nvim" },
+    { "catppuccin/nvim",          name = "catppuccin" },
+    { 'bluz71/vim-moonfly-colors' },
+    { "folke/tokyonight.nvim" },
     { 'nvim-lualine/lualine.nvim' },
-    { 'numToStr/Comment.nvim',                      opts = {} },
+    -- tools
+    { 'numToStr/Comment.nvim',    opts = {} },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    },
 
     -- telescope
     { 'nvim-telescope/telescope.nvim',              branch = '0.1.x' },
