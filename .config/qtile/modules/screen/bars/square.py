@@ -3,6 +3,7 @@ from libqtile.config import Screen
 
 from . import color as c
 
+
 # ---------------------
 #    SCREEN WIDGETS
 # ---------------------
@@ -54,15 +55,16 @@ bar_widgets = [
         urget_text=c.fg,
     ),
     widget.Spacer(),
-    widget.KeyboardLayout(
-        configured_keyboards=["us", "ir"], background=c.bg, padding=10
-    ),
-    widget.Volume(background=c.bg, padding=10),
     widget.Net(
-        prefix="k",
+        prefix="M",
         background=c.bg,
         padding=10,
-        format="{down:.2}KB ↓↑{up:.2}KB",
+        format="{down:1.2f}{down_suffix} ↓↑ {up:1.2f}{up_suffix}",
+        # format="{down:6.2}KB ↓↑{up:6.2}KB",
+    ),
+    widget.Volume(background=c.bg, padding=10),
+    widget.KeyboardLayout(
+        configured_keyboards=["us", "ir"], background=c.bg, padding=10
     ),
     sep(bg=c.bg),
     widget.QuickExit(background=c.primary, fmt="OFF", padding=10),
@@ -71,7 +73,7 @@ bar_widgets = [
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=.9)
+bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=0.9)
 bar2 = bar.Bar(bar_widgets2, background=c.bg, size=24)
 
 # Screens

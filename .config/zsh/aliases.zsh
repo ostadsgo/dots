@@ -1,3 +1,7 @@
+#!/usr/bin/sh
+
+
+
 ## System
 # General aliases
 alias sx=startx
@@ -5,6 +9,8 @@ alias ls='exa --icons --color=always'
 alias la='ls -a'
 alias ll='ls -l'
 alias lt='ls -la'
+alias rm='rm -r'
+alias rmf='rm -rf'
 alias tree='exa -T'
 alias vim=nvim
 alias ka=killall
@@ -17,7 +23,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias pingarch="ping -c 5 archlinux.org"
 alias pingnet="ping -c 5  8.8.8.8"
 alias ip='ip --color'
-# Apps
 alias open=pcmanfm
 
 # record screen
@@ -52,9 +57,9 @@ alias mirrorg='sudo reflector --country  Germany,Denmark,Netherland,Sweeden --so
 alias pac='sudo pacman -S'
 alias pacu='sudo pacman -Syu'
 alias pacs='sudo pacman -Ss'
-alias paci='sudo pacman -Si'
 alias pacr='sudo pacman -Rscn'
 alias pacq='sudo pacman -Q'    # list all packages
+alias paci='sudo pacman -Qi'
 alias paco='sudo pacman -Qdt'  # Orphans
 alias pacor='sudo pacman -Rns $(pacman -Qtdq)'  # remove orphans
 alias pacc='sudo pacman -Scc'  # Clear cache
@@ -90,5 +95,3 @@ alias gl='g log'
 alias glg='g log'
 alias glo='g log'
 alias gco='g clone'
-
-
