@@ -21,7 +21,14 @@ configuration {
   }
 }
 
-@import "colorschemes/moonfly.rasi"
+* {
+    background:     #080808FF;
+    background-alt: #323437FF;
+    foreground:     #c6c6c6FF;
+    selected:       #ff5454FF;
+    active:         #323232FF;
+    urgent:         #FF5454FF;
+}
 * {
   border: 0;
   margin: 0;

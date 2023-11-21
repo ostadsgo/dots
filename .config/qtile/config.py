@@ -1,21 +1,22 @@
-from modules.binding import keymap, mousemap
-from modules.core import group, layout
-from modules.screen import screen
+from modules import bindings
+from modules import core
+from modules import screen
 
-
+from libqtile import hook
+from os import system
 
 # ---------------
 #   Bindings
 # ---------------
-keys = keymap.keys
-mouse = mousemap.mouse
+keys = bindings.keys
+mouse = bindings.mouse
 
 # ---------------
 #   Core
 # ---------------
-groups = group.groups
-layouts = layout.layouts
-floating_layout = layout.floating_layout
+groups = core.groups
+layouts = core.layouts
+floating_layout = core.floating_layout
 widget_defaults = screen.widget_defaults
 extension_defaults = screen.extension_defaults
 screens = [screen.screen1, screen.screen2]
@@ -35,3 +36,11 @@ auto_minimize = True
 wl_input_rules = None
 wmname = "Qtile"
 
+
+@hook.subscribe.layout_change
+def layout_change(layout, group):
+    PICOM_PATH = "~/.config/picom"
+    if layout.name == "max":
+        system(f"cp {PICOM_PATH}/no-corner.conf {PICOM_PATH}/picom.conf")
+    else:
+        system(f"cp {PICOM_PATH}/corner.conf {PICOM_PATH}/picom.conf")

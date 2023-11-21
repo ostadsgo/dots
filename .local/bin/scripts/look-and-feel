@@ -13,8 +13,6 @@ DUNST_PATH = f"{CONFIG_PATH}/dunst"
 DUNST_THEMES_PATH = f"{CONFIG_PATH}/dunst/themes"
 NEOVIM_PATH = f"{CONFIG_PATH}/nvim"
 QTILE_PATH = f"{CONFIG_PATH}/qtile"
-QTILE_SCREEN_PATH = f"{QTILE_PATH}/modules/screen"
-QTILE_COLORSCHEMES_PATH = f"{QTILE_PATH}/modules/screen/colorschemes"
 
 
 def themes_dict():
@@ -56,26 +54,40 @@ def apply_theme_neovim(theme_name):
             colorscheme_file.write(line)
 
 
+def apply_theme_qtile(theme_name: str):
+    screen_file_path = f"{QTILE_PATH}/modules/screen.py"
+    with open(screen_file_path) as screen_file:
+        lines = screen_file.readlines()
+        for index, line in enumerate(lines[:]):
+            if "from .colors import" in line:
+                lines[index] = f'from .colors import {theme_name.title()} as c\n\n'
+                break
+
+    # write file
+    with open(screen_file_path, "w") as colorscheme_file:
+        for line in lines:
+            colorscheme_file.write(line)
+
+
 def apply_theme(theme_file: str):
     # applay theme for kitty
     theme, _ = theme_file.split(".")
-    cmd = f"ln -sf {KITTY_PATH}/themes/{theme}.conf {KITTY_PATH}/kitty.conf"
+    cmd = f"cp {KITTY_PATH}/themes/{theme}.conf {KITTY_PATH}/kitty.conf"
     os.system(cmd)
     # apply theme for rofi
-    cmd = f"ln -sf {ROFI_THEMES_PATH}/{theme}.rasi {ROFI_PATH}/config.rasi"
+    cmd = f"cp {ROFI_THEMES_PATH}/{theme}.rasi {ROFI_PATH}/config.rasi"
     os.system(cmd)
     # apply theme for dunst
-    cmd = f"ln -sf {DUNST_THEMES_PATH}/{theme} {DUNST_PATH}/dunstrc"
+    cmd = f"cp {DUNST_THEMES_PATH}/{theme} {DUNST_PATH}/dunstrc"
     os.system(cmd)
     os.system("killall dunst && dunst &")
     # apply theme for Neovim
     apply_theme_neovim(theme)
     # apply colorscheme for qtile
-    cmd = f"ln -sf {QTILE_COLORSCHEMES_PATH}/{theme}.py {QTILE_SCREEN_PATH}/color.py"
+    apply_theme_qtile(theme)
     qtile_reload_cmd = "qtile cmd-obj -o cmd -f reload_config"
-    os.system(cmd)
     os.system(qtile_reload_cmd)
-    print("Theme changed successfully.")
+    print("Theme changed successfully:-)")
 
 
 def choose_theme():

@@ -1,6 +1,0 @@
-bg = "#1a1b26"
-fg = "#cfc9c2"
-inactive = "#414868"
-active = "#7aa2f7"
-primary = "#2ac3de"
-secondary ="#1a1b26" 

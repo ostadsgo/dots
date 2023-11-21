@@ -1,1 +1,0 @@
-/home/saeed/.config/qtile/modules/screen/bars/square.py

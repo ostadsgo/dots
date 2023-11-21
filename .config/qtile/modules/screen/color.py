@@ -1,1 +1,0 @@
-/home/saeed/.config/qtile/modules/screen/colorschemes/tokyonight.py

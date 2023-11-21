@@ -23,6 +23,8 @@ local plugins = {
     { "catppuccin/nvim",          name = "catppuccin" },
     { 'bluz71/vim-moonfly-colors' },
     { "folke/tokyonight.nvim" },
+    { "ellisonleao/gruvbox.nvim"},
+
     { 'nvim-lualine/lualine.nvim' },
     -- tools
     { 'numToStr/Comment.nvim',    opts = {} },
