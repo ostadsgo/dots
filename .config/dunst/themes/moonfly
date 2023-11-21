@@ -1,14 +1,10 @@
 [global]
-    monitor = 0
-    follow = keyboard
-    width = 370
-    height = 350
-    offset = 0x19
     padding = 5
     horizontal_padding = 2
     transparency = 25
-    font = Monospace 11
-    format = "<b>%s</b>\n%b"
+    font = Monospace 10
+    icon_theme = Adwaita 
+    enable_recursive_icon_lookup = true
 
 [urgency_low]
     background = "#080808"

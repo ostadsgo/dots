@@ -2,6 +2,8 @@
 
 
 import os
+import subprocess
+import signal
 
 HOME = "/home/saeed"
 CONFIG_PATH = f"{HOME}/.config"
@@ -41,6 +43,10 @@ def get_theme_by_id(theme_id: str):
 
 
 def apply_theme_neovim(theme_name):
+    if theme_name == "kanagawa":
+        theme_name = "kanagawa-dragon"
+    if theme_name == "tokyonight":
+        theme_name = "tokyonight-night"
     colorscheme_file_path = f"{NEOVIM_PATH}/lua/plugins/colors.lua"
     with open(colorscheme_file_path) as colorscheme_file:
         lines = colorscheme_file.readlines()
@@ -60,7 +66,7 @@ def apply_theme_qtile(theme_name: str):
         lines = screen_file.readlines()
         for index, line in enumerate(lines[:]):
             if "from .colors import" in line:
-                lines[index] = f'from .colors import {theme_name.title()} as c\n\n'
+                lines[index] = f"from .colors import {theme_name.title()} as c\n\n"
                 break
 
     # write file
@@ -74,6 +80,11 @@ def apply_theme(theme_file: str):
     theme, _ = theme_file.split(".")
     cmd = f"cp {KITTY_PATH}/themes/{theme}.conf {KITTY_PATH}/kitty.conf"
     os.system(cmd)
+    # command to reload kitty
+    pids_raw = subprocess.check_output(["pidof", "kitty"])
+    pids = [int(pid) for pid in pids_raw.decode().split()]
+    for pid in pids:
+        os.kill(pid, signal.SIGUSR1)
     # apply theme for rofi
     cmd = f"cp {ROFI_THEMES_PATH}/{theme}.rasi {ROFI_PATH}/config.rasi"
     os.system(cmd)
