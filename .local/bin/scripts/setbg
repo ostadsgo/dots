@@ -1,5 +1,5 @@
 #! /usr/bin/sh
-wpath="$HOME/pics/wallpapers"
+wpath="$HOME/pix/wallpapers"
 wallpapers=($(ls $wpath))
 index=$(cat ~/.local/bin/scripts/.wall)
 echo $index

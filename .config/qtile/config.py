@@ -5,6 +5,7 @@ from modules import screen
 from libqtile import hook
 from os import system
 
+
 # ---------------
 #   Bindings
 # ---------------
@@ -44,3 +45,6 @@ def layout_change(layout, group):
         system(f"cp {PICOM_PATH}/no-corner.conf {PICOM_PATH}/picom.conf")
     else:
         system(f"cp {PICOM_PATH}/corner.conf {PICOM_PATH}/picom.conf")
+
+
+

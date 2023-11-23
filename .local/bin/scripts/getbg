@@ -6,7 +6,7 @@ import os
 
 base_url = "http://www.bing.com/"
 req = f"{base_url}/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
-path = "/home/saeed/pics/bing/"
+path = "/home/saeed/pix/bing/"
 filename = "wallpaper.jpg"
 
 # make url 

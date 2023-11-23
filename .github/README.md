@@ -153,11 +153,10 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Window Manager: Qtile
 * Terminal: Kitty
 * Shell: Zsh
-* Term Multiplexer: Tmux
 * App Launcher: rofi
 * Editor: Neovim
 * Editor2: VS Code
-* Browser: Firefox
+* Browser: Firefox / Edge
 * File Manager: PcmanFM
 * Background: Xwallpaper
 * Compositor: picom
