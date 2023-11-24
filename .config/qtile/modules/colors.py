@@ -10,8 +10,8 @@ class Tokyonight:
 class Catppuccin:
     bg = "#11111b"
     fg = "#bac2de"
-    inactive = "#6c7086"
-    active = "#45475a"
+    active = "#6c7086"
+    inactive = "#45475a"
     primary = "#cba6f7"
     secondary = "#313244"
 

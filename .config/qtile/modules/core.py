@@ -35,7 +35,7 @@ groups = [
 # ------------------
 layout_config = dict(
     margin=3,
-    border_width=2,
+    border_width=3,
     border_focus="#ffffffff",
     border_normal="#00000000",
     border_focus_stack="#e0af68",

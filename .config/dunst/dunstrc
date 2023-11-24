@@ -1,25 +1,24 @@
 [global]
-    padding = 5
-    horizontal_padding = 2
-    transparency = 25
-    font = Monospace 10
-    icon_theme = Adwaita 
-    enable_recursive_icon_lookup = true
+font = monospace 10
+transparency = 10
+frame_color = "#CBA6F7"
+separator_color= frame
+icon_theme = Adwaita 
+enable_recursive_icon_lookup = true
 
 [urgency_low]
-    background = "#080808"
-    foreground = "#eeeeee"
-    frame_color = "#ff5454"
-    timeout = 3
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+timeout = 5
 
 [urgency_normal]
-    background = "#080808"
-    foreground = "#eeeeee"
-    frame_color = "#ff5454"
-    timeout = 5
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+timeout = 5
 
 [urgency_critical]
-    background = "#080808"
-    foreground = "#eeeeee"
-    frame_color = "#ff5454"
-    timeout = 10
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
+timeout = 3
+
