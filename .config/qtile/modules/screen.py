@@ -1,7 +1,8 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from .colors import Tokyonight as c
+from .colors import Moonfly as c
+
 
 
 # ---------------------

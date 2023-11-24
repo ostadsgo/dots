@@ -36,12 +36,14 @@ groups = [
 layout_config = dict(
     margin=3,
     border_width=2,
-    border_focus="#fff",
+    border_focus="#ffffffff",
     border_normal="#00000000",
+    border_focus_stack="#e0af68",
+    border_normal_stack="#00000000"
 )
 
 layouts = [
-    layout.Columns(**layout_config),
+    layout.Columns(**layout_config, insert_position=1),
     layout.MonadTall(ratio=0.65, max_ratio=0.75, **layout_config),
     layout.Max(name="max"),
 ]

@@ -6,6 +6,7 @@ import os
 from libqtile.config import Key
 from libqtile.config import Drag, Click
 from libqtile.lazy import lazy
+from libqtile.utils import send_notification
 
 # Modifiers
 SUPER = "mod4"
@@ -18,6 +19,13 @@ WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 
 TERMINAL = os.environ.get("TERMINAL") or "kitty"
+
+
+@lazy.function
+def change_margin(qtile, size):
+    send_notification("diz", "viz")
+    qtile.current_layout.margin += size
+    qtile.current_group.layout_all()
 
 
 # Keyboard bindings
@@ -46,7 +54,8 @@ keys = [
     Key(WIN, "o", lazy.layout.grow()),
     Key(WIN, "i", lazy.layout.shrink()),
     # Qtile specific
-    Key(WIN_CTRL, "r", lazy.reload_config()),
+    Key(WIN, "r", lazy.reload_config()),
+    Key(WIN_SHT, "r", lazy.restart()),
     Key(WIN_CTRL, "q", lazy.shutdown()),
     # Run specific program
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
@@ -89,8 +98,9 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
+    Key(WIN, "g", change_margin(size=3)),
+    Key(WIN_SHT, "g", change_margin(size=-3)),
 ]
-
 
 
 # Mouse bindings
