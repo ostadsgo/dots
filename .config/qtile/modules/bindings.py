@@ -23,9 +23,14 @@ TERMINAL = os.environ.get("TERMINAL") or "kitty"
 
 @lazy.function
 def change_margin(qtile, size):
-    send_notification("diz", "viz")
     qtile.current_layout.margin += size
     qtile.current_group.layout_all()
+
+
+@lazy.function
+def navigate_floating(qtile):
+    qtile.current_group.next_window()
+    qtile.current_window.bring_to_front()
 
 
 # Keyboard bindings
@@ -36,7 +41,7 @@ keys = [
     Key(WIN, "j", lazy.layout.down()),
     Key(WIN, "k", lazy.layout.up()),
     Key(WIN, "space", lazy.layout.next()),
-    Key(ALT, "tab", lazy.layout.next()),
+    Key(ALT, "tab", navigate_floating()),
     Key(WIN_SHT, "space", lazy.layout.flip()),
     # Move window position
     Key(WIN_SHT, "h", lazy.layout.shuffle_left()),
@@ -56,7 +61,7 @@ keys = [
     # Qtile specific
     Key(WIN, "r", lazy.reload_config()),
     Key(WIN_SHT, "r", lazy.restart()),
-    Key(WIN_CTRL, "q", lazy.shutdown()),
+    Key(WIN_SHT, "q", lazy.shutdown()),
     # Run specific program
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
     Key(WIN, "p", lazy.spawn("launcher")),
@@ -78,6 +83,7 @@ keys = [
     Key(WIN, "x", lazy.group.setlayout("max")),
     Key(WIN, "c", lazy.group.setlayout("columns")),
     Key(WIN, "t", lazy.group.setlayout("monadtall")),
+    Key(WIN, "s", lazy.group.setlayout("monadwide")),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -98,8 +104,9 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
-    Key(WIN, "g", change_margin(size=3)),
-    Key(WIN_SHT, "g", change_margin(size=-3)),
+    Key(WIN, "g", change_margin(size=1)),
+    Key(WIN_SHT, "g", change_margin(size=-1)),
+    Key(WIN, "d", lazy.window.toggle_maximize())
 ]
 
 
@@ -117,5 +124,5 @@ mouse = [
         lazy.window.set_size_floating(),
         start=lazy.window.get_size(),
     ),
-    Click(WIN, "Button2", lazy.window.bring_to_front()),
+    Click(WIN_SHT, "Button1", lazy.window.bring_to_front()),
 ]

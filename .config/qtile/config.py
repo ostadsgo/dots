@@ -1,10 +1,10 @@
-from modules import bindings
-from modules import core
-from modules import screen
-
-from libqtile import hook
 from os import system
 
+from libqtile import hook
+
+from modules import bindings, core, screen
+
+# from libqtile.utils import send_notification
 
 # ---------------
 #   Bindings
@@ -38,13 +38,15 @@ wl_input_rules = None
 wmname = "Qtile"
 
 
-@hook.subscribe.layout_change
-def layout_change(layout, group):
-    PICOM_PATH = "~/.config/picom"
-    if layout.name == "max":
-        system(f"cp {PICOM_PATH}/no-corner.conf {PICOM_PATH}/picom.conf")
-    else:
-        system(f"cp {PICOM_PATH}/corner.conf {PICOM_PATH}/picom.conf")
+# @hook.subscribe.client_focus
+# def client_focus(windows):
+#     pass
 
 
-
+# @hook.subscribe.layout_change
+# def layout_change(layout, _):
+#     PICOM_PATH = "~/.config/picom"
+#     if layout.name == "max":
+#         system(f"cp {PICOM_PATH}/no-corner.conf {PICOM_PATH}/picom.conf")
+#     else:
+#         system(f"cp {PICOM_PATH}/corner.conf {PICOM_PATH}/picom.conf")
