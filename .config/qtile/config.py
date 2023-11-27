@@ -1,10 +1,8 @@
-from os import system
-
-from libqtile import hook
-
+import os
 from modules import bindings, core, screen
 
-# from libqtile.utils import send_notification
+from libqtile import hook
+from libqtile.utils import send_notification
 
 # ---------------
 #   Bindings
@@ -45,8 +43,9 @@ wmname = "Qtile"
 
 # @hook.subscribe.layout_change
 # def layout_change(layout, _):
-#     PICOM_PATH = "~/.config/picom"
+#     os.system("killall picom")
 #     if layout.name == "max":
-#         system(f"cp {PICOM_PATH}/no-corner.conf {PICOM_PATH}/picom.conf")
+#         os.system("picom -b --corner-radius 0")
 #     else:
-#         system(f"cp {PICOM_PATH}/corner.conf {PICOM_PATH}/picom.conf")
+#         send_notification("diz", layout.name)
+#         os.system("picom -b --corner-radius 30")

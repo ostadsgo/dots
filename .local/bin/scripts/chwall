@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-WALL_PATH=~/pix/wallpapers
+WALL_PATH=~/pix/minimal
 WALLPAPERS=`ls $WALL_PATH`
 WALLPAPER="$(sxiv -t -o "${WALL_PATH}")"
 xwallpaper --stretch $WALLPAPER

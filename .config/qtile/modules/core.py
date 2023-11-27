@@ -1,6 +1,7 @@
 from libqtile import layout
 from libqtile.config import Group, Match, ScratchPad, DropDown
 
+from .colors import Tokyonight as c
 # ------------------
 #     GROUP
 # ------------------
@@ -34,9 +35,9 @@ groups = [
 #     LAYOUTS
 # ------------------
 layout_config = dict(
-    margin=1,
+    margin=3,
     border_width=2,
-    border_focus="#ffffffff",
+    border_focus=c.fg,
     border_normal="#00000000",
     border_focus_stack="#e0af68",
     border_normal_stack="#00000000",

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=getwall
+GenericName=Get bing daily wallpaper
+TryExec=getwall
+Exec=getwall %F
+Type=Application
+Keywords=script;
+Icon=~/.local/share/icons/Nordzy-green/mimes/16/script.svg
+Categories=Utility;
+StartupNotify=false

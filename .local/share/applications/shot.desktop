@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=shot
+GenericName=Take screenshot
+TryExec=shot
+Exec=shot %F
+Type=Application
+Keywords=script;
+Icon=~/.local/share/icons/Nordzy-green/devices/22/camera-photo.svg
+Categories=Utility;
+StartupNotify=false

@@ -106,7 +106,7 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
     Key(WIN, "g", change_margin(size=1)),
     Key(WIN_SHT, "g", change_margin(size=-1)),
-    Key(WIN, "d", lazy.window.toggle_maximize())
+    Key(WIN_SHT, "m", lazy.window.toggle_maximize())
 ]
 
 

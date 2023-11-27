@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=chwall
+GenericName=Change Background Wallpaper
+TryExec=chwall
+Exec=chwall %F
+Type=Application
+Keywords=script;
+Icon=~/.local/share/icons/Nordzy-green/mimes/16/script.svg
+Categories=Utility;
+StartupNotify=false
