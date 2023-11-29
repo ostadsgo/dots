@@ -8,7 +8,7 @@ dunst &
 picom &
  
 # get bg from bing and set to bg
-getbg &
+getwall &
 
 # Run qtile 
 qtile start

@@ -1,12 +1,11 @@
 """
-Bindings for keyboards
+Keyboard shortcuts for qtile.
 """
 
 import os
 from libqtile.config import Key
 from libqtile.config import Drag, Click
 from libqtile.lazy import lazy
-from libqtile.utils import send_notification
 
 # Modifiers
 SUPER = "mod4"
@@ -25,6 +24,8 @@ TERMINAL = os.environ.get("TERMINAL") or "kitty"
 def change_margin(qtile, size):
     qtile.current_layout.margin += size
     qtile.current_group.layout_all()
+    if qtile.current_layout.margin <= 0:
+        qtile.current_layout.margin = 0
 
 
 @lazy.function
@@ -106,7 +107,7 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
     Key(WIN, "g", change_margin(size=1)),
     Key(WIN_SHT, "g", change_margin(size=-1)),
-    Key(WIN_SHT, "m", lazy.window.toggle_maximize())
+    Key(WIN_SHT, "m", lazy.window.toggle_maximize()),
 ]
 
 

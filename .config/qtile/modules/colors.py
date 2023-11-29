@@ -19,9 +19,9 @@ class Catppuccin:
 class Gruvbox:
     bg = "1d2021"
     fg = "#fbf1c7"
-    active = "#98971a"
+    active = "#83a598"
     inactive = "#928374"
-    primary = "#689d6a"
+    primary = "#98971a"
     secondary = "#98971a"
 
 
@@ -41,3 +41,11 @@ class Moonfly:
     inactive = "#323437"
     primary = "#ff5454"
     secondary = "#080808"
+
+class Rosepine:
+    bg = "#191724"
+    fg = "#e0def4"
+    active = "#c4a7e7"
+    inactive = "#6e6a86"
+    primary = "#31748f"
+    secondary = "#f6c177"

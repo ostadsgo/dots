@@ -1,7 +1,7 @@
 -- Basic editor and plugin configs
+require("plugins/lazy")
 require("config/keymaps")
 require("config/options")
-require("plugins/lazy")
 require("plugins/colors")
 require("plugins/lualine")
 

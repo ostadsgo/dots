@@ -29,7 +29,6 @@ configuration {
     active:         #9aa5ceff;
     urgent:         #F7768EFF;
 }
-
 * {
   border: 0;
   margin: 0;

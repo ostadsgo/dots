@@ -19,11 +19,12 @@ local plugins = {
     { 'nvim-lua/plenary.nvim' },
 
     -- theming
-    { "rebelot/kanagawa.nvim"},
+    { "rebelot/kanagawa.nvim" },
     { "catppuccin/nvim",          name = "catppuccin" },
     { 'bluz71/vim-moonfly-colors' },
     { "folke/tokyonight.nvim" },
     { "ellisonleao/gruvbox.nvim"},
+    { 'rose-pine/neovim', name = 'rose-pine' },
 
     { 'nvim-lualine/lualine.nvim' },
     -- tools

@@ -1,8 +1,5 @@
-import os
 from modules import bindings, core, screen
 
-from libqtile import hook
-from libqtile.utils import send_notification
 
 # ---------------
 #   Bindings
@@ -35,17 +32,3 @@ auto_minimize = True
 wl_input_rules = None
 wmname = "Qtile"
 
-
-# @hook.subscribe.client_focus
-# def client_focus(windows):
-#     pass
-
-
-# @hook.subscribe.layout_change
-# def layout_change(layout, _):
-#     os.system("killall picom")
-#     if layout.name == "max":
-#         os.system("picom -b --corner-radius 0")
-#     else:
-#         send_notification("diz", layout.name)
-#         os.system("picom -b --corner-radius 30")
