@@ -1,4 +1,4 @@
-local colorscheme = "rose-pine"
+local colorscheme = "moonfly"
 
 -- config for gruvbox colorscheme
 require("gruvbox").setup({

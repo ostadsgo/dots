@@ -8,7 +8,7 @@ alias sx=startx
 alias ls='exa --icons --color=always' 
 alias la='ls -a'
 alias ll='ls -l'
-alias lt='ls -la'
+alias lla='ls -la'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'

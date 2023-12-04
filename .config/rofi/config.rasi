@@ -22,12 +22,12 @@ configuration {
 }
 
 * {
-    background:     #191724;
-    background-alt: #1f1d2e;
-    foreground:     #e0def4;
-    selected:       #31748f;
-    active:         #c4a7e7;
-    urgent:         #eb6f92;
+    background:     #080808FF;
+    background-alt: #323437FF;
+    foreground:     #c6c6c6FF;
+    selected:       #ff5454FF;
+    active:         #323232FF;
+    urgent:         #FF5454FF;
 }
 * {
   border: 0;

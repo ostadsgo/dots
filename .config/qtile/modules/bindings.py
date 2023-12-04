@@ -99,8 +99,8 @@ keys = [
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
     Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
-    Key([], "F2", lazy.group["scratchpad"].dropdown_toggle("python")),
-    Key([], "F12", lazy.group["scratchpad"].dropdown_toggle("terminal")),
+    Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
+    Key(WIN_SHT,"t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
     # Volume keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
