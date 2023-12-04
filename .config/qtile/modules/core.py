@@ -1,7 +1,7 @@
 from libqtile import layout
 from libqtile.config import Group, Match, ScratchPad, DropDown
 
-from .colors import Moonfly as c
+from .colors import Catppuccin as c
 # ------------------
 #     GROUP
 # ------------------
@@ -38,9 +38,9 @@ layout_config = dict(
     margin=3,
     border_width=2,
     border_focus=c.fg,
-    border_normal="#00000000",
-    border_focus_stack="#e0af68",
-    border_normal_stack="#00000000",
+    border_normal=c.bg,
+    border_focus_stack=c.active,
+    border_normal_stack=c.bg,
     single_border_width=0,
 )
 

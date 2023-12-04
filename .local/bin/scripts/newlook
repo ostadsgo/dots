@@ -100,9 +100,10 @@ def apply_theme_qtile(theme_name: str):
 
 def apply_kitty(theme_name):
     # applay theme for kitty
-    cmd = f"cp {KITTY_PATH}/themes/{theme_name}.conf {KITTY_PATH}/kitty.conf"
+    # cmd = f"cp {KITTY_PATH}/themes/{theme_name}.conf {KITTY_PATH}/kitty.conf"
+    cmd = f"ln -sf {KITTY_PATH}/themes/{theme_name}.conf {KITTY_PATH}/kitty.conf"
     os.system(cmd)
-    # command to reload kitty
+    # commands to reload kitty
     pids_raw = subprocess.check_output(["pidof", "kitty"])
     pids = [int(pid) for pid in pids_raw.decode().split()]
     for pid in pids:

@@ -1,7 +1,7 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from .colors import Moonfly as c
+from .colors import Catppuccin as c
 
 
 # ---------------------

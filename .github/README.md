@@ -127,7 +127,7 @@ picom -b
 * Get code of key to use in key defining for zsh
 Press `ctl + v` after that press the key
 * Create `.desktop` file for any script to be regonziable by rofi
-
+* Install noto-font-cjk noto-font-emoji noto-font-extra to render all fonts.
 
 ### Install Apps
 ```
