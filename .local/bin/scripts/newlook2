@@ -1,0 +1,29 @@
+#!/usr/bin/sh
+
+kitty_path=~/.config/kitty
+nvim_path=~/.config/nvim
+qtile_path=~/.config/qtile
+dunst_path=~/.config/dunst
+rofi_path=~/.config/rofi
+
+print_theme_list() {
+    theme_list=$(ls ~/.config/kitty/themes)
+    themes_name=$(echo "$theme_list" | sed 's/\.conf//g') 
+    echo "$themes_name"
+}
+
+echo "Give New Look"
+echo "-------------"
+print_theme_list
+echo "-------------"
+# get theme name from user
+echo "Choose from theme list: "
+read -r selected_theme
+
+echo "You selected $selected_theme"
+
+
+
+
+
+

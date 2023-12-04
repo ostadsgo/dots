@@ -1,0 +1,8 @@
+[
+    {"id": "1", "nvim": "moonfly" , "name": "moonfly", "font": "Source Code Pro"},
+    {"id": "2", "nvim": "catppuccin", "name": "catppuccin", "font": "Cascadia Code"},
+    {"id": "3", "nvim": "kanagawa-dragon", "name": "kanagawa", "font": "Victor Mono"},
+    {"id": "4", "nvim": "rose-pine", "name": "rosepine", "font": "Jetbrains Mono"},
+    {"id": "5", "nvim": "tokyonight-night", "name": "tokyonight", "font": "Fira Code"},
+    {"id": "6", "nvim": "gruvbox","name": "gruvbox", "font": "iosevka"}
+]
