@@ -1,7 +1,8 @@
 from libqtile import layout
 from libqtile.config import Group, Match, ScratchPad, DropDown
 
-from .colors import Catppuccin as c
+from .colors import Moonfly as c
+
 # ------------------
 #     GROUP
 # ------------------
@@ -11,11 +12,12 @@ groups = [
     Group(name="1", label=" "),
     Group(
         name="2",
-        label=" ",
+        label=" ",
         layout="max",
         matches=[
             Match(wm_class="firefox"),
             Match(wm_class="microsoft-edge"),
+            Match(wm_class="Google-chrome"),
         ],
     ),
     Group(name="3", label=" ", layout="monadtall"),
@@ -65,6 +67,8 @@ floating_layout = layout.Floating(
         Match(wm_class="Places"),  # Firefox download window
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="notification"),
+        Match(wm_class="Dunst"),
     ],
     **layout_config,
 )

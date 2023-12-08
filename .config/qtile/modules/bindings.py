@@ -51,12 +51,12 @@ keys = [
     Key(WIN_SHT, "j", lazy.layout.shuffle_down()),
     Key(WIN_SHT, "Return", lazy.layout.toggle_split()),
     # Grow window
-    Key(WIN_CTRL, "h", lazy.layout.grow_left()),
-    Key(WIN_CTRL, "l", lazy.layout.grow_right()),
-    Key(WIN_CTRL, "j", lazy.layout.grow_down()),
-    Key(WIN_CTRL, "k", lazy.layout.grow_up()),
-    Key(WIN, "n", lazy.layout.normalize()),
-    Key(WIN, "m", lazy.layout.maximize()),
+    Key(WIN, "comma", lazy.layout.grow_left()),
+    Key(WIN, "period", lazy.layout.grow_right()),
+    Key(WIN_SHT, "comma", lazy.layout.grow_down()),
+    Key(WIN_SHT, "period", lazy.layout.grow_up()),
+    Key(WIN_SHT, "n", lazy.layout.normalize()),
+    Key(WIN_SHT, "m", lazy.layout.maximize()),
     Key(WIN, "o", lazy.layout.grow()),
     Key(WIN, "i", lazy.layout.shrink()),
     # Qtile specific
@@ -73,7 +73,7 @@ keys = [
         lazy.spawn("kblayout"),
     ),
     # Window command
-    Key(WIN, "w", lazy.window.kill()),
+    Key(WIN, "q", lazy.window.kill()),
     Key(WIN, "f", lazy.window.toggle_fullscreen()),
     Key(WIN_SHT, "f", lazy.window.toggle_floating()),
     # Screen specific
@@ -81,10 +81,10 @@ keys = [
     # Layout specific
     Key(WIN, "grave", lazy.next_layout()),
     Key(WIN_SHT, "grave", lazy.prev_layout()),
-    Key(WIN, "x", lazy.group.setlayout("max")),
+    Key(WIN, "m", lazy.group.setlayout("max")),
     Key(WIN, "c", lazy.group.setlayout("columns")),
     Key(WIN, "t", lazy.group.setlayout("monadtall")),
-    Key(WIN, "s", lazy.group.setlayout("monadwide")),
+    Key(WIN, "w", lazy.group.setlayout("monadwide")),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -100,14 +100,14 @@ keys = [
     Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
-    Key(WIN_SHT,"t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
+    Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
     # Volume keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
+    # Custom functions bind to keys
     Key(WIN, "g", change_margin(size=1)),
     Key(WIN_SHT, "g", change_margin(size=-1)),
-    Key(WIN_SHT, "m", lazy.window.toggle_maximize()),
 ]
 
 

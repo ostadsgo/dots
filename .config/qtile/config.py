@@ -1,5 +1,7 @@
 from modules import bindings, core, screen
 
+from libqtile import hook
+from libqtile import qtile
 
 # ---------------
 #   Bindings
@@ -32,3 +34,10 @@ auto_minimize = True
 wl_input_rules = None
 wmname = "Qtile"
 
+
+# ---------------
+# Hooks
+# ---------------
+@hook.subscribe.float_change
+def float_change():
+    qtile.current_window.center()

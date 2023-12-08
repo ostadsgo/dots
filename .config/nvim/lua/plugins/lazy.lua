@@ -20,15 +20,18 @@ local plugins = {
 
     -- theming
     { "rebelot/kanagawa.nvim" },
-    { "catppuccin/nvim",          name = "catppuccin" },
+    { "catppuccin/nvim",            name = "catppuccin" },
     { 'bluz71/vim-moonfly-colors' },
     { "folke/tokyonight.nvim" },
-    { "ellisonleao/gruvbox.nvim"},
-    { 'rose-pine/neovim', name = 'rose-pine' },
-
+    { "ellisonleao/gruvbox.nvim" },
+    { 'rose-pine/neovim',           name = 'rose-pine' },
+    { 'dasupradyumna/midnight.nvim' },
+    { "mrjones2014/lighthaus.nvim" },
+    -- `lazy` and `priority` are only needed if this is your primary colorscheme to load it first
+    -- }
     { 'nvim-lualine/lualine.nvim' },
     -- tools
-    { 'numToStr/Comment.nvim',    opts = {} },
+    { 'numToStr/Comment.nvim',      opts = {} },
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
@@ -43,7 +46,6 @@ local plugins = {
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
-    { 'L3MON4D3/LuaSnip' },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
 

@@ -1,7 +1,7 @@
 # General
 export HOME=~
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="chrome"
 export TERMINAL="kitty"
 
 export XDG_CONFIG_HOME=$HOME/.config

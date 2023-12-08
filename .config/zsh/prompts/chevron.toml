@@ -3,24 +3,30 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-right_format='$cmd_duration'
+right_format = '$git_branch$git_status$cmd_duration'
 # Prompt
-format = '[ ](bold blue) $directory$python$golang$rust$node$lua$git_branch$character'
+format = '[ ](bold blue) $directory$python$golang$rust$node$lua$character'
 
 [character]
-success_symbol = '[](green)'
-error_symbol = '[](red)'
-vimcmd_symbol = '[](yellow)' 
+# success_symbol = '[](green)'
+success_symbol = '[](green)'
+error_symbol = '[](red)'
+vimcmd_symbol = '[](yellow)'
 
 [directory]
 read_only = " "
 truncation_length = 3
-truncation_symbol = '…/'
-style="bold blue"
+truncation_symbol = '../'
+style = "bold blue"
+
+[cmd_duration]
+format = '[$duration](bold yellow)'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
 
 [docker_context]
 symbol = " "
-
 
 [golang]
 symbol = " "
@@ -43,4 +49,3 @@ symbol = " "
 
 [rust]
 symbol = " "
-

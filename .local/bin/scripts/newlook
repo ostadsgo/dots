@@ -13,7 +13,8 @@ ROFI_PATH = f"{CONFIG_PATH}/rofi"
 ROFI_THEMES_PATH = f"{CONFIG_PATH}/rofi/themes"
 DUNST_PATH = f"{CONFIG_PATH}/dunst"
 DUNST_THEMES_PATH = f"{CONFIG_PATH}/dunst/themes"
-NEOVIM_PATH = f"{CONFIG_PATH}/nvim"
+NVIM_PATH = f"{CONFIG_PATH}/nvim"
+NVIM_PLUGINS_PATH = f"{NVIM_PATH}/lua/plugins"
 QTILE_PATH = f"{CONFIG_PATH}/qtile"
 
 
@@ -55,24 +56,33 @@ def get_theme_by_id(theme_id: str):
     return 0
 
 
-def apply_theme_neovim(theme_name):
-    # theme nvim package name
-    nvim_theme_name = ""
+def reload_proc(name: str):
+    pids_raw = subprocess.check_output(["pidof", name])
+    pids = [int(pid) for pid in pids_raw.decode().split()]
+    for pid in pids:
+        os.kill(pid, signal.SIGUSR1)
+
+
+def get_nvim_theme(theme_name):
     for theme in themes_dict():
         if theme.get("name") == theme_name:
-            nvim_theme_name = theme.get("nvim")
+            return theme.get("nvim")
 
-    theme_name = nvim_theme_name or theme_name
+
+def apply_theme_neovim(theme_name):
+    # theme nvim package name
+    theme_name = get_nvim_theme(theme_name)
     # filename
-    filename = f"{NEOVIM_PATH}/lua/plugins/colors.lua"
+    filename = f"{NVIM_PATH}/lua/plugins/colors.lua"
     # read
     lines = readfile(filename)
     # update
     old_line = "local colorscheme = "
-    new_line = f'local colorscheme = "{nvim_theme_name}"\n'
+    new_line = f'local colorscheme = "{theme_name}"\n'
     lines = updatefile(lines, old_line, new_line)
     # write
     writefile(filename, lines)
+    # reload nvim colors
 
 
 def apply_theme_qtile(theme_name: str):
@@ -98,26 +108,22 @@ def apply_theme_qtile(theme_name: str):
     os.system(qtile_reload_cmd)
 
 
-def apply_kitty(theme_name):
-    # applay theme for kitty
-    # cmd = f"cp {KITTY_PATH}/themes/{theme_name}.conf {KITTY_PATH}/kitty.conf"
-    cmd = f"ln -sf {KITTY_PATH}/themes/{theme_name}.conf {KITTY_PATH}/kitty.conf"
+def make_soft_link(src: str, dist: str):
+    cmd = f"ln -sf {src} {dist}"
     os.system(cmd)
-    # commands to reload kitty
-    pids_raw = subprocess.check_output(["pidof", "kitty"])
-    pids = [int(pid) for pid in pids_raw.decode().split()]
-    for pid in pids:
-        os.kill(pid, signal.SIGUSR1)
+
+
+def apply_kitty(theme_name: str):
+    make_soft_link(f"{KITTY_PATH}/themes/{theme_name}.conf", f"{KITTY_PATH}/kitty.conf")
+    reload_proc("kitty")
 
 
 def apply_rofi(theme_name):
-    cmd = f"cp {ROFI_THEMES_PATH}/{theme_name}.rasi {ROFI_PATH}/config.rasi"
-    os.system(cmd)
+    make_soft_link(f"{ROFI_THEMES_PATH}/{theme_name}.rasi", f"{ROFI_PATH}/config.rasi")
 
 
 def apply_dunst(theme_name):
-    cmd = f"cp {DUNST_THEMES_PATH}/{theme_name} {DUNST_PATH}/dunstrc"
-    os.system(cmd)
+    make_soft_link(f"{DUNST_THEMES_PATH}/{theme_name}", f"{DUNST_PATH}/dunstrc")
     os.system("killall dunst && dunst &")
 
 
@@ -127,16 +133,14 @@ def apply_theme(theme_name: str):
     apply_dunst(theme_name)
     apply_theme_neovim(theme_name)
     apply_theme_qtile(theme_name)
-    print("Theme changed successfully:-)")
+    print(f"Theme changed to {theme_name} successfuly.")
 
 
 def choose_theme():
     print_themes()
     user_response = input("Choose theme number: ")
     theme = get_theme_by_id(user_response)
-    print(theme)
     if theme:
-        print(f"Applying theme ...{theme}")
         apply_theme(theme)
     else:
         print("Invalid choice.")

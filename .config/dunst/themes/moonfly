@@ -1,10 +1,11 @@
 [global]
     padding = 5
-    horizontal_padding = 2
+    horizontal_padding = 10
     transparency = 25
     font = Monospace 10
     icon_theme = Adwaita 
     enable_recursive_icon_lookup = true
+    frame_width = 0
 
 [urgency_low]
     background = "#080808"

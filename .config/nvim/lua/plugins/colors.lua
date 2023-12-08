@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin"
+local colorscheme = "moonfly"
 
 -- config for gruvbox colorscheme
 require("gruvbox").setup({

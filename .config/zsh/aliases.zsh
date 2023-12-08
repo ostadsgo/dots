@@ -1,14 +1,13 @@
 #!/usr/bin/sh
 
 
-
 ## System
 # General aliases
 alias sx=startx
 alias ls='exa --icons --color=always' 
 alias la='ls -a'
-alias ll='ls -l'
-alias lla='ls -la'
+alias ll='ls -lh'
+alias lla='ls -lah'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'
@@ -23,18 +22,17 @@ alias path='echo -e ${PATH//:/\\n}'
 alias pingarch="ping -c 5 archlinux.org"
 alias pingnet="ping -c 5  8.8.8.8"
 alias ip='ip --color'
-alias open=pcmanfm
 
-# record screen
+alias open=pcmanfm
 alias record='ffmpeg -framerate 30 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
 alias play='ffplay'
+alias show='sxiv'
 
 # Python aliases
 alias py=python
 alias venv='python -m venv .venv'
 alias vact='source .venv/bin/activate'
 alias dact=deactivate
-
 
 # Django aliases
 alias djapp='python manage.py startapp'
