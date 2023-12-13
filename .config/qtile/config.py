@@ -1,3 +1,4 @@
+from libqtile.utils import send_notification
 from modules import bindings, core, screen
 
 from libqtile import hook
@@ -40,4 +41,7 @@ wmname = "Qtile"
 # ---------------
 @hook.subscribe.float_change
 def float_change():
-    qtile.current_window.center()
+    window = qtile.current_window
+    is_maximized = window.info().get("maximized")
+    if not is_maximized:
+        window.center()

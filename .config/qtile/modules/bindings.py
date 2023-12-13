@@ -6,7 +6,6 @@ import os
 from libqtile.config import Key
 from libqtile.config import Drag, Click
 from libqtile.lazy import lazy
-
 # Modifiers
 SUPER = "mod4"
 MOD1 = "mod1"
@@ -17,8 +16,7 @@ ALT = ["mod1"]
 WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 
-TERMINAL = os.environ.get("TERMINAL") or "kitty"
-
+TERMINAL = os.environ.get("TERMINAL")
 
 @lazy.function
 def change_margin(qtile, size):
@@ -32,6 +30,13 @@ def change_margin(qtile, size):
 def navigate_floating(qtile):
     qtile.current_group.next_window()
     qtile.current_window.bring_to_front()
+
+
+@lazy.function
+def minimize_all(qtile):
+    for window in qtile.current_group.windows:
+        if hasattr(window, "toggle_minimize"):
+            window.toggle_minimize()
 
 
 # Keyboard bindings
@@ -76,6 +81,7 @@ keys = [
     Key(WIN, "q", lazy.window.kill()),
     Key(WIN, "f", lazy.window.toggle_fullscreen()),
     Key(WIN_SHT, "f", lazy.window.toggle_floating()),
+    Key(WIN, "x", lazy.window.toggle_maximize()),
     # Screen specific
     Key(WIN, "b", lazy.hide_show_bar()),
     # Layout specific
@@ -108,6 +114,7 @@ keys = [
     # Custom functions bind to keys
     Key(WIN, "g", change_margin(size=1)),
     Key(WIN_SHT, "g", change_margin(size=-1)),
+    Key(WIN, "d", minimize_all()),
 ]
 
 

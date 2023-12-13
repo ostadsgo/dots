@@ -4,10 +4,11 @@ font:
     family: source code pro
   size: 11
 
-padding:
-  x: 5
-  y: 5
-# colors
+window:
+  padding:
+    x: 10
+    y: 10
+
 # Catppuccin.
 colors:
     primary:

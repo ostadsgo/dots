@@ -1,7 +1,7 @@
 # Font
 font:
   normal:
-    family: fira code
+    family: Source Code Pro
   size: 10
 
 padding:

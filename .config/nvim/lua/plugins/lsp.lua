@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
 local telescope = require("telescope.builtin")
 
-
+-- on_attach
 
 local on_attach = function(_, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }

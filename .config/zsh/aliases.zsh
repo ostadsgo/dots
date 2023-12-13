@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/zsh
 
 
 ## System
@@ -26,6 +26,7 @@ alias ip='ip --color'
 alias open=pcmanfm
 alias record='ffmpeg -framerate 30 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
 alias play='ffplay'
+
 alias show='sxiv'
 
 # Python aliases

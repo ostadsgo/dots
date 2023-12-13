@@ -60,7 +60,7 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="tk"),  # tkinter
+        Match(wm_class="Tk"),  # tkinter
         Match(wm_class="pcmanfm"),  # tkinter
         Match(wm_class="xarchiver"),  # tkinter
         Match(wm_class="Toplevel"),  # tkinter toplevel window
@@ -69,6 +69,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="notification"),
         Match(wm_class="Dunst"),
+        Match(wm_class="ffplay"),
     ],
     **layout_config,
 )
