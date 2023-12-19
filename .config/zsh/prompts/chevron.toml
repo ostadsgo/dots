@@ -3,12 +3,12 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 right_format = '$git_branch$git_status$cmd_duration'
-format = '$directory$python$golang$rust$node$lua$character'
+format = ' $directory$c$python$golang$rust$node$lua$character'
 
 [character]
-success_symbol = '[](green)'
-error_symbol = '[](red)'
-vimcmd_symbol = '[](yellow)'
+success_symbol = '[](green)'
+error_symbol = '[](red)'
+vimcmd_symbol = '[](yellow)'
 
 [directory]
 read_only = " 󰌾"
@@ -32,7 +32,6 @@ symbol = " "
 
 [lua]
 symbol = " "
-format = 'via [$symbol(${version})]($style) '
 
 [nodejs]
 symbol = " "
@@ -45,3 +44,6 @@ symbol = " "
 
 [rust]
 symbol = " "
+
+[c]
+symbol = " "

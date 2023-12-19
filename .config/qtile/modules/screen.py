@@ -1,7 +1,7 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from .colors import Moonfly as c
+from .colors import Rosepine as c
 
 
 # ---------------------
@@ -24,25 +24,29 @@ def right_arrow(bg, fg):
 
 
 widget_defaults = dict(
-    font="Cascadia Code",
+    font="Noto Sans Mono",
     fontsize=13,
 )
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
-    # Date
     # --------------
-    widget.CurrentLayout(background=c.primary, padding=10),
-    sep(bg=c.bg),
+    # Layout / Date / Win count
+    # --------------
+    widget.CurrentLayout(background=c.primary, foreground=c.fg, padding=10),
+    widget.WindowCount(background=c.secondary, foreground=c.bg),
     widget.Clock(
         background=c.bg,
+        foreground=c.fg,
         format="%d %b %A | %H:%M",
         padding=10,
     ),
+    # --------------
     # Current Layout
     # --------------
     sep(bg=c.bg),
     widget.Spacer(),
+    # --------------
     # Worksapces
     # --------------
     widget.GroupBox(
@@ -50,9 +54,7 @@ bar_widgets = [
         fontsize=18,
         active=c.active,
         inactive=c.inactive,
-        this_current_screen_border=c.primary,
-        urgent_border=c.secondary,
-        urget_text=c.fg,
+        this_current_screen_border=c.secondary,
     ),
     widget.Spacer(),
     widget.Net(
@@ -73,7 +75,7 @@ bar_widgets = [
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
-bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=0.8)
+bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=0.9)
 bar2 = bar.Bar(bar_widgets2, background=c.bg, size=24)
 
 # Screens

@@ -1,7 +1,7 @@
 from libqtile import layout
 from libqtile.config import Group, Match, ScratchPad, DropDown
 
-from .colors import Moonfly as c
+from .colors import Rosepine as c
 
 # ------------------
 #     GROUP

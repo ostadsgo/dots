@@ -2,8 +2,8 @@
 
 import json
 import os
-import subprocess
 import signal
+import subprocess
 
 HOME = "/home/saeed"
 CONFIG_PATH = f"{HOME}/.config"
@@ -73,16 +73,16 @@ def apply_theme_neovim(theme_name):
     # theme nvim package name
     theme_name = get_nvim_theme(theme_name)
     # filename
-    filename = f"{NVIM_PATH}/lua/plugins/colors.lua"
+    filename = f"{NVIM_PATH}/lua/plugins/colorscheme.lua"
     # read
     lines = readfile(filename)
     # update
-    old_line = "local colorscheme = "
-    new_line = f'local colorscheme = "{theme_name}"\n'
+    old_line = "vim.cmd('colorscheme "
+    new_line = f"vim.cmd('colorscheme  {theme_name}')\n"
     lines = updatefile(lines, old_line, new_line)
     # write
     writefile(filename, lines)
-    # reload nvim colors
+    # reload nvim colors !!
 
 
 def apply_theme_qtile(theme_name: str):

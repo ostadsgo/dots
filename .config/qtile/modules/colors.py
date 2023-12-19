@@ -39,8 +39,9 @@ class Moonfly:
     fg = "#e4e4e4"
     active = "#c6c6c6"
     inactive = "#323437"
-    primary = "#ff5454"
-    secondary = "#080808"
+    primary = "#323437"    # 
+    secondary = "#8cc85f"  # green
+
 
 class Rosepine:
     bg = "#191724"
@@ -48,4 +49,4 @@ class Rosepine:
     active = "#c4a7e7"
     inactive = "#6e6a86"
     primary = "#31748f"
-    secondary = "#f6c177"
+    secondary = "#eb6f92"

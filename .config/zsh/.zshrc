@@ -1,4 +1,6 @@
+#!/bin/zsh
 
+ZVM_INIT_MODE=sourcing
 HISTFILE=$ZDOTDIR/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
@@ -10,7 +12,8 @@ setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_ALL_DUPS 
 setopt HIST_IGNORE_SPACE
-setopt autocd		# Automatically cd into typed directory.
+setopt autocd		
+setopt vi
 
 autoload -U colors && colors	    # Load colors
 autoload -U compinit && compinit    # auto complete
@@ -21,6 +24,9 @@ compinit
 # Starship prompt
 eval "$(starship init zsh)"
 
+# fzf
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 # Useful Functions
 source "$ZDOTDIR/functions.zsh"
 
@@ -36,5 +42,4 @@ zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_file "aliases.zsh"
 zsh_add_file "exports.zsh"
 zsh_add_file "vi-mode.zsh"
-# zsh_add_file "prompts/default.zsh-theme"
 
