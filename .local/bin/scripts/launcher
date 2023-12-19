@@ -1,3 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
-rofi -show {drun,window,filebrowser} -theme $HOME/.config/rofi/config.rasi
+bg="#191724"
+fg="#e0def4"
+sel="#31748f"
+dmenu_run -i -p "Apps:: " -nb $bg -nf $fg -sb $sel

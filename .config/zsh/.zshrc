@@ -10,9 +10,9 @@ SAVEHIST=100000
 unsetopt BEEP
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_ALL_DUPS 
+setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-setopt autocd		
+setopt autocd
 setopt vi
 
 autoload -U colors && colors	    # Load colors
@@ -27,8 +27,14 @@ eval "$(starship init zsh)"
 # fzf
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
 # Useful Functions
 source "$ZDOTDIR/functions.zsh"
+
+# File sourced
+zsh_add_file "aliases.zsh"
+zsh_add_file "exports.zsh"
+zsh_add_file "vi-mode.zsh"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
@@ -38,8 +44,4 @@ zsh_add_plugin "agkozak/zsh-z"
 zsh_add_plugin "zsh-users/zsh-completions"
 
 
-# File sourced
-zsh_add_file "aliases.zsh"
-zsh_add_file "exports.zsh"
-zsh_add_file "vi-mode.zsh"
 
