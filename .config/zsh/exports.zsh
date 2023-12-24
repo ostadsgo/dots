@@ -15,6 +15,9 @@ export STARSHIP_CONFIG=$ZDOTDIR/starship.toml
 export GOPATH=$XDG_DATA_HOME/go
 
 export FZF_DEFAULT_OPTS='
+--height 40% --reverse --border=rounded  
+--no-hscroll --prompt=":: " 
+--info=hidden --pointer="*" 
 --color="fg:#b2b2b2,bg:#080808,bg+:#323437,hl:#ff5454,gutter:#080808"
 --color="query:#e4e4e4,prompt:#b2b2b2,pointer:#ff5454,marker:#ff5454"
 --color="hl+:#ff5454"

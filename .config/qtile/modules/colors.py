@@ -40,7 +40,7 @@ class Moonfly:
     active = "#c6c6c6"
     inactive = "#323437"
     primary = "#323437"    # 
-    secondary = "#8cc85f"  # green
+    secondary = "#74b2ff"  # blue
 
 
 class Rosepine:

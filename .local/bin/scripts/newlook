@@ -73,11 +73,11 @@ def apply_theme_neovim(theme_name):
     # theme nvim package name
     theme_name = get_nvim_theme(theme_name)
     # filename
-    filename = f"{NVIM_PATH}/lua/plugins/colorscheme.lua"
+    filename = f"{NVIM_PATH}/lua/config/colorscheme.lua"
     # read
     lines = readfile(filename)
     # update
-    old_line = "vim.cmd('colorscheme "
+    old_line = "colorscheme"
     new_line = f"vim.cmd('colorscheme  {theme_name}')\n"
     lines = updatefile(lines, old_line, new_line)
     # write
