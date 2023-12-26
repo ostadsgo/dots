@@ -128,6 +128,15 @@ picom -b
 Press `ctl + v` after that press the key
 * Create `.desktop` file for any script to be regonziable by rofi
 * Install noto-font-cjk noto-font-emoji noto-font-extra to render all fonts.
+* Pulseaudio issue: When plug headphone sound doesn't switch to headephone or 
+if it switch after unpluged it sound lost completely.
+To fix this comment out `load-module module-switch-on-prot-available` on 
+/etc/pulse/default/.pa
+
+```
+sudo pacman -S pulseaudio pulseaudio-alsa pulseaudio-jack
+
+```
 
 ### Install Apps
 ```
