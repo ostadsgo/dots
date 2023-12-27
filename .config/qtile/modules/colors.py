@@ -36,16 +36,16 @@ class Kanagawa:
 
 class Moonfly:
     bg = "#080808"
-    fg = "#e4e4e4"
+    fg = "#b2b2b2"
     active = "#c6c6c6"
     inactive = "#323437"
-    primary = "#323437"    # 
-    secondary = "#74b2ff"  # blue
+    primary = "#80a0ff"
+    secondary = "#79dac8"  # blue
 
 
 class Rosepine:
     bg = "#191724"
-    fg = "#e0def4"
+    fg = "#b2b2b2"
     active = "#c4a7e7"
     inactive = "#6e6a86"
     primary = "#31748f"

@@ -25,7 +25,7 @@ alias ip='ip --color'
 alias bat='bat -pn --theme="OneHalfDark"'
 
 alias open=pcmanfm
-alias record='ffmpeg -framerate 30 -f x11grab -i $DISPLAY -f alsa -ac 2 -i hw:0 $1'
+alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'
 alias play='ffplay'
 
 alias show='sxiv'

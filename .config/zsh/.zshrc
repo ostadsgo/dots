@@ -21,12 +21,6 @@ zstyle ':completion:*' menu select
 zmodload -i zsh/complist
 compinit
 
-# Starship prompt
-eval "$(starship init zsh)"
-
-# fzf
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 
 # Useful Functions
 source "$ZDOTDIR/functions.zsh"
@@ -44,4 +38,9 @@ zsh_add_plugin "agkozak/zsh-z"
 zsh_add_plugin "zsh-users/zsh-completions"
 
 
+# Starship prompt
+eval "$(starship init zsh)"
 
+# fzf
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh

@@ -6,20 +6,21 @@ from .colors import Moonfly as c
 
 # ---------------------
 #    SCREEN WIDGETS
+#    Shapes:       
 # ---------------------
-def sep(bg):
-    return widget.Sep(background=bg, padding=10, linewidth=0)
+def sep(bg, pad=2):
+    return widget.Sep(background=bg, padding=pad, linewidth=0)
 
 
-def left_arrow(bg, fg):
+def left_sep(bg, fg, shape="\ue0b8"):
     return widget.TextBox(
-        text="\ue0b8", padding=-1, fontsize=24, background=bg, foreground=fg
+        text=shape, padding=-1, fontsize=24, background=bg, foreground=fg
     )
 
 
-def right_arrow(bg, fg):
+def right_sep(bg, fg, shape="\uE0Ba"):
     return widget.TextBox(
-        text="\uE0Ba", padding=-1, fontsize=24, background=bg, foreground=fg
+        text=shape, padding=-1, fontsize=24, background=bg, foreground=fg
     )
 
 
@@ -33,14 +34,16 @@ bar_widgets = [
     # --------------
     # Layout / Date / Win count
     # --------------
-    widget.CurrentLayout(background=c.primary, foreground=c.fg, padding=10),
-    widget.WindowCount(background=c.secondary, foreground=c.bg),
+    widget.CurrentLayout(background=c.primary, foreground=c.bg, padding=10),
+    left_sep(bg=c.active, fg=c.primary),
+    left_sep(bg=c.inactive, fg=c.active),
     widget.Clock(
-        background=c.bg,
-        foreground=c.fg,
+        background=c.inactive,
+        foreground=c.active,
         format="%d %b %A | %H:%M",
         padding=10,
     ),
+    left_sep(bg=c.bg, fg=c.inactive),
     # --------------
     # Current Layout
     # --------------
@@ -54,29 +57,36 @@ bar_widgets = [
         fontsize=18,
         active=c.active,
         inactive=c.inactive,
-        this_current_screen_border=c.secondary,
+        this_current_screen_border=c.primary,
     ),
     widget.Spacer(),
-    widget.Net(
-        prefix="M",
-        background=c.bg,
-        padding=10,
-        format="{down:1.2f}{down_suffix} ↓↑ {up:1.2f}{up_suffix}",
-        # format="{down:6.2}KB ↓↑{up:6.2}KB",
-    ),
-    widget.Volume(background=c.bg, padding=10),
+    widget.WindowCount(background=c.secondary, foreground=c.bg),
+    sep(bg=c.bg),
     widget.KeyboardLayout(
-        configured_keyboards=["us", "ir"], background=c.bg, padding=10
+        background=c.inactive,
+        foreground=c.active,
+        configured_keyboards=["us", "ir"],
+        padding=10,
     ),
     sep(bg=c.bg),
-    widget.QuickExit(background=c.primary, fmt="OFF", padding=10),
+    widget.Net(
+        prefix="M",
+        background=c.inactive,
+        foreground=c.active,
+        padding=10,
+        format="{down:1.2f}{down_suffix} ↓↑ {up:1.2f}{up_suffix}",
+    ),
+    sep(bg=c.bg),
+    widget.Volume(background=c.inactive, foreground=c.active, padding=10),
+    sep(bg=c.bg),
+    widget.QuickExit(background=c.primary, foreground=c.bg, fmt="OFF", padding=10),
 ]
 
 # Bars
 bar_widgets1 = bar_widgets.copy()
 bar_widgets2 = bar_widgets.copy()
 bar1 = bar.Bar(bar_widgets1, background=c.bg, size=20, opacity=0.9)
-bar2 = bar.Bar(bar_widgets2, background=c.bg, size=24)
+bar2 = bar.Bar(bar_widgets2, background=c.bg, size=20)
 
 # Screens
 screen1 = Screen(bottom=bar1)

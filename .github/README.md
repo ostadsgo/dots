@@ -1,4 +1,4 @@
-## Arch
+## Arch Linux
 
 ### Connect to Wifi
 ```
@@ -132,7 +132,7 @@ Press `ctl + v` after that press the key
 if it switch after unpluged it sound lost completely.
 To fix this comment out `load-module module-switch-on-prot-available` on 
 /etc/pulse/default/.pa
-
+Packges to install:
 ```
 sudo pacman -S pulseaudio pulseaudio-alsa pulseaudio-jack
 
