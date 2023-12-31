@@ -36,13 +36,17 @@ bindkey -M viins '^g' fzf-cd-widget
 
 fzf-open-widget() {
     item=$(eval $FZF_DEFAULT_COMMAND | fzf)
-    zle push-line
-    BUFFER="nvim ${(q)item}"
-    zle accept-line
-    local ret=$?
-    unset item
-    zle reset-prompt
-    return $ret
+    if [ ! -z $item ]; then
+        zle push-line
+        BUFFER="nvim ${(q)item}"
+        zle accept-line
+        local ret=$?
+        unset item
+        zle reset-prompt
+        return $ret
+    else
+        zle reset-prompt
+    fi
 }
 
 zle -N fzf-open-widget

@@ -45,8 +45,16 @@ class Moonfly:
 
 class Rosepine:
     bg = "#191724"
-    fg = "#b2b2b2"
+    fg = "#e0def4"
     active = "#c4a7e7"
     inactive = "#6e6a86"
     primary = "#31748f"
     secondary = "#eb6f92"
+
+class NoClown:
+    bg = "#151515"
+    fg = "#E1E1E1"
+    active = "#727272"
+    inactive = "#373737"
+    primary = "#BAD7FF"
+    secondary = "#b46958"

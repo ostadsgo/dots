@@ -23,13 +23,21 @@ export FZF_DEFAULT_COMMAND='fd --hidden \
     --exclude .cargo \
     '
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --hidden --type d\
+    --exclude ".git" \
+    --exclude "*.pyc" \
+    --exclude node_modlues \
+    --exclude .npm \
+    --exclude .dotnet \
+    --exclude .cargo \
+    '
 export FZF_DEFAULT_OPTS='
 --height 40% --reverse --border=rounded
 --no-hscroll --prompt=":: "  --multi
 --info=hidden --pointer="*"
---color="fg:#b2b2b2,bg:#080808,bg+:#323437,hl:#ff5454,gutter:#080808"
---color="query:#e4e4e4,prompt:#b2b2b2,pointer:#ff5454,marker:#ff5454"
---color="hl+:#ff5454"
+--color="fg:#E1E1E1,bg:#151515,bg+:#373737,hl:#b46958,gutter:#151515"
+--color="query:#E1E1E1,prompt:#E1E1E1,pointer:#FFA557,marker:#BAD7FF"
+--color="hl+:#b46958"
 --bind="?:toggle-preview"
 --bind="ctrl-u:preview-page-up"
 --bind="ctrl-d:preview-page-down"

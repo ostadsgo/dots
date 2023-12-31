@@ -41,6 +41,7 @@ return {
             sources = {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
+                { name = "cmdline" },
                 { name = "path" },
             },
         })

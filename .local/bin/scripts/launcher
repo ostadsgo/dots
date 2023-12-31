@@ -9,4 +9,9 @@ sel="#31748f"
 bg="#080808"
 fg="#bdbdbd"
 sel="#323437"
+
+# noclown
+bg="#151515"
+fg="#E1E1E1"
+sel="#7E97AB"
 dmenu_run -i -p "Apps:: " -nb $bg -nf $fg -sb $sel

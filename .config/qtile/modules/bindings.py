@@ -3,9 +3,10 @@ Keyboard shortcuts for qtile.
 """
 
 import os
-from libqtile.config import Key
-from libqtile.config import Drag, Click
+
+from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
+
 # Modifiers
 SUPER = "mod4"
 MOD1 = "mod1"
@@ -17,6 +18,7 @@ WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 
 TERMINAL = os.environ.get("TERMINAL")
+
 
 @lazy.function
 def change_margin(qtile, size):
@@ -71,6 +73,7 @@ keys = [
     # Run specific program
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
     Key(WIN, "p", lazy.spawn("launcher")),
+    Key(WIN,"Print", lazy.spawn("shot")),
     Key(
         ALT,
         "shift_l",

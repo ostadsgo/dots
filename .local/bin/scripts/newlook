@@ -129,7 +129,7 @@ def apply_dunst(theme_name):
 
 def apply_theme(theme_name: str):
     apply_kitty(theme_name)
-    apply_rofi(theme_name)
+    # apply_rofi(theme_name)
     apply_dunst(theme_name)
     apply_theme_neovim(theme_name)
     apply_theme_qtile(theme_name)

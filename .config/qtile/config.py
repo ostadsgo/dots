@@ -18,7 +18,7 @@ layouts = core.layouts
 floating_layout = core.floating_layout
 widget_defaults = screen.widget_defaults
 extension_defaults = screen.extension_defaults
-screens = [screen.screen1, screen.screen2]
+screens = [screen.screen]
 
 # ---------------
 # Defult settings
