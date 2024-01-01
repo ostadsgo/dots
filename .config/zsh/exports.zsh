@@ -35,9 +35,9 @@ export FZF_DEFAULT_OPTS='
 --height 40% --reverse --border=rounded
 --no-hscroll --prompt=":: "  --multi
 --info=hidden --pointer="*"
---color="fg:#E1E1E1,bg:#151515,bg+:#373737,hl:#b46958,gutter:#151515"
+--color="fg:#E1E1E1,bg:#151515,bg+:#373737,hl:#FFA557,gutter:#151515"
 --color="query:#E1E1E1,prompt:#E1E1E1,pointer:#FFA557,marker:#BAD7FF"
---color="hl+:#b46958"
+--color="hl+:#FFA557"
 --bind="?:toggle-preview"
 --bind="ctrl-u:preview-page-up"
 --bind="ctrl-d:preview-page-down"

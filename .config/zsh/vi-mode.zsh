@@ -4,6 +4,8 @@
 bindkey -v
 bindkey jk vi-cmd-mode
 
+# do nothing on press C-S-l
+bindkey  "^[[108;6u]" ''
 # Fix backspace to not change mode
 bindkey "^[b" backward-word
 bindkey "^[f" forward-word

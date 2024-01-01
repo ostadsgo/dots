@@ -47,7 +47,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 
 -- Tabs
-
 keymap("n", "<leader>tn", ":tabnew<CR>", opts)
 keymap("n", "<leader>tx", ":tabclose<CR>", opts)
 keymap("n", "<Tab>", ":tabnext<CR>", opts)
@@ -66,7 +65,9 @@ end, {})
 ----------------------
 keymap("i", "jk", "<ESC>", opts)            -- switch mode
 keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word
-keymap("i", "<C-Enter>", "<C-o>o", opts)    -- delete word
+keymap("i", "<A-BACKSPACE>", "<C-w>", opts) -- delete word
+keymap("i", "<C-Enter>", "<C-o>o", opts)    -- create new line below
+keymap("i", "<C-S-Enter>", "<C-o>M", opts)  -- create new line above
 keymap("i", "<C-/>", "<C-o>gcc", { noremap = false })
 
 

@@ -86,4 +86,4 @@ bar_widgets = bar_widgets.copy()
 bar = bar.Bar(bar_widgets, background=c.bg, size=20, opacity=0.9)
 
 # Screens
-screen = Screen(top=bar)
+screen = Screen(bottom=bar)

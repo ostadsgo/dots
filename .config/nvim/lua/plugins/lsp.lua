@@ -29,8 +29,7 @@ return {
     local servers = {
       clangd = {},
       gopls = {},
-      -- pyright = {},
-      -- ruff_lsp = {},
+      pyright = {},
       rust_analyzer = {},
       tsserver = {},
       html = { filetypes = { "html", "twig", "hbs" } },
