@@ -23,6 +23,7 @@ alias pingarch="ping -c 5 archlinux.org"
 alias pingnet="ping -c 5  8.8.8.8"
 alias ip='ip --color'
 alias bat='bat -pn --theme="OneHalfDark"'
+alias lg=lazygit
 
 alias open=pcmanfm
 alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'

@@ -1,0 +1,12 @@
+[Default Applications]
+inode/directory=pcmanfm.desktop
+application/pdf=google-chrome.desktop
+application/xhtml+xml=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+text/html=google-chrome.desktop
+text/plain=google-chrome.desktop
+
+[Added Associations]
+application/pdf=google-chrome.desktop;
+text/plain=google-chrome.desktop;

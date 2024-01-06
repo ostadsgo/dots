@@ -20,6 +20,7 @@ keymap("n", "<leader>h", ":bprevious<CR>", opts) -- previous buffer
 keymap("n", "<leader>q", ":bd<CR>", opts)        -- delete buffer
 keymap("n", "<leader>w", ":w<CR>", opts)         -- save file
 keymap("n", "<leader>s", "<cmd>source ~/.config/nvim/init.lua<CR>", opts)
+keymap('n', '<C-S-L>', '<Nop>', opts)
 
 -- copy/past to/from system clipboard
 keymap("n", "<leader>y", '"+y', opts)
@@ -28,17 +29,22 @@ keymap("v", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)
 keymap("n", "<leader>P", '"+P', opts)
 keymap("v", "<leader>p", '"+p', opts)
-
 -- delete without saving at clipboard
 keymap("n", "<leader>d", '"_d', opts)
 
--- CTRL
+-- CTRL / Window nav
 keymap("n", "<C-h>", "<C-w>h", opts)  -- focus left split
 keymap("n", "<C-j>", "<C-w>j", opts)  -- focus bottom split
 keymap("n", "<C-k>", "<C-w>k", opts)  -- focus top split
 keymap("n", "<C-l>", "<C-w>l", opts)  -- focus right split
 keymap("n", "<C-d>", "<C-d>zz", opts) -- focus right split
 keymap("n", "<C-u>", "<C-u>zz", opts) -- focus right split
+
+-- Better search experence.
+keymap("n", "n", "nzz", opts)
+keymap("n", "N", "Nzz", opts)
+keymap("n", "*", "*zz", opts)
+keymap("n", "#", "#zz", opts)
 
 -- resize split
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

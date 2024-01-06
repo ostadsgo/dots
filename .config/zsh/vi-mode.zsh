@@ -31,9 +31,9 @@ bindkey -M emacs '^f' fzf-file-widget
 bindkey -M vicmd '^f' fzf-file-widget
 bindkey -M viins '^f' fzf-file-widget
 
-bindkey -M emacs '^g' fzf-cd-widget
-bindkey -M vicmd '^g' fzf-cd-widget
-bindkey -M viins '^g' fzf-cd-widget
+bindkey -M emacs '^p' fzf-cd-widget
+bindkey -M vicmd '^p' fzf-cd-widget
+bindkey -M viins '^p' fzf-cd-widget
 
 
 fzf-open-widget() {
@@ -53,3 +53,12 @@ fzf-open-widget() {
 
 zle -N fzf-open-widget
 bindkey "^o" fzf-open-widget
+
+# # Lazygit
+function run_lazygit() {
+    lazygit
+    zle accept-line
+}
+zle -N run_lazygit
+bindkey '^g' run_lazygit
+#
