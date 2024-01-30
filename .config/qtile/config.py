@@ -1,8 +1,8 @@
-from libqtile.utils import send_notification
-from modules import bindings, core, screen
+import subprocess
 
-from libqtile import hook
-from libqtile import qtile
+from libqtile import hook, qtile
+
+from modules import bindings, core, screen
 
 # ---------------
 #   Bindings
@@ -45,3 +45,8 @@ def float_change():
     is_maximized = window.info().get("maximized")
     if not is_maximized:
         window.center()
+
+
+@hook.subscribe.startup_once
+def run_every_startup():
+    subprocess.run("/home/saeed/.local/bin/scripts/autostart")

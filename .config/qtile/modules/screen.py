@@ -31,16 +31,15 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
-    sep(bg=c.bg, pad=3),
     widget.CurrentLayout(
-        background=c.fg,
-        foreground=c.bg,
+        background=c.inactive,
+        foreground=c.fg,
         padding=10,
     ),
-    sep(bg=c.bg),
+    sep(bg=c.bg, pad=1),
     widget.WindowCount(
-        background=c.secondary,
-        foreground=c.bg,
+        background=c.inactive,
+        foreground=c.fg,
     ),
     widget.Spacer(),
     widget.GroupBox(
@@ -53,37 +52,40 @@ bar_widgets = [
     widget.Spacer(),
     widget.Net(
         prefix="M",
-        background=c.secondary,
-        foreground=c.bg,
+        background=c.inactive,
+        foreground=c.fg,
         padding=10,
         format="{down:1.2f}{down_suffix} ↓↑ {up:1.2f}{up_suffix}",
     ),
-    sep(bg=c.bg),
+
+    sep(bg=c.bg, pad=1),
     widget.KeyboardLayout(
-        background=c.primary,
-        foreground=c.bg,
+        background=c.inactive,
+        foreground=c.fg,
         configured_keyboards=["us", "ir"],
         padding=10,
     ),
-    sep(bg=c.bg),
+    sep(bg=c.bg, pad=1),
     widget.Volume(
-        background=c.active,
-        foreground=c.bg,
+        background=c.inactive,
+        foreground=c.fg,
         padding=10,
     ),
-    sep(bg=c.bg),
+    sep(bg=c.bg, pad=1),
     widget.Clock(
-        background=c.fg,
-        foreground=c.bg,
+        background=c.inactive,
+        foreground=c.fg,
         format="%H:%M",
         padding=10,
     ),
-    sep(bg=c.bg, pad=3),
+    sep(bg=c.bg, pad=1),
+    widget.Systray(),
+
 ]
 
 # Bars
 bar_widgets = bar_widgets.copy()
-bar = bar.Bar(bar_widgets, background=c.bg, size=20, opacity=0.9)
+bar = bar.Bar(bar_widgets, background=c.bg, size=20, opacity=0.99)
 
 # Screens
 screen = Screen(bottom=bar)

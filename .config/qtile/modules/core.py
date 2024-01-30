@@ -1,7 +1,7 @@
 from libqtile import layout
-from libqtile.config import Group, Match, ScratchPad, DropDown
+from libqtile.config import DropDown, Group, Match, ScratchPad
 
-from .colors import Catppuccin as c
+from .colors import NoClown as c
 
 # ------------------
 #     GROUP
@@ -26,8 +26,8 @@ groups = [
     ScratchPad(
         "scratchpad",
         [
-            DropDown("python", "kitty -e python", **spad_kw),
-            DropDown("terminal", "kitty", **spad_kw),
+            DropDown("python", "alacritty -e python", **spad_kw),
+            DropDown("terminal", "alacritty", **spad_kw),
         ],
     ),
 ]
@@ -37,11 +37,11 @@ groups = [
 #     LAYOUTS
 # ------------------
 layout_config = dict(
-    margin=5,
+    margin=0,
     border_width=2,
-    border_focus=c.fg,
+    border_focus=c.active,
     border_normal=c.bg,
-    border_focus_stack=c.active,
+    border_focus_stack=c.secondary,
     border_normal_stack=c.bg,
     single_border_width=0,
 )
@@ -62,14 +62,15 @@ floating_layout = layout.Floating(
         *layout.Floating.default_float_rules,
         Match(wm_class="Tk"),  # tkinter
         Match(wm_class="pcmanfm"),  # tkinter
+        Match(title="vlc"),  # VLC media player
         Match(wm_class="xarchiver"),  # tkinter
         Match(wm_class="Toplevel"),  # tkinter toplevel window
         Match(wm_class="Places"),  # Firefox download window
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="notification"),
         Match(wm_class="Dunst"),
         Match(wm_class="ffplay"),
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
     ],
     **layout_config,
 )

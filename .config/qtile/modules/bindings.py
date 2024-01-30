@@ -135,5 +135,5 @@ mouse = [
         lazy.window.set_size_floating(),
         start=lazy.window.get_size(),
     ),
-    Click(WIN_SHT, "Button1", lazy.window.bring_to_front()),
+    Click(WIN, "Button1", lazy.window.bring_to_front()),
 ]

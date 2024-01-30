@@ -1,2 +1,17 @@
 #! /usr/bin/sh
 
+# X keymap and setting
+xsettings & 
+
+# Notfication manager
+dunst &
+
+
+# Compositor: make shadow and transparenty
+picom  -b
+ 
+# get bg from bing and set to bg
+getwall &
+
+# Choose monitor over laptop screen if monitor avilabe
+# monitor &

@@ -2,7 +2,7 @@
 export HOME=~
 export EDITOR="nvim"
 export BROWSER="chrome"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CASHE_HOME=$HOME/.cache

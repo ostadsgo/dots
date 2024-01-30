@@ -125,7 +125,8 @@ picom -b
 
 ### Tips
 * Get code of key to use in key defining for zsh
-Press `ctl + v` after that press the key
+Press `ctl + v` after that press the key a beeter way
+is run `showkey -a`
 * Create `.desktop` file for any script to be regonziable by rofi
 * Install noto-font-cjk noto-font-emoji noto-font-extra to render all fonts.
 * Pulseaudio issue: When plug headphone sound doesn't switch to headephone or 

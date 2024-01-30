@@ -5,7 +5,7 @@ return {
   cmd = { "ConformInfo" },
   keys = {
     {
-      "<leader>=",
+      "<leader>f=",
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
@@ -16,6 +16,9 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },
       javascript = { { "prettierd", "prettier" } },
+      html = { "prettier" },
+      css = { "prettier" },
+      sh = { "beautysh" },
       bash = { "beautysh" },
       zsh = { "beautysh" },
       fish = { "beautysh" },

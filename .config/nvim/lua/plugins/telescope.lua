@@ -14,9 +14,9 @@ return {
     -- Key maps
     keymap("n", "<leader>ff", builtin.find_files, {})
     keymap("n", "<leader>fg", builtin.live_grep, {})
-    keymap("n", "<leader>fb", builtin.buffers, {})
     keymap("n", "<leader>fd", builtin.diagnostics, {})
     keymap("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
+    keymap("n", "<leader>bb", builtin.buffers, {})
 
     local actions = require("telescope.actions")
     local pickers_opts = { theme = "dropdown", previewer = false, respcet_git = false }
@@ -36,7 +36,7 @@ return {
           ".git",
         },
       },
-      pickers = { find_files = pickers_opts, live_grep = pickers_opts },
+      pickers = { find_files = pickers_opts, live_grep = pickers_opts, buffers = pickers_opts },
     })
   end,
 }

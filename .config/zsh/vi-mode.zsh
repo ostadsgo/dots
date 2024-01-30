@@ -4,16 +4,19 @@
 bindkey -v
 bindkey jk vi-cmd-mode
 
-# do nothing on press C-S-l
-bindkey  "^[[108;6u]" ''
 # Fix backspace to not change mode
 bindkey "^[b" backward-word
 bindkey "^[f" forward-word
+# Delete a word with ctrl + backspace
+bindkey -M vicmd '^[^?' backward-kill-word 
+bindkey -M viins '^[^?' backward-kill-word 
+
 # cycle throw histoy of typed cmds
 bindkey "\e[A" history-search-backward
 bindkey "\e[B" history-search-forward
 bindkey "^k" history-search-backward
 bindkey "^j" history-search-forward
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -23,18 +26,9 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey '^H' backward-kill-word
 
 # Fzf
-bindkey -M emacs '^R' fzf-history-widget
-bindkey -M vicmd '^R' fzf-history-widget
-bindkey -M viins '^R' fzf-history-widget
-
-bindkey -M emacs '^f' fzf-file-widget
-bindkey -M vicmd '^f' fzf-file-widget
-bindkey -M viins '^f' fzf-file-widget
-
-bindkey -M emacs '^p' fzf-cd-widget
-bindkey -M vicmd '^p' fzf-cd-widget
-bindkey -M viins '^p' fzf-cd-widget
-
+bindkey '^r' fzf-history-widget
+bindkey '^f' fzf-file-widget
+bindkey '^n' fzf-cd-widget
 
 fzf-open-widget() {
     item=$(eval $FZF_DEFAULT_COMMAND | fzf)
@@ -54,7 +48,7 @@ fzf-open-widget() {
 zle -N fzf-open-widget
 bindkey "^o" fzf-open-widget
 
-# # Lazygit
+# Lazygit
 function run_lazygit() {
     lazygit
     zle accept-line
