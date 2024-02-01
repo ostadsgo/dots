@@ -3,6 +3,15 @@ from libqtile.config import DropDown, Group, Match, ScratchPad
 
 from .colors import NoClown as c
 
+color = {
+    "bg": "#151515",
+    "fg": "#E1E1E1",
+    "active": "#727272",
+    "inactive": "#373737",
+    "primary": "#BAD7FF",
+    "secondary": "#b46958",
+}
+
 # ------------------
 #     GROUP
 # ------------------
@@ -39,10 +48,10 @@ groups = [
 layout_config = dict(
     margin=0,
     border_width=2,
-    border_focus=c.active,
-    border_normal=c.bg,
-    border_focus_stack=c.secondary,
-    border_normal_stack=c.bg,
+    border_focus=color.get("active", "#ff000"), 
+    border_normal=color.get("bg", "#ff0000"),
+    border_focus_stack=color.get("secondary", "#ff0000"),
+    border_normal_stack=color.get("bg", "#ff0000"),
     single_border_width=0,
 )
 

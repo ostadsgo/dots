@@ -2,7 +2,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
-
 -- --------------------
 --      NORMAL
 -- -------------------
@@ -20,6 +19,7 @@ keymap("n", "}", "}zz", opts)
 keymap("n", "{", "{zz", opts)
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
+keymap("n", "%", "%zz", opts)
 
 -- LEADER
 keymap("n", "<leader>a", "gg<S-v>G", opts)
@@ -27,7 +27,6 @@ keymap("n", "<leader>;", "<S-V>", opts)
 keymap("n", "<leader>ww", ":w<CR>", opts)
 keymap("n", "<leader>ee", ":Exp<CR>", opts)
 keymap("n", "<leader>so", ":source ~/.config/nvim/init.lua<cr>", opts)
-keymap("n", "<C-S-L>", "<Nop>", opts)
 
 -- copy/past to/from system clipboard
 keymap("n", "<leader>y", '"+y', opts)
@@ -43,12 +42,13 @@ keymap("n", "<leader>bl", ":bnext<CR>", opts)
 keymap("n", "<leader>bh", ":bprevious<CR>", opts)
 keymap("n", "<leader>bd", ":bd<CR>", opts)
 
--- Window 
+-- Window
 keymap("n", "<leader>wh", "<C-w>h", opts)
 keymap("n", "<leader>wj", "<C-w>j", opts)
 keymap("n", "<leader>wk", "<C-w>k", opts)
 keymap("n", "<leader>wl", "<C-w>l", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
+
 -- resize splited windows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -75,14 +75,22 @@ vim.keymap.set("n", "<space>f=", function()
     vim.lsp.buf.format({ async = true })
 end, {})
 
+
 ----------------------
 -- INSERT
 ----------------------
+-- Escape
 keymap("i", "jk", "<ESC>", opts)            -- switch mode
+-- Delete word
 keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word
 keymap("i", "<A-BACKSPACE>", "<C-w>", opts) -- delete word
+-- create new line above and below
 keymap("i", "<C-Enter>", "<C-o>o", opts)    -- create new line below
 keymap("i", "<C-S-Enter>", "<C-o>M", opts)  -- create new line above
+-- Move to begining and end of line
+keymap("i", "<C-^>", "<C-o>^", opts)
+keymap("i", "<C-$>", "<C-o>$", opts)
+-- comment a code
 keymap("i", "<C-/>", "<C-o>gcc", { noremap = false })
 
 -------------------

@@ -1,7 +1,18 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from .colors import NoClown as c
+
+
+
+
+color = {
+    "bg": "#151515",
+    "fg": "#E1E1E1",
+    "active": "#727272",
+    "inactive": "#373737",
+    "primary": "#BAD7FF",
+    "secondary": "#b46958",
+}
 
 
 # ---------------------
@@ -32,60 +43,58 @@ extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
     widget.CurrentLayout(
-        background=c.inactive,
-        foreground=c.fg,
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
         padding=10,
     ),
-    sep(bg=c.bg, pad=1),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.WindowCount(
-        background=c.inactive,
-        foreground=c.fg,
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
     ),
     widget.Spacer(),
     widget.GroupBox(
         highlight_method="text",
         fontsize=18,
-        active=c.active,
-        inactive=c.inactive,
-        this_current_screen_border=c.primary,
+        active=color.get("active", "#ff0000"),
+        inactive=color.get("inactive", "#ff0000"),
+        this_current_screen_border=color.get("primary", "#ff0000"),
     ),
     widget.Spacer(),
     widget.Net(
         prefix="M",
-        background=c.inactive,
-        foreground=c.fg,
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
         padding=10,
         format="{down:1.2f}{down_suffix} ↓↑ {up:1.2f}{up_suffix}",
     ),
-
-    sep(bg=c.bg, pad=1),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.KeyboardLayout(
-        background=c.inactive,
-        foreground=c.fg,
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
         configured_keyboards=["us", "ir"],
         padding=10,
     ),
-    sep(bg=c.bg, pad=1),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Volume(
-        background=c.inactive,
-        foreground=c.fg,
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
         padding=10,
     ),
-    sep(bg=c.bg, pad=1),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Clock(
-        background=c.inactive,
-        foreground=c.fg,
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
         format="%H:%M",
         padding=10,
     ),
-    sep(bg=c.bg, pad=1),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Systray(),
-
 ]
 
 # Bars
 bar_widgets = bar_widgets.copy()
-bar = bar.Bar(bar_widgets, background=c.bg, size=20, opacity=0.99)
+bar = bar.Bar(bar_widgets, background=color.get("bg", "#ff0000"), size=20, opacity=0.99)
 
 # Screens
 screen = Screen(bottom=bar)

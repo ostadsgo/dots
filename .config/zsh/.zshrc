@@ -18,6 +18,7 @@ setopt vi
 autoload -U colors && colors	    # Load colors
 autoload -U compinit && compinit    # auto complete
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zmodload -i zsh/complist
 compinit
 

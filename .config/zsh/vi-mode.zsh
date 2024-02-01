@@ -10,6 +10,8 @@ bindkey "^[f" forward-word
 # Delete a word with ctrl + backspace
 bindkey -M vicmd '^[^?' backward-kill-word 
 bindkey -M viins '^[^?' backward-kill-word 
+bindkey -M vicmd '^H' backward-kill-word
+bindkey -M viins '^H' backward-kill-word
 
 # cycle throw histoy of typed cmds
 bindkey "\e[A" history-search-backward
@@ -23,7 +25,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-bindkey '^H' backward-kill-word
 
 # Fzf
 bindkey '^r' fzf-history-widget
