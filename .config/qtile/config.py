@@ -50,3 +50,7 @@ def float_change():
 @hook.subscribe.startup_once
 def run_every_startup():
     subprocess.run("/home/saeed/.local/bin/scripts/autostart")
+
+@hook.subscribe.client_new
+def float_centerize(window):
+    window.center()

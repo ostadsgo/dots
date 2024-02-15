@@ -1,7 +1,6 @@
 from libqtile import layout
 from libqtile.config import DropDown, Group, Match, ScratchPad
 
-from .colors import NoClown as c
 
 color = {
     "bg": "#151515",
@@ -71,7 +70,8 @@ floating_layout = layout.Floating(
         *layout.Floating.default_float_rules,
         Match(wm_class="Tk"),  # tkinter
         Match(wm_class="pcmanfm"),  # tkinter
-        Match(title="vlc"),  # VLC media player
+        Match(wm_class="vlc"),  # VLC media player
+        Match(wm_class="pavucontrol"),  # VLC media player
         Match(wm_class="xarchiver"),  # tkinter
         Match(wm_class="Toplevel"),  # tkinter toplevel window
         Match(wm_class="Places"),  # Firefox download window

@@ -24,7 +24,6 @@ keymap("n", "%", "%zz", opts)
 -- LEADER
 keymap("n", "<leader>a", "gg<S-v>G", opts)
 keymap("n", "<leader>;", "<S-V>", opts)
-keymap("n", "<leader>ww", ":w<CR>", opts)
 keymap("n", "<leader>ee", ":Exp<CR>", opts)
 keymap("n", "<leader>so", ":source ~/.config/nvim/init.lua<cr>", opts)
 
@@ -38,9 +37,10 @@ keymap("v", "<leader>p", '"+p', opts)
 keymap("n", "<leader>d", '"_d', opts)
 
 -- Buffer
-keymap("n", "<leader>bl", ":bnext<CR>", opts)
-keymap("n", "<leader>bh", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":bd<CR>", opts)
+keymap("n", "<leader>fl", ":bnext<CR>", opts)
+keymap("n", "<leader>fh", ":bprevious<CR>", opts)
+keymap("n", "<leader>fq", ":bd<CR>", opts)
+keymap("n", "<leader>fw", ":w<CR>", opts)
 
 -- Window
 keymap("n", "<leader>wh", "<C-w>h", opts)

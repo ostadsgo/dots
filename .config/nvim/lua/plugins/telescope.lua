@@ -16,7 +16,7 @@ return {
     keymap("n", "<leader>fg", builtin.live_grep, {})
     keymap("n", "<leader>fd", builtin.diagnostics, {})
     keymap("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
-    keymap("n", "<leader>bb", builtin.buffers, {})
+    keymap("n", "<leader>fb", builtin.buffers, {})
 
     local actions = require("telescope.actions")
     local pickers_opts = { theme = "dropdown", previewer = false, respcet_git = false }
@@ -34,6 +34,7 @@ return {
           "node_modules",
           "__pycache__",
           ".git",
+          "target",
         },
       },
       pickers = { find_files = pickers_opts, live_grep = pickers_opts, buffers = pickers_opts },
