@@ -15,22 +15,18 @@ color = {
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad
-spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=0.7)
+spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=1)
 groups = [
-    Group(name="1", label=" "),
+    Group(name="1", label=""),
     Group(
         name="2",
-        label=" ",
+        label="",
         layout="max",
         matches=[
-            Match(wm_class="firefox"),
-            Match(wm_class="microsoft-edge"),
             Match(wm_class="Google-chrome"),
         ],
     ),
-    Group(name="3", label=" ", layout="monadtall"),
-    Group(name="9", label="  "),
-    Group(name="0", label=" "),
+    Group(name="3", label=""),
     ScratchPad(
         "scratchpad",
         [
@@ -70,8 +66,10 @@ floating_layout = layout.Floating(
         *layout.Floating.default_float_rules,
         Match(wm_class="Tk"),  # tkinter
         Match(wm_class="pcmanfm"),  # tkinter
+        Match(wm_class="thunar"),  # tkinter
         Match(wm_class="vlc"),  # VLC media player
         Match(wm_class="pavucontrol"),  # VLC media player
+        Match(wm_class="main.py"),  # Pygame zero
         Match(wm_class="xarchiver"),  # tkinter
         Match(wm_class="Toplevel"),  # tkinter toplevel window
         Match(wm_class="Places"),  # Firefox download window

@@ -20,7 +20,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>fl", function()
+    vim.keymap.set("n", "<leader>fd", function()
       lint.try_lint()
     end)
   end,

@@ -21,10 +21,10 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "%", "%zz", opts)
 
+keymap("n", "*", "*`", opts)
 -- LEADER
 keymap("n", "<leader>a", "gg<S-v>G", opts)
 keymap("n", "<leader>;", "<S-V>", opts)
-keymap("n", "<leader>ee", ":Exp<CR>", opts)
 keymap("n", "<leader>so", ":source ~/.config/nvim/init.lua<cr>", opts)
 
 -- copy/past to/from system clipboard
@@ -37,9 +37,11 @@ keymap("v", "<leader>p", '"+p', opts)
 keymap("n", "<leader>d", '"_d', opts)
 
 -- Buffer
-keymap("n", "<leader>fl", ":bnext<CR>", opts)
+keymap("n", "<leader>fe", ":Exp<CR>", opts)
+keymap("n", "<leader>fl", ":bNext<CR>", opts)
 keymap("n", "<leader>fh", ":bprevious<CR>", opts)
 keymap("n", "<leader>fq", ":bd<CR>", opts)
+keymap("n", "<leader>fx", ":bd!<CR>", opts)
 keymap("n", "<leader>fw", ":w<CR>", opts)
 
 -- Window
@@ -48,6 +50,10 @@ keymap("n", "<leader>wj", "<C-w>j", opts)
 keymap("n", "<leader>wk", "<C-w>k", opts)
 keymap("n", "<leader>wl", "<C-w>l", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
+
+-- Split
+keymap("n", "<leader>ss", ":split<CR>", opts)
+keymap("n", "<leader>sv", ":vsplit<CR>", opts)
 
 -- resize splited windows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -72,21 +78,21 @@ keymap("n", "<C-/>", "gcc", { noremap = false })
 
 -- Format
 vim.keymap.set("n", "<space>f=", function()
-    vim.lsp.buf.format({ async = true })
+  vim.lsp.buf.format({ async = true })
 end, {})
 
-
+-- Plugins
 ----------------------
 -- INSERT
 ----------------------
 -- Escape
-keymap("i", "jk", "<ESC>", opts)            -- switch mode
+keymap("i", "jk", "<ESC>", opts) -- switch mode
 -- Delete word
 keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word
 keymap("i", "<A-BACKSPACE>", "<C-w>", opts) -- delete word
 -- create new line above and below
-keymap("i", "<C-Enter>", "<C-o>o", opts)    -- create new line below
-keymap("i", "<C-S-Enter>", "<C-o>M", opts)  -- create new line above
+keymap("i", "<C-Enter>", "<C-o>o", opts) -- create new line below
+keymap("i", "<C-S-Enter>", "<C-o>M", opts) -- create new line above
 -- Move to begining and end of line
 keymap("i", "<C-^>", "<C-o>^", opts)
 keymap("i", "<C-$>", "<C-o>$", opts)
@@ -118,11 +124,11 @@ keymap("x", "<leader>a", "gg<S-v>G", opts)
 keymap("v", "<C-/>", "gcc", { noremap = false })
 
 -- highlight on copy
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = "*",
 })

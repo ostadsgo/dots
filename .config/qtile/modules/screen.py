@@ -1,10 +1,6 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-
-
-
-
 color = {
     "bg": "#151515",
     "fg": "#E1E1E1",
@@ -23,18 +19,6 @@ def sep(bg, pad=5):
     return widget.Sep(background=bg, padding=pad, linewidth=0)
 
 
-def left_sep(bg: str, fg: str, shape="\ue0b8", padding=0, fontsize=24):
-    return widget.TextBox(
-        text=shape, padding=padding, fontsize=fontsize, background=bg, foreground=fg
-    )
-
-
-def right_sep(bg, fg, shape="\uE0Ba"):
-    return widget.TextBox(
-        text=shape, padding=-1, fontsize=24, background=bg, foreground=fg
-    )
-
-
 widget_defaults = dict(
     font="Noto Sans Mono",
     fontsize=13,
@@ -42,6 +26,15 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
+    widget.GroupBox(
+        highlight_method="text",
+        fontsize=18,
+        background=color.get("inactive", "#ff0000"),
+        active=color.get("active", "#ff0000"),
+        inactive=color.get("active", "#ff0000"),
+        this_current_screen_border=color.get("fg", "#ff0000"),
+    ),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.CurrentLayout(
         background=color.get("inactive", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
@@ -51,14 +44,6 @@ bar_widgets = [
     widget.WindowCount(
         background=color.get("inactive", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
-    ),
-    widget.Spacer(),
-    widget.GroupBox(
-        highlight_method="text",
-        fontsize=18,
-        active=color.get("active", "#ff0000"),
-        inactive=color.get("inactive", "#ff0000"),
-        this_current_screen_border=color.get("primary", "#ff0000"),
     ),
     widget.Spacer(),
     widget.Net(
@@ -94,7 +79,7 @@ bar_widgets = [
 
 # Bars
 bar_widgets = bar_widgets.copy()
-bar = bar.Bar(bar_widgets, background=color.get("bg", "#ff0000"), size=20, opacity=0.99)
+bar = bar.Bar(bar_widgets, background=color.get("bg", "#ff0000"), size=20, opacity=1)
 
 # Screens
 screen = Screen(bottom=bar)

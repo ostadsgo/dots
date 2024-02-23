@@ -8,14 +8,16 @@ alias ls='exa --icons --color=always'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lla='ls -lah'
+alias cd=z
+alias ..='cd ..'
+alias ...='cd ../..'
+alias cp='cp -r'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'
 alias vim=nvim
 alias ka=killall
 alias reboot='sudo reboot now'
-alias ..='cd ..'
-alias ...='cd ../..'
 alias grep='grep --color'
 alias hist=history
 alias path='echo -e ${PATH//:/\\n}'
@@ -24,6 +26,7 @@ alias pingnet="ping -c 5  8.8.8.8"
 alias ip='ip --color'
 alias bat='bat -pn --theme="OneHalfDark"'
 alias lg=lazygit
+alias poe=poetry
 
 alias open=pcmanfm
 alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'

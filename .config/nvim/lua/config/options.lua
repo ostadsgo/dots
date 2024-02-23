@@ -14,7 +14,7 @@ local options = {
   undofile = true,
   updatetime = 50,
 
-  -- Search 
+  -- Search
   hlsearch = false,
   incsearch = true,
   ignorecase = true,
@@ -26,8 +26,9 @@ local options = {
   splitright = true,
   swapfile = false,
   expandtab = true,
-  shiftwidth = 4,
-  tabstop = 4,
+  shiftwidth = 2,
+  tabstop = 2,
+  softtabstop = 2,
 
   -- side column
   cursorline = true,
@@ -48,4 +49,3 @@ end
 -- map leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-

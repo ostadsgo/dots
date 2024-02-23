@@ -1,6 +1,8 @@
 import subprocess
 
 from libqtile import hook, qtile
+from libqtile.utils import send_notification
+from libqtile.lazy import lazy
 
 from modules import bindings, core, screen
 
@@ -54,3 +56,6 @@ def run_every_startup():
 @hook.subscribe.client_new
 def float_centerize(window):
     window.center()
+
+
+        
