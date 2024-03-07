@@ -10,6 +10,17 @@ return {
     end,
   },
   {
+    "kdheepak/monochrome.nvim",
+    config = function()
+      -- vim.cmd("colorscheme monochrome")
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+    end,
+  },
+  {
     "mg979/vim-visual-multi",
   },
 }

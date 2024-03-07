@@ -79,7 +79,7 @@ bar_widgets = [
 
 # Bars
 bar_widgets = bar_widgets.copy()
-bar = bar.Bar(bar_widgets, background=color.get("bg", "#ff0000"), size=20, opacity=1)
+bar = bar.Bar(bar_widgets, border_color="#ff0000", background=color.get("bg", "#ff0000"), size=20, opacity=1)
 
 # Screens
 screen = Screen(bottom=bar)

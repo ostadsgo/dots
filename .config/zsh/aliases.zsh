@@ -8,7 +8,6 @@ alias ls='exa --icons --color=always'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lla='ls -lah'
-alias cd=z
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cp='cp -r'

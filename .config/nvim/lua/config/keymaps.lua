@@ -2,6 +2,7 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
+
 -- --------------------
 --      NORMAL
 -- -------------------
@@ -21,11 +22,13 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "%", "%zz", opts)
 
-keymap("n", "*", "*`", opts)
 -- LEADER
 keymap("n", "<leader>a", "gg<S-v>G", opts)
 keymap("n", "<leader>;", "<S-V>", opts)
-keymap("n", "<leader>so", ":source ~/.config/nvim/init.lua<cr>", opts)
+
+-- Editor
+keymap("n", "<leader>er", ":source  $MYVIMRC<cr>", opts)
+keymap("n", "<leader>ee", ":Exp<CR>", opts)
 
 -- copy/past to/from system clipboard
 keymap("n", "<leader>y", '"+y', opts)
@@ -37,12 +40,11 @@ keymap("v", "<leader>p", '"+p', opts)
 keymap("n", "<leader>d", '"_d', opts)
 
 -- Buffer
-keymap("n", "<leader>fe", ":Exp<CR>", opts)
 keymap("n", "<leader>fl", ":bNext<CR>", opts)
 keymap("n", "<leader>fh", ":bprevious<CR>", opts)
-keymap("n", "<leader>fq", ":bd<CR>", opts)
-keymap("n", "<leader>fx", ":bd!<CR>", opts)
 keymap("n", "<leader>fw", ":w<CR>", opts)
+keymap("n", "<leader>fx", ":bd<CR>", opts)
+keymap("n", "<leader>fq", ":bd!<CR>", opts)
 
 -- Window
 keymap("n", "<leader>wh", "<C-w>h", opts)
@@ -62,7 +64,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 
 -- Tabs
-keymap("n", "<leader>tn", ":tabnew<CR>", opts)
+keymap("n", "<leader>tt", ":tabnew<CR>", opts)
 keymap("n", "<leader>tx", ":tabclose<CR>", opts)
 keymap("n", "<Leader>tn", ":tabnext<CR>", opts)
 keymap("n", "<leader>tp", ":tabprevious<CR>", opts)

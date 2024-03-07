@@ -27,6 +27,7 @@ compinit
 source "$ZDOTDIR/functions.zsh"
 
 # File sourced
+zsh_add_file "prompt.zsh"
 zsh_add_file "aliases.zsh"
 zsh_add_file "exports.zsh"
 zsh_add_file "vi-mode.zsh"
@@ -40,7 +41,7 @@ zsh_add_plugin "zsh-users/zsh-completions"
 
 
 # Starship prompt
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # fzf
 source /usr/share/fzf/completion.zsh
