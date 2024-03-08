@@ -1,3 +1,6 @@
+#! /usr/bin/bash
+
+export ZDOTDIR=/home/saeed/.config/zsh
 # General
 export HOME=~
 export EDITOR="nvim"
@@ -5,12 +8,13 @@ export BROWSER="chrome"
 export TERMINAL="alacritty"
 
 export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CASHE_HOME=$HOME/.cache
+export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-export ZDOTDIR=$HOME/.config/zsh
-export ZDIR=$XDG_DATA_HOME/zsh
-export STARSHIP_CONFIG=$ZDOTDIR/starship.toml
+# export ZDOTDIR=$HOME/.config/zsh
+# export ZCACHEDIR=$XDG_CACHE_HOME/zsh
+# export ZPLUGINDIR=$XDG_DATA_HOME/zsh
+# export STARSHIP_CONFIG=$ZDOTDIR/starship.toml
 
 export GOPATH=$XDG_DATA_HOME/go
 
@@ -48,5 +52,10 @@ export FZF_DEFAULT_OPTS='
 path+=$HOME/.local/bin
 path+=$HOME/.local/bin/scripts
 path+=$HOME/.cargo/bin
-fpath+=$ZDOTDIR/plugins/zsh-completions/src
+# fpath+=$ZDOTDIR/plugins/zsh-completions/src
 
+
+# Starting X
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi

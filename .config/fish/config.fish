@@ -2,34 +2,55 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+set fish_greeting                                 # Supresses fish's intro message
 ### vi mode
-fish_vi_key_bindings
+set -g fish_key_bindings fish_vi_key_bindings
 
-# bind \e\\h 'command-mode-toggle'
-#
+
+# vi remap
 bind -M insert -m default jk cancel repaint-mode
-bind -M insert \ck up-or-search
-bind -M insert \cj down-or-search
-bind -M insert \ch backward-kill-word 
 
-bind -M default \ck up-or-search
-bind -M default \cj down-or-search
+# search history
+bind -M insert \e\k up-or-search
+bind -M insert \e\j down-or-search
+bind -M default \e\k up-or-search
+bind -M default \e\j down-or-search
+
+bind -M insert \e\\ backward-kill-line
+bind -M default \e\\ backward-kill-line
+
+# Alt + l : accept ...
+bind -M insert \e\l forward-word
+bind -M insert \e\h backward-word
+bind -M insert \e\; accept-autosuggestion
+bind -M default \e\l forward-word
+bind -M default \e\h backward-word
+bind -M default \e\; accept-autosuggestion
+
+# looks like no diff with up/down-or search
+bind -M insert \cj history-search-forward
+bind -M insert \ck history-search-backward
+
+# delete word with ctrl + backspace
+bind -M insert \ch backward-kill-word 
 bind -M default \ch backward-kill-word 
 
-bind -M default \e\l accept-autosuggestion
-bind -M default \e\h backward-kill-line
 
-bind -M insert \e\l accept-autosuggestion
-bind -M insert \e\h backward-kill-line
+# Lazygit
+bind -M insert \cg lazygit
+bind -M default \cg lazygit
 
 ### Commands
 zoxide init fish | source
+starship init fish | source
+fzf_key_bindings
 
 ### Exports
 set -x HOME ~
 set -x EDITOR "nvim"
 set -x BROWSER "chrome"
 set -x TERMINAL "alacritty"
+set -x TERM "xterm-256color"
 
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CASHE_HOME $HOME/.cache
@@ -99,6 +120,17 @@ alias ip 'ip --color'
 alias bat 'bat -pn --theme="OneHalfDark"'
 alias lg lazygit
 alias poe poetry
+
+
+# adding flags
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+
+# ps
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem='ps auxf | sort -nr -k 4'
+alias pscpu='ps auxf | sort -nr -k 3'
 
 alias open pcmanfm
 alias record 'ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'

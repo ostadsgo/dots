@@ -2,9 +2,8 @@
 
 ZVM_INIT_MODE=sourcing
 HISTFILE=$ZDOTDIR/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
-
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # beeping is annoying
 unsetopt BEEP
@@ -22,27 +21,15 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zmodload -i zsh/complist
 compinit
 
+# Zsh files
+# source $ZDOTDIR/exports.zsh
+source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/vi-mode.zsh
 
-# Useful Functions
-source "$ZDOTDIR/functions.zsh"
-
-# File sourced
-zsh_add_file "prompt.zsh"
-zsh_add_file "aliases.zsh"
-zsh_add_file "exports.zsh"
-zsh_add_file "vi-mode.zsh"
-
-# Plugins
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "hlissner/zsh-autopair"
-zsh_add_plugin "agkozak/zsh-z"
-zsh_add_plugin "zsh-users/zsh-completions"
-
-
-# Starship prompt
-# eval "$(starship init zsh)"
-
-# fzf
+# Zsh plugins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
