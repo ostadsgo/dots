@@ -22,7 +22,7 @@ zmodload -i zsh/complist
 compinit
 
 # Zsh files
-# source $ZDOTDIR/exports.zsh
+source $ZDOTDIR/exports.zsh
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/vi-mode.zsh
 

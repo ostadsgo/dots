@@ -22,6 +22,11 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "%", "%zz", opts)
 
+-- keep cursor at the last position.
+keymap('n', 'p', 'p`]', opts)
+keymap('v', 'y', 'y`]', opts)
+keymap('v', 'p', 'p`]', opts)
+
 -- LEADER
 keymap("n", "<leader>a", "gg<S-v>G", opts)
 keymap("n", "<leader>;", "<S-V>", opts)
@@ -31,13 +36,13 @@ keymap("n", "<leader>er", ":source  $MYVIMRC<cr>", opts)
 keymap("n", "<leader>ee", ":Exp<CR>", opts)
 
 -- copy/past to/from system clipboard
-keymap("n", "<leader>y", '"+y', opts)
-keymap("n", "<leader>Y", '"+Y', opts)
-keymap("v", "<leader>y", '"+y', opts)
-keymap("n", "<leader>p", '"+p', opts)
-keymap("n", "<leader>P", '"+P', opts)
-keymap("v", "<leader>p", '"+p', opts)
-keymap("n", "<leader>d", '"_d', opts)
+keymap("n", "<leader>y", '"+y`]', opts)
+keymap("n", "<leader>Y", '"+Y`]', opts)
+keymap("v", "<leader>y", '"+y`]', opts)
+keymap("n", "<leader>p", '"+p`]', opts)
+keymap("n", "<leader>P", '"+P`]', opts)
+keymap("v", "<leader>p", '"+p`]', opts)
+keymap("n", "<leader>d", '"_d`]', opts)
 
 -- Buffer
 keymap("n", "<leader>fl", ":bNext<CR>", opts)
@@ -52,6 +57,7 @@ keymap("n", "<leader>wj", "<C-w>j", opts)
 keymap("n", "<leader>wk", "<C-w>k", opts)
 keymap("n", "<leader>wl", "<C-w>l", opts)
 keymap("n", "<leader>w=", "<C-w>=", opts)
+keymap("n", "<Leader>wr", "<C-w>r", opts)
 
 -- Split
 keymap("n", "<leader>ss", ":split<CR>", opts)
@@ -68,6 +74,15 @@ keymap("n", "<leader>tt", ":tabnew<CR>", opts)
 keymap("n", "<leader>tx", ":tabclose<CR>", opts)
 keymap("n", "<Leader>tn", ":tabnext<CR>", opts)
 keymap("n", "<leader>tp", ":tabprevious<CR>", opts)
+keymap("n", "<Leader>1", "1gt", opts)
+keymap("n", "<Leader>2", "2gt", opts)
+keymap("n", "<Leader>3", "3gt", opts)
+keymap("n", "<Leader>4", "4gt", opts)
+keymap("n", "<Leader>5", "5gt", opts)
+keymap("n", "<Leader>6", "6gt", opts)
+keymap("n", "<Leader>7", "7gt", opts)
+keymap("n", "<Leader>8", "8gt", opts)
+keymap("n", "<Leader>9", "9gt", opts)
 
 -- Quick fix list
 keymap("n", "cn", ":cnext<CR>zz", opts)
@@ -88,13 +103,13 @@ end, {})
 -- INSERT
 ----------------------
 -- Escape
-keymap("i", "jk", "<ESC>", opts) -- switch mode
+keymap("i", "jk", "<ESC>", opts)            -- switch mode
 -- Delete word
 keymap("i", "<C-BACKSPACE>", "<C-w>", opts) -- delete word
 keymap("i", "<A-BACKSPACE>", "<C-w>", opts) -- delete word
 -- create new line above and below
-keymap("i", "<C-Enter>", "<C-o>o", opts) -- create new line below
-keymap("i", "<C-S-Enter>", "<C-o>M", opts) -- create new line above
+keymap("i", "<C-Enter>", "<C-o>o", opts)    -- create new line below
+keymap("i", "<C-S-Enter>", "<C-o>M", opts)  -- create new line above
 -- Move to begining and end of line
 keymap("i", "<C-^>", "<C-o>^", opts)
 keymap("i", "<C-$>", "<C-o>$", opts)

@@ -71,7 +71,7 @@ alias arch-fix-key='sudo pacman-key --init && sudo pacman-key --populate archlin
 
 # Git
 # Git bare: manage dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias gst='git status'
 alias gss='git status -s'
 alias gaa='git add -A'
