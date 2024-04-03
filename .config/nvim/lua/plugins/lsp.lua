@@ -33,7 +33,7 @@ return {
       rust_analyzer = {},
       tsserver = {},
       html = { filetypes = { "html", "twig", "hbs" } },
-      emmet_language_server = {},
+      emmet_ls = { filetypes = { "css", "html", "javascript" } },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },

@@ -1,3 +1,0 @@
-#! /usr/bin/sh
-
-fm6000 -f ~/.local/bin/scripts/.logo -c white -d Qtile -nd

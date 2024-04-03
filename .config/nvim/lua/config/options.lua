@@ -37,8 +37,8 @@ local options = {
   relativenumber = true,
   numberwidth = 2,
   signcolumn = "yes",
-  scrolloff = 8,
-  sidescrolloff = 8,
+  scrolloff = 10,
+  sidescrolloff = 10,
   guicursor = "",
 }
 

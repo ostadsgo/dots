@@ -20,6 +20,7 @@ return {
 
     local actions = require("telescope.actions")
     local pickers_opts = { theme = "dropdown", previewer = false, respcet_git = false }
+    local pickers_opts_2 = { respcet_git = false }
     telescope.setup({
       defaults = {
         mappings = {
@@ -37,7 +38,7 @@ return {
           "target",
         },
       },
-      pickers = { find_files = pickers_opts, live_grep = pickers_opts, buffers = pickers_opts },
+      pickers = { find_files = pickers_opts, buffers = pickers_opts, live_grep = pickers_opts_2 },
     })
   end,
 }

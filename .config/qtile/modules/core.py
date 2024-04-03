@@ -53,8 +53,6 @@ layout_config = dict(
 layouts = [
     layout.Columns(**layout_config, insert_position=1),
     layout.Max(),
-    layout.MonadTall(ratio=0.65, max_ratio=0.75, **layout_config),
-    layout.MonadWide(**layout_config, ratio=0.65),
 ]
 
 # ---------------------

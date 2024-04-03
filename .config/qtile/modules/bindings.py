@@ -62,10 +62,6 @@ keys = [
     Key(WIN, "period", lazy.layout.grow_right()),
     Key(WIN_SHT, "comma", lazy.layout.grow_down()),
     Key(WIN_SHT, "period", lazy.layout.grow_up()),
-    Key(WIN_SHT, "n", lazy.layout.normalize()),
-    Key(WIN_SHT, "m", lazy.layout.maximize()),
-    Key(WIN, "o", lazy.layout.grow()),
-    Key(WIN, "i", lazy.layout.shrink()),
     # Qtile specific
     Key(WIN, "r", lazy.reload_config()),
     Key(WIN_SHT, "r", lazy.restart()),
@@ -92,8 +88,6 @@ keys = [
     Key(WIN_SHT, "grave", lazy.prev_layout()),
     Key(WIN, "m", lazy.group.setlayout("max")),
     Key(WIN, "c", lazy.group.setlayout("columns")),
-    Key(WIN, "t", lazy.group.setlayout("monadtall")),
-    Key(WIN, "w", lazy.group.setlayout("monadwide")),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
