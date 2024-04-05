@@ -22,6 +22,7 @@ return {
             bash = { "beautysh" },
             zsh = { "beautysh" },
             fish = { "beautysh" },
+            c = { "clang-format" },
         },
     },
 }

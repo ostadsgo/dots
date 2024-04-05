@@ -9,10 +9,4 @@ return {
       vim.cmd("colorscheme no-clown-fiesta")
     end,
   },
-  {
-    "mg979/vim-visual-multi",
-    config = function()
-      vim.cmd("let g:VM_highlight_matches = 'hi! link Search PmenuSel'")
-    end,
-  },
 }

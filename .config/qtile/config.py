@@ -50,7 +50,7 @@ def toggle_transparency(qtile):
     global transparency
     cmd = "picom -b --config /home/saeed/.config/picom/{}"
     os.system("killall picom")
-    if transparency:
+    if not transparency:
         send_notification("Transparency", "Give transparency.")
         os.system(cmd.format("trans.conf"))
         transparency = False
