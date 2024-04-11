@@ -9,6 +9,7 @@ return {
       -- javascript = { "eslint_d" },
       -- typescript = { "eslint_d" },
       -- python = { "pylint" },
+      -- htmldjango = { "djlint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

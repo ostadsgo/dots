@@ -27,13 +27,16 @@ return {
     mason_lspconfig.setup()
 
     local servers = {
+      taplo = {},
+      bashls = {},
       clangd = {},
       gopls = {},
       pyright = {},
       rust_analyzer = {},
       tsserver = {},
+      cssls = {},
       html = { filetypes = { "html", "twig", "hbs" } },
-      emmet_ls = { filetypes = { "css", "html", "javascript" } },
+      emmet_ls = { filetypes = { "css", "html", "javascript", "htmldjango" } },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },

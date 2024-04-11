@@ -16,7 +16,7 @@ function fish_prompt
   else
     set status_indicator "$red❯$red❯$red❯"
   end
-  set -l cwd $cyan(basename (prompt_pwd))
+  set -l cwd $blue(basename (prompt_pwd))
 
   if [ (_git_branch_name) ]
 
@@ -34,13 +34,17 @@ function fish_prompt
     end
   end
 
-  # Notify if a command took more than 5 minutes
-  if [ "$CMD_DURATION" -gt 300000 ]
-    echo The last command took (math "$CMD_DURATION/1000") seconds.
-  end
-
   echo -n -s $cwd $git_info $whitespace $ahead $status_indicator $whitespace
 end
+
+
+function fish_right_prompt
+  if [ "$CMD_DURATION" -gt 3000 ]
+    echo -n -s $yellow (math floor "$CMD_DURATION/1000")$normal s
+  end
+  
+end
+
 
 function _git_ahead
   set -l commits (command git rev-list --left-right '@{upstream}...HEAD' 2>/dev/null)
