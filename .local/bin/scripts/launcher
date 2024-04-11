@@ -13,5 +13,10 @@ sel="#323437"
 # noclown
 bg="#151515"
 fg="#E1E1E1"
-sel="#7E97AB"
+sel="#A2B5C1"
+
+# darkland
+bg="#100F0F"
+fg="#d6d6d6"
+sel="#146c94"
 dmenu_run -i -p "Apps:: " -nb $bg -nf $fg -sb $sel

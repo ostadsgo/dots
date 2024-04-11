@@ -157,11 +157,11 @@ mouse = [
 # ---------------
 
 color = {
-    "bg": "#151515",
-    "fg": "#E1E1E1",
+    "bg": "#100F0F",
+    "fg": "#d6d6d6",
     "active": "#727272",
     "inactive": "#373737",
-    "primary": "#BAD7FF",
+    "primary": "#22A39F",
     "secondary": "#b46958",
 }
 
