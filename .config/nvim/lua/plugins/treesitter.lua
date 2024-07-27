@@ -24,7 +24,7 @@ return {
             init_selection = "<C-space>",
             node_incremental = "<C-space>",
             scope_incremental = false,
-            node_decremental = "<bs>",
+            node_decremental = "<BS>",
           },
         },
         textobjects = {

@@ -17,4 +17,13 @@ return {
       vim.cmd("colorscheme darkland")
     end,
   },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme darkland")
+    end,
+  },
+
 }
