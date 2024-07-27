@@ -16,7 +16,7 @@ fg="#E1E1E1"
 sel="#A2B5C1"
 
 # darkland
-bg="#100F0F"
-fg="#d6d6d6"
-sel="#146c94"
+bg="#000000"
+fg="#d8d8d8"
+sel="#008170"
 dmenu_run -i -p "Apps:: " -nb $bg -nf $fg -sb $sel

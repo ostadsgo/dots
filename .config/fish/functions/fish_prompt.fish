@@ -12,9 +12,9 @@ function fish_prompt
   set -g whitespace ' '
 
   if test $last_status = 0
-    set status_indicator "$normal❯$cyan❯$green❯"
+    set status_indicator "$normal|>"
   else
-    set status_indicator "$red❯$red❯$red❯"
+    set status_indicator "$red|>"
   end
   set -l cwd $blue(basename (prompt_pwd))
 
@@ -22,18 +22,19 @@ function fish_prompt
 
     if test (_git_branch_name) = 'master'
       set -l git_branch (_git_branch_name)
-      set git_info "$normal ($red$git_branch$normal)"
+      set git_info "$normal | $red$git_branch$normal"
     else
       set -l git_branch (_git_branch_name)
-      set git_info "$normal ($blue$git_branch$normal)"
+      set git_info "$normal | $blue$git_branch$normal"
     end
 
     if [ (_is_git_dirty) ]
-      set -l dirty "$yellow ✗"
+      set -l dirty "$yellow x"
       set git_info "$git_info$dirty"
     end
   end
 
+  # $cwd : for current working directory
   echo -n -s $cwd $git_info $whitespace $ahead $status_indicator $whitespace
 end
 

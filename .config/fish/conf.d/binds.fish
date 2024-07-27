@@ -24,6 +24,8 @@ function fish_user_key_bindings
   # alt + backspace
   bind -M insert \e\x7f backward-kill-word
   bind -M default \e\x7f backward-kill-word
+  bind -M insert \c\x7f backward-kill-word
+  bind -M default \c\x7f backward-kill-word
 
   # Alt + l : accept ...
   bind -M insert \e\l forward-word

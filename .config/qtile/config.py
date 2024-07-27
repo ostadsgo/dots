@@ -123,7 +123,7 @@ keys = [
     Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
-    Key(WIN, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
+    Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
     # Volume keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
@@ -132,7 +132,6 @@ keys = [
     Key(WIN, "g", change_margin(size=1)),
     Key(WIN_SHT, "g", change_margin(size=-1)),
     Key(WIN, "d", minimize_all()),
-    Key(WIN_SHT, "t", toggle_transparency()),
 ]
 
 # Mouse bindings
@@ -220,6 +219,7 @@ floating_layout = layout.Floating(
         Match(wm_class="pcmanfm"),  # tkinter
         Match(wm_class="thunar"),  # tkinter
         Match(wm_class="vlc"),  # VLC media player
+        Match(wm_class="simplescreenrecorder"),  # VLC media player
         Match(wm_class="pavucontrol"),  # VLC media player
         Match(wm_class="main.py"),  # Pygame zero
         Match(wm_class="xarchiver"),  # tkinter
@@ -228,6 +228,7 @@ floating_layout = layout.Floating(
         Match(wm_class="notification"),
         Match(wm_class="Dunst"),
         Match(wm_class="ffplay"),
+        Match(wm_class="hiddify"),
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ],

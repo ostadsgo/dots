@@ -56,6 +56,7 @@ alias djrun 'python manage.py runserver'
 alias djmkm 'python manage.py makemigrations'
 alias djmig 'python manage.py migrate'
 alias djcsu 'python manage.py createsuperuser --username admin --email ad@min.com'
+alias djshl 'python manage.py shell'
 
 
 # Reflector

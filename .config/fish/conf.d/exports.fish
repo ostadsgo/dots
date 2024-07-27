@@ -5,8 +5,8 @@
 set -x HOME ~
 set -x EDITOR "nvim"
 set -x BROWSER "chrome"
-set -x TERMINAL "alacritty"
-set -x TERM "alacritty"
+set -x TERMINAL "kitty"
+# set -x TERM "xterm-256color"
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CASHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
@@ -26,8 +26,8 @@ set -x FZF_DEFAULT_OPTS '
 --height 40% --reverse --border=rounded
 --no-hscroll --prompt=":: "  --multi
 --info=hidden --pointer="*"
---color="fg:#E1E1E1,bg:#151515,bg+:#373737,hl:#FFA557,gutter:#151515"
---color="query:#E1E1E1,prompt:#E1E1E1,pointer:#FFA557,marker:#BAD7FF"
+--color="fg:#d6d6d6,bg:#100f0f,bg+:#373737,hl:#FFA557,gutter:#100f0f"
+--color="query:#d6d6d6,prompt:#d6d6d6,pointer:#FFA557,marker:#BAD7FF"
 --color="hl+:#FFA557"
 --bind="?:toggle-preview"
 --bind="ctrl-u:preview-page-up"

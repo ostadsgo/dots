@@ -10,7 +10,7 @@ image/jpeg=sxiv.desktop
 image/jpg=sxiv.desktop
 image/png=sxiv.desktop
 
-
 [Added Associations]
 application/pdf=google-chrome.desktop;
 text/plain=google-chrome.desktop;
+video/x-sgi-movie=vlc.desktop;
