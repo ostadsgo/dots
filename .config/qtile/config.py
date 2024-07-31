@@ -24,6 +24,7 @@ WIN_CTRL = ["mod4", "control"]
 TERMINAL = os.environ.get("TERMINAL")
 transparency = False
 
+
 @lazy.function
 def change_margin(qtile, size):
     qtile.current_layout.margin += size
@@ -183,8 +184,8 @@ groups = [
     ScratchPad(
         "scratchpad",
         [
-            DropDown("python", "alacritty -e python", **spad_kw),
-            DropDown("terminal", "alacritty", **spad_kw),
+            DropDown("python", f"{TERMINAL} -e python", **spad_kw),
+            DropDown("terminal", TERMINAL, **spad_kw),
         ],
     ),
 ]

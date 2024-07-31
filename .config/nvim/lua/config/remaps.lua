@@ -26,7 +26,7 @@ remap("n", "%", "%zz", opts)
 remap("n", "<Leader>a", "gg<S-v>G", opts)
 remap("n", "<Leader>;", "<S-V>", opts)
 remap("n", "<C-Enter>", "o<Esc>", opts)
-remap("n", "<C-S-Enter>", "O<Esc>", opts)
+remap("n", "<A-Enter>", "O<Esc>", opts)
 
 -- copy/past to/from system clipboard
 remap("n", "<Leader>y", '"+ygv', opts)
@@ -45,6 +45,7 @@ remap("n", "<Leader>fh", ":bprevious<CR>", opts)
 remap("n", "<Leader>fw", ":w<CR>", opts)
 remap("n", "<Leader>fx", ":bd<CR>", opts)
 remap("n", "<Leader>fq", ":bd!<CR>", opts)
+remap("n", "<Leader>fe", ":Exp<CR>", opts)
 -- Run python file
 remap("n", "<Leader>fr", ":!python %<cr>", opts)
 remap("n", "<Leader>f[", "<C-^>", opts)
@@ -103,7 +104,8 @@ end, {})
 ----------------------
 -- Escape
 remap("i", "jk", "<ESC>", opts)
-remap("i", "<C-CR>", "<C-o>O", opts)
+remap("i", "<C-Enter>", "<C-o>o", opts)
+remap("i", "<A-Enter>", "<C-o>O", opts)
 remap("i", "<C-BACKSPACE>", "<C-w>", opts)
 remap("i", "<A-BACKSPACE>", "<C-w>", opts)
 remap("i", "<C-6>", "<C-o>^", opts)

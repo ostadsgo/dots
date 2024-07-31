@@ -1,11 +1,24 @@
-# fzf
+# A function to open a file with Neovim
+#
+function fzf-open-with-nvim
+  set -g red (set_color red)
+  set fd_command "fd . ~ --type f --exclude .git --exclude node_modules --exclude __pycache__"
+
+  set the_file (eval $fd_command | fzf)
+  if test -n "$the_file"
+    nvim $the_file
+  else
+    echo $red "No file has been selected."
+  end
+  commandline -f repaint
+end
+
 function fish_user_key_bindings
-
   fzf_key_bindings
-
   bind -M insert \cr fzf-history-widget
   bind -M insert \cf fzf-file-widget
   bind -M insert \cn fzf-cd-widget
+  bind -M insert \co fzf-open-with-nvim
 
   # -----------------
   #   VI KEY BINDINGS
