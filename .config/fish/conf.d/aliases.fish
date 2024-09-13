@@ -20,7 +20,6 @@ alias ka killall
 alias reboot 'sudo reboot now'
 alias grep 'grep --color'
 alias hist history
-# alias path 'echo -e ${PATH//:/\\n}'
 alias pingarch "ping -c 5 archlinux.org"
 alias pingnet "ping -c 5  8.8.8.8"
 alias ip 'ip --color'
@@ -60,7 +59,7 @@ alias djshl 'python manage.py shell'
 
 
 # Reflector
-alias mirror 'sudo reflector --fastest 30 --latest 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
+alias mirror 'sudo reflector --fastest 30 --latest 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist --download-timeout 60'
 alias mirrord 'sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
 alias mirrors 'sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
 alias mirrora 'sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'

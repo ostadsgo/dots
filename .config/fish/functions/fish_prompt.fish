@@ -12,14 +12,19 @@ function fish_prompt
   set -g whitespace ' '
 
   if test $last_status = 0
-    set status_indicator "$normal|>"
+    set status_indicator "$green"
   else
-    set status_indicator "$red|>"
+    set status_indicator "$red"
   end
   set -l cwd $blue(basename (prompt_pwd))
 
-  if [ (_git_branch_name) ]
+  echo -n -s $status_indicator $whitespace
+end
 
+
+function fish_right_prompt
+  # git stuff
+  if [ (_git_branch_name) ]
     if test (_git_branch_name) = 'master'
       set -l git_branch (_git_branch_name)
       set git_info "$normal | $red$git_branch$normal"
@@ -34,16 +39,15 @@ function fish_prompt
     end
   end
 
-  # $cwd : for current working directory
-  echo -n -s $cwd $git_info $whitespace $ahead $status_indicator $whitespace
-end
-
-
-function fish_right_prompt
+  set -l cwd $blue(basename (prompt_pwd))
+  set -l prompt
   if [ "$CMD_DURATION" -gt 3000 ]
-    echo -n -s $yellow (math floor "$CMD_DURATION/1000")$normal s
+    set -l cmd_dur $yellow (math floor "$CMD_DURATION/1000")$normal s
+    set prompt $cwd $git_info $whitespace $ahead $cmd_dur
+  else
+    set prompt $cwd $git_info $whitespace $ahead 
   end
-  
+  echo -n -s $prompt
 end
 
 

@@ -17,6 +17,7 @@ return {
     keymap("n", "<leader>fd", builtin.diagnostics, {})
     keymap("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
     keymap("n", "<leader>fb", builtin.buffers, {})
+    keymap("n", "<leader>fn", builtin.lsp_document_symbols, {})
 
     local actions = require("telescope.actions")
     local pickers_opts = { theme = "dropdown", previewer = false, respcet_git = false }

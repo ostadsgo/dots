@@ -13,12 +13,13 @@ return {
       local opts = { noremap = true, silent = true, buffer = bufnr }
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-      vim.keymap.set("n", "dl", vim.diagnostic.setqflist, opts)
+      vim.keymap.set("n", "<Leader>dl", vim.diagnostic.setqflist, opts)
       vim.keymap.set("n", "gd", telescope.lsp_definitions, opts)
       vim.keymap.set("n", "gr", telescope.lsp_references, opts)
       vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
       vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+      vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
     end
 
     -- Mason
@@ -33,10 +34,10 @@ return {
       gopls = {},
       pyright = {},
       rust_analyzer = {},
-      tsserver = {},
       cssls = {},
       html = { filetypes = { "html", "twig", "hbs" } },
       emmet_ls = { filetypes = { "css", "html", "javascript", "htmldjango" } },
+      ts_ls = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },

@@ -22,7 +22,7 @@ WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 
 TERMINAL = os.environ.get("TERMINAL")
-transparency = False
+transparency = True
 
 
 @lazy.function
@@ -51,14 +51,15 @@ def toggle_transparency(qtile):
     global transparency
     cmd = "picom -b --config /home/saeed/.config/picom/{}"
     os.system("killall picom")
-    if not transparency:
-        send_notification("Transparency", "Give transparency.")
-        os.system(cmd.format("trans.conf"))
-        transparency = False
-    else:
+    if transparency:
         send_notification("Transparency", "Remove transparency.")
         os.system(cmd.format("notrans.conf"))
+        transparency = False
+    else:
+        send_notification("Transparency", "Give transparency.")
+        os.system(cmd.format("trans.conf"))
         transparency = True
+
 
 
 # Keyboard bindings
@@ -157,8 +158,8 @@ mouse = [
 # ---------------
 
 color = {
-    "bg": "#100F0F",
-    "fg": "#d6d6d6",
+    "bg": "#000000",
+    "fg": "d8d8d8",
     "active": "#727272",
     "inactive": "#373737",
     "primary": "#22A39F",
@@ -169,7 +170,7 @@ color = {
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad
-spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7)
+spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=1)
 groups = [
     Group(name="1", label=""),
     Group(

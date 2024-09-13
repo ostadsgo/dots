@@ -1,24 +1,78 @@
 # A function to open a file with Neovim
 #
-function fzf-open-with-nvim
-  set -g red (set_color red)
-  set fd_command "fd . ~ --type f --exclude .git --exclude node_modules --exclude __pycache__"
+function fzf-open
+  set fd_command 'fd  \
+                   --hidden \
+                   --type f \
+                   --exclude .git \
+                   --exclude node_modules \
+                   --exclude __pycache__ \
+                   --exclude "*.pyc" \
+                   --exclude .dotnet \
+                   --exclude .cache \
+                   --exclude .cargo \ '
 
   set the_file (eval $fd_command | fzf)
   if test -n "$the_file"
     nvim $the_file
-  else
-    echo $red "No file has been selected."
   end
   commandline -f repaint
+end
+
+
+function fzf-open-from-home
+  set fd_command 'fd . ~ \
+                  --hidden \
+                  --type f  \
+                  --exclude .git  \
+                  --exclude node_modules \
+                  --exclude __pycache__ \
+                  --exclude .cargo \
+                  --exclude .npm \
+                  --exclude .dotnet \
+                  --exclude .cache \
+                  '
+
+
+  set the_file (eval $fd_command | fzf)
+  if test -n "$the_file"
+    nvim $the_file
+  end
+  commandline -f repaint
+end
+
+function fzf-cd-from-home
+  set fd_command "fd . ~ --hidden --type d --exclude .git --exclude node_modules --exclude __pycache__"
+
+  set the_file (eval $fd_command | fzf)
+  if test -n "$the_file"
+    cd $the_file
+  end
+  commandline -f repaint
+end
+
+function tmux-kill-session
+  tmux kill-session -t $(tmux ls | awk -F ':' '{print $1}' | fzf)
 end
 
 function fish_user_key_bindings
   fzf_key_bindings
   bind -M insert \cr fzf-history-widget
   bind -M insert \cf fzf-file-widget
-  bind -M insert \cn fzf-cd-widget
-  bind -M insert \co fzf-open-with-nvim
+  bind -M insert \co fzf-open-from-home
+  bind -M insert \cn fzf-cd-from-home
+  bind -M insert \e\o fzf-open
+
+  bind -M default \cr fzf-history-widget
+  bind -M default \cf fzf-file-widget
+  bind -M default \co fzf-open-from-home
+  bind -M default \cn fzf-cd-from-home
+  bind -M default \e\o fzf-open
+
+  # --------------
+  # TMUX
+  # --------------
+
 
   # -----------------
   #   VI KEY BINDINGS
@@ -47,10 +101,6 @@ function fish_user_key_bindings
   bind -M default \e\l forward-word
   bind -M default \e\h backward-word
   bind -M default \e\; accept-autosuggestion
-
-  # looks like no diff with up/down-or search
-  bind -M insert \cj history-search-forward
-  bind -M insert \ck history-search-backward
 
   # other applications 
   bind -M insert \cg lazygit
