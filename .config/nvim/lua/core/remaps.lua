@@ -33,10 +33,9 @@ remap("n", "<A-k>", ":m .-2<CR>==", opts)
 -- comment
 remap("n", "<C-/>", "gcc", { noremap = false })
 
--- buffer
-remap("n", "<Leader>l", ":bnext<CR>", opts)
-remap("n", "<Leader>h", ":bprevious<CR>", opts)
-remap("n", "<Leader>q", ":bd<CR>", opts)
+-- move begin and end of line
+remap("n", "<A-h>", "_", opts)
+remap("n", "<A-l>", "$", opts)
 
 -- copy/past to/from system clipboard
 remap("n", "<Leader>y", '"+ygv', opts)
@@ -49,31 +48,34 @@ remap("n", "<Leader>d", '"_d', opts)
 remap("n", "<Leader>er", ":source ~/.config/nvim/init.lua<cr>", opts)
 remap("n", "<Leader>ee", ":Exp<CR>", opts)
 
--- Buffer (Current File)
-remap("n", "<Leader>fl", ":bnext<CR>", opts)
-remap("n", "<Leader>fh", ":bprevious<CR>", opts)
+-- Buffer(file)
+remap("n", "[b", ":bnext<CR>", opts)
+remap("n", "]b", ":bprevious<CR>", opts)
+remap("n", "<Leader>l", ":bnext<CR>", opts)
+remap("n", "<Leader>h", ":bprevious<CR>", opts)
+remap("n", "<Leader>k", ":blast<CR>", opts)
+remap("n", "<Leader>j", ":bfirst<CR>", opts)
+remap("n", "<Leader>q", ":bd<CR>", opts)
 remap("n", "<Leader>fw", ":w<CR>", opts)
 remap("n", "<Leader>fq", ":bd<CR>", opts)
 remap("n", "<Leader>fx", ":bd!<CR>", opts)
-remap("n", "<Leader>fe", ":Exp<CR>", opts)
--- Run file
 remap("n", "<Leader>fr", ":lua Utils.run_code()<cr>", opts)
 remap("n", "<Leader>f[", "<C-^>", opts)
 
-
--- Window / split
+-- Window / splitrem
 remap("n", "<C-h>", "<C-w>h", opts)
 remap("n", "<C-j>", "<C-w>j", opts)
 remap("n", "<C-k>", "<C-w>k", opts)
 remap("n", "<C-l>", "<C-w>l", opts)
-remap("n", "<Leader>w=", "<C-w>=", opts)
-remap("n", "<Leader>wr", "<C-w>r", opts)
-remap("n", "<Leader>wq", "<C-w>q", opts)
-remap("n", "<Leader>wo", "<C-w>o", opts)
+remap("n", "<Leader>s=", "<C-w>=", opts)
+remap("n", "<Leader>sr", "<C-w>r", opts)
+remap("n", "<Leader>sq", "<C-w>q", opts)
+remap("n", "<Leader>so", "<C-w>o", opts)
 -- split
 remap("n", "<Leader>ss", ":split<CR>", opts)
 remap("n", "<Leader>sv", ":vsplit<CR>", opts)
 remap("n", "<Leader>sx", ":close<CR>", opts)
+remap("n", "<Leader>sc", ":close<CR>", opts)
 remap("n", "<Leader>st", ":10split|:terminal<CR>", opts)
 remap("n", "<Leader>sT", ":vs|:terminal<CR>", opts)
 remap("n", "<Leader>sh", "<C-w>t<C-w>H", opts)
@@ -83,22 +85,21 @@ remap("n", "<A-Down>", ":resize -2<CR>", opts)
 remap("n", "<A-Right>", ":vertical resize -2<CR>", opts)
 remap("n", "<A-Left>", ":vertical resize +2<CR>", opts)
 
-
 -- Tabs
 remap("n", "<Leader>tt", ":tabnew<CR>", opts)
 remap("n", "<Leader>tx", ":tabclose<CR>", opts)
 remap("n", "<Leader>tn", ":tabnext<CR>", opts)
 remap("n", "<Leader>tp", ":tabprevious<CR>", opts)
 remap("n", "<Leader>to", ":tabnew %<CR>", opts)
-remap("n", "<Leader>1", "1gt", opts)
-remap("n", "<Leader>2", "2gt", opts)
-remap("n", "<Leader>3", "3gt", opts)
-remap("n", "<Leader>4", "4gt", opts)
-remap("n", "<Leader>5", "5gt", opts)
-remap("n", "<Leader>6", "6gt", opts)
-remap("n", "<Leader>7", "7gt", opts)
-remap("n", "<Leader>8", "8gt", opts)
-remap("n", "<Leader>9", "9gt", opts)
+remap("n", "<A-1>", "1gt", opts)
+remap("n", "<A-2>", "2gt", opts)
+remap("n", "<A-3>", "3gt", opts)
+remap("n", "<A-4>", "4gt", opts)
+remap("n", "<A-5>", "5gt", opts)
+remap("n", "<A-6>", "6gt", opts)
+remap("n", "<A-7>", "7gt", opts)
+remap("n", "<A-8>", "8gt", opts)
+remap("n", "<A-9>", "9gt", opts)
 
 -- Quick fix list
 remap("n", "<Leader>co", ":copen<CR>zz", opts)
@@ -120,12 +121,14 @@ remap("i", "<A-BACKSPACE>", "<C-w>", opts)
 remap("i", "<C-BACKSPACE>", "<C-w>", opts)
 -- move to previous buffer
 remap("i", "<C-6>", "<C-o>^", opts)
+-- line up and down
+remap("v", "<A-j>", ":m .+1<CR>==", opts)
+remap("v", "<A-k>", ":m .-2<CR>==", opts)
 -- cursor home, end
 remap("i", "<A-l>", "<C-o>$", opts)
 remap("i", "<A-h>", "<C-o>_", opts)
 -- commennt
 remap("i", "<C-/>", "<C-o>gcc", { noremap = false })
-
 
 -------------------
 -- VISUAL
@@ -143,6 +146,10 @@ remap("v", ">", ">gv", opts)
 remap("v", "<A-j>", ":m .+1<CR>==", opts)
 remap("v", "<A-k>", ":m .-2<CR>==", opts)
 
+-- move begin and end of line.
+remap("v", "<A-h>", "_", opts)
+remap("v", "<A-l>", "$", opts)
+
 -- keep cursor at yanked position.
 remap("v", "y", "ygv<Esc>", opts)
 remap("v", "<C-/>", "gcc", { noremap = false })
@@ -155,4 +162,17 @@ remap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 remap("x", "<Leader>;", "<S-V>", opts) -- visual line activate
 remap("x", "<Leader>a", "gg<S-v>G", opts)
 
+-------------------
+-- TERMINAL
+-------------------
 remap("t", "<C-space>", "<C-\\><C-n>", opts)
+remap("t", "<C-h>", "<C-\\><C-n><C-w>h", opts)
+remap("t", "<C-j>", "<C-\\><C-n><C-w>j", opts)
+remap("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
+remap("t", "<C-w>", "<C-\\><C-n><C-w>l", opts)
+
+-------------------
+-- COMMAND
+-------------------
+vim.cmd("cnoremap <c-k> <up>")
+vim.cmd("cnoremap <c-j> <down>")

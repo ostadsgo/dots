@@ -61,7 +61,6 @@ def toggle_transparency(qtile):
         transparency = True
 
 
-
 # Keyboard bindings
 keys = [
     # Window focus
@@ -92,6 +91,7 @@ keys = [
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
     Key(WIN, "p", lazy.spawn("launcher")),
     Key(WIN, "Print", lazy.spawn("shot")),
+    Key(WIN, "b", lazy.spawn("brave")),
     Key(
         ALT,
         "shift_l",
@@ -104,7 +104,7 @@ keys = [
     Key(WIN_SHT, "f", lazy.window.toggle_floating()),
     Key(WIN, "x", lazy.window.toggle_maximize()),
     # Screen specific
-    Key(WIN, "b", lazy.hide_show_bar()),
+    Key(WIN_SHT, "b", lazy.hide_show_bar()),
     # Layout specific
     Key(WIN, "grave", lazy.next_layout()),
     Key(WIN_SHT, "grave", lazy.prev_layout()),
@@ -117,13 +117,9 @@ keys = [
     Key(WIN, "1", lazy.group["1"].toscreen()),
     Key(WIN, "2", lazy.group["2"].toscreen()),
     Key(WIN, "3", lazy.group["3"].toscreen()),
-    Key(WIN, "9", lazy.group["9"].toscreen()),
-    Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=False)),
     Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=False)),
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
-    Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
-    Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
     Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
     # Volume keys
@@ -158,12 +154,12 @@ mouse = [
 # ---------------
 
 color = {
-    "bg": "#000000",
-    "fg": "d8d8d8",
+    "bg": "#080808",
+    "fg": "cdcdcd",
     "active": "#727272",
     "inactive": "#373737",
-    "primary": "#22A39F",
-    "secondary": "#b46958",
+    "primary": "#708090",
+    "secondary": "#BC5215",
 }
 
 # ------------------
@@ -179,9 +175,16 @@ groups = [
         layout="max",
         matches=[
             Match(wm_class="Google-chrome"),
+            Match(wm_class="Brave-browser"),
         ],
     ),
-    Group(name="3", label=""),
+    Group(
+        name="3",
+        label="",
+        matches=[
+            Match(wm_class="TelegramDesktop"),
+        ],
+    ),
     ScratchPad(
         "scratchpad",
         [
@@ -196,13 +199,15 @@ groups = [
 #     LAYOUTS
 # ------------------
 layout_config = dict(
-    margin=0,
-    border_width=2,
-    border_focus=color.get("active", "#ff000"),
+    margin=5,
+    border_width=0,
+    border_on_single=False,
+    margin_on_single=15,
+    single_border_width=0,
+    border_focus=color.get("primary", "#ff000"),
     border_normal=color.get("bg", "#ff0000"),
     border_focus_stack=color.get("secondary", "#ff0000"),
     border_normal_stack=color.get("bg", "#ff0000"),
-    single_border_width=0,
 )
 
 layouts = [
@@ -246,7 +251,7 @@ def sep(bg, pad=5):
 
 
 widget_defaults = dict(
-    font="Noto Sans Mono",
+    font="Fira code",
     fontsize=13,
 )
 extension_defaults = widget_defaults.copy()
@@ -310,7 +315,7 @@ bar = bar.Bar(
     border_color="#ff0000",
     background=color.get("bg", "#ff0000"),
     size=20,
-    opacity=1,
+    opacity=0.9,
 )
 
 # Screens

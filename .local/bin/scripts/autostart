@@ -11,10 +11,10 @@ dunst &
 picom  -b
  
 # get bg from bing and set to bg
-getwall &
+randwall &
 
 # incerese speed of repeated key.
-xset r rate 200 35
+xset r rate 200 40
 
 # Choose monitor over laptop screen if monitor avilabe
 # monitor &

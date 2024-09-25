@@ -1,21 +1,21 @@
 [global]
     font = monospace 10
     transparency = 0
-    frame_width = 1
+    frame_width = 0
     separator_color = frame
     icon_theme = Adwaita
     enable_recursive_icon_lookup = true
 
 [urgency_low]
-    background = "#000000"
-    foreground = "#e1e1e1"
+    background = "#080808"
+    foreground = "#cdcdcd"
     frame_color = "#373737"
     timeout = 2
 
 [urgency_normal]
     background = "#171717"
-    foreground = "#e1e1e1"
-    frame_color = "#000000"
+    foreground = "#cdcdcd"
+    frame_color = "#080808"
     timeout = 2
 
 [urgency_critical]
