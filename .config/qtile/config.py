@@ -166,7 +166,7 @@ color = {
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad
-spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=1)
+spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=.9)
 groups = [
     Group(name="1", label=""),
     Group(

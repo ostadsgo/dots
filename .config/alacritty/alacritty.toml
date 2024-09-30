@@ -1,0 +1,57 @@
+
+[font]
+normal.family = "Fira Code"
+size = 10
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[keyboard]
+bindings = [
+
+  { key = "k", mods = "Control|Shift", action = "ScrollHalfPageUp" },
+  { key = "j", mods = "Control|Shift", action = "ScrollHalfPageDown" },
+]
+
+[window]
+dynamic_padding = true
+padding = { x = 5, y = 5 }
+
+[colors.normal]
+black = "#151515"
+red = "#984936"
+green = "#789978"
+yellow = "#ab8550"
+blue = "#708090"
+magenta = "#AA759F"
+cyan = "#88afa2"
+white = "#cdcdcd"
+
+[colors.bright]
+black = "#313131"
+red = "#984936"
+green = "#789978"
+yellow = "#ab8550"
+blue = "#708090"
+magenta = "#AA759F"
+cyan = "#88afa2"
+white = "#cdcdcd"
+
+[colors.dim]
+black = "#151515"
+red = "#984936"
+green = "#789978"
+yellow = "#ab8550"
+blue = "#708090"
+magenta = "#AA759F"
+cyan = "#88afa2"
+white = "#cdcdcd"
+
+[colors.primary]
+background = "#080808"
+foreground = "#cdcdcd"
+
+[colors.cursor]
+text = "CellBackground"
+cursor = "CellForeground"
+

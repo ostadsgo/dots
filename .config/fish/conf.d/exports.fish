@@ -4,8 +4,8 @@
 ## --------------
 set -x HOME ~
 set -x EDITOR "nvim"
-set -x BROWSER "chrome"
-set -x TERMINAL "kitty"
+set -x BROWSER "brave"
+set -x TERMINAL "alacritty"
 set -x TERM "xterm-256color"
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CASHE_HOME $HOME/.cache
