@@ -1,11 +1,11 @@
 [Default Applications]
 inode/directory=pcmanfm.desktop
-application/pdf=google-brave-browser.desktop
-application/xhtml+xml=google-brave-browser.desktop
-x-scheme-handler/http=google-brave-browser.desktop
-x-scheme-handler/https=google-brave-browser.desktop
-text/html=google-brave-browser.desktop
-text/plain=google-brave-browser.desktop
+application/pdf=google-chrome.desktop
+application/xhtml+xml=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+text/html=google-chrome.desktop
+text/plain=google-chrome.desktop
 image/jpeg=sxiv.desktop
 image/jpg=sxiv.desktop
 image/png=sxiv.desktop
@@ -13,8 +13,8 @@ x-scheme-handler/tonsite=userapp-Telegram Desktop-5O2YT2.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-A3OYT2.desktop
 
 [Added Associations]
-application/pdf=google-brave-browser.desktop;
-text/plain=google-brave-browser.desktop;
+application/pdf=google-chrome.desktop;
+text/plain=google-chrome.desktop;
 video/x-sgi-movie=vlc.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;userapp-Telegram Desktop-5O2YT2.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-A3OYT2.desktop;

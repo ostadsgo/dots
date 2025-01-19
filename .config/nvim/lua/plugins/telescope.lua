@@ -28,8 +28,8 @@ return {
           i = {
             ["<C-n>"] = actions.cycle_history_next,
             ["<C-p>"] = actions.cycle_history_prev,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-k>"] = actions.move_selection_previous,
+            ["<A-j>"] = actions.move_selection_next,
+            ["<A-k>"] = actions.move_selection_previous,
           },
         },
         file_ignore_patterns = {

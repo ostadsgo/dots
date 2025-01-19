@@ -1,7 +1,6 @@
-
 [font]
-normal.family = "Fira Code"
-size = 10
+normal.family = "Source Code Pro"
+size = 9
 
 [cursor]
 style = { shape = "Block", blinking = "On" }
@@ -16,9 +15,10 @@ bindings = [
 [window]
 dynamic_padding = true
 padding = { x = 5, y = 5 }
+opacity = 1
 
 [colors.normal]
-black = "#151515"
+black = "#080808"
 red = "#984936"
 green = "#789978"
 yellow = "#ab8550"
@@ -28,7 +28,7 @@ cyan = "#88afa2"
 white = "#cdcdcd"
 
 [colors.bright]
-black = "#313131"
+black = "#515151"
 red = "#984936"
 green = "#789978"
 yellow = "#ab8550"

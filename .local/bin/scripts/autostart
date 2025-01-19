@@ -14,7 +14,7 @@ picom  -b
 randwall &
 
 # incerese speed of repeated key.
-xset r rate 200 40
+xset r rate 200 30
 
 # Choose monitor over laptop screen if monitor avilabe
 # monitor &

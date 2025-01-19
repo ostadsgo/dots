@@ -14,9 +14,8 @@ alias cd... 'cd ../..'
 alias cp 'cp -r'
 alias rm 'rm -r'
 alias rmf 'rm -rf'
-alias c 'clear'
+alias cls 'clear'
 alias tree 'exa -T'
-alias vim nvim
 alias ka killall
 alias reboot 'sudo reboot now'
 alias grep 'grep --color'
@@ -51,12 +50,12 @@ alias vact 'source .venv/bin/activate'
 alias dact deactivate
 
 # Django aliases
-alias djapp 'python manage.py startapp'
-alias djrun 'python manage.py runserver'
-alias djmkm 'python manage.py makemigrations'
-alias djmig 'python manage.py migrate'
-alias djcsu 'python manage.py createsuperuser --username admin --email ad@min.com'
-alias djshl 'python manage.py shell'
+abbr djapp 'python manage.py startapp'
+abbr djrun 'python manage.py runserver'
+abbr djmkm 'python manage.py makemigrations'
+abbr djmig 'python manage.py migrate'
+abbr djcsu 'python manage.py createsuperuser --username admin --email ad@min.com'
+abbr djshl 'python manage.py shell'
 
 
 # Reflector

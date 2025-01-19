@@ -4,8 +4,9 @@
 ## --------------
 set -x HOME ~
 set -x EDITOR "nvim"
-set -x BROWSER "brave"
-set -x TERMINAL "alacritty"
+set -x BROWSER "chrome"
+set -x FILEMANAGER "pcmanfm"
+set -x TERMINAL "kitty"
 set -x TERM "xterm-256color"
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CASHE_HOME $HOME/.cache
@@ -48,4 +49,5 @@ set -x FZF_DEFAULT_COMMAND 'fd --hidden \
 
 # Extend path
 fish_add_path $HOME/.local/bin/scripts
+fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin 

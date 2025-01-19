@@ -26,8 +26,8 @@ return {
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 
         -- Navigate between snippet placeholder
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<A-j>"] = cmp.mapping.select_next_item(),
+        ["<A-k>"] = cmp.mapping.select_prev_item(),
         ["<Tab>"] = cmp.mapping.select_next_item(),
         ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 

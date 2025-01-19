@@ -10,8 +10,8 @@ function fish_prompt
   set -g yellow (set_color -o yellow)
   set -g normal (set_color normal)
 
-  set -l indicator '󰔶 '
-  set -l normal_indicator '󰔶 '
+  set -l indicator '󰔶'
+  set -l normal_indicator '󰔶'
   set -g section '|'
   set -g whitespace ' '
 

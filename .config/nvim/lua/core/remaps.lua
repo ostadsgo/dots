@@ -2,7 +2,7 @@ Utils = require("core/utils")
 
 -- Variables
 local opts = { noremap = true, silent = true }
-local remap = vim.api.nvim_set_keymap
+local remap = vim.keymap.set
 remap("", "<Space>", "<Nop>", opts)
 
 -- --------------------
@@ -25,6 +25,7 @@ remap("n", "#", "#zz", opts)
 remap("n", "%", "%zz", opts)
 
 -- Shortcuts / Quick shortcuts
+-- remap("n", "gg", "<cmd>:0<CR>", opts)
 remap("n", "<Leader>a", "gg<S-v>G", opts)
 remap("n", "<Leader>;", "<S-V>", opts)
 -- move lines
@@ -61,6 +62,12 @@ remap("n", "<Leader>fq", ":bd<CR>", opts)
 remap("n", "<Leader>fx", ":bd!<CR>", opts)
 remap("n", "<Leader>fr", ":lua Utils.run_code()<cr>", opts)
 remap("n", "<Leader>f[", "<C-^>", opts)
+-- Buffer navigation.
+remap('n', '<leader>1', ":lua Utils.go_to_buffer(1)<CR>", opts)
+remap('n', '<leader>2', ":lua Utils.go_to_buffer(2)<CR>", opts)
+remap('n', '<leader>3', ":lua Utils.go_to_buffer(3)<CR>", opts)
+remap('n', '<leader>4', ":lua Utils.go_to_buffer(4)<CR>", opts)
+remap('n', '<leader>5', ":lua Utils.go_to_buffer(5)<CR>", opts)
 
 -- Window / splitrem
 remap("n", "<C-h>", "<C-w>h", opts)
@@ -107,23 +114,25 @@ remap("n", "<Leader>cn", ":cnext<CR>zz", opts)
 remap("n", "<Leader>cp", ":cprevious<CR>zz", opts)
 remap("n", "<Leader>cc", ":cclose<CR>zz", opts)
 
+
 -- format code
-remap("n", "<Leader>f=", "Utils.format_code()<cr>", opts)
+-- remap("n", "<Leader>f=", "Utils.format_code()<cr>", opts)
 
 ----------------------
 -- INSERT
 ----------------------
 -- Escape
 remap("i", "jk", "<ESC>", opts)
-remap("i", "<A-return>", "<C-o>O", opts)
+remap("i", "<C-j>", "<C-o>o", opts)
+remap("i", "<C-k>", "<C-o>O", opts)
 -- delete a word
 remap("i", "<A-BACKSPACE>", "<C-w>", opts)
 remap("i", "<C-BACKSPACE>", "<C-w>", opts)
 -- move to previous buffer
 remap("i", "<C-6>", "<C-o>^", opts)
 -- line up and down
-remap("v", "<A-j>", ":m .+1<CR>==", opts)
-remap("v", "<A-k>", ":m .-2<CR>==", opts)
+remap("i", "<A-j>", "<C-o>:m .+1<CR>==", opts)
+remap("i", "<A-k>", "<C-o>:m .-2<CR>==", opts)
 -- cursor home, end
 remap("i", "<A-l>", "<C-o>$", opts)
 remap("i", "<A-h>", "<C-o>_", opts)
@@ -174,5 +183,5 @@ remap("t", "<C-w>", "<C-\\><C-n><C-w>l", opts)
 -------------------
 -- COMMAND
 -------------------
-vim.cmd("cnoremap <c-k> <up>")
-vim.cmd("cnoremap <c-j> <down>")
+vim.cmd("cnoremap <A-k> <up>")
+vim.cmd("cnoremap <A-j> <down>")

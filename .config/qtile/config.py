@@ -22,6 +22,8 @@ WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 
 TERMINAL = os.environ.get("TERMINAL")
+BROWSER = os.environ.get("BROWSER")
+FILEMANAGER = os.environ.get("FILEMANAGER")
 transparency = True
 
 
@@ -91,7 +93,8 @@ keys = [
     Key(WIN, "Return", lazy.spawn(TERMINAL)),
     Key(WIN, "p", lazy.spawn("launcher")),
     Key(WIN, "Print", lazy.spawn("shot")),
-    Key(WIN, "b", lazy.spawn("brave")),
+    Key(WIN, "b", lazy.spawn(BROWSER)),
+    Key(WIN, "e", lazy.spawn(FILEMANAGER)),
     Key(
         ALT,
         "shift_l",
@@ -102,7 +105,7 @@ keys = [
     Key(WIN, "q", lazy.window.kill()),
     Key(WIN, "f", lazy.window.toggle_fullscreen()),
     Key(WIN_SHT, "f", lazy.window.toggle_floating()),
-    Key(WIN, "x", lazy.window.toggle_maximize()),
+    Key(WIN_SHT, "m", lazy.window.toggle_maximize()),
     # Screen specific
     Key(WIN_SHT, "b", lazy.hide_show_bar()),
     # Layout specific
@@ -166,7 +169,7 @@ color = {
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad
-spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=.9)
+spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=0.9)
 groups = [
     Group(name="1", label=""),
     Group(
@@ -199,10 +202,10 @@ groups = [
 #     LAYOUTS
 # ------------------
 layout_config = dict(
-    margin=5,
+    margin=4,
     border_width=0,
     border_on_single=False,
-    margin_on_single=15,
+    margin_on_single=0,
     single_border_width=0,
     border_focus=color.get("primary", "#ff000"),
     border_normal=color.get("bg", "#ff0000"),
