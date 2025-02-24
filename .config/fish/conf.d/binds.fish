@@ -2,15 +2,16 @@
 #
 function fzf-open
   set fd_command 'fd  \
-                   --hidden \
-                   --type f \
                    --exclude .git \
                    --exclude node_modules \
                    --exclude __pycache__ \
                    --exclude "*.pyc" \
                    --exclude .dotnet \
                    --exclude .cache \
-                   --exclude .cargo \ '
+                   --exclude .venv \
+                   --exclude .cargo \ 
+                   '
+
 
   set the_file (eval $fd_command | fzf)
   if test -n "$the_file"

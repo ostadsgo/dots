@@ -14,7 +14,6 @@ alias cd... 'cd ../..'
 alias cp 'cp -r'
 alias rm 'rm -r'
 alias rmf 'rm -rf'
-alias cls 'clear'
 alias tree 'exa -T'
 alias ka killall
 alias reboot 'sudo reboot now'

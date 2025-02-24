@@ -1,2 +1,3 @@
-# Run qtile 
-qtile start 
+
+autostart &
+exec dwm

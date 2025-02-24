@@ -4,17 +4,20 @@
 xsettings & 
 
 # Notfication manager
-dunst &
+# dunst &
 
 
 # Compositor: make shadow and transparenty
-picom  -b
+# picom  -b
  
 # get bg from bing and set to bg
 randwall &
 
 # incerese speed of repeated key.
 xset r rate 200 30
+
+# clear right side of dwm statusbar
+xsetroot -name " " &
 
 # Choose monitor over laptop screen if monitor avilabe
 # monitor &

@@ -11,6 +11,7 @@ image/jpg=sxiv.desktop
 image/png=sxiv.desktop
 x-scheme-handler/tonsite=userapp-Telegram Desktop-5O2YT2.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-A3OYT2.desktop
+x-scheme-handler/oblivion=oblivion-desktop.desktop
 
 [Added Associations]
 application/pdf=google-chrome.desktop;

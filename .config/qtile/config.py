@@ -28,39 +28,9 @@ transparency = True
 
 
 @lazy.function
-def change_margin(qtile, size):
-    qtile.current_layout.margin += size
-    qtile.current_group.layout_all()
-    if qtile.current_layout.margin <= 0:
-        qtile.current_layout.margin = 0
-
-
-@lazy.function
 def navigate_floating(qtile):
     qtile.current_group.next_window()
     qtile.current_window.bring_to_front()
-
-
-@lazy.function
-def minimize_all(qtile):
-    for window in qtile.current_group.windows:
-        if hasattr(window, "toggle_minimize"):
-            window.toggle_minimize()
-
-
-@lazy.function
-def toggle_transparency(qtile):
-    global transparency
-    cmd = "picom -b --config /home/saeed/.config/picom/{}"
-    os.system("killall picom")
-    if transparency:
-        send_notification("Transparency", "Remove transparency.")
-        os.system(cmd.format("notrans.conf"))
-        transparency = False
-    else:
-        send_notification("Transparency", "Give transparency.")
-        os.system(cmd.format("trans.conf"))
-        transparency = True
 
 
 # Keyboard bindings
@@ -112,7 +82,7 @@ keys = [
     Key(WIN, "grave", lazy.next_layout()),
     Key(WIN_SHT, "grave", lazy.prev_layout()),
     Key(WIN, "m", lazy.group.setlayout("max")),
-    Key(WIN, "c", lazy.group.setlayout("columns")),
+    Key(WIN, "t", lazy.group.setlayout("columns")),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -120,19 +90,17 @@ keys = [
     Key(WIN, "1", lazy.group["1"].toscreen()),
     Key(WIN, "2", lazy.group["2"].toscreen()),
     Key(WIN, "3", lazy.group["3"].toscreen()),
+    Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=False)),
     Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=False)),
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
+    Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
     Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
     # Volume keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
     Key([], "XF86AudioMute", lazy.spawn("volume mute")),
-    # Custom functions bind to keys
-    Key(WIN, "g", change_margin(size=1)),
-    Key(WIN_SHT, "g", change_margin(size=-1)),
-    Key(WIN, "d", minimize_all()),
 ]
 
 # Mouse bindings
@@ -157,7 +125,7 @@ mouse = [
 # ---------------
 
 color = {
-    "bg": "#080808",
+    "bg": "#040404",
     "fg": "cdcdcd",
     "active": "#727272",
     "inactive": "#373737",
@@ -169,7 +137,7 @@ color = {
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad
-spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=0.9)
+spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=1)
 groups = [
     Group(name="1", label=""),
     Group(
@@ -188,6 +156,14 @@ groups = [
             Match(wm_class="TelegramDesktop"),
         ],
     ),
+    Group(
+        name="0",
+        label="",
+        matches=[
+            Match(wm_class="TelegramDesktop"),
+            Match(wm_class="obsidian"),
+        ],
+    ),
     ScratchPad(
         "scratchpad",
         [
@@ -202,11 +178,11 @@ groups = [
 #     LAYOUTS
 # ------------------
 layout_config = dict(
-    margin=4,
+    margin=5,
     border_width=0,
-    border_on_single=False,
     margin_on_single=0,
     single_border_width=0,
+    border_on_single=False,
     border_focus=color.get("primary", "#ff000"),
     border_normal=color.get("bg", "#ff0000"),
     border_focus_stack=color.get("secondary", "#ff0000"),
@@ -318,7 +294,7 @@ bar = bar.Bar(
     border_color="#ff0000",
     background=color.get("bg", "#ff0000"),
     size=20,
-    opacity=0.9,
+    opacity=1,
 )
 
 # Screens
