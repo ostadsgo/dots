@@ -1,5 +1,7 @@
-set editing-mode vi
+set show-all-if-ambiguous on
 set bell-style none
+set editing-mode vi
+set keymap vi
 $if mode=vi
     # command mode
     set keymap vi-command
@@ -9,8 +11,6 @@ $if mode=vi
     # insert mode 
     set keymap vi-insert  
     "jk": vi-movement-mode     
-    "\C-w": backward-kill-word
-    "\e\177": backward-kill-word
     "\C-l": clear-screen
 $endif
 
