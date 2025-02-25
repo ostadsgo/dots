@@ -124,5 +124,31 @@ bindkey -s '^f' 'fzf\n'
 bindkey -s '^o' 'v\n'
 
 # ---------
-# Porompt
+# Prompt
 # ---------
+# PROMPT='%n@%m:%~$ '
+# Load vcs_info
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
+# Enable checking for (un)staged changes, enabling use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
+# Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+# Set the format of the Git information for vcs_info
+zstyle ':vcs_info:git:*' formats       '%b%u%c'
+zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
+
+seg_s='%F{red}[%f'
+seg_e='%F{red}]%f'
+un='%F{yellow}%n%f'
+hn='%F{cyan}%m%f'
+dir='%F{blue}%1~%f'
+cmd_status='%(?.%F{green}$%f.%F{red}$%f) '
+git_seg='%F{magenta}${vcs_info_msg_0_}%f'
+space=' '
+
+PROMPT='$seg_s$un@$hn$space$dir$seg_e$cmd_status'
+RPROMPT="$git_seg"
+
