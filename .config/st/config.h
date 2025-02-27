@@ -105,14 +105,14 @@ static const char *colorname[] = {
   "#5f8787",  /* cyan */
   "#cdcdcd",  /* white */
 	/* 8 bright colors */
-  "#373737",
-  "#D70000",
-  "#90A959",
-  "#F4BF75",
-  "#A2B5C1",
-  "#AA749F",
-  "#88afa2",
-  "#d0d0d0",
+  "#737373",  /* gray -- auto suggest */
+  "#984936",  /* red -- invalid cmd */
+  "#90A959",  /* b green exec */
+  "#7a7a7a",  /* b yellow (b gray) owner */
+  "#708090",  /* b blue dir */
+  "#AA749F",  /* b meg */
+  "#5f8787",  /* b cyan */
+  "#f5f5f5",  /* b white */ 
 
 	[255] = 0,
 
