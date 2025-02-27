@@ -1,9 +1,8 @@
-
 # ---------
 # Alisees
 # ---------
 alias sx=startx
-alias ls='exa --icons --color=always' 
+alias ls='exa --color=always' 
 alias ll='ls -lh'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -26,6 +25,7 @@ alias open=pcmanfm
 alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'
 alias play='ffplay'
 alias show='sxiv'
+alias extract="tar -xvf"
 # Django aliases
 alias djapp='python manage.py startapp'
 alias djrun='python manage.py runserver'
@@ -140,15 +140,15 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '%b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
-seg_s='%F{red}[%f'
-seg_e='%F{red}]%f'
-un='%F{yellow}%n%f'
-hn='%F{cyan}%m%f'
+seg_s='%F{white}[%f'
+seg_e='%F{white}]%f'
+un='%F{white}%n%f'
+hn='%F{white}%m%f'
 dir='%F{blue}%1~%f'
-cmd_status='%(?.%F{green}$%f.%F{red}$%f) '
+cmd_status='%(?.%F{white}$%f.%F{red}$%f) '
 git_seg='%F{magenta}${vcs_info_msg_0_}%f'
 space=' '
 
-PROMPT='$seg_s$un@$hn$space$dir$seg_e$cmd_status'
+PROMPT='$seg_s$un%F{red}@%f$hn$space$dir$seg_e$cmd_status'
 RPROMPT="$git_seg"
 
