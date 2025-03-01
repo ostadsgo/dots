@@ -1,11 +1,11 @@
 [Default Applications]
 inode/directory=pcmanfm.desktop
-application/pdf=google-chrome.desktop
+application/pdf=org.pwmt.zathura.desktop
 application/xhtml+xml=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 text/html=google-chrome.desktop
-text/plain=google-chrome.desktop
+text/plain=nvim.desktop
 image/jpeg=sxiv.desktop
 image/jpg=sxiv.desktop
 image/png=sxiv.desktop

@@ -2,7 +2,7 @@
 # Alisees
 # ---------
 alias sx=startx
-alias ls='exa --color=always' 
+alias ls='exa --icons --color=always' 
 alias ll='ls -lh'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -10,7 +10,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'
-alias vim=nvim
+# alias vim=nvim
 alias v='nvim $(fzf)'
 alias ka=killall
 alias grep='grep --color'
@@ -26,6 +26,7 @@ alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $
 alias play='ffplay'
 alias show='sxiv'
 alias extract="tar -xvf"
+alias reader=zathura
 # Django aliases
 alias djapp='python manage.py startapp'
 alias djrun='python manage.py runserver'
@@ -54,20 +55,32 @@ export HOME=~
 export EDITOR="nvim"
 export BROWSER="chrome"
 export TERMINAL="st"
+# XDG
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
+# history
+export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
+export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
+export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
+# PL
 export GOPATH=$XDG_DATA_HOME/go
+export GOBIN="$GOPATH/bin"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # Extend path
-path+=$HOME/.local/bin/scripts
-path+=$HOME/.cargo/bin
+# path+=$HOME/.local/bin/scripts
+# path+=$HOME/.cargo/bin
+export PATH=$PATH:/home/saeed/.local/bin/scripts
+export PATH=$PATH:/home/saeed/.cargo/bin
 
 
 # -----------
-# Config Zsh
+# Options
+# set -o  # list all options
 # -----------
 ZVM_INIT_MODE=sourcing  # version management like git
-HISTFILE=$HOME/.zsh_history
+HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 HISTDUP=erase
@@ -98,12 +111,14 @@ zstyle ':completion:*' complete-options true
 # ---------
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source <(fzf --zsh) 
 eval "$(zoxide init zsh)" 
 # enable z command
 
 # ---------------
 # VI keybindings
+# zle -al  # list all functions to bind
 # ---------------
 bindkey -v
 bindkey jk vi-cmd-mode
@@ -119,6 +134,10 @@ bindkey '^n' menu-select
 bindkey "^p" menu-select
 bindkey -M menuselect '^n' menu-complete
 bindkey -M menuselect "^p" reverse-menu-complete
+# auto suggestion / next and prev sub suggestion.
+bindkey '^n' history-substring-search-down
+bindkey '^p' history-substring-search-up
+bindkey '^B' autosuggest-toggle
 # fzf
 bindkey -s '^f' 'fzf\n'
 bindkey -s '^o' 'v\n'

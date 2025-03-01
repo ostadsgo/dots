@@ -25,6 +25,7 @@ local theme = {
   ColorColumn = { link = "CursorLine" },
   StatusLine = { bg = line },
   StatusLineNC = { bg = bg },
+  Cursor = { fg = "#ff0000" },
 
   -- Normal aka white
   Normal = { fg = fg, bg = bg },
@@ -35,7 +36,7 @@ local theme = {
   NormalFloat = { link = "Normal" },
 
   -- Text
-  Identifier = { fg = fg },
+  Identifier = { fg = fg},
   Constant = { link = "Identifier" },
   Function =  { link = "Identifier" },
   Conceal = { link = "Identifier" },
@@ -52,17 +53,17 @@ local theme = {
   PreProc = { link = "Identifier" },
 
   -- Statement
-  Statement = { fg = primary },
-  Keyword =  { link = "Statement" }, 
-  Type =  { link = "Statement" }, 
-  Structure = { link = "Statement" },
-  StorageClass = { link = "Statement" },
-  Conditional = { link = "Statement" },
-  Repeat = { link = "Statement" },
-  Include = { link = "Statement" },
-  Tag = { link = "Statement" },
-  SpecialKey = { link = "Statement" },
-  Exception = { link = "Statement" },
+  Keyword =  { fg = primary }, 
+  Statement = { link = "Keyword" },
+  Type =  { link = "Keyword" }, 
+  Structure = { link = "Keyword" },
+  StorageClass = { link = "Keyword" },
+  Conditional = { link = "Keyword" },
+  Repeat = { link = "Keyword" },
+  Include = { link = "Keyword" },
+  Tag = { link = "Keyword" },
+  SpecialKey = { link = "Keyword" },
+  Exception = { link = "Keyword" },
 
   -- Number
   Number = { fg = red },
@@ -70,7 +71,7 @@ local theme = {
   Boolean = { link = "Number" },
   Float = { link = "Number" },
   Debug = { link = "Number" },
-  Todo = { link = "Number", bg = bg },
+  Todo = { link = "Number", bg = bg, bold=true },
 
   -- Comment / Gray
   Special = { fg = gray },
@@ -88,7 +89,7 @@ local theme = {
   Directory = { link = "String" },
 
   CursorLineNr = { fg = red, bold = true },
-  SpellCap = { sp = red, undercurl = true },
+  SpellCap = { sp = error, undercurl = true },
 
   -- Search
   Search = { fg = bg, bg = warn },
@@ -106,10 +107,13 @@ local theme = {
   PmenuSel = { fg = fg, bg = visual },
 
   -- Python
-  pythonOperator = { link = "Statement" },
+  pythonOperator = { link = "Keyword"},
   pythonExceptions = { link = "Identifier" },
-  pythonFunction = {fg = fg},
+  pythonFunction = {fg = fg },
   pythonBuiltin  = {fg = fg},
+
+  -- Lua
+  luaTable = { link = "Identifier" },
 
   -- LSP
   DiagnosticWarn = { fg = warn },
@@ -117,6 +121,21 @@ local theme = {
   DiagnosticFloatingError = { fg = error },
   FloatBorder = { fg = fg },
   DiagnosticUnnecessary = { fg = gray },
+
+  -- MiniPickBorder xxx links to FloatBorder
+  -- MiniPickBorderBusy xxx links to DiagnosticFloatingWarn
+  -- MiniPickBorderText xxx links to FloatTitle
+  -- MiniPickCursor xxx cleared
+  -- MiniPickIconDirectory xxx links to Directory
+  -- MiniPickIconFile xxx links to MiniPickNormal
+  -- MiniPickNormal xxx links to NormalFloat
+  -- MiniPickHeader xxx links to DiagnosticFloatingHint
+  -- MiniPickMatchCurrent xxx links to CursorLine
+  -- MiniPickMatchMarked xxx links to Visual
+  -- MiniPickMatchRanges xxx links to DiagnosticFloatingHint
+  -- MiniPickPreviewLine xxx links to CursorLine
+  -- MiniPickPreviewRegion xxx links to IncSearch
+  -- MiniPickPrompt xxx links to DiagnosticFloatingInfo
 
   -- Treesitter
   ["@variable"] = { link = "Identifier" },

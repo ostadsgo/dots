@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Source code pro medium:pixelsize=13:antialias=true:autohint=true";
+static char *font = "SauceCodePro NF Medium:pixelsize=13:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*

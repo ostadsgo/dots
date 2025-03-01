@@ -79,8 +79,8 @@ vim.keymap.set({ "n", "i", "v" }, "<A-l>", "$", opts)
 
 -- buffer
 vim.keymap.set("n", "<Leader>w", ":w<CR>", opts)
-vim.keymap.set("n", "<Leader>l", ":bn<CR>", opts)
-vim.keymap.set("n", "<Leader>h", ":bp<CR>", opts)
+vim.keymap.set("n", "<S-l>", ":bn<CR>", opts)
+vim.keymap.set("n", "<S-h>", ":bp<CR>", opts)
 vim.keymap.set("n", "<Leader>q", ":bd<CR>", opts)
 vim.keymap.set("n", "<Leader>Q", ":bd!<CR>", opts)
 
@@ -104,7 +104,6 @@ vim.keymap.set("n", "<Leader>x", ":so<CR>")
 -- newline below in insert mode
 vim.keymap.set("i", "<S-Return>", "<C-o>o")
 vim.keymap.set("i", "<C-S-Return>", "<C-o>O")
--- vim.keymap.set("i", "<C-S-l>", "<C-o>de")
 -- char oper to the right side
 vim.keymap.set("i", "<C-l>", "<Delete>") -- del a char
 vim.keymap.set("i", "<C-S-l>", "<C-o>de") -- del a rest of the word
@@ -115,10 +114,11 @@ vim.keymap.set("i", "<C-d>", "<C-o>D") -- delete line
 vim.cmd("cnoremap <A-k> <up>")
 vim.cmd("cnoremap <A-j> <down>")
 
--- Plugin specifics
+-- Plugins
 vim.keymap.set({ "n", "v" }, "<Leader>ff", ":Pick files<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>fb", ":Pick buffers<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>fs", ":Pick grep_live<CR>")
+
 
 -- -------------
 -- Commands
@@ -127,6 +127,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({ timeout = 200 })
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        pcall(vim.treesitter.stop)
+    end
 })
 
 -- -----------------------

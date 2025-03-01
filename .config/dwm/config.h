@@ -8,11 +8,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#040404";
-static const char col_gray2[]       = "#040404";
-static const char col_gray3[]       = "#727272";
+static const char col_gray2[]       = "#040404"; 
+static const char col_gray3[]       = "#737373";
 static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#040404";
-static const char col_cyan2[]       = "#708090";
+static const char col_cyan2[]       = "#789978";
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
   [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -33,7 +33,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.6;  /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
