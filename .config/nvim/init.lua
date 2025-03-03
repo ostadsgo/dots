@@ -3,7 +3,7 @@
 -- -------------------
 vim.hl = vim.highlight
 vim.opt.backup = false
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.mouse = "a"
 vim.opt.writebackup = false
@@ -78,7 +78,7 @@ vim.keymap.set({ "n", "i", "v" }, "<A-h>", "^", opts)
 vim.keymap.set({ "n", "i", "v" }, "<A-l>", "$", opts)
 
 -- buffer
-vim.keymap.set("n", "<Leader>w", ":w<CR>", opts)
+vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
 vim.keymap.set("n", "<S-l>", ":bn<CR>", opts)
 vim.keymap.set("n", "<S-h>", ":bp<CR>", opts)
 vim.keymap.set("n", "<Leader>q", ":bd<CR>", opts)
@@ -92,10 +92,10 @@ vim.keymap.set("n", "<A-Left>", ":vertical resize +2<CR>", opts)
 
 -- copy/past to/from system clipboard
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y', opts)
-vim.keymap.set({ "n", "v", "x" }, "<Leader>Y", '"+Y', opts)
-vim.keymap.set({ "n", "v", "x" }, "<Leader>p", '"+p', opts)
-vim.keymap.set({ "n", "v", "x" }, "<Leader>P", '"+P', opts)
-vim.keymap.set({ "n", "v", "x" }, "<Leader>d", '"_d', opts)
+vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p', opts)
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+
+-- indent
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 

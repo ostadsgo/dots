@@ -37,7 +37,6 @@ local theme = {
 
   -- Text
   Identifier = { fg = fg},
-  Constant = { link = "Identifier" },
   Function =  { link = "Identifier" },
   Conceal = { link = "Identifier" },
   Operator = { link = "Identifier" },
@@ -71,7 +70,8 @@ local theme = {
   Boolean = { link = "Number" },
   Float = { link = "Number" },
   Debug = { link = "Number" },
-  Todo = { link = "Number", bg = bg, bold=true },
+  Constant = { link = "Number" },
+  Todo = { link = "Number", bold=true },
 
   -- Comment / Gray
   Special = { fg = gray },
