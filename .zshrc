@@ -10,7 +10,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'
-# alias vim=nvim
+alias vim=nvim
 alias v='nvim $(fzf)'
 alias ka=killall
 alias grep='grep --color'
@@ -27,6 +27,7 @@ alias play='ffplay'
 alias show='sxiv'
 alias extract="tar -xvf"
 alias reader=zathura
+alias edit=leafpad
 # Django aliases
 alias djapp='python manage.py startapp'
 alias djrun='python manage.py runserver'
@@ -63,6 +64,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
 export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" 
 # PL
 export GOPATH=$XDG_DATA_HOME/go
 export GOBIN="$GOPATH/bin"
@@ -87,7 +89,7 @@ HISTDUP=erase
 # ---------
 unsetopt BEEP
 setopt share_history
-setopt appendhistory
+setopt append_history
 setopt hist_expire_dups_first
 setopt hist_ignore_space
 setopt hist_ignore_all_dups

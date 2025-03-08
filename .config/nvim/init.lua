@@ -45,11 +45,14 @@ vim.cmd.colorscheme("darkland")
 local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
 -- remap ESC
 vim.keymap.set("i", "jk", "<Esc>", opts)
 vim.keymap.set({ "n", "v" }, "<Leader>a", "gg<S-v>G", opts)
-vim.keymap.set({ "n", "v" }, "<Leader>;", "<S-V>", opts)
+vim.keymap.set({ "n", "v" }, "<Leader>;", "V", opts)
 vim.keymap.set("n", "<Leader>e", ":Exp<CR>", opts)
+vim.keymap.set("n", "<Leader>x", ":so<CR>", opts)
+
 -- Center on vertical movement
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
@@ -65,11 +68,12 @@ vim.keymap.set("n", "{", "{zz", opts)
 vim.keymap.set("n", "*", "*zz", opts)
 vim.keymap.set("n", "#", "#zz", opts)
 vim.keymap.set("n", "%", "%zz", opts)
+
 -- move highlighted lines
 vim.keymap.set({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts)
 vim.keymap.set({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts)
-vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
-vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
@@ -78,11 +82,10 @@ vim.keymap.set({ "n", "i", "v" }, "<A-h>", "^", opts)
 vim.keymap.set({ "n", "i", "v" }, "<A-l>", "$", opts)
 
 -- buffer
-vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
+vim.keymap.set({ "n", "i" }, "<C-s>", ":w<CR>", opts)
 vim.keymap.set("n", "<S-l>", ":bn<CR>", opts)
 vim.keymap.set("n", "<S-h>", ":bp<CR>", opts)
 vim.keymap.set("n", "<Leader>q", ":bd<CR>", opts)
-vim.keymap.set("n", "<Leader>Q", ":bd!<CR>", opts)
 
 -- resize
 vim.keymap.set("n", "<A-Up>", ":resize +3<CR>", opts)
@@ -93,26 +96,32 @@ vim.keymap.set("n", "<A-Left>", ":vertical resize +2<CR>", opts)
 -- copy/past to/from system clipboard
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y', opts)
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p', opts)
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', opts)
 
 -- indent
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
-vim.keymap.set("n", "<Leader>x", ":so<CR>")
-
 -- newline below in insert mode
-vim.keymap.set("i", "<S-Return>", "<C-o>o")
-vim.keymap.set("i", "<C-S-Return>", "<C-o>O")
--- char oper to the right side
-vim.keymap.set("i", "<C-l>", "<Delete>") -- del a char
-vim.keymap.set("i", "<C-S-l>", "<C-o>de") -- del a rest of the word
-vim.keymap.set("i", "<C-k>", "<C-o>S") -- del a rest of the word
-vim.keymap.set("i", "<C-d>", "<C-o>D") -- delete line
+vim.keymap.set("i", "<C-Return>", "<C-o>o", opts)
+vim.keymap.set("i", "<S-Return>", "<C-o>O", opts)
+vim.keymap.set("i", "<C-BS>", "<C-o>db", opts)
+
+-- Emacs cursor and word move 
+vim.keymap.set("i", "<C-f>", "<Right>", opts)
+vim.keymap.set("i", "<C-b>", "<Left>", opts)
+vim.keymap.set("i", "<M-f>", "<C-right>", opts)
+vim.keymap.set("i", "<M-b>", "<C-left>", opts)
+-- -- delete word
+vim.keymap.set("i", "<C-d>", "<C-o>dw", opts)
+vim.keymap.set("i", "<C-h>", "<C-o>db", opts)
+-- -- Move beginning and end of line
+vim.keymap.set("i", "<C-a>", "<Home>", opts)
+vim.keymap.set("i", "<C-e>", "<End>", opts)
 
 -- command mode keymap
-vim.cmd("cnoremap <A-k> <up>")
-vim.cmd("cnoremap <A-j> <down>")
+vim.cmd("cnoremap <A-k> <up>", opts)
+vim.cmd("cnoremap <A-j> <down>", opts)
 
 -- Plugins
 vim.keymap.set({ "n", "v" }, "<Leader>ff", ":Pick files<CR>")
