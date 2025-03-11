@@ -1,0 +1,11 @@
+#!/bin/bash
+
+outputs=$(xrandr | grep "connected" | grep -v "disconnected" | awk '{print $1}')
+if [[ $outputs == *"HDMI-1-1"* ]]; then
+    xrandr --output HDMI-1-1 --auto
+    xrandr --output LVDS-1 --off
+else
+    xrandr --output LVDS-1 --auto
+fi
+
+
