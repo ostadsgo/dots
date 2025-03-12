@@ -25,7 +25,6 @@ alias open=pcmanfm
 alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'
 alias play='ffplay'
 alias show='sxiv'
-alias extract="tar -xvf"
 alias reader=zathura
 alias edit=leafpad
 # Django aliases
@@ -70,9 +69,18 @@ export GOPATH=$XDG_DATA_HOME/go
 export GOBIN="$GOPATH/bin"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+# Color for man page
+export MANPAGER="less -R --use-color -Dd+r -Du+b" 
+export GROFF_NO_SGR=1 
+export LESS="R --use-color -Dd+r -Du+b"
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 # Extend path
-# path+=$HOME/.local/bin/scripts
-# path+=$HOME/.cargo/bin
 export PATH=$PATH:/home/saeed/.local/bin/scripts
 export PATH=$PATH:/home/saeed/.cargo/bin
 

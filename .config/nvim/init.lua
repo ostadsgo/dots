@@ -31,6 +31,7 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = "89"
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.shortmess:append('c')
 vim.opt.numberwidth = 2
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
@@ -69,7 +70,7 @@ vim.keymap.set("n", "*", "*zz", opts)
 vim.keymap.set("n", "#", "#zz", opts)
 vim.keymap.set("n", "%", "%zz", opts)
 
--- move highlighted lines
+-- Move lines
 vim.keymap.set({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts)
 vim.keymap.set({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts)
 vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -77,57 +78,41 @@ vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- move to end or begining of line
+-- Move to end & begining of line
 vim.keymap.set({ "n", "i", "v" }, "<A-h>", "^", opts)
 vim.keymap.set({ "n", "i", "v" }, "<A-l>", "$", opts)
 
 -- buffer
-vim.keymap.set({ "n", "i" }, "<C-s>", ":w<CR>", opts)
 vim.keymap.set("n", "<S-l>", ":bn<CR>", opts)
 vim.keymap.set("n", "<S-h>", ":bp<CR>", opts)
 vim.keymap.set("n", "<Leader>q", ":bd<CR>", opts)
 
--- resize
+-- Resize split
 vim.keymap.set("n", "<A-Up>", ":resize +3<CR>", opts)
 vim.keymap.set("n", "<A-Down>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<A-Right>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<A-Left>", ":vertical resize +2<CR>", opts)
 
--- copy/past to/from system clipboard
-vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+y', opts)
+vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+ygv<ESC>', opts)
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p', opts)
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', opts)
+vim.keymap.set("n", "x", '"_x', opts)
+vim.keymap.set("n", "X", '"_X', opts)
+vim.keymap.set("v", "y", "ygv<ESC>", opts) 
 
--- indent
+-- Indent
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
--- newline below in insert mode
+-- Newline below in insert mode
 vim.keymap.set("i", "<C-Return>", "<C-o>o", opts)
 vim.keymap.set("i", "<S-Return>", "<C-o>O", opts)
-vim.keymap.set("i", "<C-BS>", "<C-o>db", opts)
-
--- Emacs cursor and word move 
-vim.keymap.set("i", "<C-f>", "<Right>", opts)
-vim.keymap.set("i", "<C-b>", "<Left>", opts)
-vim.keymap.set("i", "<M-f>", "<C-right>", opts)
-vim.keymap.set("i", "<M-b>", "<C-left>", opts)
--- -- delete word
-vim.keymap.set("i", "<C-d>", "<C-o>dw", opts)
-vim.keymap.set("i", "<C-h>", "<C-o>db", opts)
--- -- Move beginning and end of line
-vim.keymap.set("i", "<C-a>", "<Home>", opts)
-vim.keymap.set("i", "<C-e>", "<End>", opts)
-
--- command mode keymap
-vim.cmd("cnoremap <A-k> <up>", opts)
-vim.cmd("cnoremap <A-j> <down>", opts)
+vim.keymap.set("i", "<C-BS>", "<C-w>", opts)
 
 -- Plugins
 vim.keymap.set({ "n", "v" }, "<Leader>ff", ":Pick files<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>fb", ":Pick buffers<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>fs", ":Pick grep_live<CR>")
-
 
 -- -------------
 -- Commands
@@ -171,8 +156,6 @@ require("lazy").setup({
   spec = {
     -- Mini Picker
     { "echasnovski/mini.pick", version = false, config = true },
-
-    -- another plugin goes here ...
   }, -- end of spec
 
   -- Lazy Config
@@ -180,5 +163,4 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
-
 

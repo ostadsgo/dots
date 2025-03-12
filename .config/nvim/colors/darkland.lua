@@ -7,11 +7,13 @@ vim.g.colors_name = "darkland"
 
 local none = "none"
 local bg = "#040404"
-local line = "#212121"
+local white = "#ebebeb"
+local line = "#191919"
 local fg = "#c1c1c1"
 local gray = "#737373"
 local visual = "#373737" 
 local primary = "#789978"
+local builtin = "#7a7a7a"
 local gray_blue = "#708090" 
 local red = "#b6927b"
 local warn = "#ab8550"
@@ -23,9 +25,9 @@ local theme = {
   CursorLine = { bg = line },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { bg = line },
+  StatusLine = { link = "CursorLine" },
   StatusLineNC = { bg = bg },
-  Cursor = { fg = "#ff0000" },
+  CursorLineNr = { fg = fg, bold = true },
 
   -- Normal aka white
   Normal = { fg = fg, bg = bg },
@@ -88,7 +90,6 @@ local theme = {
   SpecialChar = { link = "String" },
   Directory = { link = "String" },
 
-  CursorLineNr = { fg = red, bold = true },
   SpellCap = { sp = error, undercurl = true },
 
   -- Search
@@ -109,8 +110,8 @@ local theme = {
   -- Python
   pythonOperator = { link = "Keyword"},
   pythonExceptions = { link = "Identifier" },
-  pythonFunction = {fg = fg },
-  pythonBuiltin  = {fg = fg},
+  pythonFunction = { fg = white },
+  pythonBuiltin  = { fg = builtin },
 
   -- Lua
   luaTable = { link = "Identifier" },
