@@ -73,11 +73,10 @@ local theme = {
   Float = { link = "Number" },
   Debug = { link = "Number" },
   Constant = { link = "Number" },
-  Todo = { link = "Number", bold=true },
 
   -- Comment / Gray
   Special = { fg = gray },
-  Comment =  { link = "Special" },
+  Comment =  { fg = gray },
   SpecialComment =  { link = "Special" }, 
   LineNr = { link = "Special" },
   Whitespace = { link = "Special" },
@@ -90,8 +89,6 @@ local theme = {
   SpecialChar = { link = "String" },
   Directory = { link = "String" },
 
-  SpellCap = { sp = error, undercurl = true },
-
   -- Search
   Search = { fg = bg, bg = warn },
   IncSearch = { link = "Search" },
@@ -101,6 +98,8 @@ local theme = {
   ErrorMsg = { fg = error },
   WarningMsg = { link = "ErrorMsg" },
   SpellBad = { sp = red, undercurl = true },
+  SpellCap = { sp = error, undercurl = true },
+  Todo = { bg = fg, bg = error, bold=true },
 
   -- Visual
   Visual = { bg = visual },
@@ -117,11 +116,12 @@ local theme = {
   luaTable = { link = "Identifier" },
 
   -- LSP
+  FloatBorder = { fg = gray },
+  DiagnosticInfo = { fg = fg },
   DiagnosticWarn = { fg = warn },
   DiagnosticHint = { fg = warn },
-  DiagnosticFloatingError = { fg = error },
-  FloatBorder = { fg = fg },
   DiagnosticUnnecessary = { fg = gray },
+  DiagnosticFloatingError = { fg = error },
 
   -- MiniPickBorder xxx links to FloatBorder
   -- MiniPickBorderBusy xxx links to DiagnosticFloatingWarn
@@ -130,7 +130,7 @@ local theme = {
   -- MiniPickIconDirectory xxx links to Directory
   -- MiniPickIconFile xxx links to MiniPickNormal
   -- MiniPickNormal xxx links to NormalFloat
-  -- MiniPickHeader xxx links to DiagnosticFloatingHint
+  -- MiniPickHeader xxx links to DiagnosticFDiagnosticInfo DiagnosticInfo loatingHint
   -- MiniPickMatchCurrent xxx links to CursorLine
   -- MiniPickMatchMarked xxx links to Visual
   -- MiniPickMatchRanges xxx links to DiagnosticFloatingHint

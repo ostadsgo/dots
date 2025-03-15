@@ -3,7 +3,7 @@
 -- -------------------
 vim.hl = vim.highlight
 vim.opt.backup = false
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.mouse = "a"
 vim.opt.writebackup = false
@@ -70,6 +70,7 @@ vim.keymap.set("n", "*", "*zz", opts)
 vim.keymap.set("n", "#", "#zz", opts)
 vim.keymap.set("n", "%", "%zz", opts)
 
+-- 
 -- Move lines
 vim.keymap.set({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts)
 vim.keymap.set({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts)
@@ -78,21 +79,29 @@ vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-- Indent
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
+
 -- Move to end & begining of line
 vim.keymap.set({ "n", "i", "v" }, "<A-h>", "^", opts)
 vim.keymap.set({ "n", "i", "v" }, "<A-l>", "$", opts)
 
--- buffer
+-- buffer (waq --> save all quit  qa! --> close all buf quit vim)
 vim.keymap.set("n", "<S-l>", ":bn<CR>", opts)
 vim.keymap.set("n", "<S-h>", ":bp<CR>", opts)
+vim.keymap.set("n", "<Leader>w", ":w<CR>", opts)
+vim.keymap.set("n", "<Leader>W", ":wa<CR>", opts)
 vim.keymap.set("n", "<Leader>q", ":bd<CR>", opts)
 
--- Resize split
+-- Split
+vim.keymap.set("n", "<Tab>", "<C-w>w", opts) -- switch split
 vim.keymap.set("n", "<A-Up>", ":resize +3<CR>", opts)
 vim.keymap.set("n", "<A-Down>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<A-Right>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<A-Left>", ":vertical resize +2<CR>", opts)
 
+-- register
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+ygv<ESC>', opts)
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p', opts)
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', opts)
@@ -100,19 +109,23 @@ vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "X", '"_X', opts)
 vim.keymap.set("v", "y", "ygv<ESC>", opts) 
 
--- Indent
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
-
 -- Newline below in insert mode
 vim.keymap.set("i", "<C-Return>", "<C-o>o", opts)
 vim.keymap.set("i", "<S-Return>", "<C-o>O", opts)
 vim.keymap.set("i", "<C-BS>", "<C-w>", opts)
 
+-- new line in normal mode without going to insert mode
+vim.keymap.set("n", "<C-Return>", "o<ESC>", opts)
+vim.keymap.set("n", "<S-Return>", "O<ESC>", opts)
+
 -- Plugins
 vim.keymap.set({ "n", "v" }, "<Leader>ff", ":Pick files<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>fb", ":Pick buffers<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>fs", ":Pick grep_live<CR>")
+
+-- inc and dec
+vim.keymap.set("n", "+", "<C-a>")
+vim.keymap.set("n", "-", "<C-x>")
 
 -- -------------
 -- Commands
