@@ -11,10 +11,10 @@ local white = "#ebebeb"
 local line = "#191919"
 local fg = "#c1c1c1"
 local gray = "#737373"
-local visual = "#373737" 
+local visual = "#373737"
 local primary = "#789978"
 local builtin = "#7a7a7a"
-local gray_blue = "#708090" 
+local gray_blue = "#708090"
 local red = "#b6927b"
 local warn = "#ab8550"
 local error = "#984936"
@@ -38,15 +38,15 @@ local theme = {
   NormalFloat = { link = "Normal" },
 
   -- Text
-  Identifier = { fg = fg},
-  Function =  { link = "Identifier" },
+  Identifier = { fg = fg },
+  Function = { link = "Identifier" },
   Conceal = { link = "Identifier" },
   Operator = { link = "Identifier" },
   NonText = { link = "Identifier" },
   MoreMsg = { link = "Identifier" },
   Title = { link = "Identifier" },
   Question = { link = "Identifier" },
-  Variable =  { link = "Identifier" }, 
+  Variable = { link = "Identifier" },
   Typedef = { link = "Identifier" },
   Label = { link = "Identifier" },
   Macro = { link = "Identifier" },
@@ -54,9 +54,9 @@ local theme = {
   PreProc = { link = "Identifier" },
 
   -- Statement
-  Keyword =  { fg = primary }, 
+  Keyword = { fg = primary },
   Statement = { link = "Keyword" },
-  Type =  { link = "Keyword" }, 
+  Type = { link = "Keyword" },
   Structure = { link = "Keyword" },
   StorageClass = { link = "Keyword" },
   Conditional = { link = "Keyword" },
@@ -76,8 +76,8 @@ local theme = {
 
   -- Comment / Gray
   Special = { fg = gray },
-  Comment =  { fg = gray },
-  SpecialComment =  { link = "Special" }, 
+  Comment = { fg = gray },
+  SpecialComment = { link = "Special" },
   LineNr = { link = "Special" },
   Whitespace = { link = "Special" },
   EndOfBuffer = { link = "Special" },
@@ -99,7 +99,7 @@ local theme = {
   WarningMsg = { link = "ErrorMsg" },
   SpellBad = { sp = red, undercurl = true },
   SpellCap = { sp = error, undercurl = true },
-  Todo = { bg = fg, bg = error, bold=true },
+  Todo = { bg = fg, bg = error, bold = true },
 
   -- Visual
   Visual = { bg = visual },
@@ -107,10 +107,10 @@ local theme = {
   PmenuSel = { fg = fg, bg = visual },
 
   -- Python
-  pythonOperator = { link = "Keyword"},
+  pythonOperator = { link = "Keyword" },
   pythonExceptions = { link = "Identifier" },
   pythonFunction = { fg = white },
-  pythonBuiltin  = { fg = builtin },
+  pythonBuiltin = { fg = builtin },
 
   -- Lua
   luaTable = { link = "Identifier" },

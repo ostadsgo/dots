@@ -114,6 +114,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors 'm:{(s.:.)LS_COLORS}'
 zstyle ':completion:*' complete-options true
+# Third party compeletion.
+fpath=(/usr/share/zsh-completions $fpath)
 
 
 # ---------

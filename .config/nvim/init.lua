@@ -31,7 +31,7 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = "89"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.shortmess:append('c')
+vim.opt.shortmess:append("c")
 vim.opt.numberwidth = 2
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
@@ -70,7 +70,7 @@ vim.keymap.set("n", "*", "*zz", opts)
 vim.keymap.set("n", "#", "#zz", opts)
 vim.keymap.set("n", "%", "%zz", opts)
 
--- 
+--
 -- Move lines
 vim.keymap.set({ "n", "v" }, "<A-j>", ":m .+1<CR>==", opts)
 vim.keymap.set({ "n", "v" }, "<A-k>", ":m .-2<CR>==", opts)
@@ -88,18 +88,23 @@ vim.keymap.set({ "n", "i", "v" }, "<A-h>", "^", opts)
 vim.keymap.set({ "n", "i", "v" }, "<A-l>", "$", opts)
 
 -- buffer (waq --> save all quit  qa! --> close all buf quit vim)
-vim.keymap.set("n", "<S-l>", ":bn<CR>", opts)
-vim.keymap.set("n", "<S-h>", ":bp<CR>", opts)
+vim.keymap.set("n", "<Leader>-l>", ":bn<CR>", opts)
+vim.keymap.set("n", "<Leader>-h>", ":bp<CR>", opts)
 vim.keymap.set("n", "<Leader>w", ":w<CR>", opts)
 vim.keymap.set("n", "<Leader>W", ":wa<CR>", opts)
 vim.keymap.set("n", "<Leader>q", ":bd<CR>", opts)
 
 -- Split
 vim.keymap.set("n", "<Tab>", "<C-w>w", opts) -- switch split
-vim.keymap.set("n", "<A-Up>", ":resize +3<CR>", opts)
-vim.keymap.set("n", "<A-Down>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<A-Right>", ":vertical resize -2<CR>", opts)
-vim.keymap.set("n", "<A-Left>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize +3<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize +2<CR>", opts)
+-- Move to splits
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
 
 -- register
 vim.keymap.set({ "n", "v", "x" }, "<Leader>y", '"+ygv<ESC>', opts)
@@ -107,7 +112,7 @@ vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p', opts)
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', opts)
 vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "X", '"_X', opts)
-vim.keymap.set("v", "y", "ygv<ESC>", opts) 
+vim.keymap.set("v", "y", "ygv<ESC>", opts)
 
 -- Newline below in insert mode
 vim.keymap.set("i", "<C-Return>", "<C-o>o", opts)
@@ -137,9 +142,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    callback = function()
-        pcall(vim.treesitter.stop)
-    end
+  callback = function()
+    pcall(vim.treesitter.stop)
+  end,
 })
 
 -- -----------------------
@@ -169,6 +174,8 @@ require("lazy").setup({
   spec = {
     -- Mini Picker
     { "echasnovski/mini.pick", version = false, config = true },
+    -- next plugin
+    
   }, -- end of spec
 
   -- Lazy Config
@@ -176,4 +183,3 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
-
