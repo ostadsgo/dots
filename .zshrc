@@ -10,8 +10,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'
-alias vim=nvim
-alias v='nvim $(fzf)'
+alias v=nvim
 alias ka=killall
 alias grep='grep --color'
 alias hist=history
@@ -34,12 +33,12 @@ alias djmkm='python manage.py makemigrations'
 alias djmig='python manage.py migrate'
 alias djcsu='python manage.py createsuperuser --username admin --email ad@min.com'
 # Reflector
-alias mirror='sudo reflector --fastest 30 --latest 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
-alias mirrord='sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
-alias mirrors='sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
-alias mirrora='sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
-alias mirrorl='sudo reflector --country Iran,Turky --sort rate --save /etc/pacman.d/mirrorlist'
-alias mirrorg='sudo reflector --country  Germany,Denmark,Netherland,Sweeden --sort rate --save /etc/pacman.d/mirrorlist'
+alias mirror-fast='sudo reflector --fastest 30 --latest 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
+alias mirror-delay='sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
+alias mirror-score='sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
+alias mirror-age='sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
+alias mirror-local='sudo reflector --country Iran,Turky --sort rate --save /etc/pacman.d/mirrorlist'
+alias mirror-europe='sudo reflector --country  Germany,Denmark,Netherland,Sweeden --sort rate --save /etc/pacman.d/mirrorlist'
 # pacman
 alias paco='sudo pacman -Qdt'  # Orphans
 alias pacor='sudo pacman -Rns $(pacman -Qtdq)'  # remove orphans
@@ -75,7 +74,6 @@ export MANPAGER="nvim +Man!"
 export PATH=$PATH:/home/saeed/.local/bin/scripts
 export PATH=$PATH:/home/saeed/.cargo/bin
 
-
 # -----------
 # Options
 # set -o  # list all options
@@ -96,7 +94,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt autocd
-setopt vi
 # ---------
 autoload -U colors && colors	    # Load colors
 autoload -U compinit && compinit # defualt auto complete
@@ -107,7 +104,6 @@ zstyle ':completion:*' list-colors 'm:{(s.:.)LS_COLORS}'
 zstyle ':completion:*' complete-options true
 # Third party compeletion.
 fpath=(/usr/share/zsh-completions $fpath)
-
 
 # ---------
 # Plugins
@@ -124,7 +120,7 @@ eval "$(zoxide init zsh)"
 # zle -al  # list all functions to bind
 # ---------------
 bindkey -v
-bindkey jk vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
 # delete
 bindkey '^k' kill-line
 bindkey '^[d' kill-word 
@@ -143,7 +139,7 @@ bindkey '^p' history-substring-search-up
 bindkey '^B' autosuggest-toggle
 # fzf
 bindkey -s '^f' 'fzf\n'
-bindkey -s '^o' 'v\n'
+bindkey -s '^o' 'nvim $(fzf)\n'
 
 # ---------
 # Prompt

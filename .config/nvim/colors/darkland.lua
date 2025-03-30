@@ -6,15 +6,16 @@ end
 vim.g.colors_name = "darkland"
 
 local none = "none"
-local bg = "#040404"
 local white = "#ebebeb"
-local line = "#191919"
 local fg = "#c1c1c1"
-local gray = "#737373"
+local bg = "#040404"
+local line = "#191919"
 local visual = "#373737"
-local primary = "#789978"
-local builtin = "#7a7a7a"
+local gray = "#696969"
 local gray_blue = "#708090"
+local primary = "#789978"
+-- local builtin = "#7a7a7a"
+local builtin = "#ebebeb"
 local red = "#b6927b"
 local warn = "#ab8550"
 local error = "#984936"
@@ -25,8 +26,8 @@ local theme = {
   CursorLine = { bg = line },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { link = "CursorLine" },
-  StatusLineNC = { bg = bg },
+  StatusLine = { bg = visual},
+  StatusLineNC = { bg = line },
   CursorLineNr = { fg = fg, bold = true },
 
   -- Normal aka white
