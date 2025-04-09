@@ -96,7 +96,7 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-  "#040404",  /* black */
+  "#000000",  /* black */
   "#984936",  /* red - error*/
   "#789978",  /* green */
   "#789978",  /* yellow(blue) - string */ 
@@ -112,7 +112,7 @@ static const char *colorname[] = {
   "#708090",  /* b blue dir */
   "#696969",  /* b meg */
   "#696969",  /* b cyan */
-  "#ebebeb",  /* b white */ 
+  "#fafafa",  /* b white */ 
 
 	[255] = 0,
 
@@ -120,7 +120,7 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 	"#c1c1c1", /* default foreground colour */
-	"#040404", /* default background colour */
+	"#000000", /* default background colour */
 };
 
 

@@ -5,11 +5,10 @@ end
 
 vim.g.colors_name = "darkland"
 local none = "none"
-local white = "#ebebeb"
+local white = "#fafafa"
 local fg = "#c1c1c1"
-local bg = "#040404"
-local line = "#212121"
-local status = "#393939"
+local bg = "#000000"
+local status = "#212121"
 local gray = "#696969"
 local gray_blue = "#708090"
 local primary = "#789978"
@@ -20,10 +19,10 @@ local hint = "#7788aa"
 
 local theme = {
   -- Line Indicators
-  CursorLine = { bg = line },
+  CursorLine = { bg = bg },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { bg = status, fg=fg},
+  StatusLine = { bg = status, fg=white},
   StatusLineNC = { bg = status, fg=bg },
   CursorLineNr = { fg = fg, bold = true },
 
@@ -100,8 +99,8 @@ local theme = {
   Todo = { bg = fg, bg = error, bold = true },
 
   -- Visual
-  Visual = { bg = gray_blue, fg=bg },
-  Pmenu = { fg = fg, bg = line },
+  Visual = { bg = status },
+  Pmenu = { fg = fg, bg = status },
   PmenuSel = { fg = bg, bg = gray_blue },
 
   
@@ -132,10 +131,10 @@ local theme = {
   -- MiniPickIconFile xxx links to MiniPickNormal
   -- MiniPickNormal xxx links to NormalFloat
   -- MiniPickHeader xxx links to DiagnosticFDiagnosticInfo DiagnosticInfo loatingHint
-  -- MiniPickMatchCurrent xxx links to CursorLine
+  MiniPickMatchCurrent = { bg = status },
   -- MiniPickMatchMarked xxx links to Visual
   -- MiniPickMatchRanges xxx links to DiagnosticFloatingHint
-  -- MiniPickPreviewLine xxx links to CursorLine
+  -- MiniPickPreviewLine = { bg = "#ff0000" },
   -- MiniPickPreviewRegion xxx links to IncSearch
   -- MiniPickPrompt xxx links to DiagnosticFloatingInfo
 

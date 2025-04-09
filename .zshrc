@@ -2,7 +2,7 @@
 # Alisees
 # ---------
 alias sx=startx
-alias ls='exa --icons --color=always' 
+alias ls='ls --color' 
 alias ll='ls -lh'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -161,7 +161,7 @@ seg_s='%F{white}[%f'
 seg_e='%F{white}]%f'
 un='%F{white}%n%f'
 hn='%F{white}%m%f'
-dir='%F{cyan}%1~%f'
+dir='%F{white}%1~%f'
 cmd_status='%(?.%F{white}$%f.%F{red}$%f) '
 git_seg='%F{magenta}${vcs_info_msg_0_}%f'
 space=' '
