@@ -1,5 +1,5 @@
 {
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
-  "mini.nvim": { "branch": "main", "commit": "d0464ced00abfd9bbed196fa36ccf3b1691c6b2c" },
-  "mini.pick": { "branch": "main", "commit": "4dfc0a21f16d34e9b2429b96d62788ed8a65e6cd" }
+  "mini.pick": { "branch": "main", "commit": "4dfc0a21f16d34e9b2429b96d62788ed8a65e6cd" },
+  "mini.statusline": { "branch": "main", "commit": "ec3adf7813b7604275dd4a28433e9c9610b70f1b" }
 }

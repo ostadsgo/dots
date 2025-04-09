@@ -4,18 +4,15 @@ if vim.fn.exists("syntax_on") == 1 then
 end
 
 vim.g.colors_name = "darkland"
-
 local none = "none"
 local white = "#ebebeb"
 local fg = "#c1c1c1"
 local bg = "#040404"
-local line = "#191919"
-local visual = "#373737"
+local line = "#212121"
+local status = "#393939"
 local gray = "#696969"
 local gray_blue = "#708090"
 local primary = "#789978"
--- local builtin = "#7a7a7a"
-local builtin = "#ebebeb"
 local red = "#b6927b"
 local warn = "#ab8550"
 local error = "#984936"
@@ -26,8 +23,8 @@ local theme = {
   CursorLine = { bg = line },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { bg = visual},
-  StatusLineNC = { bg = line },
+  StatusLine = { bg = status, fg=fg},
+  StatusLineNC = { bg = status, fg=bg },
   CursorLineNr = { fg = fg, bold = true },
 
   -- Normal aka white
@@ -103,18 +100,21 @@ local theme = {
   Todo = { bg = fg, bg = error, bold = true },
 
   -- Visual
-  Visual = { bg = visual },
+  Visual = { bg = gray_blue, fg=bg },
   Pmenu = { fg = fg, bg = line },
-  PmenuSel = { fg = fg, bg = visual },
+  PmenuSel = { fg = bg, bg = gray_blue },
+
+  
 
   -- Python
   pythonOperator = { link = "Keyword" },
   pythonExceptions = { link = "Identifier" },
   pythonFunction = { fg = white },
-  pythonBuiltin = { fg = builtin },
+  pythonBuiltin = { fg = white },
 
   -- Lua
   luaTable = { link = "Identifier" },
+  luaFunction = { link = "Statement" },
 
   -- LSP
   FloatBorder = { fg = gray },

@@ -97,29 +97,29 @@ unsigned int tabspaces = 8;
 static const char *colorname[] = {
 	/* 8 normal colors */
   "#040404",  /* black */
-  "#984936",  /* red */
+  "#984936",  /* red - error*/
   "#789978",  /* green */
-  "#ab8550",  /* yellow */
-  "#708090",  /* blue */
-  "#AA759F",  /* magenta */
-  "#5f8787",  /* cyan */
-  "#c1c1c1",  /* white */
+  "#789978",  /* yellow(blue) - string */ 
+  "#696969",  /* blue dir inof */
+  "#696969",  /* magenta gray */
+  "#696969",  /* cyan gray */
+  "#c1c1c1",  /* white - fg */
 	/* 8 bright colors */
-  "#737373",  /* gray -- auto suggest */
+  "#696969",  /* gray -- auto suggest */
   "#984936",  /* red -- invalid cmd */
-  "#90A959",  /* b green exec */
-  "#7a7a7a",  /* b yellow (b gray) owner */
+  "#789978",  /* b green exec */
+  "#696969",  /* b yellow (b gray) owner */
   "#708090",  /* b blue dir */
-  "#AA749F",  /* b meg */
-  "#5f8787",  /* b cyan */
-  "#f5f5f5",  /* b white */ 
+  "#696969",  /* b meg */
+  "#696969",  /* b cyan */
+  "#ebebeb",  /* b white */ 
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"#cdcdcd", /* default foreground colour */
+	"#c1c1c1", /* default foreground colour */
 	"#040404", /* default background colour */
 };
 
@@ -231,7 +231,80 @@ static Shortcut shortcuts[] = {
  * If you want keys other than the X11 function keys (0xFD00 - 0xFFFF)
  * to be mapped below, add them to this array.
  */
-static KeySym mappedkeys[] = { -1 };
+static KeySym mappedkeys[] = {
+       XK_space,
+       XK_m,
+       XK_i,
+       XK_A,
+       XK_B,
+       XK_C,
+       XK_D,
+       XK_E,
+       XK_F,
+       XK_G,
+       XK_H,
+       XK_I,
+       XK_K,
+       XK_J,
+       XK_L,
+       XK_M,
+       XK_N,
+       XK_O,
+       XK_P,
+       XK_Q,
+       XK_R,
+       XK_S,
+       XK_T,
+       XK_U,
+       XK_V,
+       XK_W,
+       XK_X,
+       XK_Y,
+       XK_Z,
+       XK_Z,
+       XK_0,
+       XK_1,
+       XK_2,
+       XK_3,
+       XK_4,
+       XK_5,
+       XK_6,
+       XK_7,
+       XK_8,
+       XK_9,
+       XK_exclam,
+       XK_quotedbl,
+       XK_numbersign,
+       XK_dollar,
+       XK_percent,
+       XK_ampersand,
+       XK_apostrophe,
+       XK_parenleft,
+       XK_parenright,
+       XK_asterisk,
+       XK_plus,
+       XK_comma,
+       XK_minus,
+       XK_period,
+       XK_slash,
+       XK_colon,
+       XK_semicolon,
+       XK_less,
+       XK_equal,
+       XK_greater,
+       XK_question,
+       XK_at,
+       XK_bracketleft,
+       XK_backslash,
+       XK_bracketright,
+       XK_asciicircum,
+       XK_underscore,
+       XK_grave,
+       XK_braceleft,
+       XK_bar,
+       XK_braceright,
+       XK_asciitilde,
+};
 
 /*
  * State bits to ignore when matching key or button events.  By default,
@@ -357,7 +430,7 @@ static Key key[] = {
   { XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
   { XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
   { XK_BackSpace,     ControlMask,    "\033[127;5u",   0,    0},
-  { XK_BackSpace,    ShiftMask,       "\033[127;2u",   0,    0},
+  { XK_BackSpace,     ShiftMask,      "\033[127;2u",   0,    0},
   { XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
   { XK_Home,          ShiftMask,      "\033[1;2H",     0,   +1},
   { XK_Home,          XK_ANY_MOD,     "\033[H",        0,   -1},
@@ -373,6 +446,40 @@ static Key key[] = {
   { XK_Next,          ControlMask,    "\033[6;5~",     0,    0},
   { XK_Next,          ShiftMask,      "\033[6;2~",     0,    0},
   { XK_Next,          XK_ANY_MOD,     "\033[6~",       0,    0},
+  { XK_comma,        ControlMask,                    "\033[44;5u",  0,  0},
+  { XK_comma,        ControlMask|ShiftMask,          "\033[44;6u",  0,  0},
+  { XK_comma,        Mod1Mask,                       "\033[44;3u",  0,  0},
+  { XK_comma,        Mod1Mask|ControlMask,           "\033[44;7u",  0,  0},
+  { XK_comma,        Mod1Mask|ControlMask|ShiftMask, "\033[44;8u",  0,  0},
+  { XK_comma,        Mod1Mask|ShiftMask,             "\033[44;4u",  0,  0}, 
+  { XK_A,            ControlMask|ShiftMask,          "\033[65;6u",  0,  0},
+  { XK_B,            ControlMask|ShiftMask,          "\033[66;6u",  0,  0},
+  { XK_C,            ControlMask|ShiftMask,          "\033[67;6u",  0,  0},
+  { XK_D,            ControlMask|ShiftMask,          "\033[68;6u",  0,  0},
+  { XK_E,            ControlMask|ShiftMask,          "\033[69;6u",  0,  0},
+  { XK_F,            ControlMask|ShiftMask,          "\033[70;6u",  0,  0},
+  { XK_G,            ControlMask|ShiftMask,          "\033[71;6u",  0,  0},
+  { XK_H,            ControlMask|ShiftMask,          "\033[72;6u",  0,  0},
+  { XK_I,            ControlMask|ShiftMask,          "\033[73;6u",  0,  0},
+  { XK_I,            Mod1Mask|ControlMask|ShiftMask, "\033[73;8u",  0,  0},
+  { XK_J,            ControlMask|ShiftMask,          "\033[75;6u",  0,  0},
+  { XK_K,            ControlMask|ShiftMask,          "\033[74;6u",  0,  0},
+  { XK_L,            ControlMask|ShiftMask,          "\033[76;6u",  0,  0},
+  { XK_M,            ControlMask|ShiftMask,          "\033[77;6u",  0,  0},
+  { XK_M,            Mod1Mask|ControlMask|ShiftMask, "\033[77;8u",  0,  0},
+  { XK_N,            ControlMask|ShiftMask,          "\033[78;6u",  0,  0},
+  { XK_O,            ControlMask|ShiftMask,          "\033[79;6u",  0,  0},
+  { XK_P,            ControlMask|ShiftMask,          "\033[80;6u",  0,  0},
+  { XK_Q,            ControlMask|ShiftMask,          "\033[81;6u",  0,  0},
+  { XK_R,            ControlMask|ShiftMask,          "\033[82;6u",  0,  0},
+  { XK_S,            ControlMask|ShiftMask,          "\033[83;6u",  0,  0},
+  { XK_T,            ControlMask|ShiftMask,          "\033[84;6u",  0,  0},
+  { XK_U,            ControlMask|ShiftMask,          "\033[85;6u",  0,  0},
+  { XK_V,            ControlMask|ShiftMask,          "\033[86;6u",  0,  0},
+  { XK_W,            ControlMask|ShiftMask,          "\033[87;6u",  0,  0},
+  { XK_X,            ControlMask|ShiftMask,          "\033[88;6u",  0,  0},
+  { XK_Y,            ControlMask|ShiftMask,          "\033[89;6u",  0,  0},
+  { XK_Z,            ControlMask|ShiftMask,          "\033[90;6u",  0,  0},
   { XK_F1,            XK_NO_MOD,      "\033OP" ,       0,    0},
   { XK_F1, /* F13 */  ShiftMask,      "\033[1;2P",     0,    0},
   { XK_F1, /* F25 */  ControlMask,    "\033[1;5P",     0,    0},
@@ -459,7 +566,8 @@ static Key key[] = {
   { XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
   { XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
   { XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
-};
+};  
+
 
 /*
  * Selection types' masks.

@@ -6,12 +6,14 @@ xsettings &
 # Notfication manager
 # dunst &
 
+# conky
+# conky &
 
 # Compositor: make shadow and transparenty
-# picom  -b
+# picom  -b &
  
 # get bg from bing and set to bg
-randwall &
+nxwall &
 
 # incerese speed of repeated key.
 xset r rate 200 30

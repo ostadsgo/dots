@@ -10,18 +10,16 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias tree='exa -T'
-alias v=nvim
+alias v='nvim .'
 alias ka=killall
 alias grep='grep --color'
 alias hist=history
 alias path='echo -e ${PATH//:/\\n}'
-alias pingarch="ping -c 5 archlinux.org"
-alias pingnet="ping -c 5  8.8.8.8"
 alias ip='ip --color'
 alias bat='bat -pn --theme="OneHalfDark"'
 # apps
 alias open=pcmanfm
-alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f  pulse -i default $1'
+alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f pulse -i default '
 alias play='ffplay'
 alias show='sxiv'
 alias reader=zathura
@@ -52,7 +50,7 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 # ---------
 export HOME=~
 export EDITOR="nvim"
-export BROWSER="chrome"
+export BROWSER="brave"
 export TERMINAL="st"
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
@@ -158,11 +156,12 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '%b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
+# cyan is gray
 seg_s='%F{white}[%f'
 seg_e='%F{white}]%f'
 un='%F{white}%n%f'
 hn='%F{white}%m%f'
-dir='%F{blue}%1~%f'
+dir='%F{cyan}%1~%f'
 cmd_status='%(?.%F{white}$%f.%F{red}$%f) '
 git_seg='%F{magenta}${vcs_info_msg_0_}%f'
 space=' '
