@@ -5,7 +5,7 @@ end
 
 vim.g.colors_name = "darkland"
 local none = "none"
-local white = "#fafafa"
+local white = "#ebebeb"
 local fg = "#c1c1c1"
 local bg = "#000000"
 local status = "#212121"
@@ -51,7 +51,7 @@ local theme = {
   PreProc = { link = "Identifier" },
 
   -- Statement
-  Keyword = { fg = primary },
+  Keyword = { fg = white },
   Statement = { link = "Keyword" },
   Type = { link = "Keyword" },
   Structure = { link = "Keyword" },
@@ -108,7 +108,7 @@ local theme = {
   -- Python
   pythonOperator = { link = "Keyword" },
   pythonExceptions = { link = "Identifier" },
-  pythonFunction = { fg = white },
+  pythonFunction = { fg = primary },
   pythonBuiltin = { fg = white },
 
   -- Lua
