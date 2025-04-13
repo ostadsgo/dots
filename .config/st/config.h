@@ -99,7 +99,7 @@ static const char *colorname[] = {
   "#000000",  /* black */
   "#984936",  /* red - error*/
   "#ebebeb",  /* green */
-  "#789978",  /* yellow(blue) - string */ 
+  "#708090",  /* yellow(blue) - string */ 
   "#696969",  /* blue dir inof */
   "#696969",  /* magenta gray */
   "#696969",  /* cyan gray */

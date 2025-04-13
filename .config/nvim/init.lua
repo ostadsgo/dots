@@ -1,43 +1,43 @@
 -- ------------------
 -- options
 -- -------------------
--- vim.hl = vim.highlight
-vim.opt.backup = false
-vim.opt.cmdheight = 0
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.mouse = "a"
-vim.opt.writebackup = false
-vim.opt.termguicolors = true
-vim.opt.wrap = false
-vim.opt.conceallevel = 0
-vim.opt.fileencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-vim.opt.timeoutlen = 1000
-vim.opt.updatetime = 5
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.cursorline = true
-vim.opt.colorcolumn = "89"
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.shortmess:append("c")
-vim.opt.numberwidth = 2
-vim.opt.scrolloff = 1
-vim.opt.sidescrolloff = 10
-vim.opt.guicursor = ""
-vim.opt.showmode = true
-vim.opt.signcolumn = "no"
+local options = {
+  backup = false,
+  cmdheight = 1,
+  completeopt = { "menuone", "noselect" },
+  mouse = "a",
+  writebackup = false,
+  termguicolors = true,
+  wrap = false,
+  conceallevel = 0,
+  fileencoding = "utf-8",
+  encoding = "utf-8",
+  timeoutlen = 1000,
+  updatetime = 5,
+  hlsearch = false,
+  incsearch = true,
+  ignorecase = true,
+  smartcase = true,
+  autoindent = true,
+  smartindent = true,
+  splitbelow = true,
+  splitright = true,
+  swapfile = false,
+  expandtab = true,
+  cindent = true,
+  shiftwidth = 2,
+  tabstop = 2,
+  softtabstop = 2,
+  scrolloff = 3,
+  number = true,
+  relativenumber = true,
+  guicursor = "",
+}
+
+for key, value in pairs(options) do
+  vim.opt[key] = value
+end
+
 vim.g.netrw_banner = 0
 vim.cmd.colorscheme("darkland")
 
@@ -47,12 +47,6 @@ vim.cmd.colorscheme("darkland")
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  callback = function()
-    pcall(vim.treesitter.stop)
   end,
 })
 
@@ -67,81 +61,122 @@ end
 -- ------------------
 -- Keybindings
 -- ------------------
-function map(m, n, k, o)
-  vim.keymap.set(m, n, k, o)
-end
-
-local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- remap ESC
-map("i", "jk", "<Esc>", opts)
-map({ "n", "v" }, "<Leader>a", "ggVG", opts)
-map({ "n", "v" }, "<Leader>;", "V", opts)
-map("n", "<Leader>e", ":Rex<CR>", opts)
-map("n", "<Leader>x", ":luafile %<CR>", opts)
+function remap(mode, maps)
+  local o = { noremap = true, silent = mode ~= "c" }
+  for _, key in ipairs(maps) do
+    vim.keymap.set(mode, key[1], key[2])
+  end
+end
 
--- Move lines
-map({ "n", "v" }, "<C-j>", ":m .+1<CR>==", opts)
-map({ "n", "v" }, "<C-k>", ":m .-2<CR>==", opts)
-map("x", "<C-j>", ":move '>+1<CR>gv-gv", opts)
-map("x", "<C-k>", ":move '<-2<CR>gv-gv", opts)
+local nmaps = {
+  -- centerize workflow
+  { "<C-d>", "<C-d>zz" },
+  { "<C-u>", "<C-u>zz" },
+  { "<C-i>", "<C-i>zz" },
+  { "<C-o>", "<C-o>zz" },
+  { "{", "{zz" },
+  { "}", "}zz" },
+  { "n", "nzz" },
+  { "N", "Nzz" },
+  { "*", "*zz" },
+  { "#", "#zz" },
+  { "%", "%zz" },
+  { "g;", "g;zz" },
+  { "g,", "g,zz" },
+  -- Resize window
+  { "<C-Down>", ":resize -2<CR>" },
+  { "<C-Left>", ":vertical resize +2<CR>" },
+  { "<C-Right>", ":vertical resize -2<CR>" },
+  { "<C-Up>", ":resize +2<CR>" },
+  -- create empty line
+  { "<C-Return>", "o<ESC>" },
+  { "<S-Return>", "O<ESC>" },
+  -- dup line
+  { "<A-,>", ":t.<CR>" },
+  -- to end and begin
+  { "<A-h>", "^" },
+  { "<A-l>", "$" },
+  -- move up and down
+  { "<A-j>", ":m .+1<CR>==" },
+  { "<A-k>", ":m .-2<CR>==" },
+  -- V-Line
+  { "<Leader>;", "V" },
+  -- Select whole file
+  { "<Leader>a", "ggVG" },
+  -- buffer
+  { "<Leader>W", ":wa<CR>" },
+  { "<Leader>e", ":Rex<CR>" },
+  { "<Leader>q", ":bd<CR>" },
+  { "<Leader>r", ":source $MYVIMRC<CR>" },
+  { "<Leader>w", ":w<CR>" },
+  -- smart paste
+  { "p", paste_preserve_cursor },
+  -- paste from sys clipboard
+  { "<Leader>p", '"+p' },
+  -- delete without change register
+  { "<leader>d", '"_d' },
+  -- keep cursor pos after yank
+  { "<Leader>y", '"+ygv<ESC>' },
+  -- Exec lua code 
+  { "<Leader>x", ":.lua<CR>" },
+  { "X", '"_X' },
+  { "x", '"_x' },
+  -- mini picker
+  { "<Leader>fb", ":Pick buffers<CR>" },
+  { "<Leader>ff", ":Pick files<CR>" },
+  { "<Leader>fs", ":Pick grep_live<CR>" },
+}
 
--- Indent
-map("v", "<", "<gv", opts)
-map("v", ">", ">gv", opts)
+local imaps = {
+  { "jk", "<Esc>" },
+  { "<A-h>", "<Left>" },
+  { "<A-l>", "<Right>" },
+  { "<C-BS>", "<C-w>" },
+  { "<A-BS>", "<C-o>diw" },
+  { "<C-Return>", "<C-o>o" },
+  { "<S-Return>", "<C-o>O" },
+}
 
--- Move to end & begining of line
-map({ "n", "v" }, "<C-l>", "$", opts)
-map({ "n", "v" }, "<C-h>", "^", opts)
+local vmaps = {
+  -- better indent
+  { ">", ">gv" },
+  { "<", "<gv" },
+  -- keyp cur pos
+  { "y", "ygv<ESC>" },
+  -- move up and down
+  { "<A-j>", ":move '>+1<CR>gv=gv" },
+  { "<A-k>", ":move '<-2<CR>gv=gv" },
+  -- to end and begin
+  { "<A-h>", "^" },
+  { "<A-l>", "$" },
+  -- exec Lua code
+  { "<Leader>X", ":lua<CR>" },
+  -- V-Line
+  { "<Leader>;", "V" },
+  -- Select whole file
+  { "<Leader>a", "ggVG" },
+  -- paste from sys clipboard
+  { "<Leader>p", '"+p' },
+  -- delete without change register
+  { "<leader>d", '"_d' },
+  -- keep cursor pos after yank
+  { "<Leader>y", '"+ygv<ESC>' },
+}
 
--- buffer (waq --> save all quit  qa! --> close all buf quit vim)
-map("n", "<Leader>l", ":bn<CR>", opts)
-map("n", "<Leader>h", ":bp<CR>", opts)
-map("n", "<Leader>w", ":w<CR>", opts)
-map("n", "<Leader>W", ":wa<CR>", opts)
-map("n", "<Leader>q", ":bd<CR>", opts)
+local cmaps = {
+  { "<M-h>", "<Left>" },
+  { "<M-j>", "<Down>" },
+  { "<M-k>", "<Up>" },
+  { "<M-l>", "<Right>" },
+}
 
--- Split
-map("n", "<C-Up>", ":resize +2<CR>", opts)
-map("n", "<C-Down>", ":resize -2<CR>", opts)
-map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
-map("n", "<C-Left>", ":vertical resize +2<CR>", opts)
-
--- register
-map("n", "p", paste_preserve_cursor, opts)
-map({ "n", "v", "x" }, "<Leader>y", '"+ygv<ESC>', opts)
-map({ "n", "v" }, "<Leader>p", '"+p', opts)
-map({ "n", "v" }, "<leader>d", '"_d', opts)
-map("n", "x", '"_x', opts)
-map("n", "X", '"_X', opts)
-map("v", "y", "ygv<ESC>", opts)
-
--- Newline below in insert mode
-map("i", "<C-Return>", "<C-o>o", opts)
-map("i", "<S-Return>", "<C-o>O", opts)
-map("i", "<C-BS>", "<C-w>", opts)
-
--- new line in normal mode without going to insert mode
-map("n", "<C-Return>", "o<ESC>", opts)
-map("n", "<S-Return>", "O<ESC>", opts)
-
--- Plugins
-map({ "n", "v" }, "<Leader>ff", ":Pick files<CR>")
-map({ "n", "v" }, "<Leader>fb", ":Pick buffers<CR>")
-map({ "n", "v" }, "<Leader>fs", ":Pick grep_live<CR>")
-
--- inc and dec
-map("n", "+", "<C-a>")
-map("n", "-", "<C-x>")
-
--- reload neovim -- not working beacuse lazy is here!!!
-map("n", "<Leader>r", ":source $MYVIMRC<CR>", opts)
-
--- duplicate a line
-map("n", "<C-,>", ":t.<CR>", opts)
-
+remap("n", nmaps)
+remap("i", imaps)
+remap("v", vmaps)
+remap("c", cmaps)
 
 -- -----------------------
 -- LAZY PACKAGE MANAGER
@@ -169,7 +204,6 @@ vim.opt.rtp:prepend(lazypath)
 plugins = {
   { "echasnovski/mini.pick", version = false, config = true },
 }
-
 require("lazy").setup({
   spec = plugins,
   checker = { enabled = false },

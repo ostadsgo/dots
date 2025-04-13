@@ -1,4 +1,4 @@
-#! /usr/bin/sh
+#!/usr/bin/sh
 
 # X keymap and setting
 xsettings & 
@@ -16,7 +16,7 @@ xsettings &
 nxwall &
 
 # incerese speed of repeated key.
-xset r rate 200 30
+xset r rate 200 30 &
 
 # clear right side of dwm statusbar
 xsetroot -name " " &

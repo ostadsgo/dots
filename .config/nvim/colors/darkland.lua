@@ -19,12 +19,14 @@ local hint = "#7788aa"
 
 local theme = {
   -- Line Indicators
+  StatusLineMode = { bg = "#ff0000" },
   CursorLine = { bg = bg },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { bg = status, fg=white},
-  StatusLineNC = { bg = status, fg=bg },
+  StatusLine = { bg = status, fg = white },
+  StatusLineNC = { bg = status, fg = bg },
   CursorLineNr = { fg = fg, bold = true },
+  WinSeparator = { fg = status, bg = bg },
 
   -- Normal aka white
   Normal = { fg = fg, bg = bg },
@@ -102,8 +104,6 @@ local theme = {
   Visual = { bg = status },
   Pmenu = { fg = fg, bg = status },
   PmenuSel = { fg = bg, bg = gray_blue },
-
-  
 
   -- Python
   pythonOperator = { link = "Keyword" },
