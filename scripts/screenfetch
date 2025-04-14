@@ -1,0 +1,4 @@
+#! /usr/bin/sh
+
+clear
+fm6000 -f ~/.local/bin/scripts/.logo -c white -d DWM -nd

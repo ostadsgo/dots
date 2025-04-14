@@ -1,0 +1,8 @@
+#! /usr/bin/sh
+
+# Set capslock to be <Escape>
+setxkbmap -option caps:escape
+
+# Disable touch pad
+xinput disable "AlpsPS/2 ALPS GlidePoint" &
+
