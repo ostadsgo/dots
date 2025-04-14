@@ -1,6 +1,7 @@
 -- ------------------
 -- options
 -- -------------------
+-- hellow
 local options = {
   backup = false,
   cmdheight = 1,
@@ -97,11 +98,11 @@ local nmaps = {
   -- dup line
   { "<A-,>", ":t.<CR>" },
   -- to end and begin
-  { "<A-h>", "^" },
-  { "<A-l>", "$" },
+  { "<A-a>", "^" },
+  { "<A-e>", "$" },
   -- move up and down
-  { "<A-j>", ":m .+1<CR>==" },
-  { "<A-k>", ":m .-2<CR>==" },
+  { "<A-n>", ":m .+1<CR>==" },
+  { "<A-p>", ":m .-2<CR>==" },
   -- V-Line
   { "<Leader>;", "V" },
   -- Select whole file
@@ -147,11 +148,11 @@ local vmaps = {
   -- keyp cur pos
   { "y", "ygv<ESC>" },
   -- move up and down
-  { "<A-j>", ":move '>+1<CR>gv=gv" },
-  { "<A-k>", ":move '<-2<CR>gv=gv" },
+  { "<A-n>", ":move '>+1<CR>gv=gv" },
+  { "<A-p>", ":move '<-2<CR>gv=gv" },
   -- to end and begin
-  { "<A-h>", "^" },
-  { "<A-l>", "$" },
+  { "<A-a>", "^" },
+  { "<A-e>", "$" },
   -- exec Lua code
   { "<Leader>X", ":lua<CR>" },
   -- V-Line
@@ -168,8 +169,8 @@ local vmaps = {
 
 local cmaps = {
   { "<M-h>", "<Left>" },
-  { "<M-j>", "<Down>" },
-  { "<M-k>", "<Up>" },
+  { "<M-n>", "<Down>" },
+  { "<M-p>", "<Up>" },
   { "<M-l>", "<Right>" },
 }
 
