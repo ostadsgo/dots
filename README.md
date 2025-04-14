@@ -176,7 +176,8 @@ $ dotfiles config --local status.showUntrackedFiles no
 * Compositor: ~~picom~~
 * Terminal Multiplexer: tmux
 
-![screenshot 2023](https://github.com/ostadsgo/dotfiles/blob/master/bin/screenshots/2023-01-29-04_45_51-screenshot.png)
-
+2025
 ![screenshot 2025](https://github.com/ostadsgo/dotfiles/blob/master/bin/screenshots/2025-04-15-01%3A49%3A39-screenshot.png)
 
+2023
+![screenshot 2023](https://github.com/ostadsgo/dotfiles/blob/master/bin/screenshots/2023-01-29-04_45_51-screenshot.png)
