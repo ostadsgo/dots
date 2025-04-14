@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-
-
-mv $HOME/.histfile_bad $HOME/.histfile_bad 
-strings $HOME/.histfile_bad > $HOME/.zsh_history
-fc -R $HOME/.zsh_history
-rm $HOME/.histfile_bad
