@@ -1,3 +1,4 @@
+
 ## Arch Linux
 
 ### Connect to Wifi
@@ -150,26 +151,32 @@ $ sudo pacman -S starship ttf-nerd-fonts-symbols-common
 $ sudo pacman -S ripgrep fd sqlite node npm tk tree scrot xsel
 ```
 
-## Manage Dotfiles
+## ~~Manage Dotfiles with git bare~~
+
 ```
 $ git init --bare $HOME/.dotfiles.git
 $ echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
 $ source ~/.zshrc
 $ dotfiles config --local status.showUntrackedFiles no
 ```
-[Link to full article](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html)
 
+[Link to full article](https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html)
+> Remove git bare workflow becuase I wouldn't able to use git diff.
+> Using symbolic link to mange dots.
 
 ## Apps
-* Window Manager: Qtile
-* Terminal: Kitty
+* Window Manager: ~~Qtile~~ dwm
+* Terminal: ~~Kitty~~ st
 * Shell: Zsh
-* App Launcher: rofi
+* App Launcher: ~~rofi~~ demenu
 * Editor: Neovim
-* Editor2: VS Code
-* Browser: Firefox / Edge
+* Editor2: ~~VS Code~~ Emacs[Maybe]
+* Browser: ~~Firefox / Edge~~ Brave
 * File Manager: PcmanFM
-* Background: Xwallpaper
-* Compositor: picom
+* Compositor: ~~picom~~
+* Terminal Multiplexer: tmux
 
-![screenshot](https://github.com/ostadsgo/dotfiles/blob/main/.github/screenshots/2023-01-29-04:45:51-screenshot.png)
+![screenshot 2023](https://github.com/ostadsgo/dotfiles/blob/master/bin/screenshots/2023-01-29-04_45_51-screenshot.png)
+
+![screenshot 2025](https://github.com/ostadsgo/dotfiles/blob/master/bin/screenshots/2025-04-15-01%3A49%3A39-screenshot.png)
+
