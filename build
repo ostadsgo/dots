@@ -13,3 +13,5 @@ create_link ~/.dots/dwm ~/.config/dwm
 create_link ~/.dots/st ~/.config/st
 create_link ~/.dots/nvim ~/.config/nvim
 create_link ~/.dots/tmux ~/.config/tmux
+
+create_link ~/.dots/bin ~/.local/bin

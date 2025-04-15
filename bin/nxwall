@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 wpath="$HOME/pix/minimal"
 wallpapers=($(ls $wpath))
-index=$(cat ~/.local/bin/scripts/.wall)
+index=$(cat ~/.local/bin/.wall)
 echo $index
 if [ $index -lt ${#wallpapers[@]} ]
 then
@@ -11,4 +11,4 @@ else
 fi
 wallpaper=${wpath}/${wallpapers[index]}
 xwallpaper --stretch $wallpaper
-echo $index > ~/.local/bin/scripts/.wall
+echo $index > ~/.local/bin/.wall

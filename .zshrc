@@ -14,7 +14,7 @@ alias v='nvim .'
 alias ka=killall
 alias grep='grep --color'
 alias hist=history
-alias path='echo -e ${PATH//:/\\n}'
+alias ppath='echo -e ${PATH//:/\\n}'
 alias ip='ip --color'
 alias bat='bat -pn --theme="OneHalfDark"'
 # apps
@@ -57,10 +57,13 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 # history
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" 
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
 export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" 
+export WGET_HSTS_FILE="$XDG_CACHE_HOME/wget-hsts"
+export ZCOMP_DUMPFILE="$XDG_CACHE_HOME/zsh/.zcompdump"
+export EMACS_DIR=~/.config/emacs
 # PL
 export GOPATH=$XDG_DATA_HOME/go
 export GOBIN="$GOPATH/bin"
@@ -69,9 +72,8 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # Nvim Manpager
 export MANPAGER="nvim +Man!"
 # Extend path
-export PATH=$PATH:/home/saeed/.local/bin/scripts
-export PATH=$PATH:/home/saeed/.cargo/bin
-
+typeset -U path  # Make path unique.
+path+=($HOME/.local/bin $HOME/.cargo/bin)
 # -----------
 # Options
 # set -o  # list all options
