@@ -1,4 +1,0 @@
-#! /usr/bin/sh
-
-pic_path=~/pix/screenshots/%Y-%m-%d-%T-screenshot.png
-scrot -d 1 $pic_path

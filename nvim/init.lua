@@ -51,14 +51,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-local function paste_preserve_cursor()
-  local col = vim.fn.col(".")
-  vim.api.nvim_feedkeys("p", "n", false)
-  vim.defer_fn(function()
-    vim.fn.cursor(vim.fn.line("."), col)
-  end, 10)
-end
-
 -- ------------------
 -- Keybindings
 -- ------------------
@@ -98,11 +90,11 @@ local nmaps = {
   -- dup line
   { "<A-,>", ":t.<CR>" },
   -- to end and begin
-  { "<A-a>", "^" },
-  { "<A-e>", "$" },
+  { "<A-h>", "^" },
+  { "<A-l>", "$" },
   -- move up and down
-  { "<A-n>", ":m .+1<CR>==" },
-  { "<A-p>", ":m .-2<CR>==" },
+  { "<A-j>", ":m .+1<CR>==" },
+  { "<A-k>", ":m .-2<CR>==" },
   -- V-Line
   { "<Leader>;", "V" },
   -- Select whole file
@@ -113,8 +105,6 @@ local nmaps = {
   { "<Leader>q", ":bd<CR>" },
   { "<Leader>r", ":source $MYVIMRC<CR>" },
   { "<Leader>w", ":w<CR>" },
-  -- smart paste
-  { "p", paste_preserve_cursor },
   -- paste from sys clipboard
   { "<Leader>p", '"+p' },
   -- delete without change register
@@ -133,10 +123,9 @@ local nmaps = {
 
 local imaps = {
   { "jk", "<Esc>" },
-  { "<A-h>", "<Left>" },
-  { "<A-l>", "<Right>" },
+  { "<A-l>", "<C-o>$" },
+  { "<A-h>", "<C-o>^" },
   { "<C-BS>", "<C-w>" },
-  { "<A-BS>", "<C-o>diw" },
   { "<C-Return>", "<C-o>o" },
   { "<S-Return>", "<C-o>O" },
 }
@@ -148,11 +137,8 @@ local vmaps = {
   -- keyp cur pos
   { "y", "ygv<ESC>" },
   -- move up and down
-  { "<A-n>", ":move '>+1<CR>gv=gv" },
-  { "<A-p>", ":move '<-2<CR>gv=gv" },
-  -- to end and begin
-  { "<A-a>", "^" },
-  { "<A-e>", "$" },
+  { "<A-j>", ":move '>+1<CR>gv=gv" },
+  { "<A-k>", ":move '<-2<CR>gv=gv" },
   -- exec Lua code
   { "<Leader>X", ":lua<CR>" },
   -- V-Line
@@ -169,8 +155,8 @@ local vmaps = {
 
 local cmaps = {
   { "<M-h>", "<Left>" },
-  { "<M-n>", "<Down>" },
-  { "<M-p>", "<Up>" },
+  { "<M-j>", "<Down>" },
+  { "<M-k>", "<Up>" },
   { "<M-l>", "<Right>" },
 }
 

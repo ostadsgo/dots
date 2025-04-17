@@ -121,21 +121,22 @@ eval "$(zoxide init zsh)"
 # ---------------
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode
-# delete
-bindkey '^k' kill-line
-bindkey '^[d' kill-word 
-bindkey '^[h' backward-kill-word
-# Move 
-bindkey '^[f' forward-word  
-bindkey '^[b' backward-word  
+# move begining and end of line
+bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^e' end-of-line
 # auto comp menu
 bindkey '^n' menu-select
 bindkey "^p" menu-select
 bindkey -M menuselect '^n' menu-complete
 bindkey -M menuselect "^p" reverse-menu-complete
+# yank
+bindkey -M vicmd 'yy' vi-yank-whole-line
+bindkey -M vicmd 'Y' vi-yank-eol
 # auto suggestion / next and prev sub suggestion.
-bindkey '^n' history-substring-search-down
-bindkey '^p' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M viins '^n' history-substring-search-down
+bindkey -M viins '^p' history-substring-search-up
 bindkey '^B' autosuggest-toggle
 # fzf
 bindkey -s '^f' 'fzf\n'
