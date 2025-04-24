@@ -101,7 +101,7 @@ local theme = {
   Todo = { bg = fg, bg = error, bold = true },
 
   -- Visual
-  Visual = { bg = status },
+  Visual = { bg = gray_blue, fg = bg },
   Pmenu = { fg = fg, bg = status },
   PmenuSel = { fg = bg, bg = gray_blue },
 

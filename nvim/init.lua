@@ -68,17 +68,6 @@ local nmaps = {
   -- centerize workflow
   { "<C-d>", "<C-d>zz" },
   { "<C-u>", "<C-u>zz" },
-  { "<C-i>", "<C-i>zz" },
-  { "<C-o>", "<C-o>zz" },
-  { "{", "{zz" },
-  { "}", "}zz" },
-  { "n", "nzz" },
-  { "N", "Nzz" },
-  { "*", "*zz" },
-  { "#", "#zz" },
-  { "%", "%zz" },
-  { "g;", "g;zz" },
-  { "g,", "g,zz" },
   -- Resize window
   { "<C-Down>", ":resize -2<CR>" },
   { "<C-Left>", ":vertical resize +2<CR>" },
@@ -88,25 +77,26 @@ local nmaps = {
   { "<C-Return>", "o<ESC>" },
   { "<S-Return>", "O<ESC>" },
   -- dup line
-  { "<A-,>", ":t.<CR>" },
-  -- to end and begin
-  { "<A-h>", "^" },
-  { "<A-l>", "$" },
+  { "<C-,>", ":t.<CR>" },
+  -- Move cursor to end and beginning
+  { "<C-l>", "$" },
+  { "<C-h>", "^" },
   -- move up and down
-  { "<A-j>", ":m .+1<CR>==" },
-  { "<A-k>", ":m .-2<CR>==" },
+  { "<C-j>", ":m .+1<CR>==" },
+  { "<C-k>", ":m .-2<CR>==" },
   -- V-Line
   { "<Leader>;", "V" },
   -- Select whole file
   { "<Leader>a", "ggVG" },
   -- buffer
   { "<Leader>W", ":wa<CR>" },
-  { "<Leader>e", ":Rex<CR>" },
+  { "<Leader>e", ":Sexplore<CR>" },
   { "<Leader>q", ":bd<CR>" },
   { "<Leader>r", ":source $MYVIMRC<CR>" },
   { "<Leader>w", ":w<CR>" },
   -- paste from sys clipboard
   { "<Leader>p", '"+p' },
+  { "<Leader>P", '"+P' },
   -- delete without change register
   { "<leader>d", '"_d' },
   -- keep cursor pos after yank
@@ -123,8 +113,6 @@ local nmaps = {
 
 local imaps = {
   { "jk", "<Esc>" },
-  { "<A-l>", "<C-o>$" },
-  { "<A-h>", "<C-o>^" },
   { "<C-BS>", "<C-w>" },
   { "<C-Return>", "<C-o>o" },
   { "<S-Return>", "<C-o>O" },
@@ -137,8 +125,8 @@ local vmaps = {
   -- keyp cur pos
   { "y", "ygv<ESC>" },
   -- move up and down
-  { "<A-j>", ":move '>+1<CR>gv=gv" },
-  { "<A-k>", ":move '<-2<CR>gv=gv" },
+  { "<C-j>", ":move '>+1<CR>gv=gv" },
+  { "<C-k>", ":move '<-2<CR>gv=gv" },
   -- exec Lua code
   { "<Leader>X", ":lua<CR>" },
   -- V-Line
@@ -154,10 +142,10 @@ local vmaps = {
 }
 
 local cmaps = {
-  { "<M-h>", "<Left>" },
-  { "<M-j>", "<Down>" },
-  { "<M-k>", "<Up>" },
-  { "<M-l>", "<Right>" },
+  { "<A-b>", "<Left>" },
+  { "<A-f>", "<Right>" },
+  { "<C-n>", "<Down>" },
+  { "<C-p>", "<Up>" },
 }
 
 remap("n", nmaps)

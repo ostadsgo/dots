@@ -9,8 +9,8 @@ alias ...='cd ../..'
 alias cp='cp -r'
 alias rm='rm -r'
 alias rmf='rm -rf'
-alias tree='exa -T'
-alias v='nvim .'
+alias v=nvim
+alias vv='nvim .'
 alias ka=killall
 alias grep='grep --color'
 alias hist=history
@@ -71,9 +71,13 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # Nvim Manpager
 export MANPAGER="nvim +Man!"
+# Qt
+export QT_QPA_PLATFORMTHEME=gtk3
+# export QT_STYLE_OVERRIDE=adwaita
 # Extend path
 typeset -U path  # Make path unique.
 path+=($HOME/.local/bin $HOME/.cargo/bin)
+
 # -----------
 # Options
 # set -o  # list all options
@@ -120,24 +124,27 @@ eval "$(zoxide init zsh)"
 # zle -al  # list all functions to bind
 # ---------------
 bindkey -v
-bindkey -M viins 'jk' vi-cmd-mode
+bindkey 'jk' vi-cmd-mode
+bindkey -M vicmd 'yy' vi-yank-whole-line
+bindkey -M vicmd 'Y' vi-yank-eol
+bindkey -M vicmd '^n' history-substring-search-down
+bindkey -M vicmd '^p' history-substring-search-up
 # move begining and end of line
-bindkey -M viins '^a' beginning-of-line
-bindkey -M viins '^e' end-of-line
+bindkey '^k' end-of-line
+# move by word in insert mode
+bindkey '^[f' forward-word 
+bindkey '^[b' backward-word 
 # auto comp menu
 bindkey '^n' menu-select
 bindkey "^p" menu-select
 bindkey -M menuselect '^n' menu-complete
 bindkey -M menuselect "^p" reverse-menu-complete
-# yank
-bindkey -M vicmd 'yy' vi-yank-whole-line
-bindkey -M vicmd 'Y' vi-yank-eol
 # auto suggestion / next and prev sub suggestion.
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M viins '^n' history-substring-search-down
-bindkey -M viins '^p' history-substring-search-up
+bindkey '^n' history-substring-search-down
+bindkey '^p' history-substring-search-up
 bindkey '^B' autosuggest-toggle
+bindkey '^j' autosuggest-execute
+bindkey '^[.' autosuggest-clear
 # fzf
 bindkey -s '^f' 'fzf\n'
 bindkey -s '^o' 'nvim $(fzf)\n'
