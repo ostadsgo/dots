@@ -68,6 +68,16 @@ local nmaps = {
   -- centerize workflow
   { "<C-d>", "<C-d>zz" },
   { "<C-u>", "<C-u>zz" },
+  { "<C-f>", "<C-f>zz" },
+  { "<C-b>", "<C-b>zz" },
+  { "<C-o>", "<C-o>zz" },
+  { "<C-i>", "<C-i>zz" },
+  { "*", "*zz" },
+  { "#", "#zz" },
+  { "n", "nzz" },
+  { "N", "Nzz" },
+  { "g;", "g;zz" },
+  { "g,", "g,zz" },
   -- Resize window
   { "<C-Down>", ":resize -2<CR>" },
   { "<C-Left>", ":vertical resize +2<CR>" },
@@ -82,8 +92,8 @@ local nmaps = {
   { "<C-l>", "$" },
   { "<C-h>", "^" },
   -- move up and down
-  { "<C-j>", ":m .+1<CR>==" },
-  { "<C-k>", ":m .-2<CR>==" },
+  { "<C-n>", ":m .+1<CR>==" },
+  { "<C-p>", ":m .-2<CR>==" },
   -- V-Line
   { "<Leader>;", "V" },
   -- Select whole file
@@ -114,6 +124,7 @@ local nmaps = {
 local imaps = {
   { "jk", "<Esc>" },
   { "<C-BS>", "<C-w>" },
+  { "<C-l>", "<C-o>x" },
   { "<C-Return>", "<C-o>o" },
   { "<S-Return>", "<C-o>O" },
 }
