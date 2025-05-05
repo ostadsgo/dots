@@ -47,7 +47,7 @@ alias arch-fix-key='sudo pacman-key --init && sudo pacman-key --populate archlin
 # ---------
 export HOME=~
 export EDITOR="nvim"
-export BROWSER="brave"
+export BROWSER="firefox"
 export TERMINAL="st"
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
