@@ -1,9 +1,6 @@
 
-# Set capslock to be <Escape>
-setxkbmap -option caps:escape
-
-# Disable touch pad
-xinput disable "AlpsPS/2 ALPS GlidePoint" &
+# Persian Keyboard Layout
+setxkbmap -layout us,ir -option grp:alt_shift_toggle
 
 # Disable touch pad
 xinput disable "AlpsPS/2 ALPS GlidePoint" &

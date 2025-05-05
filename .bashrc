@@ -87,3 +87,8 @@ eval "$(zoxide init bash)"
 # -----------
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+
+# ------------
+# PROMPT
+# -----------
+PS1='[\u@\h \W]\$ '
