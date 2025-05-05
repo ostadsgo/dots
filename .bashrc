@@ -4,6 +4,7 @@
 alias sx=startx
 alias ls='ls --color=auto' 
 alias ll='ls -lh'
+alias la='ls -alh'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cp='cp -r -v'
