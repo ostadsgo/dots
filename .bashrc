@@ -3,16 +3,15 @@
 # ---------
 alias sx=startx
 alias ls='ls --color=auto' 
-alias ll='ls -lh'
-alias la='ls -alh'
+alias ll='ls -lh --group-directories-first'
+alias la='ls -Alh --group-directories-first'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cp='cp -r -v'
 alias rm='rm -r'
 alias rmf='rm -rf'
 alias v=nvim
-alias vv='nvim .'
-alias ka=killall
+alias ka='pkill -9'
 alias grep='grep --color=auto'
 alias hist=history
 alias ppath='echo -e ${PATH//:/\\n}'
@@ -24,6 +23,7 @@ alias play='ffplay'
 alias show='sxiv'
 alias reader=zathura
 alias edit=leafpad
+alias serve='python -m http.server'
 # Django aliases
 alias djapp='python manage.py startapp'
 alias djrun='python manage.py runserver'
@@ -50,6 +50,7 @@ export HOME=~
 export EDITOR="nvim"
 export BROWSER="firefox"
 export TERMINAL="st"
+export TERM="xterm-256color"
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -88,6 +89,8 @@ eval "$(zoxide init bash)"
 # -----------
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+bind '"\C-n": history-search-forward'
+bind '"\C-p": history-search-backward'
 
 # ------------
 # PROMPT

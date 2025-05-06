@@ -4,17 +4,13 @@
 -- hellow
 local options = {
   backup = false,
+  swapfile = false,
   cmdheight = 1,
   completeopt = { "menuone", "noselect" },
-  mouse = "a",
   writebackup = false,
   termguicolors = true,
   wrap = false,
   conceallevel = 0,
-  fileencoding = "utf-8",
-  encoding = "utf-8",
-  timeoutlen = 1000,
-  updatetime = 5,
   hlsearch = false,
   incsearch = true,
   ignorecase = true,
@@ -23,16 +19,17 @@ local options = {
   smartindent = true,
   splitbelow = true,
   splitright = true,
-  swapfile = false,
   expandtab = true,
   cindent = true,
   shiftwidth = 2,
   tabstop = 2,
   softtabstop = 2,
-  scrolloff = 3,
   number = true,
   relativenumber = true,
   guicursor = "",
+  syntax = "off",   
+  laststatus = 0,
+  showcmd = false,
 }
 
 for key, value in pairs(options) do
@@ -65,19 +62,6 @@ function remap(mode, maps)
 end
 
 local nmaps = {
-  -- centerize workflow
-  { "<C-d>", "<C-d>zz" },
-  { "<C-u>", "<C-u>zz" },
-  { "<C-f>", "<C-f>zz" },
-  { "<C-b>", "<C-b>zz" },
-  { "<C-o>", "<C-o>zz" },
-  { "<C-i>", "<C-i>zz" },
-  { "*", "*zz" },
-  { "#", "#zz" },
-  { "n", "nzz" },
-  { "N", "Nzz" },
-  { "g;", "g;zz" },
-  { "g,", "g,zz" },
   -- Resize window
   { "<C-Down>", ":resize -2<CR>" },
   { "<C-Left>", ":vertical resize +2<CR>" },
