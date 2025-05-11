@@ -70,8 +70,6 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # Nvim Manpager
 export MANPAGER="nvim +Man!"
-# Qt
-# export QT_QPA_PLATFORMTHEME=gtk3
 # Extend path
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
 # History
@@ -95,4 +93,4 @@ bind '"\C-p": history-search-backward'
 # ------------
 # PROMPT
 # -----------
-PS1='[\u@\h \W]\$ '
+PS1='[\u\[\e[91m\]@\[\e[0m\]\h \W]\$ '

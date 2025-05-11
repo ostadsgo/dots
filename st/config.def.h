@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Source Code Pro Medium:pixelsize=13:antialias=true:autohint=true";
-static int borderpx = 0;
+static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -96,31 +96,32 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-  "#000000",  /* black */
-  "#984936",  /* red - error*/
-  "#ebebeb",  /* green */
-  "#708090",  /* yellow(blue) - string */ 
-  "#696969",  /* blue dir inof */
-  "#696969",  /* magenta gray */
-  "#696969",  /* cyan gray */
-  "#c1c1c1",  /* white - fg */
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"blue2",
+	"magenta3",
+	"cyan3",
+	"gray90",
+
 	/* 8 bright colors */
-  "#696969",  /* gray -- auto suggest */
-  "#984936",  /* red -- invalid cmd */
-  "#789978",  /* b green exec */
-  "#696969",  /* b yellow (b gray) owner */
-  "#708090",  /* b blue dir */
-  "#696969",  /* b meg */
-  "#696969",  /* b cyan */
-  "#ebebeb",  /* b white */ 
+	"gray50",
+	"red",
+	"green",
+	"yellow",
+	"#5c5cff",
+	"magenta",
+	"cyan",
+	"white",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"#c1c1c1", /* default foreground colour */
-	"#000000", /* default background colour */
+	"gray90", /* default foreground colour */
+	"black", /* default background colour */
 };
 
 
