@@ -93,4 +93,10 @@ bind '"\C-p": history-search-backward'
 # ------------
 # PROMPT
 # -----------
-PS1='[\u\[\e[91m\]@\[\e[0m\]\h \W]\$ '
+#
+# colors
+RED='\[\e[91m\]'
+NORMAL='\[\e[0m\]'
+
+# prompt
+PS1="[\u${RED}@${NORMAL}\h \W]\$ "

@@ -98,20 +98,20 @@ static const char *colorname[] = {
 	/* 8 normal colors */
   "#000000",  /* black */
   "#984936",  /* red - error*/
-  "#ebebeb",  /* green */
-  "#708090",  /* yellow(blue) - string */ 
-  "#696969",  /* blue dir inof */
+  "#789978",  /* green */
+  "#424242",  /* yellow(blue) - string */ 
+  "#708090",  /* blue dir inof */
   "#696969",  /* magenta gray */
-  "#696969",  /* cyan gray */
+  "#969696",  /* cyan gray */
   "#c1c1c1",  /* white - fg */
 	/* 8 bright colors */
-  "#696969",  /* gray -- auto suggest */
+  "#242424",  /* gray -- auto suggest */
   "#984936",  /* red -- invalid cmd */
   "#789978",  /* b green exec */
-  "#696969",  /* b yellow (b gray) owner */
+  "#424242",  /* b yellow (b gray) owner */
   "#708090",  /* b blue dir */
   "#696969",  /* b meg */
-  "#696969",  /* b cyan */
+  "#969696",  /* b cyan */
   "#ebebeb",  /* b white */ 
 
 	[255] = 0,

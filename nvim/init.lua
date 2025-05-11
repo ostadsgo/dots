@@ -3,35 +3,48 @@
 -- -------------------
 -- hellow
 local options = {
-  backup = false,
-  swapfile = false,
-  cmdheight = 1,
-  completeopt = { "menuone", "noselect" },
-  writebackup = false,
-  termguicolors = true,
-  wrap = false,
-  conceallevel = 0,
-  hlsearch = false,
-  incsearch = true,
-  ignorecase = true,
-  smartcase = true,
-  autoindent = true,
-  smartindent = true,
-  splitbelow = true,
-  splitright = true,
-  expandtab = true,
-  cindent = true,
-  shiftwidth = 2,
-  tabstop = 2,
-  softtabstop = 2,
-  number = true,
-  relativenumber = true,
-  guicursor = "",
-  syntax = "off",   
-  laststatus = 0,
-  showcmd = false,
-}
+  -- File handling
+  backup = false,          
+  writebackup = false,     
+  swapfile = false,        
 
+  -- UI/Display
+  termguicolors = true,    
+  laststatus = 0,          
+  number = true,           
+  relativenumber = true,   
+  ruler = false,           
+  showcmd = false,         
+  cmdheight = 1,           
+  wrap = false,            
+  guicursor = "",          
+  syntax = "off",          
+
+  -- Search
+  hlsearch = false,        
+  incsearch = true,        
+  ignorecase = true,       
+  smartcase = true,        
+
+  -- Indentation
+  expandtab = true,        
+  tabstop = 2,             
+  shiftwidth = 2,          
+  softtabstop = 2,         
+  autoindent = true,       
+  smartindent = true,      
+  cindent = true,          
+
+  -- Completion
+  completeopt = { "menuone", "noselect" },  
+
+  -- Window management
+  splitbelow = true,       
+  splitright = true,      
+
+  -- Text display
+  conceallevel = 0,      
+}
 for key, value in pairs(options) do
   vim.opt[key] = value
 end
