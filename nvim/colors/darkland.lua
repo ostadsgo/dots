@@ -3,30 +3,30 @@ if vim.fn.exists("syntax_on") == 1 then
   vim.cmd("syntax reset")
 end
 
+-- color name
 vim.g.colors_name = "darkland"
+
+-- colors
 local none = "none"
 local white = "#ebebeb"
 local fg = "#c1c1c1"
 local bg = "#000000"
-local status = "#212121"
 local gray = "#696969"
-local gray_blue = "#708090"
 local primary = "#789978"
-local red = "#b6927b"
-local warn = "#ab8550"
-local error = "#984936"
-local hint = "#7788aa"
+local secondary = "#708090"
+local red = "#984936"
 
+-- Syntax groups
 local theme = {
   -- Line Indicators
   StatusLineMode = { bg = "#ff0000" },
   CursorLine = { bg = bg },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { bg = status, fg = white },
-  StatusLineNC = { bg = status, fg = bg },
+  StatusLine = { bg = gray, fg = white },
+  StatusLineNC = { bg = gray, fg = bg },
   CursorLineNr = { fg = fg, bold = true },
-  WinSeparator = { fg = status, bg = bg },
+  WinSeparator = { fg = gray, bg = bg },
 
   -- Normal aka white
   Normal = { fg = fg, bg = bg },
@@ -83,27 +83,27 @@ local theme = {
   PreCondit = { link = "Special" },
 
   -- String
-  String = { fg = gray_blue },
+  String = { fg = secondary },
   Character = { link = "String" },
   SpecialChar = { link = "String" },
   Directory = { link = "String" },
 
   -- Search
-  Search = { fg = bg, bg = warn },
+  Search = { fg = bg, bg = white },
   IncSearch = { link = "Search" },
   Substitute = { link = "Search" },
 
   -- Error
-  ErrorMsg = { fg = error },
+  ErrorMsg = { fg = red },
   WarningMsg = { link = "ErrorMsg" },
   SpellBad = { sp = red, undercurl = true },
-  SpellCap = { sp = error, undercurl = true },
-  Todo = { bg = fg, bg = error, bold = true },
+  SpellCap = { sp = red, undercurl = true },
+  Todo = { bg = fg, bg = red, bold = true },
 
   -- Visual
-  Visual = { bg = gray_blue, fg = bg },
-  Pmenu = { fg = fg, bg = status },
-  PmenuSel = { fg = bg, bg = gray_blue },
+  Visual = { bg = gray, fg = bg },
+  Pmenu = { fg = fg, bg = "#121212" },
+  PmenuSel = { fg = bg, bg = gray },
 
   -- Python
   pythonOperator = { link = "Keyword" },
@@ -118,10 +118,10 @@ local theme = {
   -- LSP
   FloatBorder = { fg = gray },
   DiagnosticInfo = { fg = fg },
-  DiagnosticWarn = { fg = warn },
-  DiagnosticHint = { fg = warn },
+  DiagnosticWarn = { fg = white },
+  DiagnosticHint = { fg = white },
   DiagnosticUnnecessary = { fg = gray },
-  DiagnosticFloatingError = { fg = error },
+  DiagnosticFloatingError = { fg = red },
 
   -- MiniPickBorder xxx links to FloatBorder
   -- MiniPickBorderBusy xxx links to DiagnosticFloatingWarn
@@ -131,7 +131,7 @@ local theme = {
   -- MiniPickIconFile xxx links to MiniPickNormal
   -- MiniPickNormal xxx links to NormalFloat
   -- MiniPickHeader xxx links to DiagnosticFDiagnosticInfo DiagnosticInfo loatingHint
-  MiniPickMatchCurrent = { bg = status },
+  MiniPickMatchCurrent = { bg = gray, fg = bg },
   -- MiniPickMatchMarked xxx links to Visual
   -- MiniPickMatchRanges xxx links to DiagnosticFloatingHint
   -- MiniPickPreviewLine = { bg = "#ff0000" },
