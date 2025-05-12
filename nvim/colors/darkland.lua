@@ -102,7 +102,7 @@ local theme = {
 
   -- Visual
   Visual = { bg = gray, fg = bg },
-  Pmenu = { fg = fg, bg = "#121212" },
+  Pmenu = { fg = fg, bg = "#191919" },
   PmenuSel = { fg = bg, bg = gray },
 
   -- Python
