@@ -97,7 +97,7 @@ local nmaps = {
   { "<Leader>a", "ggVG" },
   -- buffer
   { "<Leader>W", ":wa<CR>" },
-  { "<Leader>e", ":Sexplore<CR>" },
+  { "<Leader>e", ":Exp<CR>" },
   { "<Leader>q", ":bd<CR>" },
   { "<Leader>r", ":source $MYVIMRC<CR>" },
   { "<Leader>w", ":w<CR>" },

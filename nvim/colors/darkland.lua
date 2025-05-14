@@ -23,8 +23,8 @@ local theme = {
   CursorLine = { bg = bg },
   CursorColumn = { link = "CursorLine" },
   ColorColumn = { link = "CursorLine" },
-  StatusLine = { bg = gray, fg = white },
-  StatusLineNC = { bg = gray, fg = bg },
+  StatusLine = { bg = bg, fg = bg },
+  StatusLineNC = { bg = bg, fg = bg },
   CursorLineNr = { fg = fg, bold = true },
   WinSeparator = { fg = gray, bg = bg },
 
