@@ -97,30 +97,30 @@ unsigned int tabspaces = 8;
 static const char *colorname[] = {
 	/* 8 normal colors */
   "#000000",  /* black */
-  "#984936",  /* red - error*/
-  "#789978",  /* green */
-  "#424242",  /* yellow(blue) - string */ 
-  "#708090",  /* blue dir inof */
-  "#696969",  /* magenta gray */
-  "#969696",  /* cyan gray */
-  "#c1c1c1",  /* white - fg */
+  "#984936",  /* red */
+  "#789878",  /* green */ 
+  "#333333",  /* yellow - gray */
+  "#708090",  /* blue */
+  "#454545",  /* magenta - gray */
+  "#696969",  /* cyan - gray */
+  "#cccccc",  /* white */
 	/* 8 bright colors */
-  "#242424",  /* gray -- auto suggest */
-  "#984936",  /* red -- invalid cmd */
-  "#789978",  /* b green exec */
-  "#424242",  /* b yellow (b gray) owner */
-  "#708090",  /* b blue dir */
-  "#696969",  /* b meg */
-  "#969696",  /* b cyan */
-  "#ebebeb",  /* b white */ 
+  "#212121",  /* black */
+  "#984936",  /* red */
+  "#789878",  /* green */ 
+  "#333333",  /* yellow - gray */
+  "#708090",  /* blue */
+  "#454545",  /* magenta - gray */
+  "#696969",  /* cyan - gray */
+  "#eeeeee",  /* white */
 
-	[255] = 0,
+  [255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#c1c1c1",
-	"#696969",
-	"#c1c1c1", /* default foreground colour */
-	"#000000", /* default background colour */
+  /* more colors can be added after 255 to use with DefaultXX */
+  "#cccccc",
+  "#666666",
+  "#cccccc", /* default foreground colour */
+  "#000000", /* default background colour */
 };
 
 

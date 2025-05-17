@@ -6,7 +6,7 @@ setxkbmap -layout us,ir -option grp:alt_shift_toggle
 xinput disable "AlpsPS/2 ALPS GlidePoint" &
 
 # incerese speed of repeated key.
-xset r rate 200 30 &
+xset r rate 200 35 &
 
 # clear right side of dwm statusbar
 xsetroot -name " " &
