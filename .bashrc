@@ -7,6 +7,7 @@ alias ll='ls -lh --group-directories-first'
 alias la='ls -Alh --group-directories-first'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias vim=nvim
 alias cp='cp -r -v'
 alias rm='rm -r'
 alias rmf='rm -rf'
@@ -27,6 +28,7 @@ alias djmkm='python manage.py makemigrations'
 alias djmig='python manage.py migrate'
 alias djcsu='python manage.py createsuperuser --username admin --email ad@min.com'
 
+
 # ---------
 # EXPORTS
 # ---------
@@ -39,14 +41,6 @@ export TERM="xterm-256color"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
-# history
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0" 
-export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
-export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
-export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
-export WGET_HSTS_FILE="$XDG_CACHE_HOME/wget-hsts"
-export ZCOMP_DUMPFILE="$XDG_CACHE_HOME/zsh/.zcompdump"
-export EMACS_DIR=~/.config/emacs
 # PL
 export GOPATH=$XDG_DATA_HOME/go
 export GOBIN="$GOPATH/bin"
@@ -60,24 +54,47 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
 export HISTSIZE=10000
 export HISTFILESIZE=20000
 export HISTCONTROL=ignoredups:ignorespace
+export HISTCONTROL=ignoreboth:erasedups
+
 # ------------------
 # EXTERNAL COMMANDS
 # ------------------
 source <(fzf --bash) 
-eval "$(zoxide init bash)"
+
 
 # ------------
 # BINDS
 # -----------
+tmuxer() {
+  selected=$(ls ~/dox/repos | fzf) || return
+  cd ~/dox/repos/"$selected" || return
+
+  # if in tmux
+  if [ -n "$TMUX" ]; then
+    # if session exist
+    if tmux has-session -t "$selected" 2>/dev/null; then
+      tmux switch-client -t "$selected"
+      return
+    fi
+    # create in detach mode and then switch
+    tmux new-session -d -s "$selected"
+    tmux switch-client -t "$selected"
+  # not in tmux
+  else
+    # attach or create
+    tmux attach -t "$selected" || tmux new-session -s "$selected"
+  fi
+}
+
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
+bind -x '"\C-@":"tmuxer"'
 
 # ------------
 # PROMPT
 # -----------
-#
 # colors
 RED='\[\e[91m\]'
 NORMAL='\[\e[0m\]'
