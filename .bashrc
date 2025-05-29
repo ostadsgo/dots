@@ -66,23 +66,23 @@ source <(fzf --bash)
 # BINDS
 # -----------
 tmuxer() {
-  selected=$(ls ~/dox/repos | fzf) || return
-  cd ~/dox/repos/"$selected" || return
+  selected=$(find ~/dox/repos -maxdepth 1 -mindepth 1 -type d | fzf) || return
+  selected_name=$(basename "$selected" | tr . _)
 
   # if in tmux
   if [ -n "$TMUX" ]; then
     # if session exist
-    if tmux has-session -t "$selected" 2>/dev/null; then
-      tmux switch-client -t "$selected"
+    if tmux has-session -t "$selected_name" 2>/dev/null; then
+      tmux switch-client -t "$selected_name"
       return
     fi
     # create in detach mode and then switch
-    tmux new-session -d -s "$selected"
-    tmux switch-client -t "$selected"
+    tmux new-session -d -s "$selected_name" -c "$selected"
+    tmux switch-client -t "$selected_name"
   # not in tmux
   else
     # attach or create
-    tmux attach -t "$selected" || tmux new-session -s "$selected"
+    tmux attach -t "$selected_name" || tmux new-session -s "$selected_name" -c "$selected"
   fi
 }
 
