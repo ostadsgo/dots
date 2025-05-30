@@ -45,6 +45,7 @@ vim.opt.conceallevel = 0
 
 vim.g.netrw_banner = 0
 vim.cmd.colorscheme("darkland")
+vim.treesitter.stop()
 
 -- -------------
 -- COMMANDS
@@ -170,3 +171,4 @@ plugins = {
   { "ibhagwan/fzf-lua", opts = { winopts = { row=1, col=0, height=.4, width=1, preview={ hidden=true } } } },
 }
 require("lazy").setup({ spec = plugins, checker = { enabled = false }, })
+

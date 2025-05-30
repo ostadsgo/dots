@@ -9,8 +9,8 @@ static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#000000"; 
-static const char col_gray3[]       = "#696969";
-static const char col_gray4[]       = "#c1c1c1";
+static const char col_gray3[]       = "#424242";
+static const char col_gray4[]       = "#984936";
 static const char col_cyan[]        = "#000000";
 static const char col_cyan2[]       = "#789978";
 static const char *colors[][3]      = {
@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3" };
+static const char *tags[] = { "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
