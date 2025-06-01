@@ -120,7 +120,7 @@ static const char *colorname[] = {
   "#984936", /* cursor color */
   "#666666",
   "#b8b8b8", /* default foreground colour */
-  "#000000", /* default background colour */
+  "#080808", /* default background colour */
 };
 
 

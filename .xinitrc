@@ -1,4 +1,7 @@
 
+# Disable beep sound
+xset -b
+
 # Persian Keyboard Layout
 setxkbmap -layout us,ir -option grp:alt_shift_toggle
 
