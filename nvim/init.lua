@@ -167,8 +167,17 @@ vim.opt.rtp:prepend(lazypath)
 -- PLUGINS
 -- -----------------------
 -- List of Plugins
-plugins = {
+local plugins = {
   { "ibhagwan/fzf-lua", opts = { winopts = { row=1, col=0, height=.4, width=1, preview={ hidden=true } } } },
+  { "neovim/nvim-lspconfig" },
 }
 require("lazy").setup({ spec = plugins, checker = { enabled = false }, })
 
+
+-- -----------------------
+-- LSP
+-- -----------------------
+
+vim.lsp.enable({ 'lua_ls', 'ruff' })
+vim.diagnostic.config({ virtual_text = true })
+vim.lsp.set_log_level("debug")
