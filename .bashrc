@@ -61,7 +61,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # EXTERNAL COMMANDS
 # ------------------
 source <(fzf --bash) 
-
+eval "$(zoxide init bash)"
 
 # ------------
 # BINDS
@@ -87,22 +87,13 @@ tmuxer() {
   fi
 }
 
-tmux-switch() {
-  # Prevents variable leakage into the global scope.
-  local selected selected_name
-  selected=$(tmux list-sessions 2>/dev/null | fzf) || return
-  # Extract name of the session.
-  selected_name=$(echo $selected | cut -d ':' -f 1)
-  # Attach to the session.
-  tmux switch-client -t $selected_name || return
-}
-
+set -o vi
+bind '"jk":vi-movement-mode'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
 bind -x '"\C-@":"tmuxer"'
-bind -x '"\e ":tmux-switch'
 
 # ------------
 # PROMPT

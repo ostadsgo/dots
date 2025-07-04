@@ -1,0 +1,21 @@
+[Default Applications]
+inode/directory=pcmanfm.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/xhtml+xml=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+text/html=firefox.desktop
+text/plain=nvim.desktop
+image/jpeg=sxiv.desktop
+image/jpg=sxiv.desktop
+image/png=sxiv.desktop
+x-scheme-handler/tonsite=userapp-Telegram Desktop-5O2YT2.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-A3OYT2.desktop
+x-scheme-handler/oblivion=oblivion-desktop.desktop
+
+[Added Associations]
+application/pdf=firefox.desktop;
+text/plain=firefox.desktop;
+video/x-sgi-movie=vlc.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;userapp-Telegram Desktop-5O2YT2.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-A3OYT2.desktop;

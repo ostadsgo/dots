@@ -44,8 +44,7 @@ vim.opt.splitright = true
 vim.opt.conceallevel = 0      
 
 vim.g.netrw_banner = 0
-vim.cmd.colorscheme("darkland")
-vim.treesitter.stop()
+vim.api.nvim_set_hl(0, "Normal", {bg = "#080808" })
 
 -- -------------
 -- COMMANDS

@@ -1,0 +1,62 @@
+#! /usr/bin/sh
+
+# Xorg
+sudo xbps-install -y xorg-minimal xinit xauth xsetroot
+# Devel
+sudo xbps-install -y base-devel libX11-devel libXft-devel libXinerama-devel
+# Font / sound
+sudo xbps-install -y font-adobe-source-code-pro font-vazir font-inter font-awesome pulseaudio 
+# X
+sudo xbps-install -y xclip xset setxkbmap xinput xprop xrandr 
+# TOOLS
+sudo xbps-install -y ffmpeg wget curl htop dmenu
+# Misc
+sudo xbps-install -y xdg-user-dirs xdg-utils 
+# Dev
+sudo xbps-install -y neovim tmux uv python git fzf zoxide 
+# Apps
+sudo xbps-install -y firefox pcmanfm sxiv zathura zathura-pdf-mupdf papirus-icon-theme
+
+
+### Basic Sys config
+sudo rm /var/service/agetty-tty{3,4,5,6}
+
+# Make home directories.
+cd
+mkdir dl dox vids pix
+
+mkdir dox/repos
+mkdir dox/ebooks
+
+# Clone dotfiles
+git clone https://github.com/ostadsgo/dots
+mv dots ~/dox/repos/
+
+### Build `dwm` and `st`
+cd ~/dox/repos/dots
+cd dwm
+sudo make clean install 
+
+cd ..
+cd st
+sudo make clean install
+
+
+# Link to important configs
+ln -s --force ~/dox/repos/dots/nvim ~/.config/nvim
+ln -s --force ~/dox/repos/dots/tmux ~/.config/tmux
+ln -s --force ~/dox/repos/dots/.xinitrc ~/.xinitrc
+ln -s --force ~/dox/repos/dots/.bashrc ~/.bashrc
+
+# Git config
+ln -s --force ~/dox/repos/dots/misc/.gitconfig ~/.gitconfig
+
+ln -s --force ~/dox/repos/dots/misc/mimeapps.list ~/.config/mimeapps.list
+ln -s --force ~/dox/repos/dots/misc/user-dirs.dirs  ~/.config/user-dirs.dirs
+
+ln -s --force ~/dox/repos/dots/misc/fontconfig/ ~/.config/fontconfig
+
+# GTK
+sudo ln -s --force ~/dox/repos/dots/misc/Orchis-Red-Dark-Compact/ /usr/share/themes
+ln -s --force ~/dox/repos/dots/misc/gtk-3.0/ ~/.config/gtk-3.0
+
