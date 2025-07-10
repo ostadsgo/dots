@@ -57,6 +57,6 @@ ln -s --force ~/dox/repos/dots/misc/user-dirs.dirs  ~/.config/user-dirs.dirs
 ln -s --force ~/dox/repos/dots/misc/fontconfig/ ~/.config/fontconfig
 
 # GTK
-sudo ln -s --force ~/dox/repos/dots/misc/Orchis-Red-Dark-Compact/ /usr/share/themes
+sudo ln -s --force ~/dox/repos/dots/misc/Orchis-Dark/ /usr/share/themes
 ln -s --force ~/dox/repos/dots/misc/gtk-3.0/ ~/.config/gtk-3.0
 

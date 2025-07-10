@@ -12,6 +12,9 @@ xinput disable "AlpsPS/2 ALPS GlidePoint" &
 xset r rate 200 35 &
 
 # clear right side of dwm statusbar
-xsetroot -name " " &
+xsetroot -name "" &
+
+# Run st terminal at first tag.
+st &
 
 exec dwm

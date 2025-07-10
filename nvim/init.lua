@@ -8,12 +8,9 @@ vim.opt.swapfile = false
 
 -- UI/Display
 vim.opt.termguicolors = true    
-vim.opt.laststatus = 0          
 vim.opt.number = true           
 vim.opt.relativenumber = true   
-vim.opt.ruler = false           
 vim.opt.showcmd = false         
-vim.opt.cmdheight = 1           
 vim.opt.wrap = false            
 vim.opt.guicursor = ""          
 vim.opt.syntax = "on"          
@@ -40,10 +37,7 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.splitbelow = true       
 vim.opt.splitright = true      
 
--- Text display
-vim.opt.conceallevel = 0      
-
-vim.g.netrw_banner = 0
+-- color
 vim.api.nvim_set_hl(0, "Normal", {bg = "#080808" })
 
 -- -------------
@@ -176,7 +170,6 @@ require("lazy").setup({ spec = plugins, checker = { enabled = false }, })
 -- -----------------------
 -- LSP
 -- -----------------------
-
 vim.lsp.enable({ 'lua_ls', 'ruff' })
 vim.diagnostic.config({ virtual_text = true })
 vim.lsp.set_log_level("debug")
