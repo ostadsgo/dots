@@ -38,7 +38,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true      
 
 -- color
-vim.api.nvim_set_hl(0, "Normal", {bg = "#080808" })
+vim.opt.background = "dark"
 
 -- -------------
 -- COMMANDS
@@ -161,15 +161,28 @@ vim.opt.rtp:prepend(lazypath)
 -- -----------------------
 -- List of Plugins
 local plugins = {
-  { "ibhagwan/fzf-lua", opts = { winopts = { row=1, col=0, height=.4, width=1, preview={ hidden=true } } } },
+  -- fuzzy finder
+  { "ibhagwan/fzf-lua", 
+    opts = { 
+      winopts = { row=1, col=0, height=.4, width=1, preview={ hidden=true } },
+    },
+  },
+  -- lsp
   { "neovim/nvim-lspconfig" },
+  -- colorscheme
+  {'nyoom-engineering/oxocarbon.nvim', 
+    config = function()
+      vim.cmd('colorscheme oxocarbon') 
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+    end },
 }
 require("lazy").setup({ spec = plugins, checker = { enabled = false }, })
-
 
 -- -----------------------
 -- LSP
 -- -----------------------
-vim.lsp.enable({ 'lua_ls', 'ruff' })
+vim.lsp.enable({ 'lua_ls', 'pyright' })
 vim.diagnostic.config({ virtual_text = true })
 vim.lsp.set_log_level("debug")

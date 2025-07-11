@@ -56,7 +56,16 @@ export HISTSIZE=10000
 export HISTFILESIZE=20000
 export HISTCONTROL=ignoredups:ignorespace
 export HISTCONTROL=ignoreboth:erasedups
-
+# FZF
+export FZF_DEFAULT_COMMAND='
+    find . \
+    -type f \
+    ! -path "*/.venv*" \
+    ! -path "*/__pycache__*" \
+    ! -path "*/node_modules*" \
+    ! -path "*/.git*" \
+    ! -path "*.cargo*"
+'
 # ------------------
 # EXTERNAL COMMANDS
 # ------------------
