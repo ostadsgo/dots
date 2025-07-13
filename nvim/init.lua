@@ -60,11 +60,14 @@ vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
 vim.keymap.set("n", "<C-Left>", ":vertical resize +2<CR>")
 vim.keymap.set("n", "<C-Right>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
+-- Nav window
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
 -- create empty line
 vim.keymap.set("n", "<A-j>", "o<ESC>")
 vim.keymap.set("n", "<A-k>", "O<ESC>")
 -- dup line
-vim.keymap.set("n", "<A-,>", ":t.<CR>")
+vim.keymap.set("n", "<A-.>", ":t.<CR>")
 -- Move cursor to end and beginning
 vim.keymap.set("n", "<A-l>", "$")
 vim.keymap.set("n", "<A-h>", "^")
@@ -128,6 +131,10 @@ vim.keymap.set("c", "<A-b>", "<Left>")
 vim.keymap.set("c", "<A-f>", "<Right>")
 vim.keymap.set("c", "<A-n>", "<Down>")
 vim.keymap.set("c", "<A-p>", "<Up>")
+ 
+-- lsp
+vim.keymap.set("n", 'gd', vim.lsp.buf.definition)
+
 
 -- -----------------------
 -- LAZY PACKAGE MANAGER
@@ -199,11 +206,12 @@ local plugins = {
     opts = {
       ensure_installed = { "python", "javascript", "html", "css", "lua", "go" },
       highlight = { enable = true },
-      indent = { enable = true },
+      indent = { enable = false },
     },
   },
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
+
 
 -- -----------------------
 -- LSP

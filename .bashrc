@@ -51,6 +51,8 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export MANPAGER="nvim +Man!"
 # Extend path
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
+# dbus - browser required it
+export $(dbus-launch)
 # History
 export HISTSIZE=10000
 export HISTFILESIZE=20000
