@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
+  { "Brave",    NULL,       NULL,       1 << 1,       0,           -1 },
   { "Tk",       NULL,       NULL,       0,            1,           -1 },
   { "app.py",   NULL,       NULL,       0,            1,           -1 },
 };
@@ -64,7 +64,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *explorer[] = {"pcmanfm", NULL};
 static const char *emacs[] = {"emacs", NULL};
-static const char *browser[] = {"firefox", NULL};
+static const char *browser[] = {"brave", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */

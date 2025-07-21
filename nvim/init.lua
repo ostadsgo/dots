@@ -14,7 +14,7 @@ vim.opt.showcmd = false
 vim.opt.wrap = false
 vim.opt.guicursor = ""
 vim.opt.syntax = "on"
-
+vim.g.netrw_banner = 0
 -- Search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -39,6 +39,12 @@ vim.opt.splitright = true
 
 -- color
 vim.opt.background = "dark"
+-- Set the color scheme
+vim.cmd("colorscheme default")
+vim.api.nvim_set_hl(0, "Normal", {bg="#101010"})
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+
 
 -- -------------
 -- COMMANDS
@@ -63,6 +69,8 @@ vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
 -- Nav window
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
 -- create empty line
 vim.keymap.set("n", "<A-j>", "o<ESC>")
 vim.keymap.set("n", "<A-k>", "O<ESC>")
@@ -80,7 +88,7 @@ vim.keymap.set("n", "<Leader>;", "V")
 vim.keymap.set("n", "<Leader>a", "ggVG")
 -- buffer
 vim.keymap.set("n", "<Leader>W", ":wa<CR>")
-vim.keymap.set("n", "<Leader>e", ":Exp<CR>")
+vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
 vim.keymap.set("n", "<Leader>q", ":bd<CR>")
 vim.keymap.set("n", "<Leader>r", ":source $MYVIMRC<CR>")
 vim.keymap.set("n", "<Leader>w", ":w<CR>")
@@ -126,15 +134,17 @@ vim.keymap.set("v", "<leader>d", '"_d')
 -- keep cursor pos after yank
 vim.keymap.set("v", "<Leader>y", '"+ygv<ESC>')
 
+-- Move highlighted lines up / down
+vim.keymap.set("v", "<A-p>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<A-n>", ":m '>+1<CR>gv=gv")
 -- Command Mode
 vim.keymap.set("c", "<A-b>", "<Left>")
 vim.keymap.set("c", "<A-f>", "<Right>")
 vim.keymap.set("c", "<A-n>", "<Down>")
 vim.keymap.set("c", "<A-p>", "<Up>")
- 
--- lsp
-vim.keymap.set("n", 'gd', vim.lsp.buf.definition)
 
+-- lsp
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
 -- -----------------------
 -- LAZY PACKAGE MANAGER
@@ -177,24 +187,8 @@ local plugins = {
     },
   },
   -- lsp
-  { "neovim/nvim-lspconfig" },
-  -- colorscheme
   {
-    "nyoom-engineering/oxocarbon.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme oxocarbon")
-      -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-    end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme oxocarbon")
-    end,
+    "neovim/nvim-lspconfig",
   },
   -- treesitter
   {
@@ -209,9 +203,17 @@ local plugins = {
       indent = { enable = false },
     },
   },
+  -- ui
+  {
+     "sphamba/smear-cursor.nvim",
+     opts = {}
+   },
+   {
+     "karb94/neoscroll.nvim",
+     opts = {},
+   },
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
-
 
 -- -----------------------
 -- LSP
