@@ -22,13 +22,6 @@ alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f pulse -i default '
 alias play='ffplay'
 alias serve='python -m http.server'
 alias shot='scrot -d 1 ~/pix/shots/%Y-%m-%d-%T-screenshot.png'
-# Django aliases
-alias djapp='python manage.py startapp'
-alias djrun='python manage.py runserver'
-alias djmkm='python manage.py makemigrations'
-alias djmig='python manage.py migrate'
-alias djcsu='python manage.py createsuperuser --username admin --email ad@min.com'
-
 
 # ---------
 # EXPORTS

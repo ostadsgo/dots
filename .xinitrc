@@ -15,6 +15,6 @@ xset r rate 200 35 &
 xsetroot -name "" &
 
 # Run st terminal at first tag.
-st &
+st -e tmux &
 
 exec dwm

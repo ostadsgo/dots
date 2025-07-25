@@ -1,11 +1,11 @@
 #! /usr/bin/sh
 
 # Xorg
-sudo pacman -S  xorg-server xorg-xinit xorg-xinput
+sudo xbps-install -y xorg-minimal xinit xauth xsetroot
 # Devel
-sudo pacman -S libXft
+sudo xbps-install -y base-devel libX11-devel libXft-devel libXinerama-devel
 # Font / sound
-sudo xbps-install -y adobe-source-code-pro-font font-vazir font-inter font-awesome pulseaudio 
+sudo xbps-install -y font-adobe-source-code-pro font-vazir font-inter font-awesome pulseaudio 
 # X
 sudo xbps-install -y xclip xset setxkbmap xinput xprop xrandr 
 # TOOLS

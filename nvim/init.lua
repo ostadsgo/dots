@@ -5,7 +5,6 @@
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
-
 -- UI/Display
 vim.opt.termguicolors = true
 vim.opt.number = true
@@ -15,6 +14,7 @@ vim.opt.wrap = false
 vim.opt.guicursor = ""
 vim.opt.syntax = "on"
 vim.g.netrw_banner = 0
+
 -- Search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -39,12 +39,12 @@ vim.opt.splitright = true
 
 -- color
 vim.opt.background = "dark"
--- Set the color scheme
-vim.cmd("colorscheme default")
-vim.api.nvim_set_hl(0, "Normal", {bg="#101010"})
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-
+vim.cmd.colorscheme("default")
+vim.api.nvim_set_hl(0, "Normal", { bg = "#080808" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#080808" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "#080808" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "#080808" })
+vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#080808" })
 
 -- -------------
 -- COMMANDS
@@ -61,27 +61,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Resize window
-vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
-vim.keymap.set("n", "<C-Left>", ":vertical resize +2<CR>")
-vim.keymap.set("n", "<C-Right>", ":vertical resize -2<CR>")
-vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
 -- Nav window
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
--- create empty line
-vim.keymap.set("n", "<A-j>", "o<ESC>")
-vim.keymap.set("n", "<A-k>", "O<ESC>")
 -- dup line
 vim.keymap.set("n", "<A-.>", ":t.<CR>")
 -- Move cursor to end and beginning
 vim.keymap.set("n", "<A-l>", "$")
 vim.keymap.set("n", "<A-h>", "^")
 -- move up and down
-vim.keymap.set("n", "<A-n>", ":m .+1<CR>==")
-vim.keymap.set("n", "<A-p>", ":m .-2<CR>==")
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 -- V-Line
 vim.keymap.set("n", "<Leader>;", "V")
 -- Select whole file
@@ -98,29 +90,24 @@ vim.keymap.set("n", "<Leader>P", '"+P')
 -- delete without change register
 vim.keymap.set("n", "<leader>d", '"_d')
 -- keep cursor pos after yank
-vim.keymap.set("n", "<Leader>y", '"+ygv<ESC>')
+vim.keymap.set("n", "<Leader>y", '"+yy<ESC>')
+vim.keymap.set("n", "<Leader>Y", '"+y$<ESC>')
 -- Exec lua code
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
+vim.keymap.set("n", "<C-Space>", ":!tx<CR>")
 
 -- Insert
 vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("i", "<A-BS>", "<C-w>")
--- delete char in the right side of the cursor
-vim.keymap.set("i", "<C-l>", "<C-o>x")
--- Create empty line above / below
-vim.keymap.set("i", "<A-j>", "<C-o>o")
-vim.keymap.set("i", "<A-k>", "<C-o>O")
 -- Move cursor to end and beginning
 vim.keymap.set("i", "<A-l>", "<C-o>$")
 vim.keymap.set("i", "<A-h>", "<C-o>^")
+vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
+
 -- Visual Mode
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 -- keyp cur pos
-vim.keymap.set("v", "y", "ygv<ESC>")
--- move up and down
-vim.keymap.set("v", "<C-j>", ":move '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-k>", ":move '<-2<CR>gv=gv")
+vim.keymap.set("v", "y", "y<ESC>")
 -- exec Lua code
 vim.keymap.set("v", "<Leader>X", ":lua<CR>")
 -- V-Line
@@ -135,13 +122,8 @@ vim.keymap.set("v", "<leader>d", '"_d')
 vim.keymap.set("v", "<Leader>y", '"+ygv<ESC>')
 
 -- Move highlighted lines up / down
-vim.keymap.set("v", "<A-p>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<A-n>", ":m '>+1<CR>gv=gv")
--- Command Mode
-vim.keymap.set("c", "<A-b>", "<Left>")
-vim.keymap.set("c", "<A-f>", "<Right>")
-vim.keymap.set("c", "<A-n>", "<Down>")
-vim.keymap.set("c", "<A-p>", "<Up>")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- lsp
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
@@ -187,31 +169,9 @@ local plugins = {
     },
   },
   -- lsp
-  {
-    "neovim/nvim-lspconfig",
-  },
-  -- treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    lazy = false,
-    build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
-    opts = {
-      ensure_installed = { "python", "javascript", "html", "css", "lua", "go" },
-      highlight = { enable = true },
-      indent = { enable = false },
-    },
-  },
-  -- ui
-  {
-     "sphamba/smear-cursor.nvim",
-     opts = {}
-   },
-   {
-     "karb94/neoscroll.nvim",
-     opts = {},
-   },
+  { "neovim/nvim-lspconfig" },
+  -- multicusor
+  { "mg979/vim-visual-multi", branch = "master" },
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
 
