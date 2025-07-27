@@ -5,6 +5,7 @@
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
+
 -- UI/Display
 vim.opt.termguicolors = true
 vim.opt.number = true
@@ -181,3 +182,4 @@ require("lazy").setup({ spec = plugins, checker = { enabled = false } })
 vim.lsp.enable({ "lua_ls", "pyright" })
 vim.diagnostic.config({ virtual_text = true })
 vim.lsp.set_log_level("debug")
+vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
