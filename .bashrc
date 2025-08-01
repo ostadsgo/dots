@@ -43,7 +43,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # Nvim Manpager
 export MANPAGER="nvim +Man!"
 # Extend path
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$XDG_DATA_HOME/nvim/mason/bin:$HOME/.cargo/bin"
 # dbus - browser required it
 export $(dbus-launch)
 # History

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+
+WALLPAPER_DIR="$HOME/pix/wallpapers"
+
+if [[ ! -d "$WALLPAPER_DIR" ]]; then
+    echo "Error: Wallpaper directory not found: $WALLPAPER_DIR"
+    exit 1
+fi
+
+
+# All wallpapers in array
+mapfile -t wallpapers < <(find "$WALLPAPER_DIR" -type f -name "*.jpg" -o -name "*.png" -o -name "*.jpeg")
+
+INDEX_FILE="$HOME/.local/bin/.wall"
+current_index=$(cat "$INDEX_FILE" 2>/dev/null || echo 0)
+
+# Next wallpaper or back to 0
+if ((current_index + 1 < ${#wallpapers[@]})); then
+    ((current_index++))
+else
+    current_index=0
+fi
+
+# Select the next wallpaper
+next_wallpaper="${wallpapers[current_index]}"
+
+# set background
+xwallpaper --stretch "$next_wallpaper"
+
+# Save the new index
+echo "$current_index" > "$INDEX_FILE"
+
+echo "Set wallpaper: $next_wallpaper"

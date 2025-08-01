@@ -41,11 +41,11 @@ vim.opt.splitright = true
 -- color
 vim.opt.background = "dark"
 vim.cmd.colorscheme("default")
-vim.api.nvim_set_hl(0, "Normal", { bg = "#080808" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#080808" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "#080808" })
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "#080808" })
-vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#080808" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "#000000"})
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "#000000" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = nil})
+vim.api.nvim_set_hl(0, "StatusLineNC", { bg = nil})
 
 -- -------------
 -- COMMANDS
@@ -95,13 +95,15 @@ vim.keymap.set("n", "<Leader>y", '"+yy<ESC>')
 vim.keymap.set("n", "<Leader>Y", '"+y$<ESC>')
 -- Exec lua code
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
-vim.keymap.set("n", "<C-Space>", ":!tx<CR>")
+vim.keymap.set("n", "<C-Space>", ":silent !tmux neww tmuxer<CR>", { noremap = true, silent = true })
 
 -- Insert
 vim.keymap.set("i", "jk", "<Esc>")
 -- Move cursor to end and beginning
 vim.keymap.set("i", "<A-l>", "<C-o>$")
 vim.keymap.set("i", "<A-h>", "<C-o>^")
+vim.keymap.set("i", "<A-j>", "<C-o>o")
+vim.keymap.set("i", "<A-k>", "<C-o>O")
 vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 
 -- Visual Mode
@@ -128,6 +130,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- lsp
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<leader>=", vim.lsp.buf.format)
 
 -- -----------------------
 -- LAZY PACKAGE MANAGER
@@ -163,14 +166,16 @@ local plugins = {
       },
     },
     keys = {
-      { "<Leader>ff", ":lua require('fzf-lua').files()<CR>" },
-      { "<Leader>fb", ":lua require('fzf-lua').buffers()<CR>" },
-      { "<Leader>fg", ":lua require('fzf-lua').grep()<CR>" },
-      { "<Leader>fs", ":lua require('fzf-lua').live_grep()<CR>" },
+      { "<Leader>f", ":lua require('fzf-lua').files()<CR>" },
+      { "<Leader>b", ":lua require('fzf-lua').buffers()<CR>" },
+      { "<Leader>g", ":lua require('fzf-lua').grep()<CR>" },
+      { "<Leader>s", ":lua require('fzf-lua').live_grep()<CR>" },
     },
   },
   -- lsp
   { "neovim/nvim-lspconfig" },
+  -- Mason to install tools
+  {"mason-org/mason.nvim", opts = {}},
   -- multicusor
   { "mg979/vim-visual-multi", branch = "master" },
 } -- end of list of plugins
@@ -179,7 +184,7 @@ require("lazy").setup({ spec = plugins, checker = { enabled = false } })
 -- -----------------------
 -- LSP
 -- -----------------------
-vim.lsp.enable({ "lua_ls", "pyright" })
+vim.lsp.enable({ "lua_ls", "pyright", "ruff", "emmet_language_server" })
 vim.diagnostic.config({ virtual_text = true })
 vim.lsp.set_log_level("debug")
 vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })

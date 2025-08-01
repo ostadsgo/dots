@@ -16,7 +16,8 @@ sudo xbps-install -y xdg-user-dirs xdg-utils
 sudo xbps-install -y neovim tmux uv python git fzf zoxide 
 # Apps
 sudo xbps-install -y firefox pcmanfm sxiv zathura zathura-pdf-mupdf papirus-icon-theme
-
+# extra fonts
+sudo xbps-install -S noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk
 
 ### Basic Sys config
 sudo rm /var/service/agetty-tty{3,4,5,6}
