@@ -20,5 +20,5 @@ st -e tmux &
 # set wallpaper
 setbg &
 
-# Run dwm
-exec dwm
+# Run wm
+exec qtile start
