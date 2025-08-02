@@ -11,14 +11,15 @@ xinput disable "AlpsPS/2 ALPS GlidePoint" &
 # incerese speed of repeated key.
 xset r rate 200 35 &
 
-# Run picom in background
-# picom &
-
-# Run st terminal at first tag.
-st -e tmux &
-
 # set wallpaper
 setbg &
 
+# Run st terminal at first tag.
+st &
+
+# Run picom in background
+picom &
+
 # Run wm
 exec qtile start
+

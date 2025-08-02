@@ -5,25 +5,19 @@ from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
 
+
 # ---------------
 #   Bindings
 # ---------------
-
-
 # Modifiers
 SUPER = "mod4"
 
 # shortcut set
-WIN = ["mod4"]
-ALT = ["mod1"]
-WIN_SHT = ["mod4", "shift"]
-WIN_CTRL = ["mod4", "control"]
+WIN, ALT, WIN_SHT, WIN_CTRL = [["mod4"], ["mod1"], ["mod4", "shift"], ["mod4", "control"]]
 
 TERMINAL = os.environ.get("TERMINAL")
 BROWSER = os.environ.get("BROWSER")
 FILEMANAGER = os.environ.get("FILEMANAGER")
-transparency = True
-
 
 @lazy.function
 def navigate_floating(qtile):
@@ -67,7 +61,6 @@ keys = [
         ALT,
         "shift_l",
         lazy.widget["keyboardlayout"].next_keyboard(),
-        lazy.spawn("kblayout"),
     ),
     # Window command
     Key(WIN, "q", lazy.window.kill()),
@@ -80,7 +73,7 @@ keys = [
     Key(WIN, "grave", lazy.next_layout()),
     Key(WIN_SHT, "grave", lazy.prev_layout()),
     Key(WIN, "m", lazy.group.setlayout("max")),
-    Key(WIN, "t", lazy.group.setlayout("columns")),
+    Key(WIN, "c", lazy.group.setlayout("columns")),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -88,10 +81,12 @@ keys = [
     Key(WIN, "1", lazy.group["1"].toscreen()),
     Key(WIN, "2", lazy.group["2"].toscreen()),
     Key(WIN, "3", lazy.group["3"].toscreen()),
+    Key(WIN, "9", lazy.group["9"].toscreen()),
     Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=False)),
     Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=False)),
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
+    Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
     Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
@@ -123,12 +118,12 @@ mouse = [
 # ---------------
 
 color = {
-    "bg": "#040404",
-    "fg": "cdcdcd",
-    "active": "#727272",
-    "inactive": "#373737",
-    "primary": "#708090",
-    "secondary": "#BC5215",
+    "bg": "#121212",
+    "fg": "#c1c1c1",
+    "active": "#fafafa",
+    "inactive": "#212121",
+    "primary": "#984936",
+    "secondary": "#788890",
 }
 
 # ------------------
@@ -143,30 +138,33 @@ groups = [
         label="2",
         layout="max",
         matches=[
-            Match(wm_class="Google-chrome"),
+            Match(wm_class="Firefox"),
             Match(wm_class="Brave-browser"),
         ],
     ),
+    Group( name="3", label="3"),
     Group(
-        name="3",
-        label="3",
+        name="9",
+        label="9",
+        layout="max",
         matches=[
             Match(wm_class="TelegramDesktop"),
+            Match(wm_class="obsidian"),
         ],
     ),
     Group(
         name="0",
-        label="9",
+        label="0",
+        layout="max",
         matches=[
-            Match(wm_class="TelegramDesktop"),
-            Match(wm_class="obsidian"),
+            Match(wm_class="obs"),
         ],
     ),
     ScratchPad(
         "scratchpad",
         [
             DropDown("python", f"{TERMINAL} -e python", **spad_kw),
-            DropDown("terminal", TERMINAL, **spad_kw),
+            DropDown("terminal", f"{TERMINAL}", **spad_kw),
         ],
     ),
 ]
@@ -177,10 +175,10 @@ groups = [
 # ------------------
 layout_config = dict(
     margin=5,
+    border_on_single=True,
     border_width=0,
-    margin_on_single=0,
     single_border_width=0,
-    border_on_single=False,
+    margin_on_single=5,
     border_focus=color.get("primary", "#ff000"),
     border_normal=color.get("bg", "#ff0000"),
     border_focus_stack=color.get("secondary", "#ff0000"),
@@ -189,7 +187,7 @@ layout_config = dict(
 
 layouts = [
     layout.Columns(**layout_config, insert_position=1),
-    layout.Max(),
+    layout.Max(**layout_config),
 ]
 
 # ---------------------
@@ -200,8 +198,6 @@ floating_layout = layout.Floating(
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="Tk"),  # tkinter
-        Match(wm_class="pcmanfm"),  # tkinter
-        Match(wm_class="thunar"),  # tkinter
         Match(wm_class="vlc"),  # VLC media player
         Match(wm_class="simplescreenrecorder"),  # VLC media player
         Match(wm_class="pavucontrol"),  # VLC media player
@@ -228,19 +224,21 @@ def sep(bg, pad=5):
 
 
 widget_defaults = dict(
-    font="Fira code",
+    font="Not Sans Mono",
     fontsize=13,
 )
 extension_defaults = widget_defaults.copy()
 
 bar_widgets = [
     widget.GroupBox(
-        highlight_method="text",
-        fontsize=18,
+        highlight_method="block",
         background=color.get("inactive", "#ff0000"),
         active=color.get("active", "#ff0000"),
-        inactive=color.get("active", "#ff0000"),
-        this_current_screen_border=color.get("fg", "#ff0000"),
+        inactive="#696969",
+        this_current_screen_border=color.get("primary", "#ff0000"),
+        block_highlight_text_color=color.get("active", "#ff0000"),
+        padding_x=5,
+        padding_y=2,
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.CurrentLayout(
@@ -289,14 +287,16 @@ bar_widgets = [
 bar_widgets = bar_widgets.copy()
 bar = bar.Bar(
     bar_widgets,
-    border_color="#ff0000",
-    background=color.get("bg", "#ff0000"),
+    border_width=3,
+    border_color=color["bg"],
+    background=color.get("bg"),
     size=20,
-    opacity=1,
+    opacity=0.95,
+    margin=(5, 5, 0, 5),
 )
 
 # Screens
-screen = Screen(bottom=bar)
+screen = Screen(top=bar)
 screens = [screen]
 
 # ---------------
@@ -324,12 +324,6 @@ def float_change():
     is_maximized = window.info().get("maximized")
     if not is_maximized:
         window.center()
-
-
-@hook.subscribe.startup_once
-def run_every_startup():
-    subprocess.run("/home/saeed/.local/bin/scripts/autostart")
-
 
 @hook.subscribe.client_new
 def float_centerize(window):

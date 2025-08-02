@@ -1,11 +1,11 @@
 #! /usr/bin/sh
 
 # Xorg
-sudo xbps-install -y xorg-minimal xinit xauth xsetroot
+sudo xbps-install -y xorg-minimal xinit xauth xprop xrandr
 # Devel
 sudo xbps-install -y base-devel libX11-devel libXft-devel libXinerama-devel
 # Font / sound
-sudo xbps-install -y font-adobe-source-code-pro font-vazir font-inter font-awesome pulseaudio 
+sudo xbps-install -y font-adobe-source-code-pro font-vazir font-awesome pulseaudio 
 # X
 sudo xbps-install -y xclip xset setxkbmap xinput xprop xrandr 
 # TOOLS
@@ -17,14 +17,18 @@ sudo xbps-install -y neovim tmux uv python git fzf zoxide
 # Apps
 sudo xbps-install -y firefox pcmanfm sxiv zathura zathura-pdf-mupdf papirus-icon-theme
 # extra fonts
-sudo xbps-install -S noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk
+sudo xbps-install -y noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk
+# other apps
+sudo xbps-install -y gimp vlc  xf86-video-nouveau luarocks xwallpaper
+
 
 ### Basic Sys config
 sudo rm /var/service/agetty-tty{3,4,5,6}
 
 # Make home directories.
 cd
-mkdir dl dox vids pix
+mkdir dl dox vids pix 
+mkdir ~/.local/bin
 
 mkdir dox/repos
 mkdir dox/ebooks
@@ -32,11 +36,6 @@ mkdir dox/ebooks
 # Clone dotfiles
 git clone https://github.com/ostadsgo/dots
 mv dots ~/dox/repos/
-
-### Build `dwm` and `st`
-cd ~/dox/repos/dots
-cd dwm
-sudo make clean install 
 
 cd ..
 cd st
@@ -56,6 +55,9 @@ ln -s --force ~/dox/repos/dots/misc/mimeapps.list ~/.config/mimeapps.list
 ln -s --force ~/dox/repos/dots/misc/user-dirs.dirs  ~/.config/user-dirs.dirs
 ln -s --force ~/dox/repos/dots/misc/fontconfig/ ~/.config/fontconfig
 ln -s --force ~/dox/repos/dots/misc/gtk-3.0/ ~/.config/gtk-3.0
+ln -s --force ~/dox/repos/dots/bin/tmuxer  ~/.local/bin
+ln -s --force ~/dox/repos/dots/bin/launcher  ~/.local/bin
+ln -s --force ~/dox/repos/dots/bin/setbg ~/.local/bin
 
 # GTK
 sudo ln -s --force ~/dox/repos/dots/misc/Orchis-Dark/ /usr/share/themes

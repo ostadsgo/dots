@@ -29,6 +29,7 @@ alias shot='scrot -d 1 ~/pix/shots/%Y-%m-%d-%T-screenshot.png'
 export HOME=~
 export EDITOR="nvim"
 export BROWSER="firefox"
+export FILEMANAGER="pcmanfm"
 export TERMINAL="st"
 export TERM="xterm-256color"
 # XDG
@@ -52,7 +53,7 @@ export HISTFILESIZE=20000
 export HISTCONTROL=ignoredups:ignorespace
 export HISTCONTROL=ignoreboth:erasedups
 
-#
+
 # ------------------
 # EXTERNAL COMMANDS
 # ------------------
@@ -82,7 +83,6 @@ tmuxer() {
     tmux attach -t "$selected_name" || tmux new-session -s "$selected_name" -c "$selected"
   fi
 }
-
 set -o vi
 bind '"jk":vi-movement-mode'
 bind 'set show-all-if-ambiguous on'

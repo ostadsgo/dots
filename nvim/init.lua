@@ -23,9 +23,9 @@ vim.opt.smartcase = true
 
 -- Indentation
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
@@ -80,11 +80,15 @@ vim.keymap.set("n", "<Leader>w", ":w<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p')
 vim.keymap.set({ "n", "v" }, "<Leader>P", '"+P')
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
-vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]])
-vim.keymap.set("n", "<Leader>Y", [["+y$]])
+vim.keymap.set({ "n", "v" }, "y", "ygv<ESC>")
+vim.keymap.set({ "n", "v" }, "<Leader>y", [["+ygv<ESC>]])
+vim.keymap.set("n", "<Leader>Y", [["+y$gv<ESC>]])
 -- Exec lua code
 vim.keymap.set("n", "<Leader>x", ":.lua<CR>")
-vim.keymap.set("n", "<C-Space>", ":silent !tmux neww tmuxer<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Space>", function()
+  vim.fn.system("tmux new-window -e 'BASH_ENV=~/.bashrc' 'bash -ic tmuxer'")
+  vim.cmd("redraw!")
+end, { noremap = true, silent = true })
 
 -- Insert
 vim.keymap.set("i", "jk", "<Esc>")
