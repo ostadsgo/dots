@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Source Code Pro Medium:pixelsize=13:antialias=true:autohint=true";
+static char *font = "SauceCodePro NF Medium:pixelsize=13:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
@@ -99,59 +99,32 @@ float alpha = .95;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
   	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	"#000000",  /* Black */
+	"#b46958",  /* Red */
+	"#90A959",  /* Green */
+	"#F4BF75",  /* Yellow */
+	"#576f82",  /* Blue */
+    "#AA759F",  /* Magenta */
+    "#88afa2",  /* Cyan */
+	"#373737",  /* Gray */
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#727272",  /* Gray 50 */
+	"#b46958",
+	"#90A959",
+	"#F4BF75",
+	"#576f82",
+	"#AA759F",
+	"#88afa2",
+	"#E1E1E1",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
-
-	// /* 8 normal colors */
-	//  "#000000",  /* black */
-	//  "#984936",  /* red */
-	//  "#789978",  /* green */ 
-	//  "#333333",  /* yellow - gray */
-	//  "#708090",  /* blue */
-	//  "#454545",  /* magenta - gray */
-	//  "#696969",  /* cyan - gray */
-	//  "#b8b8b8",  /* white */
-	// /* 8 bright colors */
-	//  "#313131",  /* black */
-	//  "#984936",  /* red */
-	//  "#789978",  /* green */ 
-	//  "#333333",  /* yellow - gray */
-	//  "#708090",  /* blue */
-	//  "#454545",  /* magenta - gray */
-	//  "#696969",  /* cyan - gray */
-	//  "#f1f1f1",  /* white */
-	//
-	//  [255] = 0,
-	//
-	//  /* more colors can be added after 255 to use with DefaultXX */
-	//  "#984936", /* cursor color */
-	//  "#666666",
-	//  "#b8b8b8", /* default foreground colour */
-	//  "#080808", /* default background colour */
+	"#cccccc", /* cursor color */
+	"#555555", /* */
+	"#E1E1E1", /* default foreground colour */
+	"#000000", /* default background colour */
 };
 
 

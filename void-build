@@ -58,7 +58,10 @@ ln -s --force ~/dox/repos/dots/misc/gtk-3.0/ ~/.config/gtk-3.0
 ln -s --force ~/dox/repos/dots/bin/tmuxer  ~/.local/bin
 ln -s --force ~/dox/repos/dots/bin/launcher  ~/.local/bin
 ln -s --force ~/dox/repos/dots/bin/setbg ~/.local/bin
+ln -s --force ~/dox/repos/dots/.Xresources ~/.Xresources
 
 # GTK
 sudo ln -s --force ~/dox/repos/dots/misc/Orchis-Dark/ /usr/share/themes
 
+# Make resources
+xrdb -merge ~/.Xresources

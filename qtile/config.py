@@ -1,9 +1,9 @@
 import os
-import subprocess
 
 from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
+from libqtile import hook
 
 
 # ---------------
@@ -13,17 +13,34 @@ from libqtile.lazy import lazy
 SUPER = "mod4"
 
 # shortcut set
-WIN, ALT, WIN_SHT, WIN_CTRL = [["mod4"], ["mod1"], ["mod4", "shift"], ["mod4", "control"]]
+WIN = ["mod4"]
+ALT = ["mod1"]
+WIN_SHT = ["mod4", "shift"]
+WIN_CTRL = ["mod4", "control"]
 
 TERMINAL = os.environ.get("TERMINAL")
 BROWSER = os.environ.get("BROWSER")
 FILEMANAGER = os.environ.get("FILEMANAGER")
 
-@lazy.function
+
 def navigate_floating(qtile):
     qtile.current_group.next_window()
     qtile.current_window.bring_to_front()
 
+
+def toggle_margin(self):
+    current_bar = qtile.current_screen.top
+    if self.current_layout.margin > 0 or self.current_layout.margin_on_single > 0:
+        self.current_layout.margin = 0
+        self.current_layout.margin_on_single = 0
+        current_bar.margin = [0, 0, 0, 0]
+    else:
+        self.current_layout.margin = 5
+        self.current_layout.margin_on_single = 5
+        current_bar.margin = [5, 5, 0, 5]
+
+    current_bar._configure(qtile, qtile.current_screen, True)
+    qtile.current_group.layout_all()
 
 # Keyboard bindings
 keys = [
@@ -35,7 +52,7 @@ keys = [
     Key(WIN, "space", lazy.layout.next()),
     Key(WIN_SHT, "n", lazy.layout.normalize()),
     Key(WIN_SHT, "space", lazy.layout.swap_column_left()),
-    Key(ALT, "tab", navigate_floating()),
+    Key(ALT, "tab", lazy.function(navigate_floating)),
     # Move window position
     Key(WIN_SHT, "h", lazy.layout.shuffle_left()),
     Key(WIN_SHT, "l", lazy.layout.shuffle_right()),
@@ -64,8 +81,8 @@ keys = [
     ),
     # Window command
     Key(WIN, "q", lazy.window.kill()),
-    Key(WIN, "f", lazy.window.toggle_fullscreen()),
-    Key(WIN_SHT, "f", lazy.window.toggle_floating()),
+    Key(WIN, "f", lazy.window.toggle_floating()),
+    Key(WIN_SHT, "f", lazy.window.toggle_fullscreen()),
     Key(WIN_SHT, "m", lazy.window.toggle_maximize()),
     # Screen specific
     Key(WIN_SHT, "b", lazy.hide_show_bar()),
@@ -74,6 +91,7 @@ keys = [
     Key(WIN_SHT, "grave", lazy.prev_layout()),
     Key(WIN, "m", lazy.group.setlayout("max")),
     Key(WIN, "c", lazy.group.setlayout("columns")),
+    Key(WIN, "g", lazy.function(toggle_margin)),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -142,7 +160,7 @@ groups = [
             Match(wm_class="Brave-browser"),
         ],
     ),
-    Group( name="3", label="3"),
+    Group(name="3", label="3"),
     Group(
         name="9",
         label="9",
@@ -292,11 +310,12 @@ bar = bar.Bar(
     background=color.get("bg"),
     size=20,
     opacity=0.95,
-    margin=(5, 5, 0, 5),
+    margin=[5, 5, 0, 5],
 )
 
 # Screens
 screen = Screen(top=bar)
+screen.set_wallpaper("/home/saeed/pix/wallpapers/b-001.jpg")
 screens = [screen]
 
 # ---------------
@@ -325,6 +344,12 @@ def float_change():
     if not is_maximized:
         window.center()
 
+
 @hook.subscribe.client_new
 def float_centerize(window):
     window.center()
+
+# @hook.subscribe.startup
+# def autostart():
+#     qtile.cmd_spawn("st")
+#     qtile.cmd_spawn("firefox")
