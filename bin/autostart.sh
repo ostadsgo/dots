@@ -17,7 +17,3 @@ setbg &
 
 # Run picom in background
 picom -b
-
-# Run wm
-exec qtile start
-

@@ -63,35 +63,14 @@ eval "$(zoxide init bash)"
 # ------------
 # BINDS
 # -----------
-tmuxer() {
-  selected=$(find ~/dox/repos -maxdepth 1 -mindepth 1 -type d | fzf) || return
-  selected_name=$(basename "$selected" | tr . _)
-
-  # if in tmux
-  if [ -n "$TMUX" ]; then
-    # if session exist
-    if tmux has-session -t "$selected_name" 2>/dev/null; then
-      tmux switch-client -t "$selected_name"
-      return
-    fi
-    # create in detach mode and then switch
-    tmux new-session -d -s "$selected_name" -c "$selected"
-    tmux switch-client -t "$selected_name"
-  # not in tmux
-  else
-    # attach or create
-    tmux attach -t "$selected_name" || tmux new-session -s "$selected_name" -c "$selected"
-  fi
-}
 set -o vi
 bind '"jk":vi-movement-mode'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
-bind -x '"\C-@":"tmuxer"'
 bind 'C-l':clear-screen
-
+bind -x '"\C-@":"tmuxer"'
 # ------------
 # PROMPT
 # -----------

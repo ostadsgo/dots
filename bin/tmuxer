@@ -1,23 +1,10 @@
 #!/usr/bin/env bash
-
 selected=$(find ~/dox/repos -maxdepth 1 -mindepth 1 -type d | fzf) || exit 0
 selected_name=$(basename "$selected" | tr . _)
 
-# if in tmux
 if [ -n "$TMUX" ]; then
-  # if session exist
-  if tmux has-session -t "$selected_name" 2>/dev/null; then
-    tmux switch-client -t "$selected_name"
-    exit 0
-  fi
-  # create in detach mode and then switch
-  tmux new-session -d -s "$selected_name" -c "$selected"
-  tmux switch-client -t "$selected_name"
-# not in tmux
+  tmux switch-client -t "$selected_name" 2>/dev/null \
+    || tmux new-session -d -s "$selected_name" -c "$selected" \; switch-client -t "$selected_name"
 else
-  # attach or create
-  tmux attach -t "$selected_name" || tmux new-session -s "$selected_name" -c "$selected"
+  tmux new-session -A -s "$selected_name" -c "$selected"
 fi
-
-
-

@@ -1,3 +1,4 @@
+from subprocess import Popen
 import os
 
 from libqtile import bar, hook, layout, qtile, widget
@@ -18,6 +19,7 @@ ALT = ["mod1"]
 WIN_SHT = ["mod4", "shift"]
 WIN_CTRL = ["mod4", "control"]
 
+HOME = os.environ.get("HOME")
 TERMINAL = os.environ.get("TERMINAL")
 BROWSER = os.environ.get("BROWSER")
 FILEMANAGER = os.environ.get("FILEMANAGER")
@@ -41,6 +43,7 @@ def toggle_margin(self):
 
     current_bar._configure(qtile, qtile.current_screen, True)
     qtile.current_group.layout_all()
+
 
 # Keyboard bindings
 keys = [
@@ -349,7 +352,9 @@ def float_change():
 def float_centerize(window):
     window.center()
 
-# @hook.subscribe.startup
-# def autostart():
-#     qtile.cmd_spawn("st")
-#     qtile.cmd_spawn("firefox")
+
+@hook.subscribe.startup_once
+def autostart():
+    Popen([f"{HOME}/.local/bin/autostart.sh"])
+    qtile.cmd_spawn(f"{TERMINAL} -e tmux")
+    qtile.cmd_spawn(BROWSER)
