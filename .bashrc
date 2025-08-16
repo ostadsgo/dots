@@ -63,14 +63,12 @@ eval "$(zoxide init bash)"
 # ------------
 # BINDS
 # -----------
-set -o vi
-bind '"jk":vi-movement-mode'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
-bind 'C-l':clear-screen
 bind -x '"\C-@":"tmuxer"'
+
 # ------------
 # PROMPT
 # -----------
