@@ -9,11 +9,11 @@ sudo xbps-install -y font-adobe-source-code-pro font-vazir font-awesome pulseaud
 # X
 sudo xbps-install -y xclip xset setxkbmap xinput xprop xrandr 
 # TOOLS
-sudo xbps-install -y ffmpeg wget curl htop dmenu
+sudo xbps-install -y ffmpeg wget curl btop dmenu
 # Misc
 sudo xbps-install -y xdg-user-dirs xdg-utils 
 # Dev
-sudo xbps-install -y neovim tmux uv python git fzf zoxide 
+sudo xbps-install -y neovim tmux uv python git fzf zoxide qtile psutils
 # Apps
 sudo xbps-install -y firefox pcmanfm sxiv zathura zathura-pdf-mupdf papirus-icon-theme
 # extra fonts
@@ -21,6 +21,7 @@ sudo xbps-install -y noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk
 # other apps
 sudo xbps-install -y gimp vlc  xf86-video-nouveau luarocks xwallpaper
 
+sudo xbps-install -y python3-psutil pavucontrol picom
 
 ### Basic Sys config
 sudo rm /var/service/agetty-tty{3,4,5,6}
@@ -43,6 +44,7 @@ sudo make clean install
 
 
 # Link to important configs
+ln -s --force ~/dox/repos/dots/qtile ~/.config/qtile
 ln -s --force ~/dox/repos/dots/nvim ~/.config/nvim
 ln -s --force ~/dox/repos/dots/tmux ~/.config/tmux
 ln -s --force ~/dox/repos/dots/.xinitrc ~/.xinitrc
@@ -51,13 +53,19 @@ ln -s --force ~/dox/repos/dots/.bashrc ~/.bashrc
 # Git config
 ln -s --force ~/dox/repos/dots/misc/.gitconfig ~/.gitconfig
 
+# App Config
 ln -s --force ~/dox/repos/dots/misc/mimeapps.list ~/.config/mimeapps.list
 ln -s --force ~/dox/repos/dots/misc/user-dirs.dirs  ~/.config/user-dirs.dirs
 ln -s --force ~/dox/repos/dots/misc/fontconfig/ ~/.config/fontconfig
 ln -s --force ~/dox/repos/dots/misc/gtk-3.0/ ~/.config/gtk-3.0
+
+# Scripts
 ln -s --force ~/dox/repos/dots/bin/tmuxer  ~/.local/bin
 ln -s --force ~/dox/repos/dots/bin/launcher  ~/.local/bin
 ln -s --force ~/dox/repos/dots/bin/setbg ~/.local/bin
+ln -s ~/dox/repos/dots/bin/autostart.sh  ~/.local/bin/
+
+# Resources config
 ln -s --force ~/dox/repos/dots/.Xresources ~/.Xresources
 
 # GTK
