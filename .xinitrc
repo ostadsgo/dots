@@ -1,5 +1,4 @@
-
-# Make resources
+# Merge resources 
 xrdb -merge ~/.Xresources
 
 # Run wm

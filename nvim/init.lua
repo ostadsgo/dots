@@ -143,7 +143,7 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>=", vim.lsp.buf.format)
 
 -- activate lsps
-vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "html", "cssls", "emmet_language_server", "djlsp", "bashls" })
+vim.lsp.enable({ "lua_ls", "pyright", "ts_ls",  "emmet_language_server", "djlsp", "bashls" })
 
 -- Lua config
 vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })

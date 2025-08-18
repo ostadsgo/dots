@@ -318,7 +318,6 @@ bar = bar.Bar(
 
 # Screens
 screen = Screen(top=bar)
-screen.set_wallpaper("/home/saeed/pix/wallpapers/b-001.jpg")
 screens = [screen]
 
 # ---------------
@@ -356,5 +355,5 @@ def float_centerize(window):
 @hook.subscribe.startup_once
 def autostart():
     Popen([f"{HOME}/.local/bin/autostart.sh"])
-    qtile.spawn(f"{TERMINAL} -e tmux")
-    qtile.spawn(BROWSER)
+    # qtile.spawn(f"{TERMINAL} -e tmux")
+    # qtile.spawn(f"{BROWSER}")
