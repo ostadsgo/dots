@@ -1,0 +1,88 @@
+#!/usr/bin/bash
+
+
+# --------------
+# PKG INSTALL
+# --------------
+
+# Update system
+# --------------
+sudo pacman -Sy
+
+# XORG
+# -----
+sudo pacman -S --needed --noconfirm xorg-server xorg-xinit xorg-xinput xorg-xset xorg-xsetroot xorg-setxkbmap
+
+# FONTS
+# -----
+sudo pacman -S --needed --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji adobe-source-code-pro-fonts otf-font-awesome
+
+# SOUND
+# -----
+sudo pacman -S --needed --noconfirm alsa-utils pulseaudio pulseaudio-alsa pavucontrol
+
+# TOOLS
+# -----
+sudo pacman -S --needed --noconfirm xclip ffmpeg xwallpaper htop btop fastfetch ripgrep fd scrot less
+
+# DEV
+# ---
+sudo pacman -S --needed --noconfirm base-devel git python uv neovim wget curl luarocks fzf zoxide openssh nodejs npm man-db
+
+# APPS
+# ----
+sudo pacman -S --needed --noconfirm firefox  pcmanfm-gtk3 gimp vlc telegram-desktop nsxiv 
+
+# RICE
+# ----
+sudo pacman -S --needed --noconfirm picom papirus-icon-theme
+
+# DWM and ST
+# ----------
+sudo pacman -S --needed --noconfirm libxinerama libxft dmenu  
+
+
+
+# --------------
+# BASIC CONFIG
+# --------------
+cd ~
+mkdir dl dox pix vids
+mkdir dox/repo
+
+git clone https://github.com/ostadsog/dots ~/dox/repo
+
+# --------------
+# SERVICES
+# --------------
+sudo systemctl enable pulseaudio
+
+
+# -----------------
+# BUILD DWM and ST
+# -----------------
+cd ~/dox/repo/dots/dwm
+sudo make clean install
+
+cd ~/dox/repo/dots/st
+sudo make clean install
+
+# --------------
+# SYMLINKS
+# --------------
+ln -s ~/dox/repo/dots/nvim/ ~/.config/
+ln -s ~/dox/repo/dots/tmux/ ~/.config/
+ln -s ~/dox/repo/dots/picom/ ~/.config/
+ln -s ~/dox/repo/dots/.xinitrc ~/
+ln -s ~/dox/repo/dots/.bashrc ~/
+ln -s ~/dox/repo/dots/.gitconfig ~/
+
+ln -s ~/dox/repo/dots/bin/setbg ~/.local/bin/
+ln -s ~/dox/repo/dots/bin/shot ~/.local/bin/
+
+ln -s ~/dox/repo/dots/misc/mimeapps.list ~/.config/
+ln -s ~/dox/repo/dots/misc/user-dirs.dirs  ~/.config/
+ln -s ~/dox/repo/dots/misc/fontconfig/ ~/.config/
+ln -s ~/dox/repo/dots/misc/gtk-3.0/ ~/.config/
+
+sudo ln -s ~/dox/repo/dots/misc/Orchis-Dark/ /usr/share/themes/

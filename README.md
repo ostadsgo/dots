@@ -23,19 +23,30 @@ $ iwctl
 ### Arch Post Install
 #### Apps
 ```
-# pacman -S neovim python git sudo networkmanager
+# pacman -S networkmanager
 ```
 #### User Management
 ```
 # EDITOR=/usr/bin/nvim
 # useradd -m saeed
-# usermod -aG wheel,audio,video,storage,optical saeed
+# usermod -aG wheel,audio,video,storage,optical,network saeed
 # passwd 
+# exprot EDITOR=nvim
 # visduo    # uncomment `Wheel ALL(ALL=ALL)` 
 ```
 #### Network Management
 ```
 # systemctl enable NetworkManager.service
+```
+chagne wifi backend from wpa_supplicant to iwd
+```
+sudo pacman -S iwd
+```
+```
+/etc/NetworkManager/conf.d/wifi_backend.conf
+---
+[device]
+wifi.backend=iwd
 ```
 **Connect/disconnect to wifi with nmcli**
 ```
@@ -56,7 +67,7 @@ $ sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
 # Graphic card use built-in!!!
 
 # Window Manager
-$ sudo pacman -S qtile noto-fonts tamsyn-font
+$ sudo pacman -S qtile noto-fonts adobe-source-code-pro-fonts
 ```
 
 ### Config
