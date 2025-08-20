@@ -19,7 +19,7 @@ sudo pacman -S --needed --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji a
 
 # SOUND
 # -----
-sudo pacman -S --needed --noconfirm alsa-utils pulseaudio pulseaudio-alsa pavucontrol
+sudo pacman -S --needed --noconfirm alsa-utils pulseaudio pulseaudio-alsa pavucontrol bluez bluez-utils pulseaudio-bluetooth blueman
 
 # TOOLS
 # -----
@@ -31,7 +31,7 @@ sudo pacman -S --needed --noconfirm base-devel git python uv neovim wget curl lu
 
 # APPS
 # ----
-sudo pacman -S --needed --noconfirm firefox  pcmanfm-gtk3 gimp vlc telegram-desktop nsxiv 
+sudo pacman -S --needed --noconfirm firefox  pcmanfm-gtk3 gimp mpv telegram-desktop nsxiv 
 
 # RICE
 # ----
