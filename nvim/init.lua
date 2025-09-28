@@ -1,4 +1,4 @@
--- ------------------
+--- ------------------
 -- options
 -- -------------------
 -- File handling --
@@ -47,9 +47,9 @@ vim.opt.background = "dark"
 -- COMMANDS
 -- -------------
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
 -- ------------------
@@ -60,9 +60,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- move & dup line
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
-vim.keymap.set("n", "<A-.>", ":t.<CR>")
+vim.keymap.set({ "n", "i" }, "<A-.>", ":t.<CR>")
 -- Select
 vim.keymap.set({ "n", "v" }, "<Leader>;", "V")
 vim.keymap.set({ "n", "n" }, "<Leader>a", "ggVG")
@@ -74,35 +72,32 @@ vim.keymap.set("n", "<Leader>w", ":w<CR>")
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p')
 vim.keymap.set({ "n", "v" }, "<Leader>P", '"+P')
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
-vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]])
-vim.keymap.set("n", "<Leader>Y", [["+y$]])
+vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
+vim.keymap.set("n", "<Leader>Y", '"+y$')
 
 -- INSERT --
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "<A-k>", "<C-o>O")
 vim.keymap.set("i", "<A-j>", "<C-o>o")
-vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
+vim.keymap.set("i", "<C-.>", "<C-x><C-o>")
 
--- Move line
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- -----------------------
 -- LAZY PACKAGE MANAGER
 -- -----------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -111,14 +106,16 @@ vim.opt.rtp:prepend(lazypath)
 -- -----------------------
 -- List of Plugins
 local plugins = {
-	{ "neovim/nvim-lspconfig" },
-	{ "mason-org/mason.nvim", opts = {} },
-	{ "echasnovski/mini.pick", version = "*", opts = {} },
-	{ "karb94/neoscroll.nvim", opts = {} },
-	{ "sphamba/smear-cursor.nvim", opts = {} },
-	{ "mg979/vim-visual-multi", branch = "master" },
-	-- colors
-	{ "aktersnurra/no-clown-fiesta.nvim" },
+    { "neovim/nvim-lspconfig" },
+    { "mason-org/mason.nvim",            opts = {} },
+    { "echasnovski/mini.pick",           version = "*",    opts = {} },
+    { "echasnovski/mini.move",           version = "*",    opts = {} },
+    { "echasnovski/mini.completion",     version = "*",    opts = { delay = { completion = 10 ^ 7, info = 10 ^ 7, signature = 10 ^ 7 } } },
+    { "karb94/neoscroll.nvim",           opts = {} },
+    { "sphamba/smear-cursor.nvim",       opts = {} },
+    { "mg979/vim-visual-multi",          branch = "master" },
+    -- colors
+    { "aktersnurra/no-clown-fiesta.nvim" },
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
 
@@ -134,25 +131,15 @@ vim.keymap.set("n", "<Leader>fh", "<cmd>Pick help<CR>")
 -- -----------------------
 -- LSP
 -- -----------------------
--- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 -- keys
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>=", vim.lsp.buf.format)
 
 -- activate lsps
-vim.lsp.enable({ "lua_ls", "pyright", "ts_ls",  "emmet_language_server", "djlsp", "bashls" })
+vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "emmet_language_server", "djlsp", "bashls" })
 
 -- Lua config
 vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
-
--- html config
-vim.lsp.config("html", { capabilities = capabilities })
-
--- css config
-vim.lsp.config("cssls", { capabilities = capabilities })
 
 -- debug
 vim.diagnostic.config({ virtual_text = true })
@@ -162,3 +149,4 @@ vim.lsp.set_log_level("debug")
 -- Colorscheme
 -- -----------------------
 vim.cmd.colorscheme("no-clown-fiesta")
+

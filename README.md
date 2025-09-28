@@ -55,6 +55,11 @@ $ nmcli device wifi list
 $ sudo nmcli device wifi connect <wifi_name> password <wifi_passwd>
 # nmcli device discconect <divce_name>
 ```
+#### Grub
+```
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 ## Setup Xorg and WM
 ### Xorg + WM
@@ -88,22 +93,7 @@ FONT=<bitmap-font-name>
 $ sudo pacman -S xdg-user-dirs
 $ xdg-user-dirs-update
 ```
-* Add Persian keyboard layout
-```
-$ sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf
 
-Section "InputClass"
-        Identifier "system-keyboard"
-        MatchIsKeyboard "on"
-        Option "XkbLayout" "us,ir"
-        Option "XkbModel" "pc104"
-        Option "XkbOptions" "grp:alt_shift_toggle"
-EndSection
-```
-* Font config
-```
-font config will come here ...
-```
 * Qtile useful commands
 ```
 $ qtile cmd-obj -o cmd -f restart

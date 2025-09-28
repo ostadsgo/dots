@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=pcmanfm.desktop
+inode/directory=thunar.desktop
 application/pdf=org.pwmt.zathura.desktop
 application/xhtml+xml=firefox.desktop
 x-scheme-handler/http=firefox.desktop

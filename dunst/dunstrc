@@ -1,0 +1,50 @@
+[global]
+    # Window settings
+    width = 300
+    height = 300
+    offset = 30x30
+    origin = top-right
+    frame_width = 1
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    
+    # Text settings
+    font = Source Code Pro 10
+    line_height = 0
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    
+    background = "#000000"
+    foreground = "#E1E1E1"
+    frame_color = "#b46958"
+    
+    # Timeouts
+    timeout = 10
+    ignore_dbus_close = true
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#E1E1E1"
+    timeout = 5
+
+[urgency_normal]
+    background = "#000000"
+    foreground = "#E1E1E1"
+    timeout = 5
+
+[urgency_critical]
+    background = "#000000"
+    foreground = "#E1E1E1"
+    timeout = 10
+
+# Enable shortcuts
+[shortcuts]
+    close = ctrl+ESC
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[experimental]
+    per_monitor_dpi = false

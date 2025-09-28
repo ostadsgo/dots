@@ -7,7 +7,7 @@
 
 # Update system
 # --------------
-sudo pacman -Sy
+sudo pacman -Syu
 
 # XORG
 # -----
@@ -27,15 +27,16 @@ sudo pacman -S --needed --noconfirm xclip ffmpeg xwallpaper htop btop fastfetch 
 
 # DEV
 # ---
-sudo pacman -S --needed --noconfirm base-devel git python uv neovim wget curl luarocks fzf zoxide openssh nodejs npm man-db
+sudo pacman -S --needed --noconfirm base-devel git python uv neovim wget curl luarocks fzf zoxide openssh nodejs npm man-db tk
 
 # APPS
 # ----
-sudo pacman -S --needed --noconfirm firefox  pcmanfm-gtk3 gimp mpv telegram-desktop nsxiv 
+sudo pacman -S --needed --noconfirm firefox thunar gimp mpv telegram-desktop nsxiv audacity \
+zathura zathura-djvu zathura-pdf-mupdf poppler-glib libgsf ffmpegthumbnailer thumbnail gnome-epub-thumbnailer tumbler
 
 # RICE
 # ----
-sudo pacman -S --needed --noconfirm picom papirus-icon-theme
+sudo pacman -S --needed --noconfirm picom papirus-icon-theme python-psutil python-dbus-fast
 
 # DWM and ST
 # ----------
@@ -72,7 +73,7 @@ sudo make clean install
 # --------------
 ln -s ~/dox/repo/dots/nvim/ ~/.config/
 ln -s ~/dox/repo/dots/tmux/ ~/.config/
-ln -s ~/dox/repo/dots/picom/ ~/.config/
+ln -s ~/dox/repo/dots/dunst/ ~/.config/
 ln -s ~/dox/repo/dots/.xinitrc ~/
 ln -s ~/dox/repo/dots/.bashrc ~/
 ln -s ~/dox/repo/dots/.gitconfig ~/
@@ -84,5 +85,6 @@ ln -s ~/dox/repo/dots/misc/mimeapps.list ~/.config/
 ln -s ~/dox/repo/dots/misc/user-dirs.dirs  ~/.config/
 ln -s ~/dox/repo/dots/misc/fontconfig/ ~/.config/
 ln -s ~/dox/repo/dots/misc/gtk-3.0/ ~/.config/
+ln -s ~/dox/repo/dots/misc/picom/ ~/.config/
 
 sudo ln -s ~/dox/repo/dots/misc/Orchis-Dark/ /usr/share/themes/

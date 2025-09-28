@@ -15,5 +15,8 @@ xinput disable "AlpsPS/2 ALPS GlidePoint" &
 # set wallpaper
 setbg &
 
+# Notification program
+dunst &
+
 # Run picom in background
-picom -b
+# picom -b
