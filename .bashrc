@@ -47,7 +47,7 @@ export QT_QPA_PLATFORMTHEME=gtk3
 # Nvim Manpager
 export MANPAGER="nvim +Man!"
 # Extend path
-export PATH="$PATH:$HOME/.local/bin:$XDG_DATA_HOME/nvim/mason/bin:$HOME/.cargo/bin:$XDG_CONFIG_HOME/emacs/bin"
+export PATH="$PATH:$HOME/bin:$XDG_DATA_HOME/nvim/mason/bin:$HOME/.cargo/bin:$XDG_CONFIG_HOME/emacs/bin"
 # dbus - browser required it
 export $(dbus-launch)
 # History

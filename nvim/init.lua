@@ -60,7 +60,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- move & dup line
-vim.keymap.set({ "n", "i" }, "<A-.>", ":t.<CR>")
+vim.keymap.set("n", "<A-.>", ":t.<CR>")
 -- Select
 vim.keymap.set({ "n", "v" }, "<Leader>;", "V")
 vim.keymap.set({ "n", "n" }, "<Leader>a", "ggVG")
@@ -79,6 +79,7 @@ vim.keymap.set("n", "<Leader>Y", '"+y$')
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "<A-k>", "<C-o>O")
 vim.keymap.set("i", "<A-j>", "<C-o>o")
+vim.keymap.set("n", "<A-.>", "<C-o>:t.<CR>")
 vim.keymap.set("i", "<C-.>", "<C-x><C-o>")
 
 

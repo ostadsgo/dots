@@ -370,6 +370,6 @@ def float_centerize(window):
 
 @hook.subscribe.startup_once
 def autostart():
-    Popen([f"{HOME}/.local/bin/autostart.sh"])
+    Popen([f"{HOME}/bin/autostart"])
     # qtile.spawn(f"{TERMINAL} -e tmux")
     # qtile.spawn(f"{BROWSER}")

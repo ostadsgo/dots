@@ -18,5 +18,5 @@ setbg &
 # Notification program
 dunst &
 
-# Run picom in background
-# picom -b
+# Network systray
+nm-applet &
