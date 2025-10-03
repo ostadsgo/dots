@@ -79,7 +79,9 @@ vim.keymap.set("n", "<Leader>Y", '"+y$')
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "<A-k>", "<C-o>O")
 vim.keymap.set("i", "<A-j>", "<C-o>o")
-vim.keymap.set("n", "<A-.>", "<C-o>:t.<CR>")
+vim.keymap.set("i", "<A-h>", "<C-o>^")
+vim.keymap.set("i", "<A-l>", "<C-o>$")
+vim.keymap.set("i", "<A-.>", "<C-o>:t.<CR>")
 vim.keymap.set("i", "<C-.>", "<C-x><C-o>")
 
 

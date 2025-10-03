@@ -30,21 +30,6 @@ def navigate_floating(qtile):
     qtile.current_window.bring_to_front()
 
 
-def toggle_margin(self):
-    current_bar = qtile.current_screen.top
-    if self.current_layout.margin > 0 or self.current_layout.margin_on_single > 0:
-        self.current_layout.margin = 0
-        self.current_layout.margin_on_single = 0
-        current_bar.margin = [0, 0, 0, 0]
-    else:
-        self.current_layout.margin = 5
-        self.current_layout.margin_on_single = 5
-        current_bar.margin = [5, 5, 0, 5]
-
-    current_bar._configure(qtile, qtile.current_screen, True)
-    qtile.current_group.layout_all()
-
-
 # Keyboard bindings
 keys = [
     # Window focus
@@ -94,7 +79,6 @@ keys = [
     Key(WIN_SHT, "grave", lazy.prev_layout()),
     Key(WIN, "m", lazy.group.setlayout("max")),
     Key(WIN, "c", lazy.group.setlayout("columns")),
-    Key(WIN, "g", lazy.function(toggle_margin)),
     # Group (workspace)
     Key(WIN, "bracketright", lazy.screen.next_group(skip_empty=True)),
     Key(WIN, "bracketleft", lazy.screen.prev_group(skip_empty=True)),
@@ -102,19 +86,13 @@ keys = [
     Key(WIN, "1", lazy.group["1"].toscreen()),
     Key(WIN, "2", lazy.group["2"].toscreen()),
     Key(WIN, "3", lazy.group["3"].toscreen()),
-    Key(WIN, "9", lazy.group["9"].toscreen()),
     Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=False)),
     Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=False)),
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
-    Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
     Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
     Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
-    # Volume keys
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("volume inc")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("volume dec")),
-    Key([], "XF86AudioMute", lazy.spawn("volume mute")),
 ]
 
 # Mouse bindings
@@ -268,8 +246,19 @@ bar_widgets = [
         background=color.get("inactive", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
     ),
-
+    widget.WindowName(
+        foreground=color.get("fg", "#ff0000"),
+    ),
     widget.Spacer(),
+
+    widget.CheckUpdates(
+        background=color.get("inactive", "#ff0000"),
+        foreground=color.get("fg", "#ff0000"),
+        colour_have_updates = color.get("fg", "#ff0000"),
+        colour_no_updates = color.get("fg", "#ff0000"),
+        no_update_string="",
+    ),
+    sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Pomodoro(
         background=color.get("inactive", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
@@ -280,7 +269,6 @@ bar_widgets = [
         length_short_break = 10,
         length_long_break = 0,
         prefix_inactive = "POMO",
-
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Wlan(

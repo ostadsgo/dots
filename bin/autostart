@@ -20,3 +20,6 @@ dunst &
 
 # Network systray
 nm-applet &
+
+# Hide mouse pointer when not used 
+unclutter &
