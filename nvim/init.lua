@@ -61,28 +61,27 @@ vim.g.maplocalleader = "\\"
 
 -- move & dup line
 vim.keymap.set("n", "<A-.>", ":t.<CR>")
--- Select
+-- Selec
 vim.keymap.set({ "n", "v" }, "<Leader>;", "V")
-vim.keymap.set({ "n", "n" }, "<Leader>a", "ggVG")
+vim.keymap.set({ "n", "v" }, "<Leader>a", "ggVG")
 -- buffer
 vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
 vim.keymap.set("n", "<Leader>q", ":bd!<CR>")
 vim.keymap.set("n", "<Leader>w", ":w<CR>")
 -- paste from sys clipboard
+vim.keymap.set("n", "<Leader>Y", '"+y$')
+vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p')
 vim.keymap.set({ "n", "v" }, "<Leader>P", '"+P')
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
-vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
-vim.keymap.set("n", "<Leader>Y", '"+y$')
 
 -- INSERT --
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "<A-k>", "<C-o>O")
 vim.keymap.set("i", "<A-j>", "<C-o>o")
-vim.keymap.set("i", "<A-h>", "<C-o>^")
-vim.keymap.set("i", "<A-l>", "<C-o>$")
+-- copy line down
 vim.keymap.set("i", "<A-.>", "<C-o>:t.<CR>")
-vim.keymap.set("i", "<C-.>", "<C-x><C-o>")
+
 
 
 -- -----------------------
@@ -119,8 +118,12 @@ local plugins = {
     { "mg979/vim-visual-multi",          branch = "master" },
     -- colors
     { "aktersnurra/no-clown-fiesta.nvim" },
+    { "water-sucks/darkrose.nvim" },
+    { "ficcdaf/ashen.nvim" },
+
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
+
 
 -- -----------------------
 -- Mini Picker
@@ -139,7 +142,7 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>=", vim.lsp.buf.format)
 
 -- activate lsps
-vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "emmet_language_server", "djlsp", "bashls" })
+vim.lsp.enable({ "lua_ls", "ty", "ts_ls", "emmet_language_server", "djlsp", "bashls" })
 
 -- Lua config
 vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
@@ -152,4 +155,3 @@ vim.lsp.set_log_level("debug")
 -- Colorscheme
 -- -----------------------
 vim.cmd.colorscheme("no-clown-fiesta")
-

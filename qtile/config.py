@@ -23,6 +23,7 @@ HOME = os.environ.get("HOME")
 TERMINAL = os.environ.get("TERMINAL")
 BROWSER = os.environ.get("BROWSER")
 FILEMANAGER = os.environ.get("FILEMANAGER")
+VIDEOEDITOR = os.environ.get("VIDEOEDITOR")
 
 
 def navigate_floating(qtile):
@@ -62,6 +63,7 @@ keys = [
     Key(WIN, "Print", lazy.spawn("shot")),
     Key(WIN, "b", lazy.spawn(BROWSER)),
     Key(WIN, "e", lazy.spawn(FILEMANAGER)),
+    Key(WIN_SHT, "e", lazy.spawn(VIDEOEDITOR)),
     Key(
         ALT,
         "shift_l",

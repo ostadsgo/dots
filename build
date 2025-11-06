@@ -17,7 +17,7 @@ sudo pacman -S --needed --noconfirm $(cat packages)
 cd ~
 mkdir dwl dox pix vid mnt opt bin rec
 
-git clone https://github.com/ostadsog/dots ~/
+git clone https://github.com/ostadsog/rpo/dots ~/
 
 # --------------
 # SERVICES
@@ -28,31 +28,31 @@ sudo systemctl enable pulseaudio
 # -----------------
 # BUILD DWM and ST
 # -----------------
-cd ~/dox/repo/dots/st
+cd ~/dox/repo/rpo/dots/st
 sudo make clean install
 
 # --------------
 # SYMLINKS
 # --------------
-ln -s --force ~/dots/nvim/ ~/.config/
-ln -s --force ~/dots/tmux/ ~/.config/
-ln -s --force ~/dots/dunst/ ~/.config/
-ln -s --force ~/dots/qtile/ ~/.config/
-ln -s --force ~/dots/.xinitrc ~/
-ln -s --force ~/dots/.bashrc ~/
-ln -s --force ~/dots/.gitconfig ~/
+ln -s --force ~/rpo/dots/nvim/ ~/.config/
+ln -s --force ~/rpo/dots/tmux/ ~/.config/
+ln -s --force ~/rpo/dots/dunst/ ~/.config/
+ln -s --force ~/rpo/dots/qtile/ ~/.config/
+ln -s --force ~/rpo/dots/.xinitrc ~/
+ln -s --force ~/rpo/dots/.bashrc ~/
+ln -s --force ~/rpo/dots/.gitconfig ~/
 
-ln -s --force ~/dots/misc/mimeapps.list ~/.config/
-ln -s --force ~/dots/misc/user-dirs.dirs  ~/.config/
-ln -s --force ~/dots/misc/fontconfig/ ~/.config/
-ln -s --force ~/dots/misc/gtk-3.0/ ~/.config/
-ln -s --force ~/dots/misc/picom/ ~/.config/
+ln -s --force ~/rpo/dots/misc/mimeapps.list ~/.config/
+ln -s --force ~/rpo/dots/misc/user-dirs.dirs  ~/.config/
+ln -s --force ~/rpo/dots/misc/fontconfig/ ~/.config/
+ln -s --force ~/rpo/dots/misc/gtk-3.0/ ~/.config/
+ln -s --force ~/rpo/dots/misc/picom/ ~/.config/
 
-ln -s --force ~/dots/bin/setbg ~/bin/
-ln -s --force ~/dots/bin/shot ~/bin/
-ln -s --force ~/dots/bin/tmuxer ~/bin/
-ln -s --force ~/dots/bin/autostart ~/bin/
-ln -s --force ~/dots/bin/launcher ~/bin/
+ln -s --force ~/rpo/dots/bin/setbg ~/bin/
+ln -s --force ~/rpo/dots/bin/shot ~/bin/
+ln -s --force ~/rpo/dots/bin/tmuxer ~/bin/
+ln -s --force ~/rpo/dots/bin/autostart ~/bin/
+ln -s --force ~/rpo/dots/bin/launcher ~/bin/
 
 
-sudo ln -s --force ~/dots/misc/Orchis-Dark/ /usr/share/themes/
+sudo ln -s --force ~/rpo/dots/misc/Orchis-Dark/ /usr/share/themes/

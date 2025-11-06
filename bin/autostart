@@ -1,13 +1,10 @@
 #!/bin/sh
 
 # Disable beep sound
-xset -b
+xset -b &
 
 # Persian Keyboard Layout
-setxkbmap -layout us,ir -option grp:alt_shift_toggle
-
-# incerese speed of repeated key.
-xset r rate 200 35 
+setxkbmap -layout us,ir -option grp:alt_shift_toggle &
 
 # Disable touch pad
 xinput disable "AlpsPS/2 ALPS GlidePoint" &
@@ -21,5 +18,15 @@ dunst &
 # Network systray
 nm-applet &
 
+# bluthooth
+blueman-applet &
+
 # Hide mouse pointer when not used 
 unclutter &
+
+# incerese speed of repeated key.
+xset r rate 200 35 &
+
+# do not turn off Monitor
+xset s off &
+xset -dpms &

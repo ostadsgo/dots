@@ -22,7 +22,6 @@ alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f pulse -i default '
 alias play='mpv'
 alias serve='python -m http.server'
 alias shot='scrot -d 1 ~/pix/shots/%Y-%m-%d-%T-screenshot.png; notify-send "Screenshot" "Screenshot saved"'
-alias dwl='axel -n 16'
 
 # ---------
 # EXPORTS
@@ -31,6 +30,7 @@ export HOME=~
 export EDITOR="nvim"
 export BROWSER="firefox"
 export FILEMANAGER="thunar"
+export VIDEOEDITOR="kdenlive"
 export TERMINAL="st"
 export TERM="xterm-256color"
 # XDG
@@ -47,9 +47,7 @@ export QT_QPA_PLATFORMTHEME=gtk3
 # Nvim Manpager
 export MANPAGER="nvim +Man!"
 # Extend path
-export PATH="$PATH:$HOME/bin:$XDG_DATA_HOME/nvim/mason/bin:$HOME/.cargo/bin:$XDG_CONFIG_HOME/emacs/bin"
-# dbus - browser required it
-export $(dbus-launch)
+export PATH="$PATH:$HOME/bin:$XDG_DATA_HOME/nvim/mason/bin:$HOME/.cargo/bin:$XDG_CONFIG_HOME/emacs/bin:$XDG_DATA_HOME/uv/tools"
 # History
 export HISTSIZE=10000
 export HISTFILESIZE=20000
