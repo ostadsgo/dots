@@ -47,9 +47,9 @@ vim.opt.background = "dark"
 -- COMMANDS
 -- -------------
 vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 -- ------------------
@@ -82,24 +82,22 @@ vim.keymap.set("i", "<A-j>", "<C-o>o")
 -- copy line down
 vim.keymap.set("i", "<A-.>", "<C-o>:t.<CR>")
 
-
-
 -- -----------------------
 -- LAZY PACKAGE MANAGER
 -- -----------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-    if vim.v.shell_error ~= 0 then
-        vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out,                            "WarningMsg" },
-            { "\nPress any key to exit..." },
-        }, true, {})
-        vim.fn.getchar()
-        os.exit(1)
-    end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -108,25 +106,27 @@ vim.opt.rtp:prepend(lazypath)
 -- -----------------------
 -- List of Plugins
 local plugins = {
-    { "echasnovski/mini.pick",           version = "*",    opts = {} },
-    { "karb94/neoscroll.nvim",           opts = {} },
-    { "sphamba/smear-cursor.nvim",       opts = {} },
-    { "mg979/vim-visual-multi",          branch = "master" },
-    -- colors
-    { "ostadsgo/dark-clown" },
-
+	{
+		"dmtrKovalenko/fff.nvim",
+		build = function()
+			require("fff.download").download_or_build_binary()
+		end,
+	},
+	{ "karb94/neoscroll.nvim", opts = {} },
+	{ "sphamba/smear-cursor.nvim", opts = {} },
+	{ "mg979/vim-visual-multi", branch = "master" },
+	-- colors
+	{ "ostadsgo/dark-clown" },
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
 
-
 -- -----------------------
--- Mini Picker
+-- FFF
 -- -----------------------
-vim.keymap.set("n", "<Leader>ff", "<cmd>Pick files<CR>")
-vim.keymap.set("n", "<Leader>fg", "<cmd>Pick grep<CR>")
-vim.keymap.set("n", "<Leader>fs", "<cmd>Pick grep_live<CR>")
-vim.keymap.set("n", "<Leader>fb", "<cmd>Pick buffers<CR>")
-vim.keymap.set("n", "<Leader>fh", "<cmd>Pick help<CR>")
+vim.keymap.set("n", "<Leader>ff", "<cmd>FFFFind<CR>")
+require('fff').setup({
+    prompt = '> ',
+})
 
 -- -----------------------
 -- LSP
