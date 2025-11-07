@@ -8,27 +8,27 @@
 # Update system
 # --------------
 sudo pacman -Syu
-sudo pacman -S --needed --noconfirm $(cat packages)
+#sudo pacman -S --needed --noconfirm $(cat packages)
 
 
 # --------------
 # BASIC CONFIG
 # --------------
 cd ~
-mkdir dwl dox pix vid mnt opt bin rec
-
-git clone https://github.com/ostadsog/rpo/dots ~/
+mkdir dwl dox pix vid mnt opt bin rpo 
+mkdir ~/.local/share/fonts
+mkdir ~/.local/share/icons
+mkdir ~/.local/share/themes
 
 # --------------
 # SERVICES
 # --------------
-sudo systemctl enable pulseaudio
 
 
 # -----------------
 # BUILD DWM and ST
 # -----------------
-cd ~/dox/repo/rpo/dots/st
+cd ~/rpo/dots/st
 sudo make clean install
 
 # --------------
@@ -55,4 +55,4 @@ ln -s --force ~/rpo/dots/bin/autostart ~/bin/
 ln -s --force ~/rpo/dots/bin/launcher ~/bin/
 
 
-sudo ln -s --force ~/rpo/dots/misc/Orchis-Dark/ /usr/share/themes/
+ln -s --force ~/rpo/dots/misc/Orchis-Dark/ ~/.local//share/themes/

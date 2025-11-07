@@ -108,18 +108,12 @@ vim.opt.rtp:prepend(lazypath)
 -- -----------------------
 -- List of Plugins
 local plugins = {
-    { "neovim/nvim-lspconfig" },
-    { "mason-org/mason.nvim",            opts = {} },
     { "echasnovski/mini.pick",           version = "*",    opts = {} },
-    { "echasnovski/mini.move",           version = "*",    opts = {} },
-    { "echasnovski/mini.completion",     version = "*",    opts = { delay = { completion = 10 ^ 7, info = 10 ^ 7, signature = 10 ^ 7 } } },
     { "karb94/neoscroll.nvim",           opts = {} },
     { "sphamba/smear-cursor.nvim",       opts = {} },
     { "mg979/vim-visual-multi",          branch = "master" },
     -- colors
-    { "aktersnurra/no-clown-fiesta.nvim" },
-    { "water-sucks/darkrose.nvim" },
-    { "ficcdaf/ashen.nvim" },
+    { "ostadsgo/dark-clown" },
 
 } -- end of list of plugins
 require("lazy").setup({ spec = plugins, checker = { enabled = false } })
