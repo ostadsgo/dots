@@ -109,9 +109,9 @@ local plugins = {
 	{
 		"dmtrKovalenko/fff.nvim",
 		build = function()
-			require("fff.download").download_or_build_binary()
-		end,
-	},
+            require("fff.download").download_or_build_binary()
+        end,
+    },
 	{ "karb94/neoscroll.nvim", opts = {} },
 	{ "sphamba/smear-cursor.nvim", opts = {} },
 	{ "mg979/vim-visual-multi", branch = "master" },
@@ -125,7 +125,14 @@ require("lazy").setup({ spec = plugins, checker = { enabled = false } })
 -- -----------------------
 vim.keymap.set("n", "<Leader>ff", "<cmd>FFFFind<CR>")
 require('fff').setup({
-    prompt = '> ',
+    layout = {
+        height = 0.5,
+        width = 0.4,
+        prompt_position = 'top',
+    },
+    preview = {
+        enabled = false,
+    }
 })
 
 -- -----------------------
