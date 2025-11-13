@@ -1,7 +1,7 @@
 {
   "dark-clown": { "branch": "master", "commit": "2eef1f6c170b01bca655d53ef09ea065513c3987" },
   "fff.nvim": { "branch": "main", "commit": "65aeacf9e2c663c9af2b1003727aa25acac96db4" },
-  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
+  "lazy.nvim": { "branch": "main", "commit": "e6a8824858757ca9cd4f5ae1a72d845fa5c46a39" },
   "neoscroll.nvim": { "branch": "master", "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c" },
   "smear-cursor.nvim": { "branch": "main", "commit": "abfa5835920b1d76c0e24e1465a618ad914be90a" },
   "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" }

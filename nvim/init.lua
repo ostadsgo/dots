@@ -106,13 +106,9 @@ vim.opt.rtp:prepend(lazypath)
 -- -----------------------
 -- List of Plugins
 local plugins = {
-	{
-		"dmtrKovalenko/fff.nvim",
-		build = function()
-            require("fff.download").download_or_build_binary()
-        end,
-    },
-	{ "karb94/neoscroll.nvim", opts = {} },
+	{ "dmtrKovalenko/fff.nvim", },
+    { 'nvim-mini/mini.move', opts = {}, version = '*' },
+    { "karb94/neoscroll.nvim", opts = {} },
 	{ "sphamba/smear-cursor.nvim", opts = {} },
 	{ "mg979/vim-visual-multi", branch = "master" },
 	-- colors
