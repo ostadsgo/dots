@@ -23,6 +23,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.iskeyword:remove('_')
 
 -- Indentation --
 vim.opt.expandtab = true
@@ -67,7 +68,7 @@ vim.keymap.set({ "n", "v" }, "<Leader>a", "ggVG")
 -- buffer
 vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
 vim.keymap.set("n", "<Leader>q", ":bd!<CR>")
-vim.keymap.set("n", "<Leader>w", ":w<CR>")
+vim.keymap.set("n", "<Leader>w", ":wa<CR>")
 -- paste from sys clipboard
 vim.keymap.set("n", "<Leader>Y", '"+y$')
 vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
