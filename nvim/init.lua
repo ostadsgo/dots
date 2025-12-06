@@ -14,8 +14,9 @@ vim.opt.wrap = false
 vim.opt.guicursor = ""
 vim.g.netrw_banner = 0
 
-vim.opt.winborder = "single"
 vim.opt.cmdheight = 0
+vim.opt.statusline = "[%{toupper(mode())}]  %f  %m"
+
 -- scroll 
 vim.opt.scrolloff = 8 
 vim.opt.sidescrolloff = 8 
@@ -47,7 +48,8 @@ vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.cmd('hi Normal guibg=#000000')
-vim.cmd('hi StatusLine guibg=#000000 guifg=#EEF1F8')
+vim.cmd('hi StatusLine guibg=#000000 guifg=NvimLightGrey1')
+vim.cmd('hi StatusLineNC guibg=#000000 guifg=NvimDarkGrey4')
 -- -------------
 -- COMMANDS
 -- -------------
