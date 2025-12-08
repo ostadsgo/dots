@@ -47,9 +47,8 @@ vim.opt.splitright = true
 -- color
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd('hi Normal guibg=#000000')
-vim.cmd('hi StatusLine guibg=#000000 guifg=NvimLightGrey1')
-vim.cmd('hi StatusLineNC guibg=#000000 guifg=NvimDarkGrey4')
+vim.cmd.colorscheme("darkshade")
+
 -- -------------
 -- COMMANDS
 -- -------------

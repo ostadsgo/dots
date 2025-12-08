@@ -74,6 +74,7 @@ keys = [
     Key(WIN, "f", lazy.window.toggle_floating()),
     Key(WIN_SHT, "f", lazy.window.toggle_fullscreen()),
     Key(WIN_SHT, "m", lazy.window.toggle_maximize()),
+    Key(WIN_SHT, "s", lazy.window.toggle_sticky()),
     # Screen specific
     Key(WIN_SHT, "b", lazy.hide_show_bar()),
     # Layout specific
@@ -120,11 +121,12 @@ mouse = [
 
 color = {
     "bg": "#000000",
-    "fg": "#c1c1c1",
-    "active": "#fafafa",
-    "inactive": "#212121",
-    "primary": "#984936",
-    "secondary": "#788890",
+    "alt_bg": "#2c2e33",
+    "fg": "#E0E2EA",
+    "active": "#EEF1F8",
+    "inactive": "#9b9ea4",
+    "primary": "#b4f6c0",
+    "secondary": "#FCE094",
 }
 
 # ------------------
@@ -230,23 +232,23 @@ extension_defaults = widget_defaults.copy()
 bar_widgets = [
     widget.GroupBox(
         highlight_method="block",
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         active=color.get("active", "#ff0000"),
-        inactive="#696969",
+        inactive=color.get("inactive", "#ff0000"),
         this_current_screen_border=color.get("primary", "#ff0000"),
-        block_highlight_text_color=color.get("active", "#ff0000"),
+        block_highlight_text_color=color.get("bg", "#ff0000"),
         padding_x=5,
         padding_y=2,
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.CurrentLayout(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         padding=10,
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.WindowCount(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
     ),
     widget.WindowName(
@@ -255,7 +257,7 @@ bar_widgets = [
     widget.Spacer(),
 
     widget.CheckUpdates(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         colour_have_updates = color.get("fg", "#ff0000"),
         colour_no_updates = color.get("fg", "#ff0000"),
@@ -263,7 +265,7 @@ bar_widgets = [
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Pomodoro(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         color_active = color.get("active", "#ff0000"),
         color_inactive=color.get("fg", "#ff0000"),
@@ -277,33 +279,33 @@ bar_widgets = [
     widget.Wlan(
         interface="wlan0",
         format="{essid}",
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Net(
         prefix="M",
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         padding=10,
         format="{down:1.2f}{down_suffix} ↓↑ {up:1.2f}{up_suffix}",
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.KeyboardLayout(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         configured_keyboards=["us", "ir"],
         padding=10,
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Volume(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         padding=10,
     ),
     sep(bg=color.get("bg", "#ff0000"), pad=1),
     widget.Clock(
-        background=color.get("inactive", "#ff0000"),
+        background=color.get("alt_bg", "#ff0000"),
         foreground=color.get("fg", "#ff0000"),
         format="%H:%M",
         padding=10,

@@ -100,30 +100,30 @@ float alpha = 0.8;
 static const char *colorname[] = {
   	/* 8 normal colors */
 	"#000000",  /* Black */
-	"#b46958",  /* Red */
-	"#90A959",  /* Green */
-	"#F4BF75",  /* Yellow */
-	"#576f82",  /* Blue */
-    "#AA759F",  /* Magenta */
-    "#88afa2",  /* Cyan */
-	"#373737",  /* Gray */
+	"#984936",  /* Red */
+	"#B4F6C0",  /* Green */
+	"#E0E2EA",  /* Yellow */
+	"#E0E2EA",  /* Blue */
+    "#E0E2EA",  /* Magenta */
+    "#E0E2EA",  /* Cyan */
+	"#9B9EA4",  /* Gray */
 
 	/* 8 bright colors */
-	"#727272",  /* Gray 50 */
-	"#b46958",
-	"#90A959",
-	"#F4BF75",
-	"#576f82",
-	"#AA759F",
-	"#88afa2",
-	"#E1E1E1",
+	"#151515",  /* light dark */
+	"#984936", /* light red */
+	"#B4F6C0", /* light green */
+	"#E0E2EA", /* Light yellow */
+	"#E0E2EA", /* light blue */
+	"#E0E2EA", /* light Magenta */
+	"#E0E2EA", /* light cyan */
+	"#9B9EA4", /* light gray */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#b46958", /* cursor color */
+	"#EEF1F8", /* cursor color */
 	"#555555", /* */
-	"#E1E1E1", /* default foreground colour */
+	"#E0E2EA", /* default foreground colour */
 	"#000000", /* default background colour */
 };
 
