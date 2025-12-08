@@ -17,9 +17,9 @@ vim.g.netrw_banner = 0
 vim.opt.cmdheight = 0
 vim.opt.statusline = "[%{toupper(mode())}]  %f  %m"
 
--- scroll 
-vim.opt.scrolloff = 8 
-vim.opt.sidescrolloff = 8 
+-- scroll
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 vim.opt.smoothscroll = true
 
 -- Search --
@@ -49,15 +49,27 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.cmd.colorscheme("darkshade")
 
--- -------------
--- COMMANDS
--- -------------
+-- ----------------------
+-- COMMANDS / FUNCTIONS
+-- ----------------------
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
+local function format_file()
+	local ft = vim.bo.filetype
+
+	if ft == "python" then
+		vim.cmd("silent !black --quiet %")
+	elseif ft == "lua" then
+		vim.cmd("silent !stylua %")
+	else
+		vim.notify("No formatter for filetype: " .. ft, vim.log.levels.ERROR)
+	end
+	vim.cmd("edit!")
+end
 -- ------------------
 -- Keybindings
 -- ------------------
@@ -80,6 +92,7 @@ vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
 vim.keymap.set("n", "<Leader>q", ":bd!<CR>")
 vim.keymap.set("n", "<Leader>w", ":wa<CR>")
 vim.keymap.set("n", "<Leader>b", ":buffers<CR>")
+vim.keymap.set("n", "<Leader>=", format_file)
 
 -- Center me
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -96,5 +109,3 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 -- INSERT --
 vim.keymap.set("i", "jk", "<Esc>")
-
-
