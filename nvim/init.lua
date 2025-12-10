@@ -50,7 +50,6 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.cmd.colorscheme("darkshade")
 
-
 -- ----------------------
 -- COMMANDS / FUNCTIONS
 -- ----------------------
@@ -68,7 +67,7 @@ local function format_file()
 	elseif ft == "lua" then
 		vim.cmd("silent !stylua %")
 	else
-		vim.notify("No formatter for filetype: " .. ft, vim.log.levels.ERROR)
+        vim.notify("No formatter for filetype: " .. ft, vim.log.levels.ERROR)
 	end
 	vim.cmd("edit!")
 end
@@ -88,6 +87,14 @@ vim.keymap.set("i", "<A-.>", "<C-o>:copy .<CR>")
 -- Select
 vim.keymap.set({ "n", "v" }, "<Leader>;", "V")
 vim.keymap.set({ "n", "v" }, "<Leader>a", "ggVG")
+
+-- Move line up/down
+vim.keymap.set("n", "<A-j>", ":move .+1<CR>==")
+vim.keymap.set("n", "<A-k>", ":move .-2<CR>==")
+vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
+vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
+vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
 
 -- Buffer
 vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
