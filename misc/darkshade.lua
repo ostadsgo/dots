@@ -16,7 +16,7 @@ local bg = "#000000"
 local alt_bg = "#151515"
 local green = "#B4F6C0"
 local red = "#984936"
-local gray = "#9B9EA4"
+local gray = "#727272"
 
 -- Groups
 hi("Defualt", { fg = fg })
@@ -83,7 +83,7 @@ hi("Comment", { link = "Gray" })
 hi("String", { link = "Green" })
 hi("Identifier", { link = "Defualt" })
 hi("Function", { link = "Defualt" })
-hi("Statement", { fg = fg , bold = true })
+hi("Statement", { fg = gray , bold = true })
 hi("Special", { link = "Defualt" })
 hi("Error", { link = "Red" })
 hi("Todo", { fg = red, bold = true })
