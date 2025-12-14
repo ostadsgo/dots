@@ -114,7 +114,7 @@ vim.keymap.set("n", "<Leader>Y", '"+y$')
 vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
 vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p')
 vim.keymap.set({ "n", "v" }, "<Leader>P", '"+P')
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<Leader>d", '"_d')
 
 -- INSERT --
 vim.keymap.set("i", "jk", "<Esc>")
