@@ -1,17 +1,17 @@
-vim.cmd.highlight('clear')
+vim.cmd.highlight("clear")
 vim.g.colors_name = "darkshade"
 
 if vim.fn.exists("syntax_on") == 1 then
-  vim.cmd("syntax reset")
+	vim.cmd("syntax reset")
 end
 
 -- hi
 local function hi(group, hl)
-  vim.api.nvim_set_hl(0, group, hl)
+	vim.api.nvim_set_hl(0, group, hl)
 end
 
 -- pallet
-local fg =  "#E0E2EA"
+local fg = "#E0E2EA"
 local bg = "#000000"
 local alt_bg = "#151515"
 local green = "#B4F6C0"
@@ -24,7 +24,7 @@ hi("Gray", { fg = gray })
 hi("Green", { fg = green })
 hi("Red", { fg = red })
 
-hi("Normal", {fg=fg, bg=bg})
+hi("Normal", { fg = fg, bg = bg })
 -- UI
 hi("Added", { link = "Defualt" })
 hi("Changed", { link = "Defualt" })
@@ -48,7 +48,7 @@ hi("MoreMsg", { link = "Defualt" })
 hi("NonText", { link = "Gray" })
 hi("NormalFloat", { bg = alt_bg })
 hi("Pmenu", { bg = alt_bg })
-hi("PmenuSel", { bg = gray , fg = bg })
+hi("PmenuSel", { bg = gray, fg = bg })
 hi("PmenuThumb", { bg = bg })
 hi("Question", { link = "Defualt" })
 hi("QuickFixLine", { link = "Defualt" })
@@ -56,7 +56,7 @@ hi("RedrawDebugClear", { bg = bg })
 hi("RedrawDebugComposed", { bg = bg })
 hi("RedrawDebugRecompose", { bg = bg })
 hi("Removed", { link = "Defualt" })
-hi("Search", { bg = green, fg = bg})
+hi("Search", { bg = green, fg = bg })
 hi("SignColumn", { link = "Defualt" })
 hi("SpecialKey", { link = "Defualt" })
 hi("SpellBad", { sp = fg })
@@ -83,7 +83,7 @@ hi("Comment", { link = "Gray" })
 hi("String", { link = "Green" })
 hi("Identifier", { link = "Defualt" })
 hi("Function", { link = "Defualt" })
-hi("Statement", { fg = gray , bold = true })
+hi("Statement", { fg = gray, bold = true })
 hi("Special", { link = "Defualt" })
 hi("Error", { link = "Red" })
 hi("Todo", { fg = red, bold = true })
