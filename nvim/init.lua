@@ -16,6 +16,7 @@ vim.g.netrw_banner = 0
 
 vim.opt.cmdheight = 0
 vim.opt.statusline = "[%{toupper(mode())}]  %f  %m"
+vim.opt.laststatus = 0
 
 -- scroll
 vim.opt.scrolloff = 8
@@ -67,7 +68,7 @@ local function format_file()
 	elseif ft == "lua" then
 		vim.cmd("silent !stylua %")
 	else
-        vim.notify("No formatter for filetype: " .. ft, vim.log.levels.ERROR)
+		vim.notify("No formatter for filetype: " .. ft, vim.log.levels.ERROR)
 	end
 	vim.cmd("edit!")
 end
@@ -91,10 +92,10 @@ vim.keymap.set({ "n", "v" }, "<Leader>a", "ggVG")
 -- Move line up/down
 vim.keymap.set("n", "<A-j>", ":move .+1<CR>==")
 vim.keymap.set("n", "<A-k>", ":move .-2<CR>==")
-vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
-vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
-vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
-vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+vim.keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi")
+vim.keymap.set("i", "<A-k>", "<Esc>:move .-2<CR>==gi")
+vim.keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv")
 
 -- Buffer
 vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
@@ -108,6 +109,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "*", "*zzzv")
+vim.keymap.set("n", "#", "#zzzv")
 
 -- Copy / Past
 vim.keymap.set("n", "<Leader>Y", '"+y$')
