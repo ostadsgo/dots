@@ -18,6 +18,7 @@ alias ppath='echo -e ${PATH//:/\\n}'
 alias ip='ip --color'
 # apps
 alias open='xdg-open'
+alias iv='nsxiv'
 alias record='ffmpeg -framerate 60 -f x11grab -i $DISPLAY -f pulse -i default '
 alias play='mpv'
 alias serve='python -m http.server'

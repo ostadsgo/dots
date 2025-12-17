@@ -20,4 +20,4 @@ video/x-sgi-movie=vlc.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;userapp-Telegram Desktop-5O2YT2.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-A3OYT2.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;gimp.desktop;
-text/calendar=emacs.desktop;
+text/calendar=vscode.desktop;emacs.desktop;
