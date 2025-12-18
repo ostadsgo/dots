@@ -10,7 +10,7 @@ local function hi(group, hl)
 	vim.api.nvim_set_hl(0, group, hl)
 end
 
--- pallet
+-- Color palette
 local fg = "#E0E2EA"
 local bg = "#000000"
 local alt_bg = "#151515"
@@ -20,84 +20,106 @@ local gray = "#727272"
 
 -- Groups
 hi("Defualt", { fg = fg })
-hi("Gray", { fg = gray })
-hi("Green", { fg = green })
-hi("Red", { fg = red })
+hi("Mute", { fg = gray })
+hi("Vibrant", { fg = green })
+hi("Critical", { fg = red })
+hi("Select", { bg = gray, fg = bg })
 
+-- Normal
 hi("Normal", { fg = fg, bg = bg })
+
+-- Keyword
+hi("Keyword", { fg = gray, bold = true })
+hi("Statement", { link = "Keyword" })
+hi("PreProc", { link = "Keyword" })
+
+-- Search
+hi("Search", { bg = red, fg = bg })
+hi("CurSearch", { link = "Search" })
+hi("YankHighlight", { link = "Search" })
+
+-- Mute
+hi("Comment", { link = "Mute" })
+hi("NonText", { link = "Mute" })
+hi("LineNr", { link = "Mute" })
+hi("WinSeparator", { link = "Mute" })
+
+-- Vibrant
+hi("String", { link = "Vibrant" })
+
+-- Menu
+hi("Pmenu", { bg = alt_bg })
+hi("PmenuSel", { link = "Select" })
+hi("PmenuThumb", { bg = bg })
+
+hi("StatusLineNC", { fg = gray, bg = bg })
+hi("Visual", { link = "Select" })
+
+-- Diff
+hi("DiffAdd", { link = "Vibrant" })
+hi("DiffChange", { link = "Vibrant" })
+hi("DiffDelete", { link = "Critical" })
+hi("DiffText", { link = "Defualt" })
+
 -- UI
-hi("Added", { link = "Defualt" })
-hi("Changed", { link = "Defualt" })
-hi("Conceal", { link = "Defualt" })
-hi("CurSearch", { bg = green, fg = bg })
+hi("Directory", { fg = fg, bold = true })
+
 hi("CursorColumn", { bg = alt_bg })
 hi("CursorLine", { bg = alt_bg })
-hi("DiffAdd", { link = "Green" })
-hi("DiffChange", { link = "Green" })
-hi("DiffDelete", { link = "Red" })
-hi("DiffText", { link = "Defualt" })
-hi("Directory", { fg = fg, bold = true })
-hi("ErrorMsg", { link = "Red" })
+hi("NormalFloat", { bg = alt_bg })
+
 hi("FloatShadow", { bg = bg })
 hi("FloatShadowThrough", { bg = bg })
-hi("Folded", { link = "Defualt" })
-hi("LineNr", { link = "Gray" })
-hi("MatchParen", { fg = red , bold = true})
-hi("ModeMsg", { link = "Defualt" })
-hi("MoreMsg", { link = "Defualt" })
-hi("NonText", { link = "Gray" })
-hi("NormalFloat", { bg = alt_bg })
-hi("Pmenu", { bg = alt_bg })
-hi("PmenuSel", { bg = gray, fg = bg })
-hi("PmenuThumb", { bg = bg })
-hi("Question", { link = "Defualt" })
-hi("QuickFixLine", { link = "Defualt" })
 hi("RedrawDebugClear", { bg = bg })
 hi("RedrawDebugComposed", { bg = bg })
 hi("RedrawDebugRecompose", { bg = bg })
-hi("Removed", { link = "Defualt" })
-hi("Search", { bg = green, fg = bg })
-hi("SignColumn", { link = "Defualt" })
-hi("SpecialKey", { link = "Defualt" })
+
+-- Critical
+hi("Error", { link = "Critical" })
+hi("ErrorMsg", { link = "Critical" })
+hi("Todo", { link = "Critical" })
+hi("MatchParen", { link = "Critical" })
+
+-- Spell
 hi("SpellBad", { sp = fg })
 hi("SpellCap", { sp = fg })
 hi("SpellLocal", { sp = fg })
 hi("SpellRare", { sp = fg })
+
+-- Diagnostic
+hi("DiagnosticDeprecated", { sp = fg })
+hi("DiagnosticUnderlineError", { sp = fg })
+hi("DiagnosticUnderlineHint", { sp = fg })
+hi("DiagnosticUnderlineInfo", { sp = fg })
+hi("DiagnosticUnderlineOk", { sp = fg })
+hi("DiagnosticUnderlineWarn", { sp = fg })
+
+-- Defualt
+hi("Added", { link = "Defualt" })
+hi("Changed", { link = "Defualt" })
+hi("Conceal", { link = "Defualt" })
+hi("Constant", { link = "Defualt" })
+hi("Delimiter", { link = "Defualt" })
+hi("DiagnosticError", { link = "Defualt" })
+hi("DiagnosticHint", { link = "Defualt" })
+hi("DiagnosticInfo", { link = "Defualt" })
+hi("DiagnosticOk", { link = "Defualt" })
+hi("DiagnosticWarn", { link = "Defualt" })
+hi("Folded", { link = "Defualt" })
+hi("Function", { link = "Defualt" })
+hi("Identifier", { link = "Defualt" })
+hi("ModeMsg", { link = "Defualt" })
+hi("MoreMsg", { link = "Defualt" })
+hi("Operator", { link = "Defualt" })
+hi("Question", { link = "Defualt" })
+hi("QuickFixLine", { link = "Defualt" })
+hi("Removed", { link = "Defualt" })
+hi("SignColumn", { link = "Defualt" })
+hi("Special", { link = "Defualt" })
+hi("SpecialKey", { link = "Defualt" })
 hi("StatusLine", { link = "Defualt" })
-hi("StatusLineNC", { fg = gray, bg = bg })
 hi("Title", { link = "Defualt" })
-hi("Visual", { bg = gray, fg = bg })
+hi("Type", { link = "Defualt" })
 hi("WarningMsg", { link = "Defualt" })
 hi("WinBar", { link = "Defualt" })
 hi("WinBarNC", { link = "Defualt" })
-hi("WinSeparator", { link = "Gray" })
-
--- Syntax
-hi("Constant", { link = "Defualt" })
-hi("Operator", { link = "Defualt" })
-hi("PreProc", { link = "Defualt" })
-hi("Type", { link = "Defualt" })
-hi("Delimiter", { link = "Defualt" })
-
-hi("Comment", { link = "Gray" })
-hi("String", { link = "Green" })
-hi("Identifier", { link = "Defualt" })
-hi("Function", { link = "Defualt" })
-hi("Statement", { fg = gray, bold = true })
-hi("Special", { link = "Defualt" })
-hi("Error", { link = "Red" })
-hi("Todo", { fg = red, bold = true })
-hi("YankHighlight", { bg = green, fg = bg })
-
--- Diagnostic
-hi("DiagnosticError", { link = "Defualt" })
-hi("DiagnosticWarn", { link = "Defualt" })
-hi("DiagnosticInfo", { link = "Defualt" })
-hi("DiagnosticHint", { link = "Defualt" })
-hi("DiagnosticOk", { link = "Defualt" })
-hi("DiagnosticUnderlineError", { sp = fg })
-hi("DiagnosticUnderlineWarn", { sp = fg })
-hi("DiagnosticUnderlineInfo", { sp = fg })
-hi("DiagnosticUnderlineHint", { sp = fg })
-hi("DiagnosticUnderlineOk", { sp = fg })
-hi("DiagnosticDeprecated", { sp = fg })
