@@ -63,6 +63,7 @@ hi("DiffText", { link = "Defualt" })
 
 -- UI
 hi("Directory", { fg = fg, bold = true })
+hi("Visual", { bg = fg, fg = bg })
 
 hi("CursorColumn", { bg = alt_bg })
 hi("CursorLine", { bg = alt_bg })
@@ -70,6 +71,20 @@ hi("NormalFloat", { bg = alt_bg })
 
 hi("FloatShadow", { bg = bg })
 hi("FloatShadowThrough", { bg = bg })
+
+hi("Folded", { link = "Defualt" })
+hi("LineNr", { link = "Gray" })
+hi("MatchParen", { fg = red , bold = true})
+hi("ModeMsg", { link = "Defualt" })
+hi("MoreMsg", { link = "Defualt" })
+hi("NonText", { link = "Gray" })
+hi("NormalFloat", { bg = alt_bg })
+hi("Pmenu", { bg = alt_bg })
+hi("PmenuSel", { bg = fg, fg = bg })
+hi("PmenuThumb", { bg = bg })
+hi("Question", { link = "Defualt" })
+hi("QuickFixLine", { link = "Defualt" })
+
 hi("RedrawDebugClear", { bg = bg })
 hi("RedrawDebugComposed", { bg = bg })
 hi("RedrawDebugRecompose", { bg = bg })
