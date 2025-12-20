@@ -36,12 +36,12 @@ sudo make clean install
 # --------------
 ln -s --force ~/rpo/dots/nvim/ ~/.config/
 ln -s --force ~/rpo/dots/tmux/ ~/.config/
-ln -s --force ~/rpo/dots/dunst/ ~/.config/
 ln -s --force ~/rpo/dots/qtile/ ~/.config/
 ln -s --force ~/rpo/dots/.xinitrc ~/
 ln -s --force ~/rpo/dots/.bashrc ~/
 ln -s --force ~/rpo/dots/.gitconfig ~/
 
+ln -s --force ~/rpo/dots/misc/dunst/ ~/.config/
 ln -s --force ~/rpo/dots/misc/mimeapps.list ~/.config/
 ln -s --force ~/rpo/dots/misc/user-dirs.dirs  ~/.config/
 ln -s --force ~/rpo/dots/misc/fontconfig/ ~/.config/

@@ -89,13 +89,13 @@ keys = [
     Key(WIN, "1", lazy.group["1"].toscreen()),
     Key(WIN, "2", lazy.group["2"].toscreen()),
     Key(WIN, "3", lazy.group["3"].toscreen()),
+    Key(WIN, "9", lazy.group["9"].toscreen()),
     Key(WIN, "0", lazy.group["0"].toscreen()),
     Key(WIN_SHT, "1", lazy.window.togroup("1", switch_group=False)),
     Key(WIN_SHT, "2", lazy.window.togroup("2", switch_group=False)),
     Key(WIN_SHT, "3", lazy.window.togroup("3", switch_group=False)),
+    Key(WIN_SHT, "9", lazy.window.togroup("9", switch_group=False)),
     Key(WIN_SHT, "0", lazy.window.togroup("0", switch_group=False)),
-    Key(WIN_SHT, "p", lazy.group["scratchpad"].dropdown_toggle("python")),
-    Key(WIN_SHT, "t", lazy.group["scratchpad"].dropdown_toggle("terminal")),
 ]
 
 # Mouse bindings
@@ -133,44 +133,7 @@ color = {
 #     GROUP
 # ------------------
 # keyword arguments for `python` scratchpad
-spad_kw = dict(x=0.16, y=0.1, width=0.7, height=0.7, opacity=1)
-groups = [
-    Group(name="1", label="1"),
-    Group(
-        name="2",
-        label="2",
-        layout="max",
-        matches=[
-            Match(wm_class="firefox"),
-            Match(wm_class="Brave-browser"),
-        ],
-    ),
-    Group(name="3", label="3"),
-    Group(
-        name="0",
-        label="0",
-        layout="max",
-        matches=[
-            Match(wm_class="TelegramDesktop"),
-            Match(wm_class="obsidian"),
-        ],
-    ),
-    Group(
-        name="0",
-        label="0",
-        layout="max",
-        matches=[
-            Match(wm_class="obs"),
-        ],
-    ),
-    ScratchPad(
-        "scratchpad",
-        [
-            DropDown("python", f"{TERMINAL} -e python", **spad_kw),
-            DropDown("terminal", f"{TERMINAL}", **spad_kw),
-        ],
-    ),
-]
+groups = [Group( name=name, label=name) for name in ["1", "2", "3", "9", "0"]]
 
 
 # ------------------
@@ -184,8 +147,8 @@ layout_config = dict(
 )
 
 layouts = [
-    layout.Columns(**layout_config),
     layout.Max(**layout_config),
+    layout.Columns(**layout_config),
 ]
 
 # ---------------------
