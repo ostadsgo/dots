@@ -16,25 +16,31 @@ local bg = "#000000"
 local alt_bg = "#151515"
 local green = "#B4F6C0"
 local red = "#984936"
-local gray = "#727272"
+local gray = "#828282"
 
 -- Groups
 hi("Defualt", { fg = fg })
 hi("Mute", { fg = gray })
 hi("Vibrant", { fg = green })
 hi("Critical", { fg = red })
-hi("Select", { bg = gray, fg = bg })
+hi("Select", { bg = fg, fg = bg })
 
 -- Normal
 hi("Normal", { fg = fg, bg = bg })
 
 -- Keyword
-hi("Keyword", { fg = gray, bold = true })
+hi("Keyword", { fg = fg, bold = true })
 hi("Statement", { link = "Keyword" })
 hi("PreProc", { link = "Keyword" })
+hi("Include", { link = "Keyword" })
+hi("Conditional", { link = "Keyword" })
+hi("Repeat", { link = "Keyword" })
+hi("Label", { link = "Keyword" })
+hi("Operator", { link = "Keyword" })
+hi("Exception", { link = "Keyword" })
 
 -- Search
-hi("Search", { bg = red, fg = bg })
+hi("Search", { bg = green, fg = bg })
 hi("CurSearch", { link = "Search" })
 hi("YankHighlight", { link = "Search" })
 
@@ -43,6 +49,10 @@ hi("Comment", { link = "Mute" })
 hi("NonText", { link = "Mute" })
 hi("LineNr", { link = "Mute" })
 hi("WinSeparator", { link = "Mute" })
+hi("Question", { link = "Mute" })
+hi("NonText", { link = "Mute" })
+
+hi("Delimiter", { link = "Defualt" })
 
 -- Vibrant
 hi("String", { link = "Vibrant" })
@@ -55,39 +65,32 @@ hi("PmenuThumb", { bg = bg })
 hi("StatusLineNC", { fg = gray, bg = bg })
 hi("Visual", { link = "Select" })
 
+-- UI
+hi("Directory", { fg = fg, bold = true })
+
+hi("CursorColumn", { bg = alt_bg })
+hi("CursorLine", { bg = alt_bg })
+hi("NormalFloat", { bg = alt_bg })
+hi("QuickFixLine", { bg = alt_bg })
+
+hi("FloatShadow", { bg = bg })
+hi("FloatShadowThrough", { bg = bg })
+
+hi("MatchParen", { fg = red, bold = true })
+
+hi("Folded", { link = "Defualt" })
+hi("ModeMsg", { link = "Defualt" })
+hi("MoreMsg", { link = "Defualt" })
+
+hi("RedrawDebugClear", { bg = bg })
+hi("RedrawDebugComposed", { bg = bg })
+hi("RedrawDebugRecompose", { bg = bg })
+
 -- Diff
 hi("DiffAdd", { link = "Vibrant" })
 hi("DiffChange", { link = "Vibrant" })
 hi("DiffDelete", { link = "Critical" })
 hi("DiffText", { link = "Defualt" })
-
--- UI
-hi("Directory", { fg = fg, bold = true })
-hi("Visual", { bg = fg, fg = bg })
-
-hi("CursorColumn", { bg = alt_bg })
-hi("CursorLine", { bg = alt_bg })
-hi("NormalFloat", { bg = alt_bg })
-
-hi("FloatShadow", { bg = bg })
-hi("FloatShadowThrough", { bg = bg })
-
-hi("Folded", { link = "Defualt" })
-hi("LineNr", { link = "Gray" })
-hi("MatchParen", { fg = red , bold = true})
-hi("ModeMsg", { link = "Defualt" })
-hi("MoreMsg", { link = "Defualt" })
-hi("NonText", { link = "Gray" })
-hi("NormalFloat", { bg = alt_bg })
-hi("Pmenu", { bg = alt_bg })
-hi("PmenuSel", { bg = fg, fg = bg })
-hi("PmenuThumb", { bg = bg })
-hi("Question", { link = "Defualt" })
-hi("QuickFixLine", { link = "Defualt" })
-
-hi("RedrawDebugClear", { bg = bg })
-hi("RedrawDebugComposed", { bg = bg })
-hi("RedrawDebugRecompose", { bg = bg })
 
 -- Critical
 hi("Error", { link = "Critical" })
@@ -114,20 +117,17 @@ hi("Added", { link = "Defualt" })
 hi("Changed", { link = "Defualt" })
 hi("Conceal", { link = "Defualt" })
 hi("Constant", { link = "Defualt" })
-hi("Delimiter", { link = "Defualt" })
 hi("DiagnosticError", { link = "Defualt" })
 hi("DiagnosticHint", { link = "Defualt" })
 hi("DiagnosticInfo", { link = "Defualt" })
 hi("DiagnosticOk", { link = "Defualt" })
 hi("DiagnosticWarn", { link = "Defualt" })
-hi("Folded", { link = "Defualt" })
 hi("Function", { link = "Defualt" })
 hi("Identifier", { link = "Defualt" })
 hi("ModeMsg", { link = "Defualt" })
 hi("MoreMsg", { link = "Defualt" })
 hi("Operator", { link = "Defualt" })
 hi("Question", { link = "Defualt" })
-hi("QuickFixLine", { link = "Defualt" })
 hi("Removed", { link = "Defualt" })
 hi("SignColumn", { link = "Defualt" })
 hi("Special", { link = "Defualt" })
