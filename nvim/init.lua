@@ -46,10 +46,15 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- color
-vim.treesitter.stop()
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.cmd.colorscheme("darkshade")
+-- stop treesitter
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+		vim.treesitter.stop()
+	end,
+})
 
 -- ----------------------
 -- COMMANDS / FUNCTIONS
