@@ -29,6 +29,10 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- find
+vim.opt.path:append("**")
+vim.opt.wildmenu = true -- better completion
+
 -- Indentation --
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
@@ -46,6 +50,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- color
+vim.opt.syntax = "off"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.cmd.colorscheme("darkshade")
