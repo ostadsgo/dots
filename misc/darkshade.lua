@@ -62,7 +62,8 @@ hi("Pmenu", { bg = alt_bg })
 hi("PmenuSel", { link = "Select" })
 hi("PmenuThumb", { bg = bg })
 
-hi("StatusLineNC", { fg = gray, bg = bg })
+hi("StatusLineNC", { fg = gray, bg = alt_bg })
+hi("StatusLine", { fg = fg, bg = alt_bg })
 hi("Visual", { link = "Select" })
 
 -- UI
@@ -75,7 +76,6 @@ hi("QuickFixLine", { bg = alt_bg })
 
 hi("FloatShadow", { bg = bg })
 hi("FloatShadowThrough", { bg = bg })
-
 hi("MatchParen", { fg = red, bold = true })
 
 hi("Folded", { link = "Defualt" })
@@ -132,7 +132,6 @@ hi("Removed", { link = "Defualt" })
 hi("SignColumn", { link = "Defualt" })
 hi("Special", { link = "Defualt" })
 hi("SpecialKey", { link = "Defualt" })
-hi("StatusLine", { link = "Defualt" })
 hi("Title", { link = "Defualt" })
 hi("Type", { link = "Defualt" })
 hi("WarningMsg", { link = "Defualt" })

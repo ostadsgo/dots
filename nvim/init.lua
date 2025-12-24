@@ -79,47 +79,53 @@ end
 -- Leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+opts = { noremap = true, silent = true }
 
 -- Duplicated line
-vim.keymap.set("n", "<A-.>", ":copy .<CR>")
-vim.keymap.set("v", "<A-.>", ":copy . -1<CR>gv")
-vim.keymap.set("i", "<A-.>", "<C-o>:copy .<CR>")
+vim.keymap.set("n", "<A-.>", ":copy .<CR>", opts)
+vim.keymap.set("v", "<A-.>", ":copy . -1<CR>gv", opts)
+vim.keymap.set("i", "<A-.>", "<C-o>:copy .<CR>", opts)
 
 -- Select
-vim.keymap.set({ "n", "v" }, "<Leader>;", "V")
-vim.keymap.set({ "n", "v" }, "<Leader>a", "ggVG")
+vim.keymap.set({ "n", "v" }, "<Leader>;", "V", opts)
+vim.keymap.set({ "n", "v" }, "<Leader>a", "ggVG", opts)
 
 -- Move line up/down
-vim.keymap.set("n", "<A-j>", ":move .+1<CR>==")
-vim.keymap.set("n", "<A-k>", ":move .-2<CR>==")
-vim.keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi")
-vim.keymap.set("i", "<A-k>", "<Esc>:move .-2<CR>==gi")
-vim.keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv")
-vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv")
+vim.keymap.set("n", "<A-j>", ":move .+1<CR>==", opts)
+vim.keymap.set("n", "<A-k>", ":move .-2<CR>==", opts)
+vim.keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi", opts)
+vim.keymap.set("i", "<A-k>", "<Esc>:move .-2<CR>==gi", opts)
+vim.keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 
 -- Buffer
-vim.keymap.set("n", "<Leader>e", ":Hex<CR>")
-vim.keymap.set("n", "<Leader>q", ":bd!<CR>")
-vim.keymap.set("n", "<Leader>w", ":wa<CR>")
-vim.keymap.set("n", "<Leader>b", ":buffers<CR>")
-vim.keymap.set("n", "<Leader>=", format_file)
+vim.keymap.set("n", "<Leader>e", ":Hex<CR>", opts)
+vim.keymap.set("n", "<Leader>q", ":bd!<CR>", opts)
+vim.keymap.set("n", "<Leader>w", ":wa<CR>", opts)
+vim.keymap.set("n", "<Leader>b", ":buffers<CR>", opts)
+vim.keymap.set("n", "<Leader>=", format_file, opts)
 
+-- Split resuze
+vim.api.nvim_set_keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Center me
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-f>", "<C-f>zz")
-vim.keymap.set("n", "<C-b>", "<C-b>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "*", "*zzzv")
-vim.keymap.set("n", "#", "#zzzv")
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+vim.keymap.set("n", "<C-f>", "<C-f>zz", opts)
+vim.keymap.set("n", "<C-b>", "<C-b>zz", opts)
+vim.keymap.set("n", "n", "nzzzv", opts)
+vim.keymap.set("n", "N", "Nzzzv", opts)
+vim.keymap.set("n", "*", "*zzzv", opts)
+vim.keymap.set("n", "#", "#zzzv", opts)
 
 -- Copy / Past
-vim.keymap.set("n", "<Leader>Y", '"+y$')
-vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y')
-vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p')
-vim.keymap.set({ "n", "v" }, "<Leader>P", '"+P')
-vim.keymap.set({ "n", "v" }, "<Leader>d", '"_d')
+vim.keymap.set("n", "<Leader>Y", '"+y$', opts)
+vim.keymap.set({ "n", "v" }, "<Leader>y", '"+y', opts)
+vim.keymap.set({ "n", "v" }, "<Leader>p", '"+p', opts)
+vim.keymap.set({ "n", "v" }, "<Leader>P", '"+P', opts)
+vim.keymap.set({ "n", "v" }, "<Leader>d", '"_d', opts)
 
 -- INSERT --
-vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("i", "jk", "<Esc>", opts)
